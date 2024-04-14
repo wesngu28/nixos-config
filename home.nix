@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "serpe";
@@ -49,6 +49,32 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  programs.firefox = {
+    enable = true;
+
+    profiles = {
+      default = {
+        id = 0;
+        name = "default";
+        isDefault = true;
+        extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+          auto-tab-discard
+          bitwarden
+          firefox-color
+          return-youtube-dislikes
+          search-by-image
+          sponsorblock
+          web-scrobbler
+        ];
+      };
+
+      containerd = {
+        id = 1;
+        name = "containers";
+      };
+    };
+  };
 
   programs.vscode = {
     enable = true;
