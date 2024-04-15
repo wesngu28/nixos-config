@@ -19,6 +19,10 @@
   # Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+	nix.extraOptions = ''
+		warn-dirty = false
+	'';
+
   networking.hostName = "serpe"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -72,13 +76,10 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
+
+  hardware.bluetooth.enable = true;
+	hardware.bluetooth.powerOnBoot = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -118,6 +119,7 @@
         "browser.aboutConfig.showWarning" = false;
         "browser.startup.homepage" = "about:blank";
         "browser.search.defaultenginename" = "DuckDuckGo";
+        "browser.startup.page" = 3;
         # "browser.aboutwelcome.enabled" = false;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "browser.compactmode.show" = true;
@@ -286,6 +288,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      git
+     neofetch
+  #  wireguard-tools
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
