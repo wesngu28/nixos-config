@@ -23,6 +23,12 @@
 		warn-dirty = false
 	'';
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+
   networking.hostName = "serpe"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -289,10 +295,34 @@
   environment.systemPackages = with pkgs; [
      git
      neofetch
+     syncthing
   #  wireguard-tools
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
+
+	services.syncthing = {
+		enable			= true;
+		user			  = "serpe";
+		dataDir			= "/home/serpe";
+		configDir		= "/home/serpe/.config/syncthing";
+
+		settings = {
+			devices = {
+				"homeaway"		= { id = "KZBQ4JJ-MOKQDFV-3OKO64X-VHCUSSU-H4D55M2-LCBREUM-EHZLXGH-77GQEAT"; };
+				"vanguard"	= { id = "NGOSQ5C-V2WZO5D-VOTUULM-63NUIWR-NEQTCHZ-EP4BASI-FUW2K5Z-C6EWBQX"; };
+			};
+
+			folders = {
+				"Obsidian" = {
+					enable	 = true;
+					id		= "stutq-qr54k";
+					path	= "/home/serpe/Obsidian";
+					devices	= [ "homeaway" "vanguard" ];
+				};
+			};
+		};
+	};
 
   fonts.packages = with pkgs; [
     fira-code
@@ -313,8 +343,8 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+	networking.firewall.allowedTCPPorts = [ 22000 ];
+	networking.firewall.allowedUDPPorts = [ 22000 21027 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
