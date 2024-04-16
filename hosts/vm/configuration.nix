@@ -47,6 +47,31 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 
+  networking.firewall.allowedUDPPorts = [ 51820 ];
+
+  networking.wireguard.enable = true;
+
+  networking.wireguard.interfaces = {
+    wg0 = {
+      ips = [ "{}/24" ];
+      listenPort = 51820;
+
+      privateKeyFile = "/home/serpe/wireguard-keys/private";
+
+      peers = [
+        {
+          publicKey = "{}";
+
+          allowedIPs = [ "{}" "{}" ];
+
+          endpoint = "{}:51820";
+
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
+
   system.stateVersion = "23.11"; # Did you read the comment?
 
 }

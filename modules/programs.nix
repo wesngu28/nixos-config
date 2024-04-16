@@ -13,7 +13,7 @@
     neofetch
     syncthing
     wget
-    #  wireguard-tools
+    wireguard-tools
   ];
 
   imports = [
