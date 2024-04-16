@@ -35,10 +35,10 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ../home/programs/spotify.nix
-    ../home/programs/firefox.nix
-    ../home/programs/vscode.nix
-    ../home/programs/vencord.nix
+    ./programs/spotify.nix
+    ./programs/firefox.nix
+    ./programs/vscode.nix
+    ./programs/vencord.nix
   ];
 
   programs.home-manager.enable = true;
