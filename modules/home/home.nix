@@ -14,6 +14,7 @@
     vesktop
     obsidian
     jellyfin-media-player
+    inputs.ataraxiasjel-nur.packages."x86_64-linux".waydroid-script
     #nicotine-plus
     #veracrypt
   ];

@@ -23,6 +23,26 @@
         "type": "github"
       }
     },
+    "ataraxiasjel-nur": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1712846731,
+        "narHash": "sha256-psRAPHgYC6qa+SNVdpD+ZViRBPu6/cqbi92smS6+pQI=",
+        "owner": "AtaraxiaSjel",
+        "repo": "nur",
+        "rev": "2de167b89f40c69b0d4e7297a9ec777a286bc74e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AtaraxiaSjel",
+        "repo": "nur",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -54,11 +74,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1713167493,
-        "narHash": "sha256-Atjqvb9WOUyLzEgAVEXzBzPgymf2wT2K4i0XBdatbN0=",
+        "lastModified": 1713326632,
+        "narHash": "sha256-d07JLeaPgcJIHqNxr3lJh8wsqFh4xcszO8Klpxhd1h4=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "26277125de089543b890b70334211c6e1405db30",
+        "rev": "39c9d5f7acc97ec5611988972dc6ae8573a14a5d",
         "type": "gitlab"
       },
       "original": {
@@ -153,12 +173,29 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1713342586,
+        "narHash": "sha256-W+6xjlqwJ6ec4BrYsz+rU+S46CimL/yWgsztOzt1GKY=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "4db887e475761d3e04aabce861d147b0d0e928e5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "alejandra": "alejandra",
+        "ataraxiasjel-nur": "ataraxiasjel-nur",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nur": "nur",
         "spicetify-nix": "spicetify-nix"
       }
     },

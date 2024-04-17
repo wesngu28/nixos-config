@@ -13,7 +13,6 @@
     ../../modules/programs.nix
     ../../modules/gaming.nix
     ./wireguard.nix
-    inputs.home-manager.nixosModules.default
   ];
 
   # Bootloader.
