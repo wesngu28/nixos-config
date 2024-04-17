@@ -1,11 +1,11 @@
-{ inputs, pkgs, ... }:
-
 {
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [inputs.spicetify-nix.homeManagerModule];
 
-  imports = [ inputs.spicetify-nix.homeManagerModule ];
-
-  programs.spicetify =
-  {
+  programs.spicetify = {
     enable = true;
     theme = inputs.spicetify-nix.packages.${pkgs.system}.default.themes.catppuccin;
     colorScheme = "mocha";
@@ -17,5 +17,4 @@
       volumePercentage
     ];
   };
-
 }

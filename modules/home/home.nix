@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   home.username = "serpe";
   home.homeDirectory = "/home/serpe";
 
@@ -13,13 +16,6 @@
     jellyfin-media-player
     #nicotine-plus
     #veracrypt
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
   ];
 
   home.sessionVariables = {

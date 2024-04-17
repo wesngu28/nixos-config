@@ -1,7 +1,5 @@
-{ inputs, ... }:
-
-{
-    programs.firefox = {
+{inputs, ...}: {
+  programs.firefox = {
     enable = true;
 
     profiles = {
@@ -37,5 +35,4 @@
       };
     };
   };
-
 }
