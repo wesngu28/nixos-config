@@ -1,13 +1,9 @@
-{ pkgs, ... }:
-
-{
-
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
 
     userSettings = {
-
       # Workbench
       "workbench.colorTheme" = "Catppuccin Mocha";
       "catppuccin.accentColor" = "lavender";
@@ -57,7 +53,7 @@
       # Search
       "search.collapseResults" = "auto";
       "search.exclude" = {
-          "**/venv" = true;
+        "**/venv" = true;
       };
 
       # Files
@@ -68,42 +64,46 @@
       # Prettier
       "prettier.trailingComma" = "none";
 
+      "[nix]" = {
+        "editor.defaultFormatter" = "kamadorueda.alejandra";
+      };
     };
 
-    extensions = with pkgs.vscode-extensions; [
-     jnoortheen.nix-ide
-     catppuccin.catppuccin-vsc
-     ms-vscode-remote.remote-ssh
-     pkief.material-icon-theme
-     mhutchie.git-graph
-     svelte.svelte-vscode
-     astro-build.astro-vscode
-     bradlc.vscode-tailwindcss
-     shd101wyy.markdown-preview-enhanced
-     christian-kohler.npm-intellisense
-     christian-kohler.path-intellisense
-     dbaeumer.vscode-eslint
-     esbenp.prettier-vscode
-     ms-python.python
-     ms-python.vscode-pylance
-     ritwickdey.liveserver
-     usernamehw.errorlens
-     eamodio.gitlens
-   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        name = "remote-ssh-edit";
-        publisher = "ms-vscode-remote";
-        version = "0.86.0";
-        sha256 = "sha256-JsbaoIekUo2nKCu+fNbGlh5d1Tt/QJGUuXUGP04TsDI=";
-      }
-      {
-        name = "remote-explorer";
-        publisher = "ms-vscode";
-        version = "0.5.2024031109";
-        sha256 = "sha256-t8CeOuoCaK8ecJqMXRx8kA4CtP0x4srcn2SCez5tHOU=";
-      }
-    ];
-
+    extensions = with pkgs.vscode-extensions;
+      [
+        jnoortheen.nix-ide
+        catppuccin.catppuccin-vsc
+        ms-vscode-remote.remote-ssh
+        pkief.material-icon-theme
+        mhutchie.git-graph
+        svelte.svelte-vscode
+        astro-build.astro-vscode
+        bradlc.vscode-tailwindcss
+        shd101wyy.markdown-preview-enhanced
+        christian-kohler.npm-intellisense
+        christian-kohler.path-intellisense
+        dbaeumer.vscode-eslint
+        esbenp.prettier-vscode
+        ms-python.python
+        ms-python.vscode-pylance
+        ritwickdey.liveserver
+        usernamehw.errorlens
+        eamodio.gitlens
+        kamadorueda.alejandra
+      ]
+      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "remote-ssh-edit";
+          publisher = "ms-vscode-remote";
+          version = "0.86.0";
+          sha256 = "sha256-JsbaoIekUo2nKCu+fNbGlh5d1Tt/QJGUuXUGP04TsDI=";
+        }
+        {
+          name = "remote-explorer";
+          publisher = "ms-vscode";
+          version = "0.5.2024031109";
+          sha256 = "sha256-t8CeOuoCaK8ecJqMXRx8kA4CtP0x4srcn2SCez5tHOU=";
+        }
+      ];
   };
-
 }
