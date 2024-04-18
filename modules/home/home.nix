@@ -29,6 +29,12 @@
     userEmail = "wesley@wesngu28.com";
   };
 
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true; # see note on other shells below
+    nix-direnv.enable = true;
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   imports = [
