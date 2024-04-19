@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }: {
   fonts.packages = with pkgs; [
@@ -21,10 +22,10 @@
       wireguard-tools
 
       (pkgs.writeShellScriptBin "rebuild" ''
-        if git diff --quiet '*.nix'; then
-            echo "No changes detected, exiting."
-            exit 0
-        fi
+        # if git diff --quiet '*.nix'; then
+        #     echo "No changes detected, exiting."
+        #     exit 0
+        # fi
 
         if [ $# -ne 1 ]; then
             echo "Usage: $0 <system>"
@@ -43,6 +44,9 @@
       '')
     ]
     ++ [inputs.alejandra.defaultPackage.x86_64-linux];
+
+  environment.shells = with pkgs; [zsh];
+  programs.zsh.enable = true;
 
   imports = [
     ./programs/firefox.nix
