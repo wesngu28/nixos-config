@@ -153,23 +153,12 @@
       };
 
       ExtensionSettings = {
-        "uBlock0@raymondhill.net" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-          installation_mode = "force_installed";
-        };
+        # "uBlock0@raymondhill.net" = {
+        #   install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+        #   installation_mode = "force_installed";
+        # };
         "containerise@kinte.sh" = {
           install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/containerise/latest.xpi";
-        };
-        "aecec67f-0d10-4fa7-b7c7-609a2db280cf" = {
-          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/violentmonkey/latest.xpi";
-          installation_mode = "forced_installed";
-        };
-        "dont-accept-webp@jeffersonscher.com" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/dont-accept-webp/latest.xpi";
-        };
-        "ce9f4b1f-24b8-4e9a-9051-b9e472b1b2f2" = {
-          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/styl-us/latest.xpi";
-          installation_mode = "forced_installed";
         };
       };
     };
