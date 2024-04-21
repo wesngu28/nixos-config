@@ -36,7 +36,7 @@
       "breadcrumbs.enabled" = false;
 
       # Terminal
-      "terminal.integrated.defaultProfile.linux" = "/bin/zsh";
+      "terminal.integrated.defaultProfile.linux" = "zsh";
       "terminal.integrated.enableMultiLinePasteWarning" = "never";
       "terminal.integrated.fontFamily" = "FiraCode Nerd Font";
 

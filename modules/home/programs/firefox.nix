@@ -15,7 +15,6 @@
           search-by-image
           sponsorblock
           stylus
-          ublock-origin
           web-scrobbler
           violentmonkey
         ];
@@ -24,9 +23,6 @@
       containerd = {
         id = 1;
         name = "containers";
-        extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-          ublock-origin
-        ];
       };
 
       treetabs = {
@@ -36,9 +32,7 @@
           bitwarden
           firefox-color
           search-by-image
-          ublock-origin
           tree-style-tab
-          violentmonkey
         ];
       };
     };
