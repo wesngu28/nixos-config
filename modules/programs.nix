@@ -9,41 +9,43 @@
     (nerdfonts.override {fonts = ["FiraCode"];})
   ];
 
-  environment.systemPackages = with pkgs;
-    [
-      du-dust
-      btop
-      curl
-      git
-      neofetch
-      syncthing
-      wget
-      xclip
-      wireguard-tools
+  programs.hyprland.enable = true;
+  # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
-      (pkgs.writeShellScriptBin "rebuild" ''
-        # if git diff --quiet '*.nix'; then
-        #     echo "No changes detected, exiting."
-        #     exit 0
-        # fi
+  environment.systemPackages = with pkgs; [
+    du-dust
+    btop
+    curl
+    git
+    neofetch
+    syncthing
+    wget
+    xclip
+    wireguard-tools
+    alejandra
 
-        if [ $# -ne 1 ]; then
-            echo "Usage: $0 <system>"
-            exit 1
-        fi
+    (pkgs.writeShellScriptBin "rebuild" ''
+      # if git diff --quiet '*.nix'; then
+      #     echo "No changes detected, exiting."
+      #     exit 0
+      # fi
 
-        system="$1"
+      if [ $# -ne 1 ]; then
+          echo "Usage: $0 <system>"
+          exit 1
+      fi
 
-        echo "Rebuilding $system"
+      system="$1"
 
-        sudo nixos-rebuild switch --flake "$HOME/nixos-config/#$system" &> "nixos-switch-$system.log" || (cat "nixos-switch-$system.log" | grep --color error && exit 1)
+      echo "Rebuilding $system"
 
-        if [ $? -eq 0 ]; then
-            echo "Rebuild done for system: $system!"
-        fi
-      '')
-    ]
-    ++ [inputs.alejandra.defaultPackage.x86_64-linux];
+      sudo nixos-rebuild switch --flake "$HOME/nixos-config/#$system"
+
+      if [ $? -eq 0 ]; then
+          echo "Rebuild done for system: $system!"
+      fi
+    '')
+  ];
 
   environment.shells = with pkgs; [zsh];
   programs.zsh.enable = true;

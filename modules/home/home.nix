@@ -32,8 +32,13 @@
 
   programs.direnv = {
     enable = true;
-    enableBashIntegration = true; # see note on other shells below
+    enableZshIntegration = true;
     nix-direnv.enable = true;
+  };
+
+  programs.nix-index = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.zsh = {
@@ -61,6 +66,15 @@
     ];
   };
 
+  programs.rofi = {
+    enable = true;
+    terminal = "${pkgs.kitty}/bin/kitty";
+    theme = ./catppuccin-mocha.rasi;
+    extraConfig = {
+      show-icons = true;
+    };
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   imports = [
@@ -69,10 +83,11 @@
     ./programs/vscode.nix
     ./programs/vencord.nix
     ./cli/kitty.nix
+    ./hyprland.nix
   ];
 
   home.file.".config/neofetch/config.conf".source = ./cli/neofetch.conf;
-  home.file.".config/neofetch/image.png".source = ./image.png;
+  home.file.".config/neofetch/image.png".source = ./cli/image.png;
 
   programs.home-manager.enable = true;
 }
