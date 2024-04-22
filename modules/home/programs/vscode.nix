@@ -68,6 +68,8 @@
       "[nix]" = {
         "editor.defaultFormatter" = "kamadorueda.alejandra";
       };
+
+      "gitblame.inlineMessageEnabled" = true;
     };
 
     extensions = with pkgs.vscode-extensions;
@@ -89,8 +91,8 @@
         ms-python.vscode-pylance
         ritwickdey.liveserver
         usernamehw.errorlens
-        eamodio.gitlens
         kamadorueda.alejandra
+        waderyan.gitblame
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {

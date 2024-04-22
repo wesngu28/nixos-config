@@ -10,9 +10,12 @@
       SearchBar = "unified";
 
       Preferences = {
+        "general.autoScroll" = true;
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+        "browser.newtabpage.enabled" = false;
+
         "browser.aboutConfig.showWarning" = false;
         "browser.startup.homepage" = "about:blank";
-        "browser.search.defaultenginename" = "DuckDuckGo";
         "browser.startup.page" = 3;
         # "browser.aboutwelcome.enabled" = false;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
