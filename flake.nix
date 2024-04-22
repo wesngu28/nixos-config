@@ -26,10 +26,12 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+
+    catppuccin.url = "github:catppuccin/nix";
 
     # nix-colors.url = "github:misterio77/nix-colors";
   };
@@ -51,6 +53,7 @@
       modules = [
         ./hosts/enterprise/configuration.nix
         inputs.home-manager.nixosModules.default
+        inputs.catppuccin.nixosModules.catppuccin
       ];
     };
   };

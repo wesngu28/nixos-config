@@ -20,6 +20,21 @@
         "type": "github"
       }
     },
+    "catppuccin": {
+      "locked": {
+        "lastModified": 1713552048,
+        "narHash": "sha256-RcDJNnxjG9MTQHV/yG7JwPzffFub0JrwP2C1m6LxWFc=",
+        "owner": "catppuccin",
+        "repo": "nix",
+        "rev": "29bd8a3bda02434bf6ee3edf9ea6edd360a9ce17",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "nix",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -149,31 +164,6 @@
         "type": "github"
       }
     },
-    "hyprland-plugins": {
-      "inputs": {
-        "hyprland": [
-          "hyprland"
-        ],
-        "systems": [
-          "hyprland-plugins",
-          "hyprland",
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1713283897,
-        "narHash": "sha256-/0OPK/bDr8/Lf7r8kzDD/yP1kySbJ8gPmV3CdUbVTFM=",
-        "owner": "hyprwm",
-        "repo": "hyprland-plugins",
-        "rev": "00d147d7f6ad2ecfbf75efe4a8402723c72edd98",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprwm",
-        "repo": "hyprland-plugins",
-        "type": "github"
-      }
-    },
     "hyprland-protocols": {
       "inputs": {
         "nixpkgs": [
@@ -259,10 +249,10 @@
     "root": {
       "inputs": {
         "ataraxiasjel-nur": "ataraxiasjel-nur",
+        "catppuccin": "catppuccin",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "hyprland-plugins": "hyprland-plugins",
         "nixpkgs": "nixpkgs_2",
         "spicetify-nix": "spicetify-nix"
       }

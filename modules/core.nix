@@ -11,6 +11,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  services.blueman.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -46,6 +47,18 @@
   services.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
+  # Stuff for KDE
+
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    konsole
+    gwenview
+    elisa
+    kate
+    khelpcenter
+    ocular
+    print-manager
+  ];
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -77,10 +90,17 @@
     shell = pkgs.zsh;
   };
 
+  security.pki.certificateFiles = [./server2.crt];
+
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "serpe" = import ./home/home.nix;
+      "serpe" = {
+        imports = [
+          ./home/home.nix
+          inputs.catppuccin.homeManagerModules.catppuccin
+        ];
+      };
     };
   };
 }

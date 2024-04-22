@@ -14,7 +14,10 @@
     vesktop
     obsidian
     jellyfin-media-player
+    sqlitebrowser
     inputs.ataraxiasjel-nur.packages."x86_64-linux".waydroid-script
+    libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qt5ct
     #imagemagick
     #nicotine-plus
     #veracrypt
@@ -24,55 +27,14 @@
     # EDITOR = "emacs";
   };
 
-  programs.git = {
-    enable = true;
-    userName = "wesngu28";
-    userEmail = "wesley@wesngu28.com";
-  };
-
-  programs.direnv = {
-    enable = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
+  catppuccin = {
+    flavour = "mocha";
+    accent = "lavender";
   };
 
   programs.nix-index = {
     enable = true;
     enableZshIntegration = true;
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    initExtra = ''
-      source ~/.p10k.zsh
-      neofetch
-    '';
-
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = ./p10k-config;
-        file = "p10k.zsh";
-      }
-    ];
-  };
-
-  programs.rofi = {
-    enable = true;
-    terminal = "${pkgs.kitty}/bin/kitty";
-    theme = ./catppuccin-mocha.rasi;
-    extraConfig = {
-      show-icons = true;
-    };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -82,12 +44,53 @@
     ./programs/firefox.nix
     ./programs/vscode.nix
     ./programs/vencord.nix
-    ./cli/kitty.nix
-    ./hyprland.nix
+    ./cli/direnv.nix
+    ./cli/git.nix
+    ./cli/kitty/kitty.nix
+    ./hyprland/hyprland.nix
+    ./waybar/waybar.nix
+    ./cli/rofi.nix
+    ./cli/zsh.nix
   ];
 
   home.file.".config/neofetch/config.conf".source = ./cli/neofetch.conf;
-  home.file.".config/neofetch/image.png".source = ./cli/image.png;
+  # home.file.".config/neofetch/image.png".source = ./cli/image.png;
+
+  xdg.enable = true;
+  gtk = {
+    enable = true;
+    catppuccin.enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    font = {name = "Roboto";};
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "qtct";
+    style = {
+      name = "Catppuccin-Mocha-Lavender";
+      package = pkgs.catppuccin-kvantum.override {
+        accent = "Lavender";
+        variant = "Mocha";
+      };
+    };
+  };
+
+  xdg.configFile = {
+    "Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=Catppuccin-Mocha-Lavender
+    '';
+
+    "Kvantum/Catppuccin".source = "${pkgs.catppuccin-kvantum}/share/Kvantum/Catppuccin-Mocha-Lavender";
+  };
 
   programs.home-manager.enable = true;
 }
