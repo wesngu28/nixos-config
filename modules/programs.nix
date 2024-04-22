@@ -12,6 +12,16 @@
   programs.hyprland.enable = true;
   # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     du-dust
     btop
@@ -23,7 +33,13 @@
     xclip
     wireguard-tools
     alejandra
-
+    pamixer
+    pavucontrol
+    playerctl
+    (catppuccin-kde.override {
+      flavour = ["mocha"];
+      accents = ["lavender"];
+    })
     (pkgs.writeShellScriptBin "rebuild" ''
       # if git diff --quiet '*.nix'; then
       #     echo "No changes detected, exiting."

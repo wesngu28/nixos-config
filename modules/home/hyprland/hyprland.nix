@@ -6,17 +6,24 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = true;
+    xwayland.enable = true;
+    catppuccin.enable = true;
 
     # plugins = [
     #   inputs.hyprland-plugins.packages."${pkgs.system}".borders-plus-plus
     # ];
 
+    extraConfig = ''
+      ${builtins.readFile ./hyprland.conf}
+    '';
+
     settings = {
       "$mod" = "SUPER";
       bind =
         [
-          "$mod, F, exec, firefox"
-          ", Print, exec, grimblast copy area"
+          "$mod, B, exec, firefox"
+          "$mod_SHIFT, S, exec, grimblast copy area"
         ]
         ++ (
           # workspaces
