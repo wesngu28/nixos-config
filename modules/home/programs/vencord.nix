@@ -434,7 +434,7 @@
                 "enabled": false
             },
             "ShowConnections": {
-                "enabled": true,
+                "enabled": false,
                 "iconSize": 32,
                 "iconSpacing": 1
             },
@@ -465,7 +465,7 @@
                 "enabled": false
             },
             "SpotifyControls": {
-                "enabled": true,
+                "enabled": false,
                 "hoverControls": false,
                 "useSpotifyUris": false
             },
