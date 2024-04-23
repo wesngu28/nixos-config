@@ -20,8 +20,8 @@ in {
       margin-bottom = 0;
       margin-left = 0;
       margin-right = 0;
-      modules-left = ["hyprland/workspaces"];
-      modules-center = ["hyprland/window" "custom/playerctl"];
+      modules-left = ["hyprland/workspaces" "hyprland/window"];
+      modules-center = ["custom/playerctl"];
       modules-right = ["tray" "clock" "memory" "disk" "pulseaudio"];
       clock = {
         format = " {:%I:%M %a %d}";
@@ -61,11 +61,11 @@ in {
         format-muted = "󰖁 {volume}%";
         format-icons = {default = [" "];};
         scroll-step = 3;
-        on-click = "pamixer";
+        on-click = "pavucontrol";
       };
       "custom/playerctl" = {
         format = "{icon} {}";
-        exec = "playerctl metadata --format '{{artist}} - {{title}}'";
+        exec = "playerctl metadata --format '{{artist}} - {{title}}' --ignore-player firefox -F";
         on-click-middle = "playerctl play-pause";
         on-click = "playerctl previous";
         on-click-right = "playerctl next";
@@ -94,6 +94,7 @@ in {
       #workspaces {
           font-size: 18px;
           padding-left: 15px;
+          margin-right: 7px;
       }
 
       #workspaces button {
