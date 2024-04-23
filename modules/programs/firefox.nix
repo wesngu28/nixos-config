@@ -11,8 +11,12 @@
 
       Preferences = {
         "general.autoScroll" = true;
+
         "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
         "browser.newtabpage.enabled" = false;
+        "extensions.formautofill.addresses.enabled" = false;
+        "extensions.formautofill.creditCards.enabled" = false;
+        "signon.rememberSignons" = false;
 
         "browser.aboutConfig.showWarning" = false;
         "browser.startup.homepage" = "about:blank";
