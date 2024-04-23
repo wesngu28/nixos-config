@@ -12,16 +12,6 @@
   programs.hyprland.enable = true;
   # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-    ];
-  };
-
   environment.systemPackages = with pkgs; [
     du-dust
     btop
@@ -36,6 +26,8 @@
     pamixer
     pavucontrol
     playerctl
+    yazi
+    lxqt.lxqt-policykit
     (catppuccin-kde.override {
       flavour = ["mocha"];
       accents = ["lavender"];

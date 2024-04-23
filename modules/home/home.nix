@@ -17,6 +17,7 @@
     sqlitebrowser
     inputs.ataraxiasjel-nur.packages."x86_64-linux".waydroid-script
     libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.breeze-icons
     libsForQt5.qt5ct
     #imagemagick
     #nicotine-plus
@@ -51,24 +52,42 @@
     ./waybar/waybar.nix
     ./cli/rofi.nix
     ./cli/zsh.nix
+    ./dunst/dunst.nix
   ];
 
   home.file.".config/neofetch/config.conf".source = ./cli/neofetch.conf;
   # home.file.".config/neofetch/image.png".source = ./cli/image.png;
 
   xdg.enable = true;
+  xdg.portal = {
+    enable = true;
+    # wlr.enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config.common.default = "*";
+  };
+
+  home.pointerCursor = {
+    package = pkgs.catppuccin-cursors.latteDark;
+    name = "Catppuccin-Latte-Dark-Cursors";
+    size = 24;
+    gtk.enable = true;
+  };
+
   gtk = {
     enable = true;
     catppuccin.enable = true;
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "Papirus";
+      package = pkgs.catppuccin-papirus-folders.override {
+        accent = "lavender";
+        flavor = "mocha";
+      };
     };
     font = {name = "Roboto";};
-    cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-    };
   };
 
   qt = {
