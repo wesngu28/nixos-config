@@ -25,6 +25,7 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprpaper.url = "github:hyprwm/hyprpaper";
 
     # hyprland-plugins = {
     #   url = "github:hyprwm/hyprland-plugins";

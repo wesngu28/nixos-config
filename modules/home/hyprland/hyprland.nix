@@ -4,7 +4,16 @@
   lib,
   ...
 }: {
-  # services.hyprpaper.enable = true;
+  services.hyprpaper = {
+    enable = true;
+    preloads = [
+      "~/Wallpapers/"
+    ];
+
+    wallpapers = [
+      ",~/Wallpapers"
+    ];
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
