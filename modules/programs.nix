@@ -9,25 +9,10 @@
     (nerdfonts.override {fonts = ["FiraCode"];})
   ];
 
-  programs.hyprland.enable = true;
-  # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-
   environment.systemPackages = with pkgs; [
-    du-dust
-    btop
-    curl
     git
-    neofetch
     syncthing
-    wget
-    xclip
     wireguard-tools
-    alejandra
-    pamixer
-    pavucontrol
-    playerctl
-    yazi
-    lxqt.lxqt-policykit
     (catppuccin-kde.override {
       flavour = ["mocha"];
       accents = ["lavender"];
@@ -57,6 +42,9 @@
 
   environment.shells = with pkgs; [zsh];
   programs.zsh.enable = true;
+  programs.thunar.enable = true;
+  programs.hyprland.enable = true;
+  # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
   imports = [
     ./programs/firefox.nix

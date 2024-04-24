@@ -19,28 +19,29 @@
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.breeze-icons
     libsForQt5.qt5ct
+    loupe
+    mpv
+    alejandra
+    pamixer
+    pavucontrol
+    playerctl
+    yazi
+    lxqt.lxqt-policykit
+    du-dust
+    btop
+    neofetch
+    wl-clipboard
+    wget
     #imagemagick
     #nicotine-plus
     #veracrypt
   ];
 
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
-
-  catppuccin = {
-    flavour = "mocha";
-    accent = "lavender";
-  };
-
-  programs.nix-index = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   imports = [
+    ./theme.nix
+    ./xdg.nix
     ./programs/spotify.nix
     ./programs/firefox.nix
     ./programs/vscode.nix
@@ -56,60 +57,6 @@
   ];
 
   home.file.".config/neofetch/config.conf".source = ./cli/neofetch.conf;
-  # home.file.".config/neofetch/image.png".source = ./cli/image.png;
-
-  xdg.enable = true;
-  xdg.portal = {
-    enable = true;
-    # wlr.enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config.common.default = "*";
-  };
-
-  home.pointerCursor = {
-    package = pkgs.catppuccin-cursors.latteDark;
-    name = "Catppuccin-Latte-Dark-Cursors";
-    size = 24;
-    gtk.enable = true;
-  };
-
-  gtk = {
-    enable = true;
-    catppuccin.enable = true;
-    iconTheme = {
-      name = "Papirus";
-      package = pkgs.catppuccin-papirus-folders.override {
-        accent = "lavender";
-        flavor = "mocha";
-      };
-    };
-    font = {name = "Roboto";};
-  };
-
-  qt = {
-    enable = true;
-    platformTheme = "qtct";
-    style = {
-      name = "Catppuccin-Mocha-Lavender";
-      package = pkgs.catppuccin-kvantum.override {
-        accent = "Lavender";
-        variant = "Mocha";
-      };
-    };
-  };
-
-  xdg.configFile = {
-    "Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=Catppuccin-Mocha-Lavender
-    '';
-
-    "Kvantum/Catppuccin".source = "${pkgs.catppuccin-kvantum}/share/Kvantum/Catppuccin-Mocha-Lavender";
-  };
 
   programs.home-manager.enable = true;
 }
