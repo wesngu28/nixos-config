@@ -91,7 +91,7 @@
       "$mainMod" = "SUPER";
 
       bind = [
-        "$mainMod, E, exec, dolphin"
+        "$mainMod, E, exec, thunar"
         "$mainMod, Q, exec, kitty"
         "$mainMod, A, exec, firefox"
         "$mainMod SHIFT, A, exec, firefox --profile ~/.mozilla/firefox/treetabs"
