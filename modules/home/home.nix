@@ -20,7 +20,6 @@
     libsForQt5.breeze-icons
     libsForQt5.qt5ct
     loupe
-    mpv
     alejandra
     pamixer
     pavucontrol
@@ -28,7 +27,6 @@
     yazi
     lxqt.lxqt-policykit
     du-dust
-    btop
     neofetch
     wl-clipboard
     wget
@@ -57,6 +55,53 @@
   ];
 
   home.file.".config/neofetch/config.conf".source = ./cli/neofetch.conf;
+
+  programs.bat = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
+  programs.btop = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
+  programs.imv = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
+  programs.lazygit = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
+  programs.mpv = {
+    enable = true;
+    # catppuccin.enable = true;
+    config = {
+      save-position-on-quit = true;
+    };
+    bindings = {
+      UP = "add volume 2";
+      DOWN = "add volume -2";
+    };
+  };
+
+  programs.zathura = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
+  # programs.zellij = {
+  #   enable = true;
+  #   catppuccin.enable = true;
+  # };
 
   programs.home-manager.enable = true;
 }

@@ -16,7 +16,7 @@
       "image/*" = ["nsxiv.desktop"];
     };
     defaultApplications = {
-      "application/pdf" = ["firefox.desktop"];
+      "application/pdf" = ["zathura.desktop"];
       "application/x-extension-htm" = ["firefox.desktop"];
       "application/x-extension-html" = ["firefox.desktop"];
       "application/x-extension-shtml" = ["firefox.desktop"];
@@ -50,11 +50,11 @@
       "audio/flac" = ["mpv.desktop"];
       "audio/ogg" = ["mpv.desktop"];
 
-      "image/png" = ["loupe.desktop"];
-      "image/jpeg" = ["loupe.desktop"];
-      "image/gif" = ["loupe.desktop"];
+      "image/png" = ["imv.desktop"];
+      "image/jpeg" = ["imv.desktop"];
+      "image/gif" = ["imv.desktop"];
 
-      "inode/directory" = ["yazi.desktop"];
+      "inode/directory" = ["thunar.desktop"];
     };
   };
 }
