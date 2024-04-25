@@ -9,13 +9,11 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
   networking.networkmanager.enable = true;
   services.blueman.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -40,10 +38,8 @@
     options = "--delete-older-than 1w";
   };
 
-  # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
@@ -59,7 +55,6 @@
     print-manager
   ];
 
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -79,10 +74,20 @@
     pulse.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
+  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.deviceSection = ''
+    Option "TearFree" "False"
+    Option "VariableRefresh" "True"
+  '';
+
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.serpe = {
     isNormalUser = true;
     description = "serpe";
@@ -91,6 +96,7 @@
   };
 
   security.pki.certificateFiles = [./server2.crt];
+  boot.supportedFilesystems = ["ntfs"];
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};

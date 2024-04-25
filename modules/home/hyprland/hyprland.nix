@@ -44,6 +44,7 @@
 
       general = {
         monitor = [
+          "DP-1,3440x1440@165,auto,auto"
           ",preferred,auto,auto"
         ];
         gaps_in = 10;
