@@ -35,6 +35,11 @@
     catppuccin.url = "github:catppuccin/nix";
 
     # nix-colors.url = "github:misterio77/nix-colors";
+
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -55,6 +60,7 @@
         ./hosts/enterprise/configuration.nix
         inputs.home-manager.nixosModules.default
         inputs.catppuccin.nixosModules.catppuccin
+        inputs.aagl.nixosModules.default
       ];
     };
   };
