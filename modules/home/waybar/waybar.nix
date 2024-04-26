@@ -22,7 +22,7 @@ in {
       margin-right = 0;
       modules-left = ["hyprland/workspaces" "hyprland/window"];
       modules-center = ["custom/playerctl"];
-      modules-right = ["tray" "clock" "memory" "disk" "pulseaudio"];
+      modules-right = ["tray" "clock" "memory" "disk" "pulseaudio" "custom/power"];
       clock = {
         format = " {:%I:%M %a %d}";
         tooltip = "true";
@@ -73,6 +73,11 @@ in {
           playing = "";
           paused = "";
         };
+      };
+      "custom/power" = {
+        format = "Power";
+        tooltip = false;
+        on-click = "sleep 0.1 && wlogout";
       };
     };
     style = ''
