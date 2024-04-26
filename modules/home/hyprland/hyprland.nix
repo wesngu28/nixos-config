@@ -3,17 +3,128 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  wallpaper = "test.jpg";
+in {
+  imports = [
+    inputs.hyprpaper.homeManagerModules.hyprpaper
+    inputs.hyprlock.homeManagerModules.hyprlock
+    inputs.hypridle.homeManagerModules.hypridle
+  ];
+  home.packages = [
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+  ];
+
   services.hyprpaper = {
     enable = true;
     preloads = [
-      "~/Wallpapers/"
+      "~/Wallpapers/${wallpaper}"
     ];
 
     wallpapers = [
-      ",~/Wallpapers"
+      ",~/Wallpapers/${wallpaper}"
     ];
   };
+
+  programs.hyprlock = {
+    enable = true;
+
+    backgrounds = [
+      {
+        monitor = "";
+        path = "~/Wallpapers/${wallpaper}";
+        blur_size = 4;
+        blur_passes = 3;
+        brightness = 0.75;
+      }
+    ];
+
+    input-fields = [
+      {
+        monitor = "";
+        size = {
+          width = 250;
+          height = 60;
+        };
+        outline_thickness = 2;
+        dots_size = 0.2;
+        dots_spacing = 0.2;
+        dots_center = true;
+        outer_color = "rgb(11111b)";
+        inner_color = "rgb(585b70)";
+        font_color = "rgb(cdd6f4)";
+        fade_on_empty = false;
+        placeholder_text = ''<i><span foreground="##cdd6f4">Input Password...</span></i>'';
+        hide_input = false;
+        position = {
+          x = 0;
+          y = -120;
+        };
+        halign = "center";
+        valign = "center";
+      }
+    ];
+    labels = [
+      {
+        monitor = "";
+        text = "$TIME";
+        font_size = 120;
+        position = {
+          x = 0;
+          y = 80;
+        };
+        valign = "center";
+        halign = "center";
+      }
+    ];
+  };
+
+  services.hypridle = {
+    enable = true;
+  };
+
+  programs.wlogout = {
+    enable = true;
+  };
+
+  xdg.configFile."wlogout/layout".text = ''
+    {
+        "label" : "lock",
+        "action" : "${inputs.hyprlock.packages.${pkgs.system}.hyprlock}/bin/hyprlock",
+        "text" : "Lock",
+        "keybind" : "l"
+    }
+    {
+        "label" : "hibernate",
+        "action" : "systemctl hibernate",
+        "text" : "Hibernate",
+        "keybind" : "h"
+    }
+    {
+        "label" : "logout",
+        "action" : "hyprctl dispatch exit",
+        "text" : "Logout",
+        "keybind" : "e"
+    }
+    {
+        "label" : "shutdown",
+        "action" : "systemctl poweroff",
+        "text" : "Shutdown",
+        "keybind" : "s"
+    }
+    {
+        "label" : "suspend",
+        "action" : "systemctl suspend",
+        "text" : "Suspend",
+        "keybind" : "u"
+    }
+    {
+        "label" : "reboot",
+        "action" : "systemctl reboot",
+        "text" : "Reboot",
+        "keybind" : "r"
+    }
+  '';
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -38,8 +149,6 @@
       exec-once = [
         "waybar"
         "lxqt-policykit-agent"
-        # "mako"
-        # "dunst"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user start graphical-session.target"
