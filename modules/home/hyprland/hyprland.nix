@@ -81,6 +81,26 @@ in {
 
   services.hypridle = {
     enable = true;
+    package = pkgs.hypridle;
+    lockCmd = "${pkgs.hyprlock}/bin/hyprlock";
+    beforeSleepCmd = "loginctl lock-session";
+    listeners = [
+      {
+        timeout = 300;
+        onTimeout = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10% & echo 1 | ${pkgs.coreutils}/bin/tee  /sys/class/leds/asus::kbd_backlight/brightness";
+        onResume = "${pkgs.brightnessctl}/bin/brightnessctl -r & echo 2 | ${pkgs.coreutils}/bin/tee /sys/class/leds/asus::kbd_backlight/brightness";
+      }
+      {
+        timeout = 350;
+        onTimeout = "hyperctl dispatch dpms off";
+        onResume = "hyperctl dispatch dpms on";
+      }
+      {
+        timeout = 1800;
+        onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
+        onResume = "";
+      }
+    ];
   };
 
   programs.wlogout = {
@@ -102,7 +122,7 @@ in {
     }
     {
         "label" : "logout",
-        "action" : "hyprctl dispatch exit",
+        "action" : "loginctl terminate-user $USER",
         "text" : "Logout",
         "keybind" : "e"
     }
@@ -123,6 +143,55 @@ in {
         "action" : "systemctl reboot",
         "text" : "Reboot",
         "keybind" : "r"
+    }
+  '';
+
+  xdg.configFile."wlogout/styles.css".text = ''
+      * {
+      background-image: none;
+    }
+
+    window {
+      background-color: rgba(12, 12, 12, 1);
+    }
+
+    button {
+      color: #ffffff;
+      background-color: #1e1e1e;
+      border-radius: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 50%;
+      margin: 10px;
+    }
+
+    button:hover {
+      background-color: #3b393d;
+      outline-style: none;
+    }
+
+    #lock {
+      background-image: image(url("/etc/wlogout-icons/lock.png"));
+    }
+
+    #logout {
+      background-image: image(url("/etc/wlogout-icons/logout.png"));
+    }
+
+    #suspend {
+      background-image: image(url("/etc/wlogout-icons/suspend.png"));
+    }
+
+    #hibernate {
+      background-image: image(url("/etc/wlogout-icons/hibernate.png"));
+    }
+
+    #shutdown {
+      background-image: image(url("/etc/wlogout-icons/shutdown.png"));
+    }
+
+    #reboot {
+      background-image: image(url("/etc/wlogout-icons/reboot.png"));
     }
   '';
 
