@@ -30,6 +30,7 @@
     neofetch
     wl-clipboard
     wget
+    jq
     #imagemagick
     #nicotine-plus
     #veracrypt
@@ -52,6 +53,7 @@
     ./cli/rofi.nix
     ./cli/zsh.nix
     ./dunst/dunst.nix
+    ./scripts/urlOpen.nix
   ];
 
   home.file.".config/neofetch/config.conf".source = ./cli/neofetch.conf;

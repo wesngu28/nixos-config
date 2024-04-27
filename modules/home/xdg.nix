@@ -12,9 +12,6 @@
 
   xdg.mimeApps = {
     enable = true;
-    associations.added = {
-      "image/*" = ["nsxiv.desktop"];
-    };
     defaultApplications = {
       "application/pdf" = ["zathura.desktop"];
       "application/x-extension-htm" = ["firefox.desktop"];
@@ -55,6 +52,9 @@
       "image/gif" = ["imv.desktop"];
 
       "inode/directory" = ["thunar.desktop"];
+
+      "x-scheme-handler/http" = ["open_url.desktop"];
+      "x-scheme-handler/https" = ["open_url.desktop"];
     };
   };
 }
