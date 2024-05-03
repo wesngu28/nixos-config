@@ -47,7 +47,7 @@
     ./cli/direnv.nix
     ./cli/git.nix
     ./cli/kitty/kitty.nix
-    ./hyprland/hyprland.nix
+    ./hypr/hyprland.nix
     ./waybar/waybar.nix
     ./cli/rofi.nix
     ./cli/zsh.nix
