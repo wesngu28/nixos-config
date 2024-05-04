@@ -27,7 +27,7 @@
     yazi
     lxqt.lxqt-policykit
     du-dust
-    neofetch
+    fastfetch
     wl-clipboard
     wget
     jq
@@ -51,11 +51,10 @@
     ./waybar/waybar.nix
     ./cli/rofi.nix
     ./cli/zsh.nix
+    ./cli/fastfetch.nix
     ./dunst/dunst.nix
     ./scripts/urlOpen.nix
   ];
-
-  home.file.".config/neofetch/config.conf".source = ./cli/neofetch.conf;
 
   programs.bat = {
     enable = true;

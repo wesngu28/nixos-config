@@ -7,7 +7,7 @@
 
     initExtra = ''
       source ~/.p10k.zsh
-      neofetch
+      fastfetch
     '';
 
     plugins = [
