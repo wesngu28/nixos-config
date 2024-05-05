@@ -6,7 +6,7 @@
     text_color = "#cdd6f4";
     secondary_accent = "89b4fa";
     tertiary_accent = "f5f5f5";
-    background = "11111B";
+    background = "#1e1e2e";
     opacity = "0.98";
   };
 in {
@@ -17,12 +17,14 @@ in {
       layer = "top";
       height = 5;
       margin-top = 2;
-      margin-bottom = 0;
-      margin-left = 0;
-      margin-right = 0;
-      modules-left = ["hyprland/workspaces" "hyprland/window"];
-      modules-center = ["custom/playerctl"];
-      modules-right = ["tray" "clock" "memory" "disk" "pulseaudio" "custom/power"];
+      modules-left = [
+        "custom/playerctl#backward"
+        "custom/playerctl#play"
+        "custom/playerctl#forward"
+        "custom/playerctl"
+      ];
+      modules-center = ["hyprland/workspaces"];
+      modules-right = ["tray" "pulseaudio" "custom/power" "clock"];
       clock = {
         format = " {:%I:%M %a %d}";
         tooltip = "true";
@@ -30,19 +32,15 @@ in {
           <big>{:%Y %B}</big>
           <tt><small>{calendar}</small></tt>'';
       };
+      "hyprland/window" = {
+        format = "{title}";
+        max-length = 50;
+      };
       "hyprland/workspaces" = {
         active-only = false;
         disable-scroll = true;
         format = "{icon}";
         on-click = "activate";
-        format-icons = {
-          "1" = "󰈹";
-          "2" = "";
-          "3" = "󰘙";
-          "4" = "󰙯";
-          "5" = "";
-          "6" = "";
-        };
       };
       memory = {
         format = "󰟜 {used} GiB";
@@ -63,30 +61,48 @@ in {
         scroll-step = 3;
         on-click = "pavucontrol";
       };
-      "custom/playerctl" = {
-        format = "{icon} {}";
-        exec = "playerctl metadata --format '{{artist}} - {{title}}' --ignore-player firefox -F";
-        on-click-middle = "playerctl play-pause";
+      "custom/playerctl#backward" = {
+        format = "󰙣 ";
         on-click = "playerctl previous";
-        on-click-right = "playerctl next";
+        on-scroll-up = "playerctl volume .05+";
+        on-scroll-down = "playerctl volume .05-";
+        tooltip = false;
+      };
+      "custom/playerctl#play" = {
+        format = "{icon}";
+        return-type = "json";
+        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --ignore-player firefox -F";
+        on-click = "playerctl play-pause --ignore-player firefox";
+        on-scroll-up = "playerctl volume .05+";
+        on-scroll-down = "playerctl volume .05-";
         format-icons = {
-          playing = "";
-          paused = "";
+          Playing = "<span>󰏥 </span>";
+          Paused = "<span> </span>";
+          Stopped = "<span> </span>";
         };
+        tooltip = false;
+      };
+      "custom/playerctl#forward" = {
+        format = "󰙡 ";
+        on-click = "playerctl next";
+        on-scroll-up = "playerctl volume .05+";
+        on-scroll-down = "playerctl volume .05-";
+        tooltip = false;
+      };
+      "custom/playerctl" = {
+        format = " {}";
+        exec = "playerctl metadata --format '{{artist}} - {{title}}' --ignore-player firefox -F";
+        max-length = 40;
       };
       "custom/power" = {
-        format = "Power";
+        format = "⏻ ";
+        on-click = "wlogout";
         tooltip = false;
-        on-click = "sleep 0.1 && wlogout";
       };
     };
     style = ''
       * {
-          border: none;
-          border-radius: 0px;
-          padding: 0;
-          margin: 0;
-          min-height: 0px;
+          font-size: ${custom.font_size};
           font-family: ${custom.font};
           font-weight: ${custom.font_weight};
           opacity: ${custom.opacity};
@@ -96,60 +112,23 @@ in {
           background: none;
       }
 
-      #workspaces {
-          font-size: 18px;
-          padding-left: 15px;
-          margin-right: 7px;
-      }
-
       #workspaces button {
           color: ${custom.text_color};
-          padding-left:  6px;
-          padding-right: 6px;
       }
-      #workspaces button.empty {
-          color: #6c7086;
-      }
+
       #workspaces button.active {
-          color: #b4befe;
+          color: #cba6f7;
       }
 
-      #tray, #pulseaudio, #memory, #disk, #clock {
-          font-size: ${custom.font_size};
+      #custom-playerctl, #workspaces, #tray, #pulseaudio, #memory, #disk, #clock, #custom-power {
+          background: ${custom.background};
           color: ${custom.text_color};
-      }
-
-      #memory {
-          padding-left: 9px;
-          padding-right: 9px;
-      }
-      #disk {
-          padding-left: 9px;
-          padding-right: 15px;
-      }
-
-      #tray {
-          padding: 0 20px;
-          margin-left: 7px;
-      }
-
-      #pulseaudio {
-          padding-left: 15px;
-          padding-right: 9px;
-          margin-left: 7px;
-      }
-
-      #clock {
-          padding-left: 9px;
-          padding-right: 15px;
-      }
-
-      #custom-launcher {
-          font-size: 20px;
-          color: #b4befe;
-          font-weight: ${custom.font_weight};
-          padding-left: 10px;
-          padding-right: 15px;
+          padding: 0 0.6em;
+          margin-right: 4px;
+          margin-left: 2px;
+          margin-top: 1px;
+          margin-bottom: 1px;
+          border-radius: 7px;
       }
     '';
   };
