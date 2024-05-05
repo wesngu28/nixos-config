@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   services.dunst = {
     enable = true;
     catppuccin.enable = true;
@@ -9,15 +13,16 @@
 
     settings = {
       global = {
-        font = "FiraCode Nerd Font Mono 8";
+        font = "FiraCode Nerd Font Mono 12";
         alignment = "left";
-        width = "300";
-        height = "300";
-        corner_radius = "2";
-        padding = "10";
-        horizontal_padding = "10";
+        width = "400";
+        height = "400";
+        corner_radius = "1";
+        padding = "12";
+        horizontal_padding = "12";
         markup = "full";
         transparency = "15";
+        frame_color = lib.mkForce "#85796f";
       };
 
       urgency_low = {
