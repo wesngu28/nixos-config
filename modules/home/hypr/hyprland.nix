@@ -44,7 +44,7 @@
 
       general = {
         monitor = [
-          "DP-1,3440x1440@165,auto,auto"
+          "DP-2,3440x1440@165,auto,auto"
           ",preferred,auto,auto"
         ];
         gaps_in = 10;
@@ -92,24 +92,70 @@
         preserve_split = true;
       };
 
+      windowrule = [
+        "fullscreen,0,waydroid"
+      ];
+
       windowrulev2 = [
+        "workspace 4, class:^(lutris)$"
+        "workspace 4, class:^(steam)$"
+        # "workspace 4, class:^(spotify)$"
+        "workspace 5, title:^(Waydroid)$"
+        "workspace 2, class:^(vesktop)$"
+        "workspace 1, title:^(Visual Studio Code)$"
+        "workspace 6,class:^(obsidian)"
+
         "suppressevent maximize, class:.*"
+        "fullscreen,title:^(Waydroid)$"
+        "float,class:^(thunar)$"
+        "float,class:^(btop)$"
+        "float,class:^(yazi)$"
+        "float,class:^(imv)$"
+        "float,class:^(mpv)$"
         "float,class:^(pavucontrol)$"
         "float,class:^(blueman-manager)$"
+        "float,class:^(polkit)$,title:^(Authentication)$"
+        "float,title:^(Media viewer)$"
+        "float,title:^(Volume Control)$"
+        "float,title:^(Picture-in-Picture)$"
+        "float,title:^(DevTools)$"
+        "float,class:^(file_progress)$"
+        "float,class:^(confirm)$"
+        "float,class:^(dialog)$"
+        "float,class:^(download)$"
+        "float,class:^(notification)$"
+        "float,class:^(error)$"
+        "float,class:^(confirmreset)$"
+        "float,title:^(Open File)$"
+        "float,title:^(branchdialog)$"
+        "float,title:^(Confirm to replace files)$"
+        "float,title:^(File Operation Progress)$"
+        "float, title:^(Steam - News)$"
+        "float,class:^(electron)$,title:^(Open Files)$"
+        "float,class:^(steam)$,title:^(Special Offers)$"
+        "float,class:^(firefox)$,title:~^(Extension: \(Bitwarden)"
+        # "float,class:^(steam)$,title:^(Friends List)$"
+
+        "idleinhibit focus, class:^(mpv)$"
+        "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
+        "idleinhibit fullscreen, class:^(firefox)$"
+
+        "workspace special silent, title:^(Firefox.* — Sharing Indicator)$"
+        "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
       ];
 
       "$mainMod" = "SUPER";
 
       bind = [
         "$mainMod, E, exec, thunar"
-        "$mainMod, Q, exec, kitty"
+        "$mainMod, T, exec, kitty"
         "$mainMod, A, exec, firefox"
         "$mainMod SHIFT, A, exec, firefox --profile ~/.mozilla/firefox/treetabs"
         "$mainMod CTRL, A, exec, firefox --profile ~/.mozilla/firefox/containerd"
 
         "$mainMod, R, exec, rofi -show drun"
 
-        "$mainMod, W, killactive"
+        "$mainMod, Q, killactive"
         "$mainMod SHIFT, W, exit,"
         "$mainMod, F, fullscreen"
         "$mainMod, V, togglefloating"
@@ -125,6 +171,9 @@
         "$mainMod SHIFT, h, movewindow, r"
         "$mainMod SHIFT, j, movewindow, u"
         "$mainMod SHIFT, k, movewindow, d"
+
+        "$mainMod SHIFT, right, workspace, +1"
+        "$mainMod SHIFT, left, workspace, -1"
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
@@ -148,6 +197,7 @@
 
         "$mainMod SHIFT, b, exec, hyprctl dispatch exec waybar"
         "$mainMod, S, exec, grimblast copy area"
+        "$mainMod, M, exec, pkill -USR1 hyprlock"
 
         # "$mainMod, mouse_down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+"
         # "$mainMod, mouse_downe, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-"
