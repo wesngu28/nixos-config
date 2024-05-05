@@ -3,22 +3,11 @@
   pkgs,
   ...
 }: let
-  wallpaper = "test.jpg";
+  wallpaper = "test.png";
 in {
   imports = [
     inputs.hypridle.homeManagerModules.hypridle
   ];
-
-  services.hyprpaper = {
-    enable = true;
-    preloads = [
-      "~/Wallpapers/${wallpaper}"
-    ];
-
-    wallpapers = [
-      ",~/Wallpapers/${wallpaper}"
-    ];
-  };
 
   programs.hyprlock = {
     enable = true;
@@ -26,7 +15,7 @@ in {
     backgrounds = [
       {
         monitor = "";
-        path = "~/Wallpapers/${wallpaper}";
+        path = "~/Wallpapers/test.png";
         blur_size = 4;
         blur_passes = 3;
         brightness = 0.75;
@@ -78,6 +67,7 @@ in {
     package = pkgs.hypridle;
     lockCmd = "${pkgs.hyprlock}/bin/hyprlock";
     beforeSleepCmd = "loginctl lock-session";
+    afterSleepCmd = "hyprctl dispatch dpms on";
     listeners = [
       {
         timeout = 300;
