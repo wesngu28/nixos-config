@@ -13,6 +13,8 @@
       "workbench.tips.enabled" = false;
       "workbench.list.smoothScrolling" = true;
 
+      "window.titleBarStyle" = "custom";
+
       # Git
       "git.autofetch" = true;
       "git.openRepositoryInParentFolders" = "always";

@@ -28,15 +28,16 @@
         "NIXOS_OZONE_WL,1"
         "GDK_BACKEND,wayland,x11"
         "XDG_SESSION_TYPE,wayland;xcb"
-        "QT_QPA_PLATFORM,wayland"
+        "QT_QPA_PLATFORM,wayland;xcb"
         "QT_QPA_PLATFORMTHEME,qt5ct"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
 
       exec-once = [
         "waybar"
         "lxqt-policykit-agent"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user start graphical-session.target"
         "thunar --daemon"
         "wallpaper"

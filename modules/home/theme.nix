@@ -21,12 +21,12 @@
         flavor = "mocha";
       };
     };
-    font = {name = "Roboto";};
+    font = {name = "Noto Sans";};
   };
 
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
+    platformTheme = "qtct";
     style = {
       name = "Catppuccin-Mocha-Lavender";
       package = pkgs.catppuccin-kvantum.override {

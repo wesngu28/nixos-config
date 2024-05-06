@@ -46,19 +46,10 @@
   services.xserver.enable = true;
 
   services.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.displayManager.sddm.theme = "${import ./sddm.nix {inherit pkgs;}}";
+  services.displayManager.sddm.wayland.enable = true;
 
-  # Stuff for KDE
-
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    konsole
-    gwenview
-    elisa
-    kate
-    khelpcenter
-    ocular
-    print-manager
-  ];
+  services.tumbler.enable = true;
 
   services.xserver.xkb = {
     layout = "us";

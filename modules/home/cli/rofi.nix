@@ -6,13 +6,14 @@
 }: {
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland-unwrapped;
+    package = pkgs.rofi-wayland;
     terminal = "${pkgs.kitty}/bin/kitty";
     font = "FiraCode Nerd Font 12";
+
     # catppuccin.enable = true;
     extraConfig = {
       show-icons = true;
-      modi = "drun,filebrowser";
+      modi = "drun";
       hover-select = true;
       display-drun = " ";
       drun-display-format = "{name}";

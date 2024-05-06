@@ -5,6 +5,10 @@
   ...
 }: {
   fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    noto-fonts-color-emoji
     fira-code
     (nerdfonts.override {fonts = ["FiraCode"];})
   ];
@@ -13,10 +17,8 @@
     git
     syncthing
     wireguard-tools
-    (catppuccin-kde.override {
-      flavour = ["mocha"];
-      accents = ["lavender"];
-    })
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtquickcontrols2
     (pkgs.writeShellScriptBin "rebuild" ''
       # if git diff --quiet '*.nix'; then
       #     echo "No changes detected, exiting."
@@ -44,7 +46,6 @@
   programs.zsh.enable = true;
   programs.thunar.enable = true;
   programs.hyprland.enable = true;
-  # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
   imports = [
     ./programs/firefox.nix
