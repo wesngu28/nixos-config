@@ -34,6 +34,11 @@
           search-by-image
           tree-style-tab
         ];
+        userChrome = ''
+          #TabsToolbar {
+              visibility: collapse;
+            }
+        '';
       };
     };
   };
