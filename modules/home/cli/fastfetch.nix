@@ -35,7 +35,7 @@
             {
                 "type": "uptime",
                 "key": "└󰅐",
-                "keyColor": "green"
+                "keyColor": "yellow"
             },
             "break",
 
