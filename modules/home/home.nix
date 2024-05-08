@@ -19,7 +19,6 @@
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.breeze-icons
     libsForQt5.qt5ct
-    loupe
     alejandra
     pamixer
     pavucontrol

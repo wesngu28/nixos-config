@@ -33,6 +33,20 @@
 
   security.polkit.enable = true;
 
+  fileSystems."/mnt/c" = {
+    device = "/dev/disk/by-uuid/AE28407128403A9B";
+    fsType = "ntfs";
+  };
+
+  fileSystems."/mnt/d" = {
+    device = "/dev/disk/by-uuid/0A947D80947D6ED7";
+    fsType = "ntfs";
+  };
+
+  fileSystems."/mnt/f" = {
+    device = "/dev/disk/by-uuid/C6223ECF223EC3E9";
+    fsType = "ntfs";
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
