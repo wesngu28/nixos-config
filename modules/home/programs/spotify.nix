@@ -7,6 +7,7 @@
 
   programs.spicetify = {
     enable = true;
+    windowManagerPatch = true;
     theme = inputs.spicetify-nix.packages.${pkgs.system}.default.themes.Catppuccin;
     colorScheme = "mocha";
 

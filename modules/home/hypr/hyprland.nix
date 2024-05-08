@@ -18,10 +18,6 @@
     xwayland.enable = true;
     catppuccin.enable = true;
 
-    # plugins = [
-    #   inputs.hyprland-plugins.packages."${pkgs.system}".borders-plus-plus
-    # ];
-
     settings = {
       env = [
         "XCURSOR_SIZE,24"
@@ -32,7 +28,6 @@
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
-
       exec-once = [
         "waybar"
         "lxqt-policykit-agent"
@@ -100,11 +95,21 @@
       windowrulev2 = [
         "workspace 4, class:^(lutris)$"
         "workspace 4, class:^(steam)$"
-        # "workspace 4, class:^(spotify)$"
+        "workspace 4, initialTitle:^(Spotify Premium)$"
         "workspace 5, title:^(Waydroid)$"
         "workspace 2, class:^(vesktop)$"
-        "workspace 1, title:^(Visual Studio Code)$"
+        "workspace 1, class:^(code-url-handler)$"
         "workspace 6,class:^(obsidian)"
+
+        "opacity 0.9 0.9,class:^(kitty)$"
+        "opacity 0.9 0.9,class:^(obsidian)$"
+        "opacity 0.9 0.9,class:^(vesktop)$"
+        "opacity 0.9 0.9,class:^(kitty)$"
+        "opacity 0.9 0.9,class:^(steam)$"
+        "opacity 0.9 0.9,class:^(lutris)$"
+        "opacity 0.9 0.9,class:^(firefox)$"
+        "opacity 0.9 override 0.9 override,class:^(code-url-handler)$"
+        "opacity 0.9 override 0.9 override,initialTitle:^(Spotify Premium)$"
 
         "suppressevent maximize, class:.*"
         "fullscreen,title:^(Waydroid)$"
