@@ -10,6 +10,38 @@
     config.common.default = "*";
   };
 
+  xdg.desktopEntries = {
+    firefox-trees = {
+      name = "Firefox Trees";
+      genericName = "Web Browser";
+      exec = "firefox -P \"treetabs\"";
+      icon = "firefox";
+      terminal = false;
+      categories = ["Network" "WebBrowser"];
+      mimeType = ["text/html" "text/xml"];
+    };
+
+    firefox-containers = {
+      name = "Firefox Containers";
+      genericName = "Web Browser";
+      exec = "firefox -P \"containerd\"";
+      icon = "firefox";
+      terminal = false;
+      categories = ["Network" "WebBrowser"];
+      mimeType = ["text/html" "text/xml"];
+    };
+
+    spotify = {
+      name = "Spotify";
+      type = "Application";
+      icon = "spotify";
+      exec = "spotify";
+      terminal = false;
+      genericName = "Music Player";
+      categories = ["Audio" "Music" "Player" "AudioVideo"];
+    };
+  };
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
