@@ -41,6 +41,7 @@
       general = {
         monitor = [
           "DP-2,3440x1440@165,auto,auto"
+          "HDMI-A-1,1920x1080p@60,1920x0,auto"
           ",preferred,auto,auto"
         ];
         gaps_in = 10;
@@ -101,15 +102,15 @@
         "workspace 1, class:^(code-url-handler)$"
         "workspace 6,class:^(obsidian)"
 
-        "opacity 0.9 0.9,class:^(kitty)$"
-        "opacity 0.9 0.9,class:^(obsidian)$"
-        "opacity 0.9 0.9,class:^(vesktop)$"
-        "opacity 0.9 0.9,class:^(kitty)$"
-        "opacity 0.9 0.9,class:^(steam)$"
-        "opacity 0.9 0.9,class:^(lutris)$"
-        "opacity 0.9 0.9,class:^(firefox)$"
-        "opacity 0.9 override 0.9 override,class:^(code-url-handler)$"
-        "opacity 0.9 override 0.9 override,initialTitle:^(Spotify Premium)$"
+        "opacity 0.93 0.93,class:^(kitty)$"
+        "opacity 0.93 0.93,class:^(obsidian)$"
+        "opacity 0.93 0.93,class:^(vesktop)$"
+        "opacity 0.93 0.93,class:^(kitty)$"
+        "opacity 0.93 0.93,class:^(steam)$"
+        "opacity 0.93 0.93,class:^(lutris)$"
+        "opacity 0.93 0.93,class:^(firefox)$"
+        "opacity 0.93 override 0.93 override,class:^(code-url-handler)$"
+        "opacity 0.93 override 0.93 override,initialTitle:^(Spotify Premium)$"
 
         "suppressevent maximize, class:.*"
         "fullscreen,title:^(Waydroid)$"
@@ -148,6 +149,10 @@
 
         "workspace special silent, title:^(Firefox.* — Sharing Indicator)$"
         "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
+      ];
+
+      workspace = [
+        "8, monitor:HDMI-A-1, default: true"
       ];
 
       "$mainMod" = "SUPER";

@@ -19,3 +19,8 @@ Run bad_secret_management.sh to have git ignore it because secrets haven't been 
 2. github_key.sh - run to generate and get public key for github cloning
 
 3. Server certificate authorities
+
+Waydroid
+
+waydroid prop set persist.waydroid.width "3440"
+waydroid prop set persist.waydroid.height "1440"
