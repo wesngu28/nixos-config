@@ -63,9 +63,16 @@ in {
       };
       "custom/playerctl#backward" = {
         format = "󰙣 ";
+        return-type = "json";
+        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --ignore-player firefox -F";
         on-click = "playerctl previous";
         on-scroll-up = "playerctl volume .05+";
         on-scroll-down = "playerctl volume .05-";
+        format-icons = {
+          Playing = "<span>󰙣 </span>";
+          Paused = "<span>󰙣 </span>";
+          Stopped = "<span>󰙣 </span>";
+        };
         tooltip = false;
       };
       "custom/playerctl#play" = {
@@ -84,9 +91,16 @@ in {
       };
       "custom/playerctl#forward" = {
         format = "󰙡 ";
+        return-type = "json";
+        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --ignore-player firefox -F";
         on-click = "playerctl next";
         on-scroll-up = "playerctl volume .05+";
         on-scroll-down = "playerctl volume .05-";
+        format-icons = {
+          Playing = "<span>󰙡 </span>";
+          Paused = "<span>󰙡 </span>";
+          Stopped = "<span>󰙡 </span>";
+        };
         tooltip = false;
       };
       "custom/playerctl" = {
