@@ -118,7 +118,7 @@
         "float,class:^(btop)$"
         "float,class:^(yazi)$"
         "float,class:^(imv)$"
-        "float,class:^(mpv)$"
+        # "float,class:^(mpv)$"
         "float,class:^(pavucontrol)$"
         "float,class:^(blueman-manager)$"
         "float,class:^(polkit)$,title:^(Authentication)$"
@@ -154,6 +154,13 @@
 
       workspace = [
         "8, monitor:HDMI-A-1, default: true"
+        "6, monitor:DP-2"
+        "7, monitor:DP-2"
+        "5, monitor:DP-2"
+        "4, monitor:DP-2"
+        "3, monitor:DP-2"
+        "2, monitor:DP-2"
+        "1, monitor:DP-2"
       ];
 
       "$mainMod" = "SUPER";
