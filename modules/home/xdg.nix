@@ -24,7 +24,7 @@
     firefox-containers = {
       name = "Firefox Containers";
       genericName = "Web Browser";
-      exec = "firefox -P \"containerd\"";
+      exec = "firefox -P \"containers\"";
       icon = "firefox";
       terminal = false;
       categories = ["Network" "WebBrowser"];

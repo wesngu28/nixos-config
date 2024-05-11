@@ -96,7 +96,7 @@
       windowrulev2 = [
         "workspace 4, class:^(lutris)$"
         "workspace 4, class:^(steam)$"
-        "workspace 4, initialTitle:^(Spotify Premium)$"
+        "workspace 3, initialtitle:(Spotify Premium)"
         "workspace 5, title:^(Waydroid)$"
         "workspace 2, class:^(vesktop)$"
         "workspace 1, class:^(code-url-handler)$"
@@ -141,6 +141,7 @@
         "float,class:^(electron)$,title:^(Open Files)$"
         "float,class:^(steam)$,title:^(Special Offers)$"
         "float,class:^(firefox)$,title:~^(Extension: \(Bitwarden)"
+        "float,class:^(Bitwarden)$"
         # "float,class:^(steam)$,title:^(Friends List)$"
 
         "idleinhibit focus, class:^(mpv)$"
@@ -162,7 +163,7 @@
         "$mainMod, T, exec, kitty"
         "$mainMod, A, exec, firefox"
         "$mainMod SHIFT, A, exec, firefox --profile ~/.mozilla/firefox/treetabs"
-        "$mainMod CTRL, A, exec, firefox --profile ~/.mozilla/firefox/containerd"
+        "$mainMod CTRL, A, exec, firefox -P 'containers'"
 
         "$mainMod, R, exec, rofi -show drun"
 
@@ -183,8 +184,8 @@
         "$mainMod SHIFT, j, movewindow, u"
         "$mainMod SHIFT, k, movewindow, d"
 
-        "$mainMod SHIFT, right, workspace, +1"
-        "$mainMod SHIFT, left, workspace, -1"
+        "$mainMod SHIFT, right, workspace, e+1"
+        "$mainMod SHIFT, left, workspace, e-1"
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"

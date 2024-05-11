@@ -30,7 +30,8 @@
     wl-clipboard
     wget
     jq
-    #nicotine-plus
+    nicotine-plus
+    bitwarden
     #veracrypt
   ];
 
