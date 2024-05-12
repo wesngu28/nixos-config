@@ -1,26 +1,24 @@
 {
   networking.firewall.allowedUDPPorts = [51820];
 
-  networking.wireguard.enable = true;
+  # networking.wireguard.enable = true;
 
-  networking.wireguard.interfaces = {
-    wg0 = {
-      ips = ["{}/24"];
-      listenPort = 51820;
+  networking.wg-quick.interfaces.wg0 = {
+    address = [""];
+    autostart = false;
+    dns = [""];
+    privateKeyFile = "/home/serpe/wireguard-keys/private";
 
-      privateKeyFile = "/home/serpe/wireguard-keys/private";
+    peers = [
+      {
+        publicKey = "";
 
-      peers = [
-        {
-          publicKey = "{}";
+        allowedIPs = [""];
 
-          allowedIPs = ["{}" "{}"];
+        endpoint = ":51820";
 
-          endpoint = "{}:51820";
-
-          persistentKeepalive = 25;
-        }
-      ];
-    };
+        persistentKeepalive = 25;
+      }
+    ];
   };
 }
