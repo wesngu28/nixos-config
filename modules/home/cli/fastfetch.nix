@@ -2,12 +2,6 @@
   xdg.configFile."fastfetch/config.jsonc".text = ''
     	{
         "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    		"logo": {
-    			"type": "kitty-direct",
-    			"source": "${config.home.homeDirectory}/nixos-config/modules/home/cli/rock.png",
-    			"width": 34,
-    			"height": 17
-        },
         "modules": [
             "title",
             "separator",

@@ -94,6 +94,7 @@
     enable = true;
     # catppuccin.enable = true;
     config = {
+      autofit-larger = "1280x720";
       save-position-on-quit = true;
     };
     bindings = {

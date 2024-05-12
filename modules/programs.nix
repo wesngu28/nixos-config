@@ -17,6 +17,7 @@
     git
     syncthing
     wireguard-tools
+    vim
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
     (pkgs.writeShellScriptBin "rebuild" ''
@@ -49,6 +50,7 @@
 
   imports = [
     ./programs/firefox.nix
+    ./programs/kdeconnect.nix
     ./services/syncthing.nix
   ];
 }

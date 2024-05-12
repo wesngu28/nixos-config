@@ -109,6 +109,7 @@
         "opacity 0.93 0.93,class:^(steam)$"
         "opacity 0.93 0.93,class:^(lutris)$"
         "opacity 0.93 0.93,class:^(firefox)$"
+        "opacity 0.93 0.93,title:(Nicotine+)"
         "opacity 0.93 override 0.93 override,class:^(code-url-handler)$"
         "opacity 0.93 override 0.93 override,initialTitle:^(Spotify Premium)$"
 
@@ -118,7 +119,7 @@
         "float,class:^(btop)$"
         "float,class:^(yazi)$"
         "float,class:^(imv)$"
-        # "float,class:^(mpv)$"
+        "float,class:^(mpv)$"
         "float,class:^(pavucontrol)$"
         "float,class:^(blueman-manager)$"
         "float,class:^(polkit)$,title:^(Authentication)$"
