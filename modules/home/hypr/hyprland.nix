@@ -97,6 +97,8 @@
         "workspace 4, class:^(lutris)$"
         "workspace 4, class:^(steam)$"
         "workspace 3, initialtitle:(Spotify Premium)"
+        "workspace 3, title:(Nicotine+)"
+        "workspace 3, title:(Jellyfin Media Player)"
         "workspace 5, title:^(Waydroid)$"
         "workspace 2, class:^(vesktop)$"
         "workspace 1, class:^(code-url-handler)$"
@@ -110,6 +112,7 @@
         "opacity 0.93 0.93,class:^(lutris)$"
         "opacity 0.93 0.93,class:^(firefox)$"
         "opacity 0.93 0.93,title:(Nicotine+)"
+        "opacity 0.93 0.93,title:(Jellyfin Media Player)"
         "opacity 0.93 override 0.93 override,class:^(code-url-handler)$"
         "opacity 0.93 override 0.93 override,initialTitle:^(Spotify Premium)$"
 

@@ -37,6 +37,8 @@
     #veracrypt
   ];
 
+  xdg.dataFile."jellyfinmediaplayer/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
+
   nixpkgs.config.allowUnfree = true;
 
   imports = [
@@ -103,6 +105,9 @@
       UP = "add volume 2";
       DOWN = "add volume -2";
     };
+    scripts = with pkgs.mpvScripts; [
+      mpris
+    ];
   };
 
   programs.zathura = {
