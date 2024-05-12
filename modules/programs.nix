@@ -55,5 +55,5 @@
   ];
 
   # for nicotine-plus
-  networking.firewall.allowedTCPPorts = [22000];
+  networking.firewall.allowedTCPPorts = [2234];
 }
