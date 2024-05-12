@@ -72,6 +72,7 @@
       };
 
       "gitblame.inlineMessageEnabled" = true;
+      "vim.useSystemClipboard" = true;
     };
 
     extensions = with pkgs.vscode-extensions;
@@ -95,6 +96,7 @@
         usernamehw.errorlens
         kamadorueda.alejandra
         waderyan.gitblame
+        vscodevim.vim
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {

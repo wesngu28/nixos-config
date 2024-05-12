@@ -32,6 +32,8 @@
     jq
     nicotine-plus
     bitwarden
+    unrar
+    unzip
     #veracrypt
   ];
 

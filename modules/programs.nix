@@ -53,4 +53,7 @@
     ./programs/kdeconnect.nix
     ./services/syncthing.nix
   ];
+
+  # for nicotine-plus
+  networking.firewall.allowedTCPPorts = [22000];
 }
