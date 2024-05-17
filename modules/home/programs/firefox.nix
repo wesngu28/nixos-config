@@ -23,6 +23,9 @@
       containerd = {
         id = 1;
         name = "containers";
+        settings = {
+          network.dns.disablePrefetch = true;
+        };
       };
 
       treetabs = {

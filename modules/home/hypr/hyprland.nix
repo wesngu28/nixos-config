@@ -87,6 +87,7 @@
       dwindle = {
         pseudotile = true;
         preserve_split = true;
+        # force_split = 2;
       };
 
       windowrule = [
@@ -184,6 +185,8 @@
         "$mainMod, V, togglefloating"
         "$mainMod, P, pseudo"
         "$mainMod, J, togglesplit"
+        "$mainMod, N, splitratio, 0.3"
+        "$mainMod, B, splitratio, -0.3"
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"

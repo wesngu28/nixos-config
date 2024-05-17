@@ -45,14 +45,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-
     catppuccin.url = "github:catppuccin/nix";
-
-    # nix-colors.url = "github:misterio77/nix-colors";
 
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix";
