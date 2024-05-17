@@ -5,20 +5,17 @@
 }: let
   wallpaper = "test.png";
 in {
-  imports = [
-    inputs.hyprpaper.homeManagerModules.hyprpaper
-    inputs.hyprlock.homeManagerModules.hyprlock
-  ];
-
   services.hyprpaper = {
     enable = true;
-    preloads = [
-      "~/Wallpapers/${wallpaper}"
-    ];
+    settings = {
+      preload = [
+        "~/Wallpapers/${wallpaper}"
+      ];
 
-    wallpapers = [
-      ",~/Wallpapers/${wallpaper}"
-    ];
+      wallpaper = [
+        ",~/Wallpapers/${wallpaper}"
+      ];
+    };
   };
 
   home.packages = [

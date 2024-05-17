@@ -5,86 +5,82 @@
 }: let
   wallpaper = "test.png";
 in {
-  imports = [
-    inputs.hypridle.homeManagerModules.hypridle
-  ];
-
   programs.hyprlock = {
     enable = true;
 
-    backgrounds = [
-      {
-        monitor = "";
-        path = "~/Wallpapers/test.png";
-        blur_size = 4;
-        blur_passes = 3;
-        brightness = 0.75;
-      }
-    ];
+    settings = {
+      background = [
+        {
+          monitor = "";
+          path = "~/Wallpapers/Kayoko.jpg";
+          blur_size = 4;
+          blur_passes = 3;
+          brightness = 0.75;
+        }
+      ];
 
-    input-fields = [
-      {
-        monitor = "";
-        size = {
-          width = 250;
-          height = 60;
-        };
-        outline_thickness = 2;
-        dots_size = 0.2;
-        dots_spacing = 0.2;
-        dots_center = true;
-        outer_color = "rgb(11111b)";
-        inner_color = "rgb(585b70)";
-        font_color = "rgb(cdd6f4)";
-        fade_on_empty = false;
-        placeholder_text = ''<i><span foreground="##cdd6f4">Input Password...</span></i>'';
-        hide_input = false;
-        position = {
-          x = 0;
-          y = -120;
-        };
-        halign = "center";
-        valign = "center";
-      }
-    ];
-    labels = [
-      {
-        monitor = "";
-        text = "$TIME";
-        font_size = 120;
-        position = {
-          x = 0;
-          y = 80;
-        };
-        valign = "center";
-        halign = "center";
-      }
-    ];
+      input-field = [
+        {
+          monitor = "";
+          size = {
+            width = 250;
+            height = 60;
+          };
+          outline_thickness = 2;
+          dots_size = 0.2;
+          dots_spacing = 0.2;
+          dots_center = true;
+          outer_color = "rgb(11111b)";
+          inner_color = "rgb(585b70)";
+          font_color = "rgb(cdd6f4)";
+          fade_on_empty = false;
+          placeholder_text = ''<i><span foreground="##cdd6f4">Input Password...</span></i>'';
+          hide_input = false;
+          position = {
+            x = 0;
+            y = -120;
+          };
+          halign = "center";
+          valign = "center";
+        }
+      ];
+
+      # label = [
+      #   {
+      #     monitor = "";
+      #     text = "$TIME";
+      #     font_size = 120;
+      #     position = {
+      #       x = 0;
+      #       y = 80;
+      #     };
+      #     valign = "center";
+      #     halign = "center";
+      #   }
+      # ];
+    };
   };
 
   services.hypridle = {
     enable = true;
-    package = pkgs.hypridle;
-    lockCmd = "${pkgs.hyprlock}/bin/hyprlock";
-    beforeSleepCmd = "loginctl lock-session";
-    afterSleepCmd = "hyprctl dispatch dpms on";
-    listeners = [
-      {
-        timeout = 300;
-        onTimeout = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10% & echo 1 | ${pkgs.coreutils}/bin/tee  /sys/class/leds/asus::kbd_backlight/brightness";
-        onResume = "${pkgs.brightnessctl}/bin/brightnessctl -r & echo 2 | ${pkgs.coreutils}/bin/tee /sys/class/leds/asus::kbd_backlight/brightness";
-      }
-      {
-        timeout = 350;
-        onTimeout = "hyperctl dispatch dpms off";
-        onResume = "hyperctl dispatch dpms on";
-      }
-      {
-        timeout = 1800;
-        onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
-        onResume = "";
-      }
-    ];
+    settings = {
+      lock_cmd = "${pkgs.hyprlock}/bin/hyprlock";
+      before_sleep_cmd = "${pkgs.hyprlock}/bin/hyprlock";
+      after_sleep_cmd = "hyprctl dispatch dpms on";
+      ignore_dbus_inhibit = false;
+      listener = [
+        {
+          timeout = 300;
+          on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10% & echo 1 | ${pkgs.coreutils}/bin/tee  /sys/class/leds/asus::kbd_backlight/brightness";
+          on-resume = "${pkgs.brightnessctl}/bin/brightnessctl -r & echo 2 | ${pkgs.coreutils}/bin/tee /sys/class/leds/asus::kbd_backlight/brightness";
+        }
+        {
+          timeout = 1200;
+          on-timeout = "hyperctl dispatch dpms off";
+          on-resume = "hyperctl dispatch dpms on";
+        }
+      ];
+    };
   };
 
   programs.wlogout = {
@@ -93,7 +89,7 @@ in {
     layout = [
       {
         label = "lock";
-        action = "${inputs.hyprlock.packages.${pkgs.system}.hyprlock}/bin/hyprlock";
+        action = "hyprlock";
         text = "Lock";
         keybind = "l";
       }

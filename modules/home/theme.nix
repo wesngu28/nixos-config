@@ -26,7 +26,7 @@
 
   qt = {
     enable = true;
-    platformTheme = "qtct";
+    platformTheme.name = "qtct";
     style = {
       name = "Catppuccin-Mocha-Lavender";
       package = pkgs.catppuccin-kvantum.override {
