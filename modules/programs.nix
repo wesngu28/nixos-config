@@ -47,6 +47,11 @@
   programs.zsh.enable = true;
   programs.thunar.enable = true;
   programs.hyprland.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+
+  security = {
+    pam.services.login.enableGnomeKeyring = true;
+  };
 
   imports = [
     ./programs/firefox.nix

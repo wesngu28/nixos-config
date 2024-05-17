@@ -32,9 +32,12 @@
     jq
     nicotine-plus
     bitwarden
-    unrar
-    unzip
+    unar
+    zoxide
+    fd
+    zip
     #veracrypt
+    gnome.seahorse
   ];
 
   xdg.dataFile."jellyfinmediaplayer/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
