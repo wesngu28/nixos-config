@@ -5,6 +5,7 @@
   lib,
   config,
   inputs,
+  pkgs,
   ...
 }: {
   imports = [
@@ -23,6 +24,8 @@
     systemd-boot.enable = lib.mkDefault true;
     efi.canTouchEfiVariables = lib.mkDefault true;
   };
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   networking.hostName = "serpe";
 
   # Set your time zone.
