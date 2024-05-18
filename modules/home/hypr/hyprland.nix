@@ -35,14 +35,14 @@
         "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user start graphical-session.target"
         "thunar --daemon"
+        "vesktop"
         "wallpaper"
       ];
 
       general = {
         monitor = [
-          "DP-2,3440x1440@165,auto,auto"
+          "DP-2,3440x1440@165,0x0,1"
           "HDMI-A-1,1920x1080p@60,1920x0,auto"
-          ",preferred,auto,auto"
         ];
         gaps_in = 10;
         gaps_out = 10;
@@ -51,6 +51,12 @@
         layout = "dwindle";
 
         allow_tearing = false;
+      };
+
+      misc = {
+        disable_hyprland_logo = true;
+        mouse_move_enables_dpms = true;
+        key_press_enables_dpms = true;
       };
 
       input = {
