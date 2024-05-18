@@ -11,7 +11,9 @@
 
   home.packages = with pkgs; [
     gimp
-    vesktop
+    (vesktop.override {
+      withSystemVencord = false;
+    })
     obsidian
     jellyfin-media-player
     sqlitebrowser

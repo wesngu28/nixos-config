@@ -85,7 +85,6 @@
                 "forceOpen": false
             },
             "BetterGifAltText": {
-                "enabled": false
             },
             "BetterGifPicker": {
                 "enabled": false
@@ -434,7 +433,7 @@
                 "enabled": false
             },
             "ShowConnections": {
-                "enabled": false,
+                "enabled": true,
                 "iconSize": 32,
                 "iconSpacing": 1
             },
