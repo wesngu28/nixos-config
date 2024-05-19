@@ -272,24 +272,6 @@
         "type": "github"
       }
     },
-    "hyprpicker": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1715699592,
-        "narHash": "sha256-BYQF1zM6bJ44ag9FJ0aTSkhOTY9U7uRdp3SmRCs5fJM=",
-        "owner": "hyprwm",
-        "repo": "hyprpicker",
-        "rev": "bff005ac9c308acb3046d277b60879defb1ee303",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprwm",
-        "repo": "hyprpicker",
-        "type": "github"
-      }
-    },
     "hyprwayland-scanner": {
       "inputs": {
         "nixpkgs": [
@@ -333,22 +315,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1683014792,
-        "narHash": "sha256-6Va9iVtmmsw4raBc3QKvQT2KT/NGRWlvUlJj46zN8B8=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "1a411f23ba299db155a5b45d5e145b85a7aafc42",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1715787315,
         "narHash": "sha256-cYApT0NXJfqBkKcci7D9Kr4CBYZKOQKDYA23q8XNuWg=",
         "owner": "nixos",
@@ -372,8 +338,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-contrib": "hyprland-contrib",
-        "hyprpicker": "hyprpicker",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "spicetify-nix": "spicetify-nix"
       }
     },

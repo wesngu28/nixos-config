@@ -41,8 +41,9 @@
 
       general = {
         monitor = [
-          "DP-2,3440x1440@165,0x0,1"
-          "HDMI-A-1,1920x1080p@60,1920x0,auto"
+          "DP-2,3440x1440@165,auto,auto"
+          "HDMI-A-1,1920x1280p@60,1920x0,auto"
+          ",preferred,auto,auto"
         ];
         gaps_in = 10;
         gaps_out = 10;
@@ -56,7 +57,7 @@
       misc = {
         disable_hyprland_logo = true;
         mouse_move_enables_dpms = true;
-        key_press_enables_dpms = true;
+        key_press_enables_dpms = false;
       };
 
       input = {
@@ -204,6 +205,9 @@
         "$mainMod SHIFT, j, movewindow, u"
         "$mainMod SHIFT, k, movewindow, d"
 
+        "$mainMod SHIFT, x, exec, pkill waybar"
+        "$mainMod, x, exec, hyprctl dispatch exec waybar"
+
         "$mainMod SHIFT, right, workspace, e+1"
         "$mainMod SHIFT, left, workspace, e-1"
 
@@ -230,6 +234,7 @@
         "$mainMod SHIFT, b, exec, hyprctl dispatch exec waybar"
         "$mainMod, S, exec, grimblast copy area"
         "$mainMod, M, exec, pkill -USR1 hyprlock"
+        "$mainMod, L, exec, hyprlock"
 
         # "$mainMod, mouse_down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+"
         # "$mainMod, mouse_downe, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-"
