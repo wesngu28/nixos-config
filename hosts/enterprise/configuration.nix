@@ -11,11 +11,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/core.nix
-    ../../modules/programs.nix
-    ../../modules/gaming.nix
     ./wireguard.nix
-    ../../modules/services/ssh.nix
   ];
 
   # Bootloader.

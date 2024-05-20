@@ -56,10 +56,10 @@
     ./programs/vencord.nix
     ./cli/direnv.nix
     ./cli/git.nix
-    ./cli/kitty/kitty.nix
+    ./kitty/kitty.nix
     ./hypr/hyprland.nix
     ./waybar/waybar.nix
-    ./cli/rofi.nix
+    ./rofi/rofi.nix
     ./cli/zsh.nix
     ./cli/fastfetch.nix
     ./dunst/dunst.nix

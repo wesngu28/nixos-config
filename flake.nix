@@ -25,18 +25,7 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
-    # hypridle = {
-    #   url = "github:hyprwm/hypridle";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # hyprlock = {
-    #   url = "github:hyprwm/hyprlock";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # hyprpaper = {
-    #   url = "github:hyprwm/hyprpaper";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,6 +55,9 @@
         modules = [
           ./hosts/vm/configuration.nix
           inputs.home-manager.nixosModules.default
+          ./modules/core.nix
+          ./modules/programs.nix
+          ./modules/gaming.nix
         ];
       };
       enterprise = nixpkgs.lib.nixosSystem {
@@ -76,6 +68,10 @@
           inputs.catppuccin.nixosModules.catppuccin
           inputs.aagl.nixosModules.default
           inputs.agenix.nixosModules.default
+          ./modules/core.nix
+          ./modules/programs.nix
+          ./modules/gaming.nix
+          ./modules/services/ssh.nix
         ];
       };
     };

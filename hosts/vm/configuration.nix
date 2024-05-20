@@ -9,9 +9,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/core.nix
-    ../../modules/programs.nix
-    ../../modules/gaming.nix
     ./wireguard.nix
   ];
 
@@ -24,9 +21,6 @@
 
   # Set your time zone.
   time.timeZone = "America/Phoenix";
-
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
