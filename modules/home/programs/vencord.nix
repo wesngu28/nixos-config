@@ -307,7 +307,7 @@
                 "enabled": false
             },
             "NoProfileThemes": {
-                "enabled": false
+                "enabled": true
             },
             "NoReplyMention": {
                 "enabled": false

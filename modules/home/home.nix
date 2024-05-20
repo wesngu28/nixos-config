@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  system,
   ...
 }: {
   home.username = "serpe";
@@ -17,7 +18,7 @@
     obsidian
     jellyfin-media-player
     sqlitebrowser
-    inputs.ataraxiasjel-nur.packages."x86_64-linux".waydroid-script
+    inputs.ataraxiasjel-nur.packages.${pkgs.system}.waydroid-script
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.breeze-icons
     libsForQt5.qt5ct

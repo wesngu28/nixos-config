@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.firefox = {
     enable = true;
 
@@ -7,7 +11,7 @@
         id = 0;
         name = "default";
         isDefault = true;
-        extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
           auto-tab-discard
           bitwarden
           firefox-color
@@ -31,7 +35,7 @@
       treetabs = {
         id = 2;
         name = "treetabs";
-        extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
           bitwarden
           firefox-color
           search-by-image
@@ -42,6 +46,11 @@
               visibility: collapse;
             }
         '';
+      };
+
+      work = {
+        id = 3;
+        name = "work";
       };
     };
   };
