@@ -20,6 +20,7 @@
     vim
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
+    inputs.agenix.packages."${pkgs.system}".default
     (pkgs.writeShellScriptBin "rebuild" ''
       # if git diff --quiet '*.nix'; then
       #     echo "No changes detected, exiting."

@@ -37,6 +37,10 @@
     #   url = "github:hyprwm/hyprpaper";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
@@ -56,21 +60,24 @@
     nixpkgs,
     ...
   } @ inputs: {
-    nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/vm/configuration.nix
-        inputs.home-manager.nixosModules.default
-      ];
-    };
-    nixosConfigurations.enterprise = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/enterprise/configuration.nix
-        inputs.home-manager.nixosModules.default
-        inputs.catppuccin.nixosModules.catppuccin
-        inputs.aagl.nixosModules.default
-      ];
+    nixosConfigurations = {
+      vm = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/vm/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
+      enterprise = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/enterprise/configuration.nix
+          inputs.home-manager.nixosModules.default
+          inputs.catppuccin.nixosModules.catppuccin
+          inputs.aagl.nixosModules.default
+          inputs.agenix.nixosModules.default
+        ];
+      };
     };
   };
 }
