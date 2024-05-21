@@ -71,6 +71,7 @@
           ./modules/core.nix
           ./modules/programs.nix
           ./modules/gaming.nix
+          ./modules/lab.nix
           ./modules/services/ssh.nix
         ];
       };

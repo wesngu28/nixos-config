@@ -15,6 +15,8 @@ in {
       wallpaper = [
         ",~/Wallpapers/${wallpaper}"
       ];
+
+      splash = false;
     };
   };
 
