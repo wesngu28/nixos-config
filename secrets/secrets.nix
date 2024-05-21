@@ -7,4 +7,6 @@ let
   systems = [enterprise];
 in {
   "enterprise_wg0.age".publicKeys = [serpe_enterprise enterprise];
+
+  "feedcord.age".publicKeys = [serpe_enterprise enterprise];
 }
