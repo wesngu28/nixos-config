@@ -50,16 +50,18 @@
     ...
   } @ inputs: {
     nixosConfigurations = {
-      vm = nixpkgs.lib.nixosSystem {
+      langley = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/vm/configuration.nix
+          ./hosts/langley/configuration.nix
           inputs.home-manager.nixosModules.default
           ./modules/core.nix
           ./modules/programs.nix
           ./modules/gaming.nix
         ];
       };
+
+      # workhorse
       enterprise = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
@@ -71,6 +73,33 @@
           ./modules/core.nix
           ./modules/programs.nix
           ./modules/gaming.nix
+          ./modules/lab.nix
+          ./modules/services/ssh.nix
+        ];
+      };
+
+      # laptop
+      yorktown = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          # ./hosts/enterprise/configuration.nix
+          inputs.home-manager.nixosModules.default
+          inputs.catppuccin.nixosModules.catppuccin
+          inputs.aagl.nixosModules.default
+          inputs.agenix.nixosModules.default
+          ./modules/core.nix
+          ./modules/programs.nix
+          ./modules/services/ssh.nix
+        ];
+      };
+
+      # testing server config on laptop
+      essex = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          # ./hosts/enterprise/configuration.nix
+          inputs.home-manager.nixosModules.default
+          inputs.agenix.nixosModules.default
           ./modules/lab.nix
           ./modules/services/ssh.nix
         ];

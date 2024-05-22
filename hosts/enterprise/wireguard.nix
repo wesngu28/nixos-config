@@ -9,6 +9,7 @@ in {
 
   # networking.wireguard.enable = true;
   networking.wg-quick.interfaces.wg0 = {
+    autostart = false;
     configFile = config.age.secrets.enterprise_wg0.path;
   };
 }
