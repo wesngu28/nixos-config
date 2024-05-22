@@ -15,6 +15,7 @@
     (vesktop.override {
       withSystemVencord = false;
     })
+    feishin
     obsidian
     jellyfin-media-player
     sqlitebrowser

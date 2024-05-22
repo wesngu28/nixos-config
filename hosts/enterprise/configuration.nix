@@ -22,7 +22,7 @@
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "serpe";
+  networking.hostName = "enterprise";
 
   # Set your time zone.
   time.timeZone = "America/Phoenix";

@@ -104,6 +104,7 @@
       windowrulev2 = [
         "workspace 4, class:^(lutris)$"
         "workspace 4, class:^(steam)$"
+        "workspace 4, initialclass:^(battle.net.exe)$"
         "workspace 3, initialtitle:(Spotify Premium)"
         "workspace 3, title:(Nicotine+)"
         "workspace 3, title:(Jellyfin Media Player)"
@@ -131,6 +132,7 @@
         "float,class:^(yazi)$"
         "float,class:^(imv)$"
         "float,class:^(mpv)$"
+        "float,class:^(Gimp-2.10)$"
         "float,class:^(pavucontrol)$"
         "float,class:^(blueman-manager)$"
         "float,class:^(polkit)$,title:^(Authentication)$"
@@ -234,7 +236,7 @@
         "$mainMod SHIFT, b, exec, hyprctl dispatch exec waybar"
         "$mainMod, S, exec, grimblast copy area"
         "$mainMod, M, exec, pkill -USR1 hyprlock"
-        "$mainMod, L, exec, hyprlock"
+        "$mainMod SHIFT, L, exec, hyprlock"
 
         # "$mainMod, mouse_down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+"
         # "$mainMod, mouse_downe, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-"

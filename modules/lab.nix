@@ -5,6 +5,8 @@
     ./server/containers/containers.nix
     ./server/containers/media.nix
     ./server/containers/rss.nix
+    ./server/containers/paperless.nix
+    ./server/samba.nix
     # ./server/containers/syncthing.nix
   ];
 

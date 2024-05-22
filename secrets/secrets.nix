@@ -1,5 +1,5 @@
 let
-  serpe_enterprise = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIML/pAN2FTezgdC4PazHVU15CY9YYL7O0dTOSrgym9qn serpe_enterprise";
+  serpe_enterprise = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGnjKj4EyU0zid0YX/Ggj+UiqQYYeVB5pKSsP/rtY1tU serpe_enterprise";
 
   enterprise = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAYyHNZ9+1Rm3WfqfHszDPZ2UHNCw6BduNGoKkES9OFK";
 
