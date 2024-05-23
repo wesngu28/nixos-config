@@ -37,7 +37,7 @@
           "data:/usr/src/paperless/data"
           "media:/usr/src/paperless/media"
           "/home/serpe/docker/paperless/export:/usr/src/paperless/export"
-          "/home/serpe/docker/paperless:/usr/src/paperless/consume"
+          "/home/serpe/paperless:/usr/src/paperless/consume"
         ];
         environment = {
           PAPERLESS_REDIS = "redis://broker:6379";
