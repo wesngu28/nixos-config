@@ -10,6 +10,11 @@
             addr = "127.0.0.1";
             port = 80;
           }
+          {
+            addr = "127.0.0.1";
+            port = 443;
+            ssl = false;
+          }
         ];
         serverName = "dockge.sake";
         locations."/" = {
@@ -22,6 +27,11 @@
             addr = "127.0.0.1";
             port = 80;
           }
+          {
+            addr = "127.0.0.1";
+            port = 443;
+            ssl = false;
+          }
         ];
         serverName = "freshrss.sake";
         locations."/" = {
@@ -33,6 +43,11 @@
           {
             addr = "127.0.0.1";
             port = 80;
+          }
+          {
+            addr = "127.0.0.1";
+            port = 443;
+            ssl = false;
           }
         ];
         serverName = "fullfeed.sake";
