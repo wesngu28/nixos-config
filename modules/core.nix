@@ -3,12 +3,6 @@
   pkgs,
   ...
 }: {
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # imports = [
   #   ./sleep.nix
   # ];
@@ -16,8 +10,6 @@
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
   services.blueman.enable = true;
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -31,16 +23,6 @@
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
-  };
-
-  nix.extraOptions = ''
-    warn-dirty = false
-  '';
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
   };
 
   services.xserver.enable = true;
@@ -74,12 +56,6 @@
     Option "TearFree" "False"
     Option "VariableRefresh" "True"
   '';
-
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
 
   # services.xserver.libinput.enable = true;
 

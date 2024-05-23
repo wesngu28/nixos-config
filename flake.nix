@@ -71,6 +71,7 @@
           inputs.aagl.nixosModules.default
           inputs.agenix.nixosModules.default
           ./modules/core.nix
+          ./modules/share.nix
           ./modules/programs.nix
           ./modules/gaming.nix
           ./modules/lab.nix
@@ -88,6 +89,7 @@
           inputs.aagl.nixosModules.default
           inputs.agenix.nixosModules.default
           ./modules/core.nix
+          ./modules/share.nix
           ./modules/programs.nix
           ./modules/services/ssh.nix
         ];
@@ -97,9 +99,10 @@
       essex = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          # ./hosts/enterprise/configuration.nix
+          ./hosts/essex/configuration.nix
           inputs.home-manager.nixosModules.default
           inputs.agenix.nixosModules.default
+          ./modules/share.nix
           ./modules/lab.nix
           ./modules/services/ssh.nix
         ];
