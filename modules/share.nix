@@ -15,6 +15,8 @@
     options = "--delete-older-than 1w";
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     git
     inputs.agenix.packages."${pkgs.system}".default

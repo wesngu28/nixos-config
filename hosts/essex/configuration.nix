@@ -68,11 +68,13 @@ initialPassword = "pw123";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    git # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  ];
-
+  programs.git = {
+    enable = true;
+    config = {
+    user.name = "wesngu28";
+    user.email = "wesley@wesngu28.com";
+    };
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
