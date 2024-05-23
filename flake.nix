@@ -42,6 +42,8 @@
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs = {
@@ -105,6 +107,10 @@
           ./modules/share.nix
           ./modules/lab.nix
           ./modules/services/ssh.nix
+          inputs.vscode-server.nixosModules.default
+          ({ config, pkgs, ... }: {
+            services.vscode-server.enable = true;
+          })
         ];
       };
     };
