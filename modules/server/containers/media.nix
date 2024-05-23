@@ -13,10 +13,10 @@
         ];
         volumes = [
           "/home/serpe/docker/jellyfin:/config"
-          "/home/multimedia/movies:/data/movies"
-          "/home/multimedia/tv:/data/tv"
-          "/home/multimedia/music:/data/music"
-          "/home/media:/data/unsorted"
+          "/multimedia/movies:/data/movies"
+          "/multimedia/tv:/data/tv"
+          "/multimedia/music:/data/music"
+          "/media:/data/unsorted"
         ];
         environment = {
           PUID = "1000";
@@ -35,7 +35,7 @@
         volumes = [
           "/etc/localtime:/etc/localtime:ro"
           "/home/serpe/docker/arr/sabnzbd:/config"
-          "/home/multimedia/usenet:/data/usenet"
+          "/multimedia/usenet:/data/usenet"
         ];
         environment = {
           PUID = "1000";
