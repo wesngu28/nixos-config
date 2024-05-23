@@ -13,7 +13,9 @@ mkdir $hostname
 
 sudo rm /etc/nixos/configuration.nix
 
-sudo ln -s ~/nixos-config/$hostname/configuration.nix /etc/nixos/configuration.nix
+cp /etc/nixos/configuration.nix ~/nixos-config/hosts/$hostname/configuration.nix
+
+sudo ln -s ~/nixos-config/hosts/$hostname/configuration.nix /etc/nixos/configuration.nix
 
 cp /etc/nixos/hardware-configuration.nix ~/nixos-config/hosts/$hostname/
 
