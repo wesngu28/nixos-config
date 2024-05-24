@@ -2,25 +2,44 @@
 
 A terrible nixos config.
 
-### --impure / out of band
+## Hosts
 
-Maybe set up git crypt or some other solution with these at some point? Still needs out of band elements regardless
+1. [Langley](https://en.wikipedia.org/wiki/USS_Langley_(CV-1)) (virtualbox host)
+  testing environment
+3. [Enterprise](https://en.wikipedia.org/wiki/USS_Enterprise_(CV-6)) (primary machine, workstation, gaming)
+  most battle stars, the workhorse
+4. [Yorktown](https://en.wikipedia.org/wiki/USS_Yorktown_(CV-5))
+   laptops
+6. [Essex](https://en.wikipedia.org/wiki/USS_Essex_(CV-9)) (home server)
 
-1. Wireguard
+### Installation
 
-Run wireguard.sh
+Clone repository to /mnt/etc/nixos-config
 
-Public IP - two separate wireguard servers, most devices only need one
+`sudo nixos-install --flake .#host` or `sudo nixos-install --flake  https://github.com/wesngu28/nixos-config#host`
 
-Server public key - not needed to be hidden I guess but for comfort
+Post Installation
 
-Run bad_secret_management.sh to have git ignore it because secrets haven't been set up.
+1. wireguard
 
-2. github_key.sh - run to generate and get public key for github cloning
+    - If host will be accessing server, run wireguard.sh to generate wireguard keys
 
-3. Server certificate authorities
+    - ssh-key-scan and add system or ssh-keygen for agenix, add wireguard conf or system
 
-Waydroid
+2. Finish Syncthing setup
 
-waydroid prop set persist.waydroid.width "3440"
-waydroid prop set persist.waydroid.height "1440"
+3. Set up waydroid, and run
+
+    whatever the monitor resolution is
+    - `waydroid prop set persist.waydroid.width "3440"`
+    - `waydroid prop set persist.waydroid.height "1440"`
+
+4. Finish set up of relevant home lab services
+
+5. If the system will commit to github, generate ssh key for it
+
+### To Do
+
+1. Migrate the primary home server to nix when I am physically at home
+
+2. Starship
