@@ -42,7 +42,7 @@
         volumes = [
           "/media/downloads:/output:rw"
           "/home/serpe/docker/diun:/data"
-          "/home/serpe/docker/diun/diun.yml:/diun.yml:ro
+          "/home/serpe/docker/diun/diun.yml:/diun.yml:ro"
         ];
       };
 
