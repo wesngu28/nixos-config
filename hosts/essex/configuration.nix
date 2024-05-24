@@ -15,6 +15,12 @@
 
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.useDHCP = true;
+  #networking.interfaces.enp0s31f6 = {
+  #  ipv4.addresses = [{
+  #    address = "10.60.80.10";
+  #    prefixLength = 24;
+  #  }];
+  #};
 
   fileSystems."/mnt/veracrypt1" = {
     device = "/dev/disk/by-uuid/4E9EA45F9EA44177";

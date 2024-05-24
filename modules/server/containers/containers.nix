@@ -101,7 +101,7 @@
         ports = ["4533:4533"];
         volumes = [
           "/home/serpe/docker/navidrome:/config"
-          "/home/multimedia/music:/music"
+          "/multimedia/music:/music"
         ];
       };
 

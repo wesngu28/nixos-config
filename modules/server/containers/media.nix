@@ -25,6 +25,7 @@
         };
         extraOptions = [
           "--network=arr"
+          # "--device=/dev/dri/renderD128:/dev/dri/renderD128"
         ];
       };
 
