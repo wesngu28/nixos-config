@@ -36,12 +36,22 @@
       #   ];
       # };
 
+      "diun" = {
+        autoStart = true;
+        image = "crazymax/diun:latest";
+        volumes = [
+          "/media/downloads:/output:rw"
+          "/home/serpe/docker/diun:/data"
+          "/home/serpe/docker/diun/diun.yml:/diun.yml:ro
+        ];
+      };
+
       "jdownloader2" = {
         autoStart = true;
         image = "jlesage/jdownloader-2";
         ports = ["5800:5800"];
         volumes = [
-          "/home/serpe/docker/media/downloads:/output:rw"
+          "/media/downloads:/output:rw"
           "/home/serpe/docker/jdownloader:/config:rw"
         ];
       };
@@ -51,7 +61,6 @@
         image = "nicolargo/glances:latest-full";
         ports = ["61208:61208"];
         volumes = [
-          "/home/nixos-config/modules/lab/glances.conf:/glances.conf"
           "/:/rootfs:ro"
           "/var/run/docker.sock:/var/run/docker.sock"
         ];
@@ -111,7 +120,7 @@
         ports = ["5800:5800"];
         volumes = [
           "/home/serpe/docker/picard:/config"
-          "/home/multimedia/music:/storage:rw"
+          "/multimedia/music:/storage:rw"
         ];
       };
 
