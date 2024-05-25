@@ -24,7 +24,10 @@ Post Installation
 
     - If host will be accessing server, run wireguard.sh to generate wireguard keys
 
-    - ssh-key-scan and add system or ssh-keygen for agenix, add wireguard conf or system
+    - add system pub from /etc/ssh for agenix, add wireguard conf or system
+
+    - scp ~/.ssh/id_ed25519.pub hostname:/home/serpe/.ssh
+id_ed25519.pub
 
 2. Finish Syncthing setup
 

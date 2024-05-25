@@ -7,7 +7,7 @@
 
     settings = {
       devices = {
-        "homeaway" = {id = "KZBQ4JJ-MOKQDFV-3OKO64X-VHCUSSU-H4D55M2-LCBREUM-EHZLXGH-77GQEAT";};
+        "essex" = {id = "UQZ5FX5-Y5BYQJU-PVSUYFI-V3F2JK3-RHPYDIN-26TILM5-L4FMTOB-ATEHPQ7";};
         "vanguard" = {id = "NGOSQ5C-V2WZO5D-VOTUULM-63NUIWR-NEQTCHZ-EP4BASI-FUW2K5Z-C6EWBQX";};
       };
 
@@ -16,7 +16,7 @@
           enable = true;
           id = "stutq-qr54k";
           path = "/home/serpe/Obsidian";
-          devices = ["homeaway" "vanguard"];
+          devices = ["essex" "vanguard"];
         };
       };
     };
