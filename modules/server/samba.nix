@@ -13,7 +13,7 @@
       map to guest = bad user
     '';
     shares = {
-      private = {
+      paperless = {
         path = "/home/serpe/paperless";
         browseable = "yes";
         "read only" = "no";

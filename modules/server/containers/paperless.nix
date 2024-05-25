@@ -46,6 +46,7 @@
           PAPERLESS_TIKA_ENABLED = "1";
           PAPERLESS_TIKA_GOTENBERG_ENDPOINT = "http://gotenberg:3000";
           PAPERLESS_TIKA_ENDPOINT = "http://tika:9998";
+          PAPERLESS_URL = "https://paperless.az";
         };
         extraOptions = [
           "--network=paperless"
