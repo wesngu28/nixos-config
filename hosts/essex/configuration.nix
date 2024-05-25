@@ -10,6 +10,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
+    # for syncthing
+    ./wireguard.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
