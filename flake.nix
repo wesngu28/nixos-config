@@ -76,7 +76,6 @@
           ./modules/share.nix
           ./modules/programs.nix
           ./modules/gaming.nix
-          ./modules/lab.nix
           ./modules/services/ssh.nix
         ];
       };
@@ -108,7 +107,11 @@
           ./modules/lab.nix
           ./modules/server/ssh.nix
           inputs.vscode-server.nixosModules.default
-          ({ config, pkgs, ... }: {
+          ({
+            config,
+            pkgs,
+            ...
+          }: {
             services.vscode-server.enable = true;
           })
         ];
