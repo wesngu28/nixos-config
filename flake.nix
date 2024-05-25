@@ -84,7 +84,7 @@
       yorktown = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          # ./hosts/enterprise/configuration.nix
+          ./hosts/yorktown/configuration.nix
           inputs.home-manager.nixosModules.default
           inputs.catppuccin.nixosModules.catppuccin
           inputs.aagl.nixosModules.default
