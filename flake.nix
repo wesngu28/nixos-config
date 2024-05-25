@@ -106,7 +106,7 @@
           inputs.agenix.nixosModules.default
           ./modules/share.nix
           ./modules/lab.nix
-          ./modules/services/ssh.nix
+          ./modules/server/ssh.nix
           inputs.vscode-server.nixosModules.default
           ({ config, pkgs, ... }: {
             services.vscode-server.enable = true;

@@ -20,6 +20,9 @@
     }];
   };
 
+  networking.defaultGateway  = "10.60.80.1";
+  networking.nameservers  = [ "10.60.80.4" ];
+
   fileSystems."/mnt/veracrypt1" = {
     device = "/dev/disk/by-uuid/68E46314003E0F36";
     fsType = "ntfs";
@@ -38,6 +41,9 @@
   users.users.serpe = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEK2sw9QK+/9hu9aRN9ajwLSdr1e1uuX7gbEKJ+V6uY+ az"
+    ];
   };
 
   programs.git = {
@@ -51,6 +57,8 @@
   services.openssh = {
     enable = true;
   };
+
+  networking.hostName = "essex";
 
   system.stateVersion = "23.11"; # Did you read the comment?
 
