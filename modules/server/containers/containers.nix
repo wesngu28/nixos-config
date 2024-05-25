@@ -3,6 +3,7 @@
   ...
 }: {
   age.secrets.navidrome.file = ../../../secrets/navidrome.age;
+  age.secrets.diun.file = ../../../secrets/diun.age;
 
   virtualisation.oci-containers = {
     backend = "docker";
@@ -45,9 +46,9 @@
         autoStart = true;
         image = "crazymax/diun:latest";
         volumes = [
-          "/media/downloads:/output:rw"
           "/home/serpe/docker/diun:/data"
-          "/home/serpe/docker/diun/diun.yml:/diun.yml:ro"
+          "${config.age.secrets.diun.path}:/diun.yml:ro"
+          "/var/run/docker.sock:/var/run/docker.sock"
         ];
       };
 
@@ -91,24 +92,6 @@
       #   ];
       # };
 
-      # eventually, but already in other server
-      # "overleaf" = {
-      #   autoStart = true;
-      #   image = "lscr.io/linuxserver/freshrss:latest";
-      #   ports = ["7755:80"];
-      #   volumes = [
-      #     "/home/serpe/docker/freshrss:/config"
-      #   ];
-      #   environment = {
-      #     PUID = "1000";
-      #     PGID = "1000";
-      #     TZ = "America/Phoenix";
-      #   };
-      #   extraOptions = [
-      #     "--network=immich"
-      #   ];
-      # };
-
       "navidrome" = {
         autoStart = true;
         image = "deluan/navidrome:latest";
@@ -133,16 +116,6 @@
         volumes = [
           "/home/serpe/docker/picard:/config"
           "/multimedia/music:/storage:rw"
-        ];
-      };
-
-      "wallos" = {
-        autoStart = true;
-        image = "bellamy/wallos:latest";
-        ports = ["8282:80"];
-        volumes = [
-          "/home/serpe/docker/wallos/db:/var/www/html/db"
-          "/home/serpe/docker/wallos/logos:/var/www/html/images/uploads/logos"
         ];
       };
     };
