@@ -46,6 +46,8 @@
 
   xdg.dataFile."jellyfinmediaplayer/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
 
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     ./theme.nix
     ./xdg.nix

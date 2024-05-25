@@ -28,7 +28,6 @@
       "fullfeedrss" = {
         autoStart = true;
         image = "heussd/fivefilters-full-text-rss:latest";
-        ports = ["7756:80"];
         volumes = [
           "rss-cache:/var/www/html/cache"
         ];
