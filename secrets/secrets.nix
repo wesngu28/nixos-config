@@ -16,4 +16,8 @@ in {
   "feedcord.age".publicKeys = [serpe server_host];
 
   "navidrome.age".publicKeys = [serpe server_host];
+
+  "photoview.age".publicKeys = [serpe server_host];
+
+  "diun.age".publicKeys = [ serpe server_host];
 }

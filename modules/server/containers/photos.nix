@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{config, pkgs, ...}: {
+  age.secrets.photoview.file = ../../../secrets/photoview.age;
+
   virtualisation.oci-containers = {
     backend = "docker";
     containers = {
@@ -24,15 +26,9 @@
         image = "viktorstrate/photoview:2";
         ports = ["1941:80"];
         volumes = [
-          "/home/wesley/cameraroll:/photos:ro"
+          "/home/serpe/Camera Roll:/photos:ro"
         ];
-        environment = {
-          PHOTOVIEW_DATABASE_DRIVER = "mysql";
-          PHOTOVIEW_MYSQL_URL = "photoview:photosecret@tcp(db)/photoview";
-          PHOTOVIEW_LISTEN_IP = "photoview";
-          PHOTOVIEW_LISTEN_PORT = "80";
-          PHOTOVIEW_MEDIA_CACHE = "/app/cache";
-        };
+        environmentFiles = [ config.age.secrets.photoview.path ];
         extraOptions = [
           "--network=photoview"
         ];
