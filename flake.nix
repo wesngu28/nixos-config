@@ -84,10 +84,6 @@
           inputs.catppuccin.nixosModules.catppuccin
           inputs.aagl.nixosModules.default
           inputs.agenix.nixosModules.default
-          ./modules/core.nix
-          ./modules/share.nix
-          ./modules/programs.nix
-          ./modules/services/ssh.nix
         ];
       };
 
