@@ -13,8 +13,6 @@
     ../../modules/core.nix
     ../../modules/lab.nix
     ./server.nix
-    ../../modules/pc/gaming/waydroid.nix
-    ../../modules/pc/gaming/hoyoverse.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

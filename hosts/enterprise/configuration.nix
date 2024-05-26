@@ -13,6 +13,8 @@
     ./wireguard.nix
     ../../modules/core.nix
     ../../modules/desktop.nix
+    ../../modules/pc/gaming/waydroid.nix
+    ../../modules/pc/gaming/hoyoverse.nix
   ];
 
   home-manager.users."serpe" = {
