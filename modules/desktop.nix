@@ -9,8 +9,6 @@
     ./pc/kdeconnect.nix
     ./pc/syncthing.nix
     ./pc/gaming/gaming.nix
-    ./pc/gaming/waydroid.nix
-    ./pc/gaming/hoyoverse.nix
     ./pc/ssh.nix
   ];
 
