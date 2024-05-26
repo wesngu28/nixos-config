@@ -8,11 +8,11 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-
-    # for syncthing
     ./wireguard.nix
+    ../../modules/core.nix
+    ../../modules/lab.nix
+    ./server.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
