@@ -87,7 +87,7 @@
         ];
       };
 
-      # testing server config on laptop
+      # secondary (primary in terms of proximity i guess) server
       essex = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
@@ -102,19 +102,6 @@
           }: {
             services.vscode-server.enable = true;
           })
-          {
-            home-manager = {
-              extraSpecialArgs = {inherit inputs;};
-              users = {
-                "serpe" = {
-                  imports = [
-                    ./home/cli/zsh.nix
-                    ./home/cli/git.nix
-                  ];
-                };
-              };
-            };
-          }
         ];
       };
     };
