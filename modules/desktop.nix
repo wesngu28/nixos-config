@@ -12,6 +12,8 @@
     ./pc/ssh.nix
   ];
 
+  users.users.serpe.shell = pkgs.zsh;
+
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
 

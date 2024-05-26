@@ -7,7 +7,6 @@
     isNormalUser = true;
     description = "serpe";
     extraGroups = ["networkmanager" "wheel"];
-    shell = pkgs.zsh;
   };
 
   nix = {
