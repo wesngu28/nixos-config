@@ -59,7 +59,7 @@
           inputs.home-manager.nixosModules.default
           ./modules/core.nix
           ./modules/programs.nix
-          ./modules/gaming.nix
+          ./modules/gaming/gaming.nix
         ];
       };
 
@@ -72,11 +72,6 @@
           inputs.catppuccin.nixosModules.catppuccin
           inputs.aagl.nixosModules.default
           inputs.agenix.nixosModules.default
-          ./modules/core.nix
-          ./modules/share.nix
-          ./modules/programs.nix
-          ./modules/gaming.nix
-          ./modules/services/ssh.nix
         ];
       };
 
@@ -103,9 +98,6 @@
           ./hosts/essex/configuration.nix
           inputs.home-manager.nixosModules.default
           inputs.agenix.nixosModules.default
-          ./modules/share.nix
-          ./modules/lab.nix
-          ./modules/server/ssh.nix
           inputs.vscode-server.nixosModules.default
           ({
             config,
@@ -114,6 +106,19 @@
           }: {
             services.vscode-server.enable = true;
           })
+          {
+            home-manager = {
+              extraSpecialArgs = {inherit inputs;};
+              users = {
+                "serpe" = {
+                  imports = [
+                    ./home/cli/zsh.nix
+                    ./home/cli/git.nix
+                  ];
+                };
+              };
+            };
+          }
         ];
       };
     };
