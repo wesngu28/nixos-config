@@ -9,59 +9,54 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./wireguard.nix
+    ../../modules/core.nix
+    ../../modules/desktop.nix
   ];
 
-  # Bootloader.
-  boot.loader = {
-    grub.useOSProber = lib.mkDefault false;
-    systemd-boot.enable = lib.mkDefault true;
-    efi.canTouchEfiVariables = lib.mkDefault true;
+  home-manager.users."serpe" = {
+    home.packages = with pkgs; [
+      nicotine-plus
+    ];
+    imports = [
+      ./hyprland.nix
+    ];
   };
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  boot = {
+    loader = {
+      grub.useOSProber = lib.mkDefault false;
+      systemd-boot.enable = lib.mkDefault true;
+      efi.canTouchEfiVariables = lib.mkDefault true;
+    };
+
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
 
   networking.hostName = "enterprise";
 
-  # Set your time zone.
   time.timeZone = "America/Phoenix";
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  security.polkit.enable = true;
+  fileSystems = {
+    "/mnt/c" = {
+      device = "/dev/disk/by-uuid/AE28407128403A9B";
+      fsType = "ntfs";
+    };
 
-  fileSystems."/mnt/c" = {
-    device = "/dev/disk/by-uuid/AE28407128403A9B";
-    fsType = "ntfs";
+    "/mnt/d" = {
+      device = "/dev/disk/by-uuid/0A947D80947D6ED7";
+      fsType = "ntfs";
+    };
+
+    "/mnt/f" = {
+      device = "/dev/disk/by-uuid/C6223ECF223EC3E9";
+      fsType = "ntfs";
+    };
   };
-
-  fileSystems."/mnt/d" = {
-    device = "/dev/disk/by-uuid/0A947D80947D6ED7";
-    fsType = "ntfs";
-  };
-
-  fileSystems."/mnt/f" = {
-    device = "/dev/disk/by-uuid/C6223ECF223EC3E9";
-    fsType = "ntfs";
-  };
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 
   system.stateVersion = "23.11"; # Did you read the comment?
 }

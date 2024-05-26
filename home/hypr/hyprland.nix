@@ -40,11 +40,6 @@
       ];
 
       general = {
-        monitor = [
-          "DP-2,3440x1440@165,auto,auto"
-          "HDMI-A-1,1920x1280p@60,1920x0,auto"
-          ",preferred,auto,auto"
-        ];
         gaps_in = 10;
         gaps_out = 10;
         border_size = 3;

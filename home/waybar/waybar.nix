@@ -17,9 +17,6 @@ in {
       layer = "top";
       height = 5;
       margin-top = 2;
-      output = [
-        "DP-2"
-      ];
       modules-left = [
         "custom/playerctl#backward"
         "custom/playerctl#play"
