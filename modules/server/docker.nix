@@ -1,10 +1,10 @@
 {
   imports = [
-    ./server/containers/containers.nix
-    ./server/containers/media.nix
-    ./server/containers/rss.nix
-    ./server/containers/paperless.nix
-    ./server/containers/photos.nix
+    ./containers/containers.nix
+    ./containers/media.nix
+    ./containers/rss.nix
+    ./containers/paperless.nix
+    ./containers/photos.nix
   ];
 
   virtualisation = {
