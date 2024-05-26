@@ -16,7 +16,6 @@
   environment.systemPackages = with pkgs; [
     syncthing
     wireguard-tools
-    vim
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
   ];
@@ -31,12 +30,5 @@
     pam.services.login.enableGnomeKeyring = true;
   };
 
-  imports = [
-    ./programs/firefox.nix
-    ./programs/kdeconnect.nix
-    ./services/syncthing.nix
-  ];
-
-  # for nicotine-plus
   networking.firewall.allowedTCPPorts = [2234];
 }
