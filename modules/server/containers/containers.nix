@@ -112,7 +112,7 @@
       "picard" = {
         autoStart = true;
         image = "mikenye/picard:latest";
-        ports = ["5800:5800"];
+        ports = ["6000:5800"];
         volumes = [
           "/home/serpe/docker/picard:/config"
           "/multimedia/music:/storage:rw"
