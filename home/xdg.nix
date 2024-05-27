@@ -54,6 +54,11 @@
       "application/x-extension-xhtml+xml" = ["firefox.desktop"];
       "text/html" = ["firefox.desktop" "code.desktop"];
 
+      "application/zip" = "org.gnome.FileRoller.desktop";
+      "application/x-tar" = "org.gnome.FileRoller.desktop";
+      "application/x-bzip2" = "org.gnome.FileRoller.desktop";
+      "application/x-gzip" = "org.gnome.FileRoller.desktop";
+
       "text/csv" = ["code.desktop"];
       "text/markdown" = ["code.desktop"];
       "text/plain" = ["code.desktop"];
@@ -80,6 +85,7 @@
       "audio/ogg" = ["mpv.desktop"];
 
       "image/png" = ["imv.desktop"];
+      "image/jpg" = ["imv.desktop"];
       "image/jpeg" = ["imv.desktop"];
       "image/gif" = ["imv.desktop"];
 

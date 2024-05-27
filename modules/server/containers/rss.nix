@@ -13,7 +13,8 @@
         image = "lscr.io/linuxserver/freshrss:latest";
         ports = ["7755:80"];
         volumes = [
-          "/home/serpe/docker/freshrss:/config"
+          "/home/serpe/docker/freshrss/data:/config"
+          "/home/serpe/docker/freshrss/extensions:/extensions"
         ];
         environment = {
           PUID = "1000";

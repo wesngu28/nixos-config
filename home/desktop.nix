@@ -12,6 +12,7 @@
     bitwarden
     #veracrypt
     gnome.seahorse
+    gnome.file-roller
 
     feishin
     playerctl

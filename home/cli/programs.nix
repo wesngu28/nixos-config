@@ -14,11 +14,6 @@
     zip
   ];
 
-  programs.bat = {
-    enable = true;
-    catppuccin.enable = true;
-  };
-
   programs.btop = {
     enable = true;
     catppuccin.enable = true;

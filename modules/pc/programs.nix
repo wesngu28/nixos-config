@@ -13,6 +13,14 @@
     (nerdfonts.override {fonts = ["FiraCode"];})
   ];
 
+  fonts.fontconfig = {
+    defaultFonts = {
+      serif = ["Noto Serif"];
+      sansSerif = ["Noto Sans"];
+      monospace = ["FiraCode Nerd Font"];
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     syncthing
     wireguard-tools
