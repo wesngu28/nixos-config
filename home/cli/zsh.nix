@@ -10,6 +10,10 @@
       fastfetch
     '';
 
+    shellAliases = {
+      nixos = "cd ~/nixos-config";
+    };
+
     plugins = [
       {
         name = "powerlevel10k";

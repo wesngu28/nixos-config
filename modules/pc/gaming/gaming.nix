@@ -3,6 +3,8 @@
 
   environment.systemPackages = with pkgs; [
     lutris
+    steamtinkerlaunch
+    gamemode
   ];
 
   programs.steam = {

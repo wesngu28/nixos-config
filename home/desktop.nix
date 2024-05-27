@@ -30,6 +30,8 @@
     ./programs/vscode.nix
     ./programs/vencord.nix
     ./programs/spotify.nix
+    ./programs/imv.nix
+    ./programs/mpv.nix
     ./cli/direnv.nix
     ./cli/git.nix
     ./cli/zsh.nix
