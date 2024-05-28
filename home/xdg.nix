@@ -11,14 +11,13 @@
   };
 
   xdg.desktopEntries = {
-    firefox-trees = {
-      name = "Firefox Trees";
-      genericName = "Web Browser";
-      exec = "firefox -P \"treetabs\"";
-      icon = "firefox";
+    open_url = {
+      name = "Open Url";
+      genericName = "Open Url";
+      exec = "open_url %u";
       terminal = false;
-      categories = ["Network" "WebBrowser"];
-      mimeType = ["text/html" "text/xml"];
+      categories = ["Network"];
+      mimeType = ["x-scheme-handler/http" "x-scheme-handler/https"];
     };
 
     firefox-containers = {
