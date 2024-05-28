@@ -143,7 +143,6 @@
         "network.dnsCacheExpiration" = 3600;
         "network.dns.max_high_priority_threads" = 8;
         "network.ssl_tokens_cache_capacity" = 10240;
-        "network.dns.disablePrefetch" = false;
         "network.prefetch-next" = false;
         "network.predictor.enabled" = false;
 
@@ -163,10 +162,6 @@
         "uBlock0@raymondhill.net" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
-        };
-        "containerise@kinte.sh" = {
-          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/containerise/latest.xpi";
-          force_installed = true;
         };
       };
     };

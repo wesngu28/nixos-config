@@ -20,6 +20,7 @@
   home-manager.users."serpe" = {
     home.packages = with pkgs; [
       nicotine-plus
+      vivaldi
     ];
     imports = [
       ./hyprland.nix
@@ -28,9 +29,13 @@
 
   boot = {
     loader = {
-      grub.useOSProber = lib.mkDefault false;
-      systemd-boot.enable = lib.mkDefault true;
-      efi.canTouchEfiVariables = lib.mkDefault true;
+      efi.canTouchEfiVariables = true;
+      grub = {
+        enable = true;
+        devices = ["nodev"];
+        efiSupport = true;
+        useOSProber = true;
+      };
     };
 
     kernelPackages = pkgs.linuxPackages_latest;
@@ -45,7 +50,7 @@
 
   fileSystems = {
     "/mnt/c" = {
-      device = "/dev/disk/by-uuid/AE28407128403A9B";
+      device = "/dev/disk/by-uuid/6E6EF78E6EF74D79";
       fsType = "ntfs";
     };
 
