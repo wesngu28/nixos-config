@@ -28,28 +28,13 @@
         id = 1;
         name = "containers";
         settings = {
+          ui.prefersReducedMotion = "1";
           network.dns.disablePrefetch = true;
         };
       };
 
-      treetabs = {
-        id = 2;
-        name = "treetabs";
-        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
-          bitwarden
-          firefox-color
-          search-by-image
-          tree-style-tab
-        ];
-        userChrome = ''
-          #TabsToolbar {
-              visibility: collapse;
-            }
-        '';
-      };
-
       work = {
-        id = 3;
+        id = 2;
         name = "work";
       };
     };

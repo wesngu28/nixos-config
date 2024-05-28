@@ -27,6 +27,7 @@
     ./theme.nix
     ./xdg.nix
     ./programs/firefox.nix
+    ./programs/vivaldi.nix
     ./programs/vscode.nix
     ./programs/vencord.nix
     ./programs/spotify.nix
