@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   age.secrets.navidrome.file = ../../../secrets/navidrome.age;
   age.secrets.diun.file = ../../../secrets/diun.age;
 
@@ -112,7 +109,7 @@
       "picard" = {
         autoStart = true;
         image = "mikenye/picard:latest";
-        ports = ["6000:5800"];
+        ports = ["5900:5800"];
         volumes = [
           "/home/serpe/docker/picard:/config"
           "/multimedia/music:/storage:rw"
