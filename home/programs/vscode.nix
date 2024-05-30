@@ -36,6 +36,7 @@
       "editor.unicodeHighlight.invisibleCharacters" = true;
       "explorer.compactFolders" = false;
       "breadcrumbs.enabled" = false;
+      "editor.minimap.enabled" = false;
 
       # Terminal
       "terminal.integrated.defaultProfile.linux" = "zsh";

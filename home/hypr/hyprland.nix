@@ -98,18 +98,20 @@
       ];
 
       windowrulev2 = [
-        "workspace 4, class:^(lutris)$"
-        "workspace 4, class:^(steam)$"
-        "workspace 4, initialclass:^(battle.net.exe)$"
+        "workspace 6, class:^(lutris)$"
+        "workspace 6, class:^(steam)$"
+        "workspace 6, initialclass:^(battle.net.exe)$"
         "workspace 3, initialtitle:(Spotify Premium)"
         "workspace 3, title:(Nicotine+)"
         "workspace 3, title:(Jellyfin Media Player)"
         "workspace 5, title:^(Waydroid)$"
         "workspace 2, class:^(vesktop)$"
         "workspace 1, class:^(code-url-handler)$"
-        "workspace 6,class:^(obsidian)"
+        "workspace 4, class:^(obsidian)"
+        "workspace 4, class:^(floorp)"
 
         "opacity 0.93 0.93,class:^(kitty)$"
+        "opacity 0.93 0.93,class:^(floorp)$"
         "opacity 0.93 0.93,class:^(obsidian)$"
         "opacity 0.93 0.93,class:^(vesktop)$"
         "opacity 0.93 0.93,class:^(kitty)$"

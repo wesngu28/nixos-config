@@ -21,11 +21,6 @@
     home.packages = with pkgs; [
       nicotine-plus
       # vivaldi
-
-      /*
-      1. Add Betterfox user.js
-      2. Install UBlock, Sideberry (better than tst)
-      */
       floorp
     ];
     imports = [
