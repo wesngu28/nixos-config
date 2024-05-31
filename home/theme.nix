@@ -6,7 +6,7 @@
   ];
 
   catppuccin = {
-    flavour = "mocha";
+    flavor = "mocha";
     accent = "lavender";
   };
 
