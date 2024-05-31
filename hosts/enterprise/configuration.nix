@@ -30,13 +30,9 @@
 
   boot = {
     loader = {
-      efi.canTouchEfiVariables = true;
-      grub = {
-        enable = true;
-        devices = ["nodev"];
-        efiSupport = true;
-        useOSProber = true;
-      };
+      grub.useOSProber = lib.mkDefault false;
+      systemd-boot.enable = lib.mkDefault true;
+      efi.canTouchEfiVariables = lib.mkDefault true;
     };
 
     kernelPackages = pkgs.linuxPackages_latest;
