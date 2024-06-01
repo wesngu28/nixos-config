@@ -14,7 +14,7 @@
         ports = ["7755:80"];
         volumes = [
           "/home/serpe/docker/freshrss/data:/config"
-          "/home/serpe/docker/freshrss/extensions:/extensions"
+          "/home/serpe/docker/freshrss/extensions:/config/www/freshrss/extensions"
         ];
         environment = {
           PUID = "1000";
@@ -32,6 +32,7 @@
         volumes = [
           "rss-cache:/var/www/html/cache"
         ];
+        ports = ["7756:80"];
         environment = {
           FTR_ADMIN_PASSWORD = "s";
         };
@@ -62,7 +63,7 @@
     wantedBy = ["multi-user.target"];
     before = [
       "docker-freshrss.service"
-      "docker-fullfeed.service"
+      "docker-fullfeedrss.service"
     ];
     serviceConfig.Type = "oneshot";
     script = ''
