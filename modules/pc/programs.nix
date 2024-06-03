@@ -38,5 +38,10 @@
     pam.services.login.enableGnomeKeyring = true;
   };
 
+  services.xserver.displayManager.sessionCommands = ''
+    eval $(gnome-keyring-daemon --daemonize)
+    export SSH_AUTH_SOCK
+  '';
+
   networking.firewall.allowedTCPPorts = [2234];
 }
