@@ -29,45 +29,45 @@
         ];
       };
 
-     # "sabnzbd" = {
-      #   autoStart = true;
-      #   image = "lscr.io/linuxserver/sabnzbd:latest";
-      #   ports = ["8080:8080"];
-      #   volumes = [
-      #     "/etc/localtime:/etc/localtime:ro"
-      #     "/home/serpe/docker/arr/sabnzbd:/config"
-      #     "/multimedia/usenet:/data/usenet"
-      #   ];
-      #   environment = {
-      #     PUID = "1000";
-      #     PGID = "1000";
-      #     TZ = "America/Phoenix";
-      #   };
-      #   extraOptions = [
-      #     "--network=arr"
-      #   ];
-      # };
+      "sabnzbd" = {
+        autoStart = true;
+        image = "lscr.io/linuxserver/sabnzbd:latest";
+        ports = ["8080:8080"];
+        volumes = [
+          "/etc/localtime:/etc/localtime:ro"
+          "/home/serpe/docker/arr/sabnzbd:/config"
+          "/multimedia/usenet:/data/usenet"
+        ];
+        environment = {
+          PUID = "1000";
+          PGID = "1000";
+          TZ = "America/Phoenix";
+        };
+        extraOptions = [
+          "--network=arr"
+        ];
+      };
 
-      # "lidarr" = {
-      #   autoStart = true;
-      #   image = "youegraillot/lidarr-on-steroids";
-      #   ports = ["8686:8686" "6595:6595"];
-      #   volumes = [
-      #     "/home/serpe/docker/arr/lidarr:/config"
-      #     "/home/serpe/docker/arr/lidarr/deemix:/config_deemix"
-      #     "/home/serpe/multimedia:/data"
-      #   ];
-      #   environment = {
-      #     PUID = "1000";
-      #     PGID = "1000";
-      #     TZ = "America/Phoenix";
-      #     AUTOCONFIG = "true";
-      #     FLAC2CUSTOM_ARGS = "true";
-      #   };
-      #   extraOptions = [
-      #     "--network=arr"
-      #   ];
-      # };
+      "lidarr" = {
+        autoStart = true;
+        image = "youegraillot/lidarr-on-steroids";
+        ports = ["8686:8686" "6595:6595"];
+        volumes = [
+          "/home/serpe/docker/arr/lidarr:/config"
+          "/home/serpe/docker/arr/lidarr/deemix:/config_deemix"
+          "/home/serpe/multimedia:/data"
+        ];
+        environment = {
+          PUID = "1000";
+          PGID = "1000";
+          TZ = "America/Phoenix";
+          AUTOCONFIG = "true";
+          FLAC2CUSTOM_ARGS = "true";
+        };
+        extraOptions = [
+          "--network=arr"
+        ];
+      };
 
       # "prowlarr" = {
       #   autoStart = true;
