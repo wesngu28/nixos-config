@@ -55,7 +55,7 @@
         volumes = [
           "/home/serpe/docker/arr/lidarr:/config"
           "/home/serpe/docker/arr/lidarr/deemix:/config_deemix"
-          "/home/serpe/multimedia:/data"
+          "/multimedia:/data"
         ];
         environment = {
           PUID = "1000";
