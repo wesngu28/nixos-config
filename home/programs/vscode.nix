@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
 
     userSettings = {
       # Workbench
@@ -12,11 +11,9 @@
       "workbench.iconTheme" = "material-icon-theme";
       "workbench.tips.enabled" = false;
       "workbench.list.smoothScrolling" = true;
-      "workbench.editor.tabCloseButton" = "off";
-      "workbench.activityBar.visible" = false;
+      # "workbench.activityBar.visible" = false;
+      "workbench.activityBar.location" = "hidden";
       "workbench.layoutControl.enabled" = false;
-
-      "window.menuBarVisibility" = "compact";
       "window.titleBarStyle" = "custom";
 
       # Git
@@ -27,11 +24,10 @@
       # Editor
       "diffEditor.ignoreTrimWhitespace" = false;
       "editor.fontSize" = 14.5;
-      "editor.cursorBlinking" = "phase";
+      "editor.cursorBlinking" = "smooth";
       "editor.cursorWidth" = 4;
       "editor.fontFamily" = "Fira Code";
       "editor.fontLigatures" = true;
-      "editor.fontVariations" = true;
       "editor.guides.bracketPairs" = "active";
       "editor.guides.indentation" = false;
       "editor.lineHeight" = 1.45;
@@ -70,7 +66,6 @@
       "files.insertFinalNewline" = false;
       "files.trimTrailingWhitespace" = true;
       "files.trimFinalNewlines" = true;
-
       "extensions.ignoreRecommendations" = true;
 
       # Prettier
@@ -82,8 +77,6 @@
 
       "gitblame.inlineMessageEnabled" = true;
       "vim.useSystemClipboard" = true;
-
-      "typescript.surveys.enabled" = false;
     };
 
     extensions = with pkgs.vscode-extensions;
@@ -110,6 +103,12 @@
         vscodevim.vim
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "remote-ssh-edit";
+          publisher = "ms-vscode-remote";
+          version = "0.86.0";
+          sha256 = "sha256-JsbaoIekUo2nKCu+fNbGlh5d1Tt/QJGUuXUGP04TsDI=";
+        }
         {
           name = "remote-explorer";
           publisher = "ms-vscode";
