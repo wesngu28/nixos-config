@@ -15,6 +15,7 @@
     ../../modules/desktop.nix
     ../../modules/pc/gaming/waydroid.nix
     ../../modules/pc/gaming/hoyoverse.nix
+    ./libvirtd.nix
   ];
 
   home-manager.users."serpe" = {
