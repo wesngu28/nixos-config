@@ -22,8 +22,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    syncthing
-    wireguard-tools
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
   ];

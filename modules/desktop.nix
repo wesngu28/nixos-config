@@ -12,6 +12,10 @@
     ./pc/ssh.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    inputs.agenix.packages."${pkgs.system}".default
+  ];
+
   users.users.serpe.shell = pkgs.zsh;
 
   networking.networkmanager.enable = true;

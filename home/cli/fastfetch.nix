@@ -73,7 +73,7 @@
             },
             {
                 "type": "memory",
-                "key": "└󰑭",
+                "key": "├󰑭",
                 "keyColor": "green"
             },
             {

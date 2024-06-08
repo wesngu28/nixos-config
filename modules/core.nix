@@ -43,7 +43,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    inputs.agenix.packages."${pkgs.system}".default
     (pkgs.writeShellScriptBin "rebuild" ''
       # if git diff --quiet '*.nix'; then
       #     echo "No changes detected, exiting."

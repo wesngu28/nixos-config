@@ -20,7 +20,8 @@ in {
     };
   };
 
-  home.packages = [
+  home.packages = with pkgs; [
+    # waypaper
     (pkgs.writeShellScriptBin
       "wallpaper"
       ''

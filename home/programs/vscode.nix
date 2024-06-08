@@ -12,8 +12,9 @@
       "workbench.tips.enabled" = false;
       "workbench.list.smoothScrolling" = true;
       # "workbench.activityBar.visible" = false;
-      "workbench.activityBar.location" = "hidden";
+      "workbench.activityBar.location" = "top";
       "workbench.layoutControl.enabled" = false;
+      "window.menuBarVisibility" = "compact";
       "window.titleBarStyle" = "custom";
 
       # Git
