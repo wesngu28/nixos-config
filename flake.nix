@@ -58,8 +58,6 @@
           ./hosts/langley/configuration.nix
           inputs.home-manager.nixosModules.default
           ./modules/core.nix
-          ./modules/programs.nix
-          ./modules/gaming/gaming.nix
         ];
       };
 
@@ -84,6 +82,16 @@
           inputs.catppuccin.nixosModules.catppuccin
           inputs.aagl.nixosModules.default
           inputs.agenix.nixosModules.default
+        ];
+      };
+
+      # work vm
+      ranger = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/ranger/configuration.nix
+          inputs.home-manager.nixosModules.default
+          inputs.catppuccin.nixosModules.catppuccin
         ];
       };
 

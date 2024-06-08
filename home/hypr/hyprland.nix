@@ -101,6 +101,7 @@
         "workspace 6, class:^(lutris)$"
         "workspace 6, class:^(steam)$"
         "workspace 6, initialclass:^(battle.net.exe)$"
+        "workspace 6, class:^(the-honkers-railway-launcher)$"
         "workspace 3, initialtitle:(Spotify Premium)"
         "workspace 3, title:(Nicotine+)"
         "workspace 3, title:(Jellyfin Media Player)"
@@ -126,7 +127,7 @@
 
         "suppressevent maximize, class:.*"
         "fullscreen,title:^(Waydroid)$"
-        "float,class:^(thunar)$"
+        # "float,class:^(thunar)$"
         "float,class:^(btop)$"
         "float,class:^(yazi)$"
         "float,class:^(imv)$"
