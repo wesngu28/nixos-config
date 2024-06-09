@@ -1,7 +1,5 @@
 # nixos-config
 
-A terrible nixos config.
-
 ## Hosts
 
 US ww2 carriers
@@ -32,40 +30,64 @@ Secondary home server, primary one still runs Debian but most tasks have been of
 - Paperless NGX
 - RSS Reader: FreshRSS
 
+5. [Ranger](https://en.wikipedia.org/wiki/USS_Ranger_(CV-4)) (work virtual machine)
+
 ### Installation
 
-Clone repository to /mnt/etc/nixos-config
+- For graphical installer, clone the repository and `sudo nixos-rebuild switch --flake .#host`
 
-`sudo nixos-install --flake .#host` or `sudo nixos-install --flake  https://github.com/wesngu28/nixos-config#host`
+- For minimal installer,
+
+    Clone repository to /mnt/etc/nixos-config
+
+    `sudo nixos-install --flake .#host` or `sudo nixos-install --flake  https://github.com/wesngu28/nixos-config#host`
 
 Post Installation
 
-1. wireguard
+- For Wireguard
 
-    - If host will be accessing server, run wireguard.sh to generate wireguard keys
+    - Run wireguard.sh to generate wireguard keys
 
     - add system pub from /etc/ssh for agenix, add wireguard conf or system
 
     - scp ~/.ssh/id_ed25519.pub hostname:/home/serpe/.ssh
 id_ed25519.pub
 
-2. Finish Syncthing setup
+- For Syncthing, accept all the incoming requests and outgoing requests
 
-3. Set up waydroid, and run
-
-    whatever the monitor resolution is
+- For Waydroid, init it with GAPPS, then run below for whatever the monitor resolution is
     - `waydroid prop set persist.waydroid.width "3440"`
     - `waydroid prop set persist.waydroid.height "1440"`
 
-4. Finish set up of relevant home lab services
+- For home labs, set up of the relevant home lab services
 
-5. If the system will commit to github, generate ssh key for it
-6. For Floorp (or whatever vertical browser firefox derivative)
+- For github, if the system will commit to github, generate ssh key for it
+
+- For Floorp (or whatever vertical browser firefox derivative)
     1. Add Betterfox user.js
-    2. Install UBlock, Sideberry (better than tst)
+    2. Install UBlock, Sideberry
+
+- For Obsidian, enable custom themes and turn on catppuccin mocha
+
+- For qemu vms, create them with virt-manager or terminal  virt-install
+
+`sudo virt-install \
+  --name NAME \
+  --ram 4096 \
+  --vcpus 2 \
+  --os-variant VARIANT \
+  --network bridge=br0 \
+  --graphics spice \
+  --cdrom ISOLOCATION \
+  --disk path=/var/lib/libvirt/images/NAMEwork.qcow2,format=qcow2
+`
+
+- For vms that might need anyconnect, add it through network manager.
 
 ### To Do
 
 1. Migrate the primary home server to nix when I am physically at home
 
-2. Starship
+2. Attempt to setup Mod Organizer 2 for skyrim modding. This can be done not the nix way.
+
+3. Starship

@@ -25,7 +25,7 @@
       # Editor
       "diffEditor.ignoreTrimWhitespace" = false;
       "editor.fontSize" = 14.5;
-      "editor.cursorBlinking" = "smooth";
+      "editor.cursorBlinking" = "phase";
       "editor.cursorWidth" = 4;
       "editor.fontFamily" = "Fira Code";
       "editor.fontLigatures" = true;

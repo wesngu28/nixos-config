@@ -39,7 +39,19 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  networking.hostName = "enterprise";
+  networking = {
+    hostName = "enterprise";
+    useDHCP = false;
+    bridges."br0".interfaces = ["enp34s0"];
+    interfaces.br0.ipv4.addresses = [
+      {
+        address = "10.60.80.102";
+        prefixLength = 24;
+      }
+    ];
+    defaultGateway = "10.60.80.1";
+    nameservers = ["10.60.80.1"];
+  };
 
   time.timeZone = "America/Phoenix";
 

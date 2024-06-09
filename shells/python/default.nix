@@ -1,16 +1,21 @@
-{pkgs ? import <nixpkgs> {}}:
-pkgs.mkShell
-{
-  nativeBuildInputs = with pkgs; [
-    python3
-    python311Packages.pip
-  ];
+with import <nixpkgs> {}; let
+  pythonPackages = python3Packages;
+in
+  pkgs.mkShell rec {
+    name = "pythonEnv";
+    venvDir = "./.venv";
+    buildInputs = [
+      pythonPackages.python
+      pythonPackages.venvShellHook
+    ];
 
-  shellHook = ''
-    VENV=.venv
-    if test ! -d $VENV; then
-      python -m venv $VENV
-    fi
-    source ./$VENV/bin/activate
-  '';
-}
+    postVenvCreation = ''
+      unset SOURCE_DATE_EPOCH
+      pip install -r requirements.txt
+    '';
+
+    # postShellHook = ''
+    #   # allow pip to install wheels
+    #   unset SOURCE_DATE_EPOCH
+    # '';
+  }
