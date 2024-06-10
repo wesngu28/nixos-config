@@ -12,6 +12,8 @@
 in {
   programs.waybar = {
     enable = true;
+    catppuccin.enable = true;
+
     settings.mainBar = {
       position = "top";
       layer = "top";
@@ -126,17 +128,8 @@ in {
           background: none;
       }
 
-      #workspaces button {
-          color: ${custom.text_color};
-      }
-
-      #workspaces button.active {
-          color: #cba6f7;
-      }
-
       #custom-playerctl, #workspaces, #tray, #pulseaudio, #memory, #disk, #clock, #custom-power {
           background: ${custom.background};
-          color: ${custom.text_color};
           padding: 0 0.6em;
           margin-right: 4px;
           margin-left: 2px;

@@ -26,7 +26,6 @@
       "diffEditor.ignoreTrimWhitespace" = false;
       "editor.fontSize" = 14.5;
       "editor.cursorBlinking" = "phase";
-      "editor.cursorWidth" = 4;
       "editor.fontFamily" = "Fira Code";
       "editor.fontLigatures" = true;
       "editor.guides.bracketPairs" = "active";
