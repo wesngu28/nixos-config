@@ -89,7 +89,3 @@ id_ed25519.pub
 1. Migrate the primary home server to nix when I am physically at home
 
 2. Attempt to setup Mod Organizer 2 for skyrim modding. This can be done not the nix way.
-
-3. Starship
-
-4. Use a twm of some kind in the vm preferably

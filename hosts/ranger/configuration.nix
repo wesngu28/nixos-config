@@ -30,14 +30,20 @@
   };
   services.desktopManager.plasma6.enable = true;
 
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+  };
+
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    akonadi
+    baloo
     plasma-browser-integration
     elisa
     gwenview
     kate
     khelpcenter
     kmailtransport
-    konsole
     okular
     oxygen
     print-manager
@@ -62,11 +68,8 @@
         imports = [
           ../../home/core.nix
           ../../home/programs/vscode.nix
-          ../../home/programs/imv.nix
-          ../../home/cli/direnv.nix
           ../../home/cli/git.nix
           ../../home/cli/zsh.nix
-          ../../home/kitty/kitty.nix
           inputs.catppuccin.homeManagerModules.catppuccin
         ];
       };
