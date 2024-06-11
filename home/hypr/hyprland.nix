@@ -35,6 +35,7 @@
         "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user start graphical-session.target"
         "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
+        "gnome-keyring-daemon --start --components=secrets"
         "thunar --daemon"
         "vesktop"
         "wallpaper"
