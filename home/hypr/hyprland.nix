@@ -90,7 +90,6 @@
       dwindle = {
         pseudotile = true;
         preserve_split = true;
-        # force_split = 2;
       };
 
       windowrule = [
@@ -98,9 +97,12 @@
       ];
 
       windowrulev2 = [
+        "workspace 7, class:^(virt-manager)$"
         "workspace 6, class:^(lutris)$"
         "workspace 6, class:^(steam)$"
-        "workspace 6, initialclass:^(battle.net.exe)$"
+        "workspace 6, class:^(explorer.exe)$"
+        "workspace 6, class:^(battle.net.exe)$"
+        "workspace 6, class:^(sc2_x64.exe)$"
         "workspace 6, class:^(the-honkers-railway-launcher)$"
         "workspace 3, initialtitle:(Spotify Premium)"
         "workspace 3, title:(Nicotine+)"
@@ -128,6 +130,7 @@
         "suppressevent maximize, class:.*"
         "fullscreen,title:^(Waydroid)$"
         # "float,class:^(thunar)$"
+        "float,class:^(battle.net.exe)$"
         "float,class:^(btop)$"
         "float,class:^(yazi)$"
         "float,class:^(imv)$"
@@ -193,7 +196,7 @@
         "$mainMod, F, fullscreen"
         "$mainMod, V, togglefloating"
         "$mainMod, P, pseudo"
-        "$mainMod, J, togglesplit"
+        # "$mainMod, J, togglesplit"
         "$mainMod, N, splitratio, 0.3"
         "$mainMod, B, splitratio, -0.3"
 
@@ -202,10 +205,10 @@
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
 
-        "$mainMod SHIFT, l, movewindow, l"
-        "$mainMod SHIFT, h, movewindow, r"
-        "$mainMod SHIFT, j, movewindow, u"
-        "$mainMod SHIFT, k, movewindow, d"
+        "$mainMod, l, movewindow, l"
+        "$mainMod, h, movewindow, r"
+        "$mainMod, j, movewindow, u"
+        "$mainMod, k, movewindow, d"
 
         "$mainMod SHIFT, x, exec, pkill waybar"
         "$mainMod, x, exec, hyprctl dispatch exec waybar"
@@ -233,13 +236,12 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
 
-        "$mainMod SHIFT, b, exec, hyprctl dispatch exec waybar"
         "$mainMod, S, exec, grimblast copy area"
         "$mainMod, M, exec, pkill -USR1 hyprlock"
         "$mainMod SHIFT, L, exec, hyprlock"
 
         # "$mainMod, mouse_down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+"
-        # "$mainMod, mouse_downe, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-"
+        # "$mainMod, mouse_up, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-"
       ];
 
       bindm = [

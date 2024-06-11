@@ -13,7 +13,6 @@ in {
   programs.waybar = {
     enable = true;
     catppuccin.enable = true;
-
     settings.mainBar = {
       position = "top";
       layer = "top";
@@ -26,7 +25,7 @@ in {
         "custom/playerctl"
       ];
       modules-center = ["hyprland/workspaces"];
-      modules-right = ["tray" "pulseaudio" "custom/power" "clock"];
+      modules-right = ["tray" "pulseaudio" "clock" "custom/power"];
       clock = {
         format = " {:%I:%M %a %d}";
         tooltip = "true";
@@ -43,6 +42,15 @@ in {
         disable-scroll = true;
         format = "{icon}";
         on-click = "activate";
+        format-icons = {
+          "1" = "";
+          "2" = "";
+          "3" = "";
+          "4" = "";
+          "5" = "󰓷";
+          "6" = "";
+          "7" = "";
+        };
       };
       memory = {
         format = "󰟜 {used} GiB";
@@ -106,7 +114,7 @@ in {
         tooltip = false;
       };
       "custom/playerctl" = {
-        format = " {}";
+        format = "  {}";
         exec = "playerctl metadata --format '{{artist}} - {{title}}' --ignore-player firefox -F";
         max-length = 40;
       };
@@ -129,13 +137,42 @@ in {
       }
 
       #custom-playerctl, #workspaces, #tray, #pulseaudio, #memory, #disk, #clock, #custom-power {
-          background: ${custom.background};
           padding: 0 0.6em;
           margin-right: 4px;
           margin-left: 2px;
           margin-top: 1px;
           margin-bottom: 1px;
+      }
+
+      #clock {
+        color: #cba6f7;
+      }
+
+      #pulseaudio {
+        color: #89dceb;
+      }
+
+      #custom-power {
+        color: #f38ba8;
+      }
+
+      .modules-right,.modules-left,.modules-center {
+          background-color: ${custom.background};
           border-radius: 7px;
+          margin-right: 4px;
+          margin-left: 2px;
+      }
+
+      .modules-right {
+          margin-right: 4px;
+      }
+
+      .modules-left {
+          margin-left: 4px;
+      }
+
+      #workspaces button.active {
+          color: #b4befe;
       }
     '';
   };

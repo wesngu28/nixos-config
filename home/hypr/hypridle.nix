@@ -34,7 +34,7 @@ in {
           inner_color = "rgb(585b70)";
           font_color = "rgb(cdd6f4)";
           fade_on_empty = false;
-          placeholder_text = ''<i><span foreground="#cdd6f4">Input Password...</span></i>'';
+          placeholder_text = ''Input Password...'';
           hide_input = false;
           position = {
             x = 0;

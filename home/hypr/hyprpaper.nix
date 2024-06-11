@@ -22,6 +22,23 @@ in {
 
   home.packages = with pkgs; [
     # waypaper
+    (
+      pkgs.writeShellScriptBin
+      "test-wall"
+      ''
+        if [ $# -ne 1 ]; then
+          echo "Usage: $0 <background>"
+          exit 1
+        fi
+
+        background="$1"
+
+        hyprctl hyprpaper unload all
+        hyprctl hyprpaper preload ~/Wallpapers/$background
+
+        hyprctl hyprpaper wallpaper "DP-2, ~/Wallpapers/$background"
+      ''
+    )
     (pkgs.writeShellScriptBin
       "wallpaper"
       ''
