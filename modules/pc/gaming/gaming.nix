@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     lutris
     gamemode
+    bottles
   ];
 
   programs.steam = {

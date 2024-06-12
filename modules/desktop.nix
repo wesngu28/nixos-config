@@ -47,6 +47,8 @@
         Option "VariableRefresh" "True"
       '';
 
+      excludePackages = [pkgs.xterm];
+
       # libinput.enable = true;
     };
 

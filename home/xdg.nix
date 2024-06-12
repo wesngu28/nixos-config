@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   xdg.enable = true;
   xdg.portal = {
     enable = true;
@@ -18,6 +22,7 @@
       terminal = false;
       categories = ["Network"];
       mimeType = ["x-scheme-handler/http" "x-scheme-handler/https"];
+      noDisplay = true;
     };
 
     firefox-containers = {
@@ -83,10 +88,10 @@
       "audio/flac" = ["mpv.desktop"];
       "audio/ogg" = ["mpv.desktop"];
 
-      "image/png" = ["imv.desktop"];
-      "image/jpg" = ["imv.desktop"];
-      "image/jpeg" = ["imv.desktop"];
-      "image/gif" = ["imv.desktop"];
+      "image/png" = ["imv.desktop" "gimp.desktop" "pinta.desktop"];
+      "image/jpg" = ["imv.desktop" "gimp.desktop" "pinta.desktop"];
+      "image/jpeg" = ["imv.desktop" "gimp.desktop" "pinta.desktop"];
+      "image/gif" = ["imv.desktop" "gimp.desktop" "pinta.desktop"];
 
       "inode/directory" = ["thunar.desktop"];
 
@@ -94,4 +99,12 @@
       "x-scheme-handler/https" = ["open_url.desktop"];
     };
   };
+
+  home.activation.hideApps =
+    inputs.home-manager.lib.hm.dag.entryAfter ["writeBoundary"]
+    ''
+      sed -i 's/Icon=.*/NoDisplay=true/' ~/.local/share/applications/waydroid*.desktop || true
+      sed -i 's/Icon=.*/NoDisplay=true/' ~/.local/share/applications/Proton*.desktop || true
+      sed -i 's/Icon=.*/NoDisplay=true/' ~/.local/share/applications/Steam*.desktop || true
+    '';
 }
