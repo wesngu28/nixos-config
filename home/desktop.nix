@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     gimp
+    pinta
+    asunder
     (vesktop.override {
       withSystemVencord = false;
     })
@@ -17,6 +19,8 @@
     feishin
     playerctl
     jellyfin-media-player
+
+    syncthingtray
   ];
 
   nixpkgs.config.allowUnfree = true;
