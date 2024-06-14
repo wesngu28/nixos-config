@@ -14,7 +14,7 @@
       # "workbench.activityBar.visible" = false;
       "workbench.activityBar.location" = "top";
       "workbench.layoutControl.enabled" = false;
-      "window.menuBarVisibility" = "compact";
+      # "window.menuBarVisibility" = "compact";
       "window.titleBarStyle" = "custom";
 
       # Git

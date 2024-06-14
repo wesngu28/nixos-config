@@ -25,8 +25,8 @@ if [[ -n "$floorp_windows" ]]; then
     floorp --new-tab "$url" &
 else
     if [[ -n "$firefox_windows" ]]; then
-        # current_ff_address=$(echo "$firefox_windows" | jq -r ".address")
-        # hyprctl dispatch focuswindow address:"$current_ff_address"
+        current_ff_address=$(echo "$firefox_windows" | jq -r ".address")
+        hyprctl dispatch focuswindow address:"$current_ff_address"
         firefox --new-tab "$url" &
     else
         firefox --new-window "$url" &
