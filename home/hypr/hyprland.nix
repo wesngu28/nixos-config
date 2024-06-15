@@ -46,6 +46,7 @@
         gaps_out = 10;
         border_size = 3;
         no_border_on_floating = true;
+        "col.active_border" = "rgb(b4befe)";
         layout = "dwindle";
 
         allow_tearing = false;

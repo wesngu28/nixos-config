@@ -22,7 +22,7 @@
         horizontal_padding = "12";
         markup = "full";
         transparency = "15";
-        frame_color = lib.mkForce "#85796f";
+        # frame_color = lib.mkForce "#85796f";
       };
 
       urgency_low = {
