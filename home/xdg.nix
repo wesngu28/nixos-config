@@ -25,6 +25,16 @@
       noDisplay = true;
     };
 
+    firefox-trees = {
+      name = "Firefox Trees";
+      genericName = "Web Browser";
+      exec = "firefox -P \"treetabs\"";
+      icon = "firefox";
+      terminal = false;
+      categories = ["Network" "WebBrowser"];
+      mimeType = ["text/html" "text/xml"];
+    };
+
     firefox-containers = {
       name = "Firefox Containers";
       genericName = "Web Browser";

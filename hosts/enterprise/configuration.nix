@@ -21,9 +21,8 @@
   home-manager.users."serpe" = {
     home.packages = with pkgs; [
       nicotine-plus
-      # vivaldi
-      floorp
     ];
+
     imports = [
       ./hyprland.nix
     ];

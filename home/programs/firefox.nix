@@ -73,9 +73,19 @@
         };
       };
 
-      work = {
+      treetabs = {
         id = 2;
-        name = "work";
+        name = "treetabs";
+        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+          bitwarden
+          firefox-color
+          search-by-image
+        ];
+        userChrome = ''
+          #TabsToolbar {
+              visibility: collapse;
+            }
+        '';
       };
     };
   };
