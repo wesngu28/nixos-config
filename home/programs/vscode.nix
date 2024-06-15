@@ -25,7 +25,8 @@
       # Editor
       "diffEditor.ignoreTrimWhitespace" = false;
       "editor.fontSize" = 14.5;
-      "editor.cursorBlinking" = "phase";
+      "editor.cursorBlinking" = "smooth";
+      "editor.cursorWidth" = "3";
       "editor.fontFamily" = "Fira Code";
       "editor.fontLigatures" = true;
       "editor.guides.bracketPairs" = "active";
@@ -100,7 +101,6 @@
         usernamehw.errorlens
         kamadorueda.alejandra
         waderyan.gitblame
-        vscodevim.vim
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
