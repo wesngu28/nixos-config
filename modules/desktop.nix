@@ -66,11 +66,9 @@
 
   hardware = {
     pulseaudio.enable = false;
-
-    opengl = {
+    graphics = {
+      enable32Bit = true;
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
     };
   };
 

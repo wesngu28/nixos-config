@@ -30,10 +30,7 @@
   };
   services.desktopManager.plasma6.enable = true;
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-  };
+  hardware.opengl.enable = true;
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     akonadi
