@@ -113,7 +113,8 @@
   home.activation.hideApps =
     inputs.home-manager.lib.hm.dag.entryAfter ["writeBoundary"]
     ''
-      sed -i 's/Icon=.*/NoDisplay=true/' ~/.local/share/applications/waydroid*.desktop || true
+      sed -i 's/Icon=.*/NoDisplay=true/' ~/.local/share/applications/waydroid.com.desktop || true
+      sed -i 's/Icon=.*/NoDisplay=true/' ~/.local/share/applications/waydroid.org.desktop || true
       sed -i 's/Icon=.*/NoDisplay=true/' ~/.local/share/applications/Proton*.desktop || true
       sed -i 's/Icon=.*/NoDisplay=true/' ~/.local/share/applications/Steam*.desktop || true
     '';
