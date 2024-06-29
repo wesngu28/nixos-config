@@ -17,6 +17,7 @@
     systemd.enable = true;
     xwayland.enable = true;
     catppuccin.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
     settings = {
       env = [
@@ -48,7 +49,6 @@
         no_border_on_floating = true;
         "col.active_border" = "rgb(b4befe)";
         layout = "dwindle";
-
         allow_tearing = false;
       };
 
@@ -94,10 +94,6 @@
         preserve_split = true;
       };
 
-      windowrule = [
-        "fullscreen,0,waydroid"
-      ];
-
       windowrulev2 = [
         "workspace 7, class:^(virt-manager)$"
         "workspace 6, class:^(lutris)$"
@@ -131,6 +127,7 @@
 
         "suppressevent maximize, class:.*"
         "fullscreen,title:^(Waydroid)$"
+
         # "float,class:^(thunar)$"
         "float,class:^(battle.net.exe)$"
         "float,class:^(btop)$"

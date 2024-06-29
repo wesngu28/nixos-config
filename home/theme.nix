@@ -1,15 +1,14 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
     breeze-icons
     libsForQt5.qt5ct
     qt6Packages.qtstyleplugin-kvantum
   ];
-
-  catppuccin = {
-    flavor = "mocha";
-    accent = "lavender";
-  };
 
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
@@ -27,7 +26,10 @@
 
   gtk = {
     enable = true;
-    catppuccin.enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome.gnome-themes-extra;
+    };
     iconTheme = {
       name = "Papirus";
       package = pkgs.catppuccin-papirus-folders.override {

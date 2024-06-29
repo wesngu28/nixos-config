@@ -34,16 +34,6 @@
               definedAliases = ["@b"];
             };
 
-            "DuckDuckGo" = {
-              urls = [{template = "https://duckduckgo.com/?q={searchTerms}";}];
-              definedAliases = ["d"];
-            };
-
-            "StartPage" = {
-              urls = [{template = "https://www.startpage.com/sp/search?query={searchTerms}";}];
-              definedAliases = ["@sp"];
-            };
-
             "Nix Packages" = {
               urls = [{template = "https://search.nixos.org/packages?channel=unstable&type=packages&query={searchTerms}";}];
               definedAliases = ["@np"];
