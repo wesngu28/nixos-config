@@ -5,6 +5,7 @@
     wl-clipboard
     wget
     jq
+    xxd
 
     # yazi
     yazi

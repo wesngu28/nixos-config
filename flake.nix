@@ -24,7 +24,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=cba1ade848feac44b2eda677503900639581c3f4";
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=cba1ade848feac44b2eda677503900639581c3f4";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     agenix = {
       url = "github:ryantm/agenix";
