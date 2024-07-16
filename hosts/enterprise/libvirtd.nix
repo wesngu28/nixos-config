@@ -36,7 +36,7 @@
     spice
     spice-gtk
     spice-protocol
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     (writeShellScriptBin
       "bridge-up" ''
         sudo nmcli con add ifname br0 type bridge con-name br0

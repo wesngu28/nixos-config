@@ -13,8 +13,8 @@
     lxqt.lxqt-policykit
     bitwarden
     #veracrypt
-    gnome.seahorse
-    gnome.file-roller
+    seahorse
+    file-roller
 
     feishin
     playerctl
