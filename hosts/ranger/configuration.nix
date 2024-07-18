@@ -24,13 +24,13 @@
   services.openssh.enable = true;
 
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     akonadi
@@ -54,6 +54,7 @@
     openconnect_openssl
     btop
     du-dust
+    yed
   ];
 
   home-manager = {
