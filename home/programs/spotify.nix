@@ -3,15 +3,17 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.spicetify-nix.homeManagerModule];
+  imports = [inputs.spicetify-nix.homeManagerModules.default];
 
-  programs.spicetify = {
+  programs.spicetify = let
+    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  in {
     enable = true;
     windowManagerPatch = true;
-    theme = inputs.spicetify-nix.packages.${pkgs.system}.default.themes.Catppuccin;
+    theme = spicePkgs.themes.catppuccin;
     colorScheme = "mocha";
 
-    enabledExtensions = with inputs.spicetify-nix.packages.${pkgs.system}.default.extensions; [
+    enabledExtensions = with spicePkgs.extensions; [
       fullScreen
       shuffle
       fullAlbumDate

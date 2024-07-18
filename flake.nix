@@ -15,7 +15,7 @@
     };
 
     spicetify-nix = {
-      url = "github:MichaelPachec0/spicetify-nix";
+      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -24,7 +24,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=cba1ade848feac44b2eda677503900639581c3f4";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     agenix = {
       url = "github:ryantm/agenix";
