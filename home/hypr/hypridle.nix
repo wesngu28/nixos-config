@@ -71,13 +71,17 @@ in {
       listener = [
         {
           timeout = 300;
-          on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10% & echo 1 | ${pkgs.coreutils}/bin/tee  /sys/class/leds/asus::kbd_backlight/brightness";
-          on-resume = "${pkgs.brightnessctl}/bin/brightnessctl -r & echo 2 | ${pkgs.coreutils}/bin/tee /sys/class/leds/asus::kbd_backlight/brightness";
+          on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
+          on-resume = "${pkgs.hyprlock}/bin/hyprlock";
+        }
+        {
+          timeout = 350;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
         }
         {
           timeout = 1200;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
+          onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
         }
       ];
     };
