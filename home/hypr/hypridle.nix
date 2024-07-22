@@ -64,10 +64,9 @@ in {
   services.hypridle = {
     enable = true;
     settings = {
-      lock_cmd = "${pkgs.hyprlock}/bin/hyprlock";
-      before_sleep_cmd = "${pkgs.hyprlock}/bin/hyprlock";
+      lock_cmd = "pidof hyprlock || hyprlock";
+      before_sleep_cmd = "loginctl lock-session";
       after_sleep_cmd = "hyprctl dispatch dpms on";
-      ignore_dbus_inhibit = false;
       listener = [
         {
           timeout = 300;
@@ -80,7 +79,7 @@ in {
           on-resume = "hyprctl dispatch dpms on";
         }
         {
-          timeout = 1200;
+          timeout = 1800;
           onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
         }
       ];
