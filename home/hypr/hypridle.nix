@@ -5,73 +5,25 @@
 }: let
   wallpaper = "test.png";
 in {
-  programs.hyprlock = {
+  programs.swaylock = {
     enable = true;
+    catppuccin.enable = false;
 
     settings = {
-      background = [
-        {
-          monitor = "";
-          path = "~/Wallpapers/Kayoko.jpg";
-          blur_size = 4;
-          blur_passes = 3;
-          brightness = 0.75;
-        }
-      ];
-
-      input-field = [
-        {
-          monitor = "";
-          size = {
-            width = 250;
-            height = 60;
-          };
-          outline_thickness = 2;
-          dots_size = 0.2;
-          dots_spacing = 0.2;
-          dots_center = true;
-          outer_color = "rgb(11111b)";
-          inner_color = "rgb(585b70)";
-          font_color = "rgb(cdd6f4)";
-          fade_on_empty = false;
-          placeholder_text = ''Input Password...'';
-          hide_input = false;
-          position = {
-            x = 0;
-            y = -120;
-          };
-          halign = "center";
-          valign = "center";
-        }
-      ];
-
-      # label = [
-      #   {
-      #     monitor = "";
-      #     text = "$TIME";
-      #     font_size = 120;
-      #     position = {
-      #       x = 0;
-      #       y = 80;
-      #     };
-      #     valign = "center";
-      #     halign = "center";
-      #   }
-      # ];
+      image = "~/Wallpapers/Kayoko.jpg";
     };
   };
 
   services.hypridle = {
     enable = true;
     settings = {
-      lock_cmd = "pidof hyprlock || hyprlock";
-      before_sleep_cmd = "loginctl lock-session";
+      lock_cmd = "pidof swaylock || swaylock";
+      before_sleep_cmd = "pidof swaylock || swaylock";
       after_sleep_cmd = "hyprctl dispatch dpms on";
       listener = [
         {
           timeout = 300;
-          on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
-          on-resume = "${pkgs.hyprlock}/bin/hyprlock";
+          on-timeout = "swaylock";
         }
         {
           timeout = 350;
@@ -79,8 +31,8 @@ in {
           on-resume = "hyprctl dispatch dpms on";
         }
         {
-          timeout = 1800;
-          onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
+          timeout = 1200;
+          on-timeout = "systemctl suspend";
         }
       ];
     };
@@ -92,7 +44,7 @@ in {
     layout = [
       {
         label = "lock";
-        action = "hyprlock";
+        action = "swaylock";
         text = "Lock";
         keybind = "l";
       }
