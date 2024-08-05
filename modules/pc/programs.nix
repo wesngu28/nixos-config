@@ -29,6 +29,8 @@
   environment.shells = with pkgs; [zsh];
   programs.zsh.enable = true;
   programs.thunar.enable = true;
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
 
   nix.settings = {
     substituters = [
