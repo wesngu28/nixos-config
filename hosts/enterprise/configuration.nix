@@ -45,6 +45,24 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  services.xserver.xrandrHeads = [
+    {
+      output = "DP-1";
+      monitorConfig = ''
+        Option "RightOf" "HDMI-A-1"
+        Option "PreferredMode" "3440x1440"
+      '';
+    }
+    {
+      output = "HDMI-A-1";
+      monitorConfig = ''
+        Option "LeftOf" "DP-2"
+        Option "Rotate" "Right"
+        Option "PreferredMode" "1920x1200"
+      '';
+    }
+  ];
+
   fileSystems = {
     "/mnt/c" = {
       device = "/dev/disk/by-uuid/6E6EF78E6EF74D79";

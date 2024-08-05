@@ -49,7 +49,11 @@
         no_border_on_floating = true;
         "col.active_border" = "rgb(b4befe)";
         layout = "dwindle";
-        allow_tearing = false;
+        allow_tearing = true;
+      };
+
+      experimental = {
+        explicit_sync = true;
       };
 
       misc = {
@@ -169,7 +173,7 @@
       ];
 
       workspace = [
-        "8, monitor:HDMI-A-1, default: true"
+        "8, monitor:HDMI-A-1"
         "6, monitor:DP-2"
         "7, monitor:DP-2"
         "5, monitor:DP-2"
