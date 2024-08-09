@@ -6,6 +6,7 @@
   imports = [
     ./hyprpaper.nix
     ./hypridle.nix
+    ./hyprcursor.nix
   ];
 
   home.packages = [
