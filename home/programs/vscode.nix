@@ -1,4 +1,11 @@
 {pkgs, ...}: {
+  home.file.".vscode/argv.json".text = ''
+    {
+      "enable-crash-reporter": false,
+      "password-store": "gnome-libsecret"
+    }
+  '';
+
   programs.vscode = {
     enable = true;
 

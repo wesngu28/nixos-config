@@ -52,10 +52,6 @@
         allow_tearing = true;
       };
 
-      experimental = {
-        explicit_sync = true;
-      };
-
       misc = {
         disable_hyprland_logo = true;
         mouse_move_enables_dpms = true;
@@ -105,7 +101,8 @@
         "workspace 6, class:^(explorer.exe)$"
         "workspace 6, class:^(battle.net.exe)$"
         "workspace 6, class:^(sc2_x64.exe)$"
-        "workspace 6, class:^(the-honkers-railway-launcher)$"
+        "workspace 6, class:^(moe.launcher.the-honkers-railway-launcher)"
+        "workspace 6, class:^(starrail.exe)$"
         "workspace 3, initialtitle:(Spotify Premium)"
         "workspace 3, title:(Nicotine+)"
         "workspace 3, title:(Jellyfin Media Player)"
@@ -173,7 +170,7 @@
       ];
 
       workspace = [
-        "8, monitor:HDMI-A-1"
+        "8, monitor:HDMI-A-1, default: true"
         "6, monitor:DP-2"
         "7, monitor:DP-2"
         "5, monitor:DP-2"
