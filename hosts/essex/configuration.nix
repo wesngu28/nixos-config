@@ -10,6 +10,7 @@
   imports = [
     ./hardware-configuration.nix
     ./wireguard.nix
+    # ./restic.nix
     ../../modules/core.nix
     ../../modules/lab.nix
     ./server.nix

@@ -21,4 +21,6 @@ in {
   "photoview.age".publicKeys = [serpe server_host];
 
   "diun.age".publicKeys = [serpe server_host];
+
+  "restic.age".publicKeys = [serpe server_host];
 }
