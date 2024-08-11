@@ -45,6 +45,22 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  # services.desktopManager.plasma6.enable = true;
+
+  # environment.plasma6.excludePackages = with pkgs.kdePackages; [
+  #   akonadi
+  #   baloo
+  #   plasma-browser-integration
+  #   elisa
+  #   gwenview
+  #   kate
+  #   khelpcenter
+  #   kmailtransport
+  #   okular
+  #   oxygen
+  #   print-manager
+  # ];
+
   services.xserver.xrandrHeads = [
     {
       output = "DP-1";
@@ -78,6 +94,12 @@
       device = "/dev/disk/by-uuid/C6223ECF223EC3E9";
       fsType = "ntfs";
     };
+  };
+
+  users.users.serpe = {
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDSgL1QLUygF9krWrJ4fuaUbBr4nf9+RVvhyLoBTWmeC enty"
+    ];
   };
 
   system.stateVersion = "23.11"; # Did you read the comment?
