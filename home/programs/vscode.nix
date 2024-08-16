@@ -47,6 +47,7 @@
       "breadcrumbs.enabled" = false;
       "editor.minimap.enabled" = false;
       "editor.accessibilitySupport" = "off";
+      "editor.formatOnSave" = true;
 
       # Terminal
       "terminal.integrated.defaultProfile.linux" = "zsh";
@@ -77,10 +78,19 @@
       "extensions.ignoreRecommendations" = true;
 
       # Prettier
-      "prettier.trailingComma" = "none";
+      "prettier.trailingComma" = "es5";
+      "prettier.tabWidth" = 2;
+      "prettier.singleQuote" = true;
+      "prettier.printWidth" = 120;
+      "prettier.arrowParens" = "avoid";
+      "prettier.semi" = false;
 
       "[nix]" = {
         "editor.defaultFormatter" = "kamadorueda.alejandra";
+      };
+
+      "[javascript]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
 
       "gitblame.inlineMessageEnabled" = true;

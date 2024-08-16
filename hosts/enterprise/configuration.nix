@@ -87,12 +87,14 @@
 
     "/mnt/d" = {
       device = "/dev/disk/by-uuid/0A947D80947D6ED7";
-      fsType = "ntfs";
+      fsType = "ntfs-3g";
+      options = ["rw" "uid=1000"];
     };
 
     "/mnt/f" = {
       device = "/dev/disk/by-uuid/C6223ECF223EC3E9";
-      fsType = "ntfs";
+      fsType = "ntfs-3g";
+      options = ["rw" "uid=1000"];
     };
   };
 
