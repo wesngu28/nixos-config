@@ -40,7 +40,7 @@
         "gnome-keyring-daemon --start --components=secrets"
         "thunar --daemon"
         "vesktop"
-        "wallpaper"
+        "sleep 0.5 && wallpaper"
       ];
 
       general = {
@@ -165,6 +165,9 @@
         "idleinhibit focus, class:^(mpv)$"
         "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
         "idleinhibit fullscreen, class:^(firefox)$"
+        "idleinhibit always, workspace:5"
+        "idleinhibit focus, workspace:6"
+        "idleinhibit always, workspace:7"
 
         "workspace special silent, title:^(Firefox.* — Sharing Indicator)$"
         "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"

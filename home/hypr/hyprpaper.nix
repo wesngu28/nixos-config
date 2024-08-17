@@ -24,19 +24,19 @@ in {
     # waypaper
     (
       pkgs.writeShellScriptBin
-      "test-wall"
+      "set-as-wallpaper"
       ''
-        if [ $# -ne 1 ]; then
-          echo "Usage: $0 <background>"
-          exit 1
+        if [ -z "$1" ]; then
+            exit 1
         fi
+
 
         background="$1"
 
         hyprctl hyprpaper unload all
-        hyprctl hyprpaper preload ~/Wallpapers/$background
+        hyprctl hyprpaper preload $background
 
-        hyprctl hyprpaper wallpaper "DP-2, ~/Wallpapers/$background"
+        hyprctl hyprpaper wallpaper "DP-2, $background"
       ''
     )
     (pkgs.writeShellScriptBin

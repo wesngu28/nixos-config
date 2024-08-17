@@ -25,6 +25,14 @@
       noDisplay = true;
     };
 
+    set-as-wallpaper = {
+      name = "Set as Wallpaper";
+      genericName = "Set as Wallpaper";
+      exec = "set-as-wallpaper %u";
+      terminal = false;
+      mimeType = ["image/*"];
+    };
+
     firefox-trees = {
       name = "Firefox Trees";
       genericName = "Web Browser";
@@ -98,9 +106,9 @@
       "audio/flac" = ["mpv.desktop"];
       "audio/ogg" = ["mpv.desktop"];
 
-      "image/png" = ["imv.desktop" "gimp.desktop" "pinta.desktop"];
-      "image/jpg" = ["imv.desktop" "gimp.desktop" "pinta.desktop"];
-      "image/jpeg" = ["imv.desktop" "gimp.desktop" "pinta.desktop"];
+      "image/png" = ["imv.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
+      "image/jpg" = ["imv.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
+      "image/jpeg" = ["imv.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
       "image/gif" = ["imv.desktop" "gimp.desktop" "pinta.desktop"];
 
       "inode/directory" = ["thunar.desktop"];
