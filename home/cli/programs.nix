@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    vim
     du-dust
     fastfetch
     wl-clipboard

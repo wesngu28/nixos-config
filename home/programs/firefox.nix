@@ -15,6 +15,7 @@
           auto-tab-discard
           bitwarden
           firefox-color
+          libredirect
           return-youtube-dislikes
           search-by-image
           sponsorblock
@@ -34,6 +35,11 @@
               definedAliases = ["@b"];
             };
 
+            "Start Page" = {
+              urls = [{template = "https://www.startpage.com/sp/search?query={searchTerms}";}];
+              definedAliases = ["@sp"];
+            };
+
             "Nix Packages" = {
               urls = [{template = "https://search.nixos.org/packages?channel=unstable&type=packages&query={searchTerms}";}];
               definedAliases = ["@np"];
@@ -46,7 +52,7 @@
 
             "Home Manager Options" = {
               urls = [{template = "https://home-manager-options.extranix.com/query={searchTerms}";}];
-              definedAliases = ["nixh" "@nixh" "@homemanager"];
+              definedAliases = ["@nh"];
             };
 
             "Bing".metaData.hidden = true;
