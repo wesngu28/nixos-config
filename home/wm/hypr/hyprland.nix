@@ -39,6 +39,8 @@
         "gnome-keyring-daemon --start --components=secrets"
         "thunar --daemon"
         "vesktop"
+        "syncthingtray --wait"
+        "kdeconnect-indicator"
         "sleep 0.5 && wallpaper"
       ];
 

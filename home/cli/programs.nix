@@ -10,7 +10,6 @@
     # yazi
     yazi
     unar
-    zoxide
     fd
     zip
   ];

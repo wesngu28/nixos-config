@@ -5,8 +5,8 @@
   ...
 }: let
   suspendScript = pkgs.writeShellScript "suspend-script" ''
-    if ! ${pkgs.playerctl} -a status | grep -q 'Playing'; then
-      # echo NOTHING_PLAYING
+    playerctl -a status -i kdeconnect | grep Playing -q
+    if [ $? -eq 1 ]; then
       ${pkgs.systemd}/bin/systemctl suspend
     fi
   '';

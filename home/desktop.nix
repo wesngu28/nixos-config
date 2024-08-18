@@ -30,24 +30,10 @@
   imports = [
     ./theme.nix
     ./xdg.nix
-    ./programs/firefox.nix
-    ./programs/vscode.nix
-    ./programs/vencord.nix
-    ./programs/spotify.nix
-    ./programs/imv.nix
-    ./programs/mpv.nix
-    ./cli/direnv.nix
-    ./cli/git.nix
-    ./cli/zsh.nix
-    ./cli/fastfetch.nix
-    ./cli/programs.nix
+    ./programs
     ./kitty/kitty.nix
-    ./hypr/hyprland.nix
-    ./waybar/waybar.nix
-    ./wlogout/wlogout.nix
-    ./hypr/swaylock.nix
-    ./rofi/rofi.nix
-    ./dunst/dunst.nix
     ./scripts/urlOpen.nix
+    ./cli
+    ./wm
   ];
 }
