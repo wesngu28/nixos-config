@@ -11,7 +11,6 @@
     font = "FiraCode Nerd Font 12";
     catppuccin.enable = false;
 
-    # catppuccin.enable = true;
     extraConfig = {
       show-icons = true;
       modi = "drun";

@@ -15,23 +15,10 @@
     zip
   ];
 
-  programs.btop = {
-    enable = true;
-    catppuccin.enable = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    catppuccin.enable = true;
-  };
-
-  programs.lazygit = {
-    enable = true;
-    catppuccin.enable = true;
-  };
-
-  programs.zathura = {
-    enable = true;
-    catppuccin.enable = true;
+  programs = {
+    btop.enable = true;
+    fzf.enable = true;
+    lazygit.enable = true;
+    zathura.enable = true;
   };
 }

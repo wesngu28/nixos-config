@@ -17,7 +17,6 @@
     enable = true;
     systemd.enable = true;
     xwayland.enable = true;
-    catppuccin.enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
     settings = {
@@ -155,7 +154,7 @@
         "float,title:^(branchdialog)$"
         "float,title:^(Confirm to replace files)$"
         "float,title:^(File Operation Progress)$"
-        "float, title:^(Steam - News)$"
+        "float,title:^(Steam - News)$"
         "float,class:^(electron)$,title:^(Open Files)$"
         "float,class:^(steam)$,title:^(Special Offers)$"
         "float,class:^(firefox)$,title:~^(Extension: \(Bitwarden)"
