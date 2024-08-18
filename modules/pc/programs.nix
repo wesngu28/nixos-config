@@ -4,20 +4,23 @@
   lib,
   ...
 }: {
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    noto-fonts-color-emoji
-    fira-code
-    (nerdfonts.override {fonts = ["FiraCode"];})
-  ];
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      noto-fonts-color-emoji
+      fira-code
+      (nerdfonts.override {fonts = ["FiraCode"];})
+    ];
 
-  fonts.fontconfig = {
-    defaultFonts = {
-      serif = ["Noto Serif"];
-      sansSerif = ["Noto Sans"];
-      monospace = ["FiraCode Nerd Font"];
+    fontconfig = {
+      defaultFonts = {
+        serif = ["Noto Serif"];
+        sansSerif = ["Noto Sans"];
+        monospace = ["FiraCode Nerd Font"];
+        emoji = ["Noto Color Emoji"];
+      };
     };
   };
 

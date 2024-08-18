@@ -92,7 +92,9 @@
       "[javascript]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
-
+      "[svelte]" = {
+        "editor.defaultFormatter" = "svelte.svelte-vscode";
+      };
       "gitblame.inlineMessageEnabled" = true;
       "vim.useSystemClipboard" = true;
     };
