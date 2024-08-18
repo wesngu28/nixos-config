@@ -8,6 +8,7 @@
     ./navidrome.nix
     ./paperless.nix
     ./photoview.nix
+    ./redlib.nix
     ./rss.nix
   ];
 }
