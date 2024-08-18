@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages."${pkgs.system}".default
     veracrypt
+    lazydocker
   ];
 
   networking.nameservers = ["10.60.80.1"];
