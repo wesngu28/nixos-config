@@ -45,6 +45,19 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  services.blueman.enable = true;
+
+  systemd.services.restart-bluetooth-on-suspension = {
+    description = "Restart bluetooth on suspension.";
+    wantedBy = ["post-resume.target"];
+    after = ["post-resume.target"];
+    script = ''
+      rfkill block bluetooth
+      rfkill unblock bluetooth
+    '';
+    serviceConfig.Type = "oneshot";
+  };
+
   # services.desktopManager.plasma6.enable = true;
 
   # environment.plasma6.excludePackages = with pkgs.kdePackages; [
