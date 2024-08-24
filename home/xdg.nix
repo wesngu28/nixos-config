@@ -53,15 +53,15 @@
         mimeType = ["text/html" "text/xml"];
       };
 
-      spotify = {
-        name = "Spotify";
-        type = "Application";
-        icon = "spotify";
-        exec = "spotify";
-        terminal = false;
-        genericName = "Music Player";
-        categories = ["Audio" "Music" "Player" "AudioVideo"];
-      };
+      # spotify = {
+      #   name = "Spotify";
+      #   type = "Application";
+      #   icon = "spotify";
+      #   exec = "spotify";
+      #   terminal = false;
+      #   genericName = "Music Player";
+      #   categories = ["Audio" "Music" "Player" "AudioVideo"];
+      # };
     };
     mimeApps = {
       enable = true;
