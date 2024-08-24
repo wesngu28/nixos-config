@@ -15,6 +15,8 @@ in {
   "essex_wg0.age".publicKeys = [essex server_host];
 
   "feedcord.age".publicKeys = [serpe server_host];
+  "feedcord-old.age".publicKeys = [serpe server_host];
+  "feedcord-oldreddit.age".publicKeys = [serpe server_host];
 
   "navidrome.age".publicKeys = [serpe server_host];
 

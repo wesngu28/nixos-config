@@ -52,7 +52,7 @@ in {
             for monitor in $monitors; do
                 hyprctl hyprpaper wallpaper "$monitor, $random_background"
             done
-            sed -i "s|image=.*|image=$random_background|" ~/.config/swaylock/config
+            # sed -i "s|image=.*|image=$random_background|" ~/.config/swaylock/config
         fi
       '')
   ];

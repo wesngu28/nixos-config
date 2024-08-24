@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  home.sessionVariables = {
+    EDITOR = "vim";
+    VISUAL = "code";
+  };
+
   home.packages = with pkgs; [
     vim
     du-dust
