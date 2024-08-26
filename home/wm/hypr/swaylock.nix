@@ -4,7 +4,7 @@
     catppuccin.enable = false;
 
     settings = {
-      image = "~/Wallpapers/Kayoko.jpg";
+      image = "~/Wallpapers/Wallpaper.jpg";
     };
   };
 }

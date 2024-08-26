@@ -25,7 +25,7 @@ in {
         "custom/playerctl"
       ];
       modules-center = ["hyprland/workspaces"];
-      modules-right = ["tray" "pulseaudio" "clock" "custom/power"];
+      modules-right = ["tray" "pulseaudio" "battery" "clock" "custom/power"];
       clock = {
         format = " {:%I:%M %a %d}";
         tooltip = "true";
@@ -70,6 +70,10 @@ in {
         format-icons = {default = [" "];};
         scroll-step = 3;
         on-click = "pavucontrol";
+      };
+      battery = {
+        format = "{icon} {capacity}%";
+        format-icons = ["" "" "" "" ""];
       };
       "custom/playerctl#backward" = {
         format = "󰙣 ";
@@ -143,7 +147,7 @@ in {
           color: #cba6f7;
       }
 
-      #custom-playerctl, #workspaces, #tray, #pulseaudio, #memory, #disk, #clock, #custom-power {
+      #custom-playerctl, #workspaces, #tray, #pulseaudio, #memory, #disk, #clock, #battery, #custom-power {
           color: ${custom.text_color};
           padding: 0 0.6em;
           margin-right: 4px;

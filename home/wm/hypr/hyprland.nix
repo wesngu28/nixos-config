@@ -38,7 +38,6 @@
         "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
         "gnome-keyring-daemon --start --components=secrets"
         "thunar --daemon"
-        "vesktop"
         "syncthingtray --wait"
         "kdeconnect-indicator"
         "sleep 0.5 && wallpaper"
@@ -172,17 +171,6 @@
 
         "workspace special silent, title:^(Firefox.* — Sharing Indicator)$"
         "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
-      ];
-
-      workspace = [
-        "8, monitor:HDMI-A-1, default: true"
-        "6, monitor:DP-2"
-        "7, monitor:DP-2"
-        "5, monitor:DP-2"
-        "4, monitor:DP-2"
-        "3, monitor:DP-2"
-        "2, monitor:DP-2"
-        "1, monitor:DP-2"
       ];
 
       "$mainMod" = "SUPER";
