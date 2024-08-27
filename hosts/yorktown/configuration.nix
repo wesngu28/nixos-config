@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./wireguard.nix
     ../../modules/core.nix
     ../../modules/desktop.nix
   ];
@@ -14,6 +15,20 @@
       ./hyprland.nix
     ];
   };
+
+  environment.systemPackages = with pkgs; [
+    brightnessctl
+    pulsemixer
+  ];
+
+  services.tlp.enable = true;
+  services.upower.enable = true;
+
+  services.logind.extraConfig = ''
+    HandlePowerKey=suspend
+    HandleLidSwitch=suspend
+    HandleLidSwitchExternalPower=ignore
+  '';
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
