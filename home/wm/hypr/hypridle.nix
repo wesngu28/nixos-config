@@ -14,9 +14,11 @@ in {
   services.hypridle = {
     enable = true;
     settings = {
-      lock_cmd = "pidof swaylock || swaylock";
-      before_sleep_cmd = "pidof swaylock || swaylock";
-      after_sleep_cmd = "hyprctl dispatch dpms on";
+      general = {
+        lock_cmd = "pidof swaylock || swaylock";
+        before_sleep_cmd = "pidof swaylock || swaylock";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
       listener = [
         {
           timeout = 300;
