@@ -4,6 +4,7 @@
     ./filebrowser.nix
     ./glances.nix
     ./jdownloader.nix
+    ./kuma.nix
     ./media.nix
     ./navidrome.nix
     ./paperless.nix

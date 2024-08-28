@@ -56,6 +56,9 @@
             };
 
             "Bing".metaData.hidden = true;
+            "Google".metaData.hidden = true;
+            "Amazon.com".metaData.hidden = true;
+            "eBay".metaData.hidden = true;
           };
         };
       };
@@ -65,7 +68,6 @@
         name = "containers";
         settings = {
           ui.prefersReducedMotion = "1";
-          network.dns.disablePrefetch = true;
         };
       };
 
@@ -74,8 +76,7 @@
         name = "treetabs";
         extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
           bitwarden
-          firefox-color
-          search-by-image
+          sidebery
         ];
         userChrome = ''
           #TabsToolbar {

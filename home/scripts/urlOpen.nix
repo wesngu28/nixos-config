@@ -14,6 +14,8 @@
 
         if [[ "$workspace_id" -eq 4 ]]; then
             firefox -P "treetabs" --new-tab "$url" &
+        elif [[ "$workspace_id" -eq 8 ]]; then
+            firefox -P "containerd" --new-tab "$url" &
         else
             firefox_windows=$(hyprctl clients -j | jq -r --arg workspace_id "$workspace_id" '.[] | select(.class == "firefox" and .workspace.id == ($workspace_id | tonumber))')
             if [[ -n "$firefox_windows" ]]; then
