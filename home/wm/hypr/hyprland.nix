@@ -57,6 +57,7 @@
         disable_hyprland_logo = true;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = false;
+        render_unfocused_fps = "15";
       };
 
       input = {
@@ -160,7 +161,7 @@
         "float,class:^(steam)$,title:^(Special Offers)$"
         "float,class:^(firefox)$,title:~^(Extension: \(Bitwarden)"
         "float,class:^(Bitwarden)$"
-        # "float,class:^(steam)$,title:^(Friends List)$"
+        "float,class:^(steam)$,title:^(Friends List)$"
 
         "idleinhibit focus, class:^(mpv)$"
         "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"

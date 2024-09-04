@@ -2,7 +2,7 @@ let
   serpe = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGnjKj4EyU0zid0YX/Ggj+UiqQYYeVB5pKSsP/rtY1tU serpe";
 
   enterprise = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAQNYNQpaAAOLK6L1wtANcg6x/z4WkAJV+G7WOYg/Ey7 enterprise";
-  essex = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICndZpZLTgVmzQ99t7Gh4R1qeDcY15EivdPsyEYtt/La essex";
+  essex = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBq2aQcXDlZzkvebF7ZVo9fI5ThLGT+nSr0r8R3hHH4Z essex";
   yorktown = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILUrcKutTY2ppfO3ANwtvDr4VjO5i5Sf2UNKgxtWyRhh yorktown";
 
   enterprise_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII09Ia0WfDuMZt81y1VVeKtBz6WDQlGNas8B7+s1KXUp root@enterprise";
