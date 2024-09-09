@@ -13,6 +13,7 @@
         isDefault = true;
         extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
           auto-tab-discard
+          # batchcamp
           bitwarden
           firefox-color
           libredirect
@@ -53,6 +54,11 @@
             "Home Manager Options" = {
               urls = [{template = "https://home-manager-options.extranix.com/query={searchTerms}";}];
               definedAliases = ["@nh"];
+            };
+
+            "GitHub" = {
+              urls = [{template = "https://github.com/search?q={searchTerms}";}];
+              definedAliases = ["@gh"];
             };
 
             "Bing".metaData.hidden = true;

@@ -30,7 +30,7 @@
         genericName = "Set as Wallpaper";
         exec = "set-as-wallpaper %u";
         terminal = false;
-        mimeType = ["image/*"];
+        mimeType = ["image/png" "image/jpg" "image/jpeg"];
       };
 
       firefox-trees = {
@@ -73,7 +73,7 @@
         "application/x-extension-xht" = ["firefox.desktop"];
         "application/x-extension-xhtml" = ["firefox.desktop"];
         "application/x-extension-xhtml+xml" = ["firefox.desktop"];
-        "text/html" = ["firefox.desktop" "code.desktop"];
+        "text/html" = ["firefox-containers.desktop" "code.desktop"];
 
         "application/zip" = "org.gnome.FileRoller.desktop";
         "application/x-tar" = "org.gnome.FileRoller.desktop";
@@ -126,4 +126,53 @@
       sed -i 's/Icon=.*/NoDisplay=true/' ~/.local/share/applications/Proton*.desktop || true
       sed -i 's/Icon=.*/NoDisplay=true/' ~/.local/share/applications/Steam*.desktop || true
     '';
+
+  xdg.configFile = {
+    "xfce4/helpers.rc".text = ''
+      TerminalEmulator=kitty.desktop
+      TerminalEmulatorDismissed=true
+    '';
+
+    "Thunar/uca.xml".text = ''
+      <?xml version="1.0" encoding="UTF-8"?>
+      <actions>
+      <action>
+              <icon>kitty</icon>
+              <name>Open Terminal Here</name>
+              <submenu></submenu>
+              <unique-id>1716857250902518-1</unique-id>
+              <command>kitty %f</command>
+              <description>Open kitty in the current directoryy</description>
+              <range></range>
+              <patterns>*</patterns>
+              <startup-notify/>
+              <directories/>
+      </action>
+      <action>
+              <icon>code</icon>
+              <name>Open Code Here</name>
+              <submenu></submenu>
+              <unique-id>1716857250902518-1</unique-id>
+              <command>code %f</command>
+              <description>Open VSCode in the current directory</description>
+              <range></range>
+              <patterns>*</patterns>
+              <startup-notify/>
+              <directories/>
+      </action>
+      <action>
+              <icon>pinta</icon>
+              <name>Set Wallpaper</name>
+              <submenu></submenu>
+              <unique-id>1716857250902518-1</unique-id>
+              <command>set-as-wallpaper %f</command>
+              <description>Example for a custom action</description>
+              <range></range>
+              <patterns>*</patterns>
+              <startup-notify/>
+              <image-files />
+      </action>
+      </actions>
+    '';
+  };
 }

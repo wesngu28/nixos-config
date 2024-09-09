@@ -263,6 +263,11 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
         };
+
+        # "feed-preview@code.guido-berhoerster.org" = {
+        #   installation_mode = "normal_installed";
+        #   install_url = "https://addons.mozilla.org/firefox/downloads/latest/feed-preview/latest.xpi";
+        # };
       };
     };
   };

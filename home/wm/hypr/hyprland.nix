@@ -123,6 +123,7 @@
         "opacity 0.93 0.93,class:^(steam)$"
         "opacity 0.93 0.93,class:^(lutris)$"
         "opacity 0.93 0.93,class:^(firefox)$"
+        "opacity 1,title:^.*(YouTube — Mozilla Firefox)"
         "opacity 0.93 0.93,title:(Nicotine+)"
         "opacity 0.93 0.93,title:(Jellyfin Media Player)"
         "opacity 0.93 override 0.93 override,class:^(code-url-handler)$"
