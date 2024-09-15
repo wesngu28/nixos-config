@@ -9,11 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     ataraxiasjel-nur = {
       url = "github:AtaraxiaSjel/nur";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,23 +16,18 @@
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
+    ags.url = "github:Aylur/ags";
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     catppuccin.url = "github:catppuccin/nix";
 
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
