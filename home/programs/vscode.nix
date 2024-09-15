@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home.file.".vscode/argv.json".text = ''
     {
       "enable-crash-reporter": false,
@@ -12,10 +16,10 @@
     userSettings = {
       # Workbench
       "workbench.colorTheme" = "Catppuccin Mocha";
+      "workbench.iconTheme" = "catppuccin-mocha";
       "catppuccin.accentColor" = "lavender";
       "workbench.localHistory.maxFileEntries" = 100;
       "workbench.startupEditor" = "none";
-      "workbench.iconTheme" = "material-icon-theme";
       "workbench.tips.enabled" = false;
       "workbench.list.smoothScrolling" = true;
       # "workbench.activityBar.visible" = false;
@@ -75,6 +79,9 @@
       "files.insertFinalNewline" = false;
       "files.trimTrailingWhitespace" = true;
       "files.trimFinalNewlines" = true;
+      "files.associations" = {
+        "*.css" = "tailwindcss";
+      };
       "extensions.ignoreRecommendations" = true;
 
       # Prettier
@@ -84,6 +91,8 @@
       "prettier.printWidth" = 120;
       "prettier.arrowParens" = "avoid";
       "prettier.semi" = false;
+
+      "editor.defaultFormatter" = "esbenp.prettier-vscode";
 
       "[nix]" = {
         "editor.defaultFormatter" = "kamadorueda.alejandra";
@@ -98,44 +107,54 @@
       "[typescript]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
-      "gitblame.inlineMessageEnabled" = true;
+
       "vim.useSystemClipboard" = true;
+
+      "typescript.suggest.paths" = false;
+      "javascript.suggest.paths" = false;
+
+      "editor.semanticHighlighting.enabled" = true;
+      "terminal.integrated.minimumContrastRatio" = 1;
     };
 
     extensions = with pkgs.vscode-extensions;
       [
         jnoortheen.nix-ide
         catppuccin.catppuccin-vsc
+        catppuccin.catppuccin-vsc-icons
         ms-vscode-remote.remote-ssh
-        pkief.material-icon-theme
         mhutchie.git-graph
         svelte.svelte-vscode
         astro-build.astro-vscode
         bradlc.vscode-tailwindcss
-        shd101wyy.markdown-preview-enhanced
         christian-kohler.npm-intellisense
         christian-kohler.path-intellisense
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
-        ms-python.python
         ms-python.vscode-pylance
         ritwickdey.liveserver
         usernamehw.errorlens
         kamadorueda.alejandra
-        waderyan.gitblame
+        mads-hartmann.bash-ide-vscode
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
+          name = "python";
+          publisher = "ms-python";
+          version = "latest";
+          sha256 = "sha256-N8y0cPJeFQTsOMOD1hB/T5pZcpEMRKLfpNtMz3qdGCY=";
+        }
+        {
           name = "remote-ssh-edit";
           publisher = "ms-vscode-remote";
-          version = "0.86.0";
+          version = "latest";
           sha256 = "sha256-JsbaoIekUo2nKCu+fNbGlh5d1Tt/QJGUuXUGP04TsDI=";
         }
         {
           name = "remote-explorer";
           publisher = "ms-vscode";
-          version = "0.5.2024031109";
-          sha256 = "sha256-t8CeOuoCaK8ecJqMXRx8kA4CtP0x4srcn2SCez5tHOU=";
+          version = "latest";
+          sha256 = "sha256-YExf9Yyo7Zp0Nfoap8Vvtas11W9Czslt55X9lb/Ri3s=";
         }
       ];
   };
