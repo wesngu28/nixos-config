@@ -9,7 +9,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./wireguard.nix
+    ../../modules/wireguard.nix
     # ./restic.nix
     ../../modules/core.nix
     ../../modules/lab.nix

@@ -10,13 +10,15 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./wireguard.nix
+    ../../modules/wireguard.nix
     ../../modules/core.nix
     ../../modules/desktop.nix
     ../../modules/pc/gaming/waydroid.nix
     ../../modules/pc/gaming/hoyoverse.nix
     ./libvirtd.nix
   ];
+
+  services.wireguard.fallback = true;
 
   home-manager.users."serpe" = {
     home.packages = with pkgs; [

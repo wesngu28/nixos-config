@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./wireguard.nix
+    ../../modules/wireguard.nix
     ../../modules/core.nix
     ../../modules/desktop.nix
   ];
