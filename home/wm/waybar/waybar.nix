@@ -22,7 +22,9 @@ in {
         "custom/playerctl#backward"
         "custom/playerctl#play"
         "custom/playerctl#forward"
+        "image#music"
         "custom/playerctl"
+        "custom/wall"
       ];
       modules-center = ["hyprland/workspaces"];
       modules-right = ["tray" "pulseaudio" "battery" "clock" "custom/power"];
@@ -75,10 +77,18 @@ in {
         format = "{icon} {capacity}%";
         format-icons = ["" "" "" "" ""];
       };
+      "image#music" = {
+        format = "󰙣 ";
+        size = 24;
+        interval = 1;
+        exec = ''
+          cover_img=$(playerctl -a metadata mpris:artUrl)
+          curl -s "$cover_img" --output "/tmp/cover.jpg"
+          echo "/tmp/cover.jpg"
+        '';
+      };
       "custom/playerctl#backward" = {
         format = "󰙣 ";
-        return-type = "json";
-        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --ignore-player firefox -F";
         on-click = "playerctl previous";
         on-scroll-up = "playerctl volume .05+";
         on-scroll-down = "playerctl volume .05-";
@@ -105,8 +115,6 @@ in {
       };
       "custom/playerctl#forward" = {
         format = "󰙡 ";
-        return-type = "json";
-        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --ignore-player firefox -F";
         on-click = "playerctl next";
         on-scroll-up = "playerctl volume .05+";
         on-scroll-down = "playerctl volume .05-";
@@ -125,6 +133,11 @@ in {
       "custom/power" = {
         format = "⏻ ";
         on-click = "wlogout";
+        tooltip = false;
+      };
+      "custom/wall" = {
+        format = "⏻s ";
+        on-click = "wallpaper";
         tooltip = false;
       };
     };
