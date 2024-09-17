@@ -34,7 +34,7 @@ function NotificationIcon({ app_entry, app_icon, image }) {
   })
 }
 
-function Notification(n) {
+function Notification(n, status = 'dismiss') {
   const icon = Widget.Box({
     vpack: 'start',
     class_name: 'icon',
@@ -81,7 +81,7 @@ function Notification(n) {
   return Widget.EventBox(
     {
       attribute: { id: n.id },
-      on_primary_click: n.close,
+      on_primary_click: status === 'dismiss' ? n.dismiss : n.close,
     },
     Widget.Scrollable(
       {
@@ -101,12 +101,12 @@ function Notification(n) {
 export const NotificationPopups = () => {
   const list = Widget.Box({
     vertical: true,
-    children: notifications.popups.map(Notification),
+    children: notifications.popups.map(n => Notification(n, 'dismiss')),
   })
 
   function onNotified(_, id) {
     const n = notifications.getNotification(id)
-    if (n) list.children = [Notification(n), ...list.children]
+    if (n) list.children = [Notification(n, 'dismiss'), ...list.children]
   }
 
   function onDismissed(_, id) {
@@ -135,7 +135,7 @@ const NotificationList = () => {
     css: 'min-height: 300px; min-width: 500px;',
     child: Widget.Box({
       vertical: true,
-      children: notifications.bind('notifications').as(x => x.reverse().map(Notification)),
+      children: notifications.bind('notifications').as(x => x.reverse().map(x => Notification(x, 'close'))),
     }),
   })
 }
