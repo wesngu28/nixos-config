@@ -6,6 +6,8 @@
     syntaxHighlighting.enable = true;
 
     initExtra = ''
+      # cat ~/.cache/wallust/sequences
+      # cat /home/serpe/.cache/wal/sequences
       fastfetch
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word

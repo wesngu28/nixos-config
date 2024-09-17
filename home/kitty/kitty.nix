@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   programs.kitty = {
     enable = true;
+    # catppuccin.enable = false;
     settings = {
       font_family = "FiraCode Nerd Font";
       font_size = "13";
@@ -14,6 +15,9 @@
       allow_remote_control = true;
       # kitty_mod = "ctrl";
       confirm_os_window_close = 0;
+      # extraConfig = ''
+      #   include ~/.cache/wal/colors-kitty.conf
+      # '';
     };
   };
 }

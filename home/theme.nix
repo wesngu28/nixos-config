@@ -54,5 +54,29 @@
     breeze-icons
     libsForQt5.qt5ct
     qt6Packages.qtstyleplugin-kvantum
+    # wallust
+    # matugen
+    pywal
   ];
+
+  # home.file.".config/wallust/templates" = {
+  #   source = ./templates;
+  #   recursive = true;
+  # };
+
+  # home.file.".config/wallust/wallust.toml".text = ''
+  #   backend = "wal"
+  #   color_space = "labmixed"
+  #   palette = "dark16"
+  #   threshold = 10
+
+  #   [templates]
+  #   dir.template = ""
+  #   dir.target = "~/.cache/wal/"
+  #   dir.pywal = true
+
+  #   kitty.template = 'kitty.conf'
+  #   kitty.target = '~/.cache/wal/kitty.conf'
+  #   vscode = { template="pywal-colors",  target="~/.cache/wal/colors" }
+  # '';
 }
