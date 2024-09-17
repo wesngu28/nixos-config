@@ -11,13 +11,13 @@ button {
 }
 
 separator {
-  border-radius: 10px;
+  border-radius: 8px;
   min-height: 1px;
   min-width: 1px;
 }
 
 calendar {
-  padding: 10px;
+  padding: 8px;
 }
 
 button,
@@ -73,14 +73,14 @@ image {
   min-height: 40px;
   background-size: cover;
   background-position: center;
-  border-radius: 13px;
+  border-radius: 8px;
 }
 
 menu {
   background-color: #1e1e2e;
   opacity: 0.93;
   padding: 8px;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 menu menuitem {
@@ -103,13 +103,12 @@ menu menuitem {
   background-position: center;
 }
 
-.quick-settings-menu,
-.ok {
+.quick-settings-menu {
   min-width: 450px;
   min-height: 360px;
   padding: 10px;
   margin: 4px;
-  border-radius: 10px;
+  border-radius: 8px;
   background-color: #1e1e2e;
 }
 
@@ -117,7 +116,7 @@ menu menuitem {
   background-color: #313244;
   padding: 0px;
   margin: 5px;
-  border-radius: 20px;
+  border-radius: 8px;
   min-width: 225px;
   min-height: 50px;
   transition: background-color 0.3s ease-in-out;
@@ -140,7 +139,7 @@ menu menuitem {
 .settings-power {
   padding: 8px;
   margin: 1px;
-  border-radius: 15px;
+  border-radius: 8px;
   background-color: #313244;
 }
 
@@ -155,11 +154,10 @@ menu menuitem {
   min-width: 400px;
   min-height: 70px;
   margin: 8px;
-  border-radius: 4px;
+  border-radius: 8px;
   opacity: 0.93;
   padding: 24px;
   border: 2px;
-  border-radius: 4px;
   border-style: solid;
   border-color: #b4befe;
 }

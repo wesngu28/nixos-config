@@ -14,6 +14,7 @@ const Player = player => {
 
   const img = () => {
     return Widget.Box({
+      visible: player.bind('cover_path'),
       class_name: 'img',
       css: player.bind('cover_path').transform(p => {
         return `background-image: url('${p}');;`

@@ -50,7 +50,7 @@ const createRow = wallpapers => {
         },
         child: Widget.Icon({
           icon: thumbnail,
-          size: 100,
+          size: 150,
         }),
       })
     }),

@@ -81,12 +81,13 @@ function Notification(n) {
   return Widget.EventBox(
     {
       attribute: { id: n.id },
-      on_primary_click: n.dismiss,
+      on_primary_click: n.close,
     },
-    Widget.Box(
+    Widget.Scrollable(
       {
         class_name: `notification ${n.urgency}`,
-        vertical: true,
+        vscroll: 'automatic',
+        hscroll: 'never',
       },
       Widget.Box([
         icon,
