@@ -29,23 +29,30 @@ in {
         if [ -z "$1" ]; then
             exit 1
         fi
-
-
         background="$1"
 
         hyprctl hyprpaper unload all
         hyprctl hyprpaper preload $background
 
-        hyprctl hyprpaper wallpaper "DP-2, $background"
+        monitors=`hyprctl monitors | grep Monitor | awk '{print $2}'`
+        for monitor in $monitors; do
+            hyprctl hyprpaper wallpaper "$monitor, $background"
+        done
       ''
     )
     (pkgs.writeShellScriptBin
       "wallpaper"
       ''
-        directory=~/Wallpapers
+        if [ -z "$1" ]; then
+            category=0
+            directory=~/Wallpapers
+        else
+            category=$1
+            directory=~/Wallpapers/$category
+        fi
         monitors=`hyprctl monitors | grep Monitor | awk '{print $2}'`
         if [ -d "$directory" ]; then
-            random_background=$(ls $directory/*.{jpg,png} | shuf -n 1)
+            random_background=$(find $directory -type f \( -iname '*.jpg' -o -iname '*.png' \) -not -name '*_thumb.jpg' -not -name '*_thumb.png' | shuf -n 1)
 
             hyprctl hyprpaper unload all
             hyprctl hyprpaper preload $random_background

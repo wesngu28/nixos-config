@@ -24,10 +24,6 @@
     home.packages = with pkgs; [
       nicotine-plus
     ];
-
-    imports = [
-      ./hyprland.nix
-    ];
   };
 
   boot = {

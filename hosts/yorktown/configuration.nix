@@ -10,12 +10,6 @@
     ../../modules/desktop.nix
   ];
 
-  home-manager.users."serpe" = {
-    imports = [
-      ./hyprland.nix
-    ];
-  };
-
   environment.systemPackages = with pkgs; [
     brightnessctl
     pulsemixer

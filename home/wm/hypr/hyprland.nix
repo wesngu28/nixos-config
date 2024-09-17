@@ -1,4 +1,5 @@
 {
+  osConfig,
   inputs,
   pkgs,
   ...
@@ -7,10 +8,6 @@
     ./hyprpaper.nix
     ./hypridle.nix
     ./hyprcursor.nix
-  ];
-
-  home.packages = [
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
   ];
 
   wayland.windowManager.hyprland = {
@@ -30,7 +27,8 @@
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
       exec-once = [
-        "waybar"
+        "ags -b hypr"
+        # "waybar"
         "lxqt-policykit-agent"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -49,7 +47,7 @@
         border_size = 3;
         no_border_on_floating = true;
         "col.active_border" = "rgb(b4befe)";
-        layout = "dwindle";
+        layout = "master";
         allow_tearing = true;
       };
 
@@ -95,6 +93,33 @@
         pseudotile = true;
         preserve_split = true;
       };
+
+      master = {
+        mfact = 0.5;
+        orientation = "center";
+      };
+
+      monitor =
+        if osConfig.networking.hostName == "enterprise"
+        then [
+          "DP-2,3440x1440@165,auto,auto"
+          "HDMI-A-1,1920x1280p@60,1920x0,auto"
+        ]
+        else ",preferred,auto,1";
+
+      workspace =
+        if osConfig.networking.hostName == "enterprise"
+        then [
+          "8, monitor:HDMI-A-1, default: true"
+          "6, monitor:DP-2"
+          "7, monitor:DP-2"
+          "5, monitor:DP-2"
+          "4, monitor:DP-2"
+          "3, monitor:DP-2"
+          "2, monitor:DP-2"
+          "1, monitor:DP-2"
+        ]
+        else [];
 
       windowrulev2 = [
         "workspace 7, class:^(virt-manager)$"
@@ -192,8 +217,9 @@
         "$mainMod, V, togglefloating"
         "$mainMod, P, pseudo"
         # "$mainMod, J, togglesplit"
-        "$mainMod, N, splitratio, 0.3"
-        "$mainMod, B, splitratio, -0.3"
+
+        "$mainMod, N, layoutmsg, mfact exact 0.5"
+        "$mainMod, B, layoutmsg, mfact exact 0.33"
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
@@ -205,8 +231,7 @@
         "$mainMod, j, movewindow, u"
         "$mainMod, k, movewindow, d"
 
-        "$mainMod SHIFT, x, exec, pkill waybar"
-        "$mainMod, x, exec, hyprctl dispatch exec waybar"
+        "$mainMod, x, exec, ags -b hypr quit; ags -b hypr"
 
         "$mainMod SHIFT, right, workspace, e+1"
         "$mainMod SHIFT, left, workspace, e-1"
@@ -231,7 +256,8 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
 
-        "$mainMod, S, exec, grimblast copy area"
+        "$mainMod, S, exec, slurp | grim -g - - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F%T).png"
+        "$mainMod SHIFT, S, exec, grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F%T).png"
         "$mainMod, M, exec, pkill -USR1 hyprlock"
         "$mainMod SHIFT, L, exec, hyprlock"
       ];
