@@ -12,6 +12,8 @@
     wget
     jq
     xxd
+    grim
+    slurp
 
     # yazi
     yazi
