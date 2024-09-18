@@ -6,7 +6,7 @@ import { VolumeIndicator } from './widgets/VolumeIndicator.js'
 import { WeatherIndicator } from './widgets/WeatherIndicator.js'
 import { WireguardIndicator } from './widgets/WireguardIndicator.js'
 
-export const Right = () =>
+export const Right = monitor =>
   Widget.Box({
     class_name: 'section',
     hpack: 'end',
@@ -15,12 +15,12 @@ export const Right = () =>
         children: [
           TrayIndicator(),
           VolumeIndicator(),
-          Date(),
+          Date(monitor),
           WeatherIndicator(),
           Widget.EventBox({
             onPrimaryClick: () => {
-              App.closeWindow('calendar')
-              App.toggleWindow('quick-settings')
+              App.closeWindow(`calendar-${monitor}`)
+              App.toggleWindow(`quick-settings-${monitor}`)
             },
             child: Widget.Box({
               children: [

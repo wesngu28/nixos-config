@@ -15,10 +15,11 @@ const CalendarWidget = () => {
   })
 }
 
-export default () =>
+export default monitor =>
   PopupWindow({
-    name: 'calendar',
+    name: `calendar-${monitor}`,
     anchor: ['top', 'right'],
+    monitor,
     exclusivity: 'exclusive',
     child: CalendarWidget(),
   })

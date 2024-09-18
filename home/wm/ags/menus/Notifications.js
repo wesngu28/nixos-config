@@ -34,7 +34,7 @@ function NotificationIcon({ app_entry, app_icon, image }) {
   })
 }
 
-function Notification(n, status = 'dismiss') {
+function Notification(n) {
   const icon = Widget.Box({
     vpack: 'start',
     class_name: 'icon',
@@ -81,16 +81,20 @@ function Notification(n, status = 'dismiss') {
   return Widget.EventBox(
     {
       attribute: { id: n.id },
-      on_primary_click: status === 'dismiss' ? n.dismiss : n.close,
+      on_primary_click: n.dismiss,
     },
-    Widget.Scrollable(
+    Widget.Box(
       {
         class_name: `notification ${n.urgency}`,
-        vscroll: 'automatic',
-        hscroll: 'never',
+        vertical: true,
       },
       Widget.Box([
         icon,
+        Widget.Button({
+          vpack: 'center',
+          child: Widget.Icon('window-close-symbolic'),
+          on_clicked: n.close,
+        }),
         Widget.Box({ vertical: true, vpack: 'center', css: 'min-width: 350px; margin-left: 12px;' }, title, body),
       ]),
       actions
@@ -98,27 +102,29 @@ function Notification(n, status = 'dismiss') {
   )
 }
 
-export const NotificationPopups = () => {
+export const NotificationPopups = monitor => {
   const list = Widget.Box({
     vertical: true,
-    children: notifications.popups.map(n => Notification(n, 'dismiss')),
+    children: notifications.popups.map(Notification),
   })
 
   function onNotified(_, id) {
     const n = notifications.getNotification(id)
-    if (n) list.children = [Notification(n, 'dismiss'), ...list.children]
+    if (n) list.children = [Notification(n), ...list.children]
   }
 
   function onDismissed(_, id) {
+    const n = notifications.getNotification(id)
     list.children.find(n => n.attribute.id === id)?.destroy()
   }
 
   list.hook(notifications, onNotified, 'notified').hook(notifications, onDismissed, 'dismissed')
 
   return Widget.Window({
-    name: `notifications`,
+    name: `notifications-${monitor}`,
     class_name: 'notification-popups',
     anchor: ['top'],
+    monitor,
     child: Widget.Box({
       css: 'min-width: 2px; min-height: 2px;',
       class_name: 'notifications',
@@ -129,20 +135,22 @@ export const NotificationPopups = () => {
 }
 
 const NotificationList = () => {
+  const list = Widget.Box({
+    vertical: true,
+    children: notifications.bind('notifications').as(x => x.reverse().map(Notification)),
+  })
+
   return Widget.Scrollable({
     vscroll: 'automatic',
     hscroll: 'never',
     css: 'min-height: 300px; min-width: 500px;',
-    child: Widget.Box({
-      vertical: true,
-      children: notifications.bind('notifications').as(x => x.reverse().map(x => Notification(x, 'close'))),
-    }),
+    child: list,
   })
 }
 
-export const NotificationWindow = () =>
+export const NotificationWindow = monitor =>
   PopupWindow({
-    name: 'notification-window',
+    name: `notification-window-${monitor}`,
     layout: 'top-center',
     exclusivity: 'exclusive',
     child: Widget.Box({

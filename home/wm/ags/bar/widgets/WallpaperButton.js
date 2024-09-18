@@ -1,6 +1,6 @@
 import { fetchWallpapers } from '../../menus/Wallpapers.js'
 
-export const WallpaperButton = () =>
+export const WallpaperButton = monitor =>
   Widget.Box({
     class_name: 'section',
     css: 'margin-left: 4px',
@@ -8,7 +8,7 @@ export const WallpaperButton = () =>
       Widget.Button({
         on_clicked: () => {
           fetchWallpapers()
-          App.toggleWindow('wallpaper')
+          App.toggleWindow(`wallpaper-${monitor}`)
         },
         child: Widget.Icon('color-select-symbolic'),
       }),

@@ -23,7 +23,7 @@ mpris.connect('player-closed', (_, bus) => {
     }
     return true
   })
-  if (activePlayer.value.bus_name === bus) activePlayer.value = filteredPlayers[0]
+  if (activePlayer.value && activePlayer.value.bus_name === bus) activePlayer.value = filteredPlayers[0]
 })
 mpris.connect('player-changed', (_, bus) => {
   const filteredPlayers = mpris.players.filter(player => {

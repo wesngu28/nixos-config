@@ -1,9 +1,9 @@
 const notifications = await Service.import('notifications')
 
-export function NotificationIndicator() {
+export function NotificationIndicator(monitor) {
   return Widget.Button({
     class_name: 'section',
-    on_clicked: () => App.toggleWindow('notification-window'),
+    on_clicked: () => App.toggleWindow(`notification-window-${monitor}`),
     child: Widget.Icon({
       icon: notifications
         .bind('notifications')

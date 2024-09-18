@@ -4,11 +4,11 @@ export const DateVariable = Variable(GLib.DateTime.new_now_local(), {
   poll: [1000, () => GLib.DateTime.new_now_local()],
 })
 
-export const Date = () =>
+export const Date = monitor =>
   Widget.Button({
     on_clicked: () => {
-      App.closeWindow('quick-settings')
-      App.toggleWindow('calendar')
+      App.closeWindow(`quick-settings-${monitor}`)
+      App.toggleWindow(`calendar-${monitor}`)
     },
     class_name: 'calendar-button',
     child: Widget.Label({

@@ -40,10 +40,11 @@ const SystemMenuBox = () =>
     ],
   })
 
-export default () =>
+export default monitor =>
   PopupWindow({
     anchor: ['top', 'right'],
-    name: 'quick-settings',
+    name: `quick-settings-${monitor}`,
+    monitor,
     exclusivity: 'exclusive',
     child: SystemMenuBox(),
   })

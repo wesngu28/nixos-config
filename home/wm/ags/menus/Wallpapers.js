@@ -132,10 +132,11 @@ const WallpaperWidget = () => {
   })
 }
 
-export default () =>
+export default monitor =>
   PopupWindow({
-    name: 'wallpaper',
+    name: `wallpaper-${monitor}`,
     layout: 'top-center',
+    monitor,
     exclusivity: 'exclusive',
     child: WallpaperWidget(),
   })
