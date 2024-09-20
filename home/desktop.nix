@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     gimp
-    pinta
     asunder
     (vesktop.override {
       withSystemVencord = false;

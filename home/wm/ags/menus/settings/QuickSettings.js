@@ -40,11 +40,12 @@ const SystemMenuBox = () =>
     ],
   })
 
-export default monitor =>
-  PopupWindow({
+export const SystemMenu = (monitor, gdkmonitor) => {
+  return PopupWindow({
     anchor: ['top', 'right'],
     name: `quick-settings-${monitor}`,
-    monitor,
+    gdkmonitor,
     exclusivity: 'exclusive',
     child: SystemMenuBox(),
   })
+}

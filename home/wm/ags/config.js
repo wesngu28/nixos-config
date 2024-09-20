@@ -1,6 +1,6 @@
-import SystemMenu from './menus/settings/QuickSettings.js'
-import CalendarWidget from './menus/Calendar.js'
-import Wallpapers from './menus/Wallpapers.js'
+import { SystemMenu } from './menus/settings/QuickSettings.js'
+import { Calendar } from './menus/Calendar.js'
+import { Wallpapers } from './menus/Wallpapers.js'
 import { NotificationPopups, NotificationWindow } from './menus/Notifications.js'
 import { Right } from './bar/Right.js'
 import { Center } from './bar/Center.js'
@@ -8,11 +8,11 @@ import { Left } from './bar/Left.js'
 import Gdk from 'gi://Gdk'
 const hyprland = await Service.import('hyprland')
 
-const Bar = (monitor = 0) => {
+const Bar = (monitor = 0, gdkmonitor) => {
   return Widget.Window({
     name: `bar-${monitor}`,
     css: 'background-color: transparent;',
-    monitor,
+    gdkmonitor,
     anchor: ['top', 'left', 'right'],
     exclusivity: 'exclusive',
     child: Widget.CenterBox({
@@ -29,8 +29,7 @@ const isUltrawideOrHighRes = monitor => {
   return aspectRatio > 16 / 9 || monitor.height > 1440
 }
 
-// I'm done dealing with signals from gdk or hyprland. I will just have an improper multi monitor setup
-// I'll probably go back to waybar at some point anyways
+// Still a nightmare when hotswapping
 
 const MonitorHandler = widgets => {
   const display = Gdk.Display.get_default()
@@ -43,6 +42,26 @@ const MonitorHandler = widgets => {
     }
   }
 
+  display?.connect('monitor-added', (disp, gdkmonitor) => {
+    let monitor = 0
+    for (let i = 0; i < display.get_n_monitors(); i++) {
+      if (gdkmonitor === display.get_monitor(i)) {
+        monitor = i
+        break
+      }
+    }
+
+    widgets.forEach(widget => {
+      App.addWindow(widget(monitor, gdkmonitor))
+    })
+  })
+
+  display?.connect('monitor-removed', (disp, monitor) => {
+    App.windows.forEach(win => {
+      if (win.gdkmonitor === monitor) App.removeWindow(win)
+    })
+  })
+
   const gtkMonitorsCount = display?.get_n_monitors() || 1
 
   if (primaryMonitor) {
@@ -51,17 +70,18 @@ const MonitorHandler = widgets => {
       const gtkModel = gtkMonitor.get_model()
 
       if (primaryMonitor.model === gtkModel) {
-        return widgets.map(x => x(i))
+        return widgets.map(x => x(i, gtkMonitor))
       }
     }
   } else {
     for (let i = 0; i < gtkMonitorsCount; i++) {
-      return widgets.map(x => x(i))
+      const gtkMonitor = display.get_monitor(i)
+      return widgets.map(x => x(i, gtkMonitor))
     }
   }
 }
 
 App.config({
   style: './style.css',
-  windows: [...MonitorHandler([Bar, Wallpapers, CalendarWidget, SystemMenu, NotificationPopups, NotificationWindow])],
+  windows: [...MonitorHandler([Bar, Wallpapers, Calendar, SystemMenu, NotificationPopups, NotificationWindow])],
 })

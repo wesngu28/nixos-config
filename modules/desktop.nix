@@ -21,13 +21,13 @@
   # systemd.services.NetworkManager-wait-online.enable = false;
 
   services = {
-    displayManager = {
-      sddm = {
-        enable = true;
-        theme = "${import ./pc/sddm.nix {inherit pkgs;}}";
-        wayland.enable = true;
-      };
-    };
+    # displayManager = {
+    #   sddm = {
+    #     enable = true;
+    #     theme = "${import ./pc/sddm.nix {inherit pkgs;}}";
+    #     wayland.enable = true;
+    #   };
+    # };
 
     printing.enable = true;
 
@@ -36,6 +36,7 @@
     xserver = {
       enable = true;
       xkb.layout = "us";
+      displayManager.lightdm.enable = false;
 
       # likely to never ever ever ever go green
       videoDrivers = ["amdgpu"];

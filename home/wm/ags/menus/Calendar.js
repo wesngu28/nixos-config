@@ -15,11 +15,12 @@ const CalendarWidget = () => {
   })
 }
 
-export default monitor =>
-  PopupWindow({
+export const Calendar = (monitor = 0, gdkmonitor) => {
+  return PopupWindow({
     name: `calendar-${monitor}`,
     anchor: ['top', 'right'],
-    monitor,
+    gdkmonitor,
     exclusivity: 'exclusive',
     child: CalendarWidget(),
   })
+}

@@ -50,7 +50,7 @@ const createRow = wallpapers => {
         },
         child: Widget.Icon({
           icon: thumbnail,
-          size: 150,
+          size: 100,
         }),
       })
     }),
@@ -132,11 +132,11 @@ const WallpaperWidget = () => {
   })
 }
 
-export default monitor =>
+export const Wallpapers = (monitor, gdkmonitor) =>
   PopupWindow({
     name: `wallpaper-${monitor}`,
     layout: 'top-center',
-    monitor,
+    gdkmonitor,
     exclusivity: 'exclusive',
     child: WallpaperWidget(),
   })

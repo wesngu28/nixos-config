@@ -6,6 +6,9 @@
     syntaxHighlighting.enable = true;
 
     initExtra = ''
+      if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+      	exec Hyprland
+      fi
       # cat ~/.cache/wallust/sequences
       # cat /home/serpe/.cache/wal/sequences
       fastfetch

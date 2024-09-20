@@ -102,7 +102,7 @@ function Notification(n) {
   )
 }
 
-export const NotificationPopups = monitor => {
+export const NotificationPopups = (monitor, gdkmonitor) => {
   const list = Widget.Box({
     vertical: true,
     children: notifications.popups.map(Notification),
@@ -124,7 +124,7 @@ export const NotificationPopups = monitor => {
     name: `notifications-${monitor}`,
     class_name: 'notification-popups',
     anchor: ['top'],
-    monitor,
+    gdkmonitor,
     child: Widget.Box({
       css: 'min-width: 2px; min-height: 2px;',
       class_name: 'notifications',
@@ -148,11 +148,12 @@ const NotificationList = () => {
   })
 }
 
-export const NotificationWindow = monitor =>
+export const NotificationWindow = (monitor, gdkmonitor) =>
   PopupWindow({
     name: `notification-window-${monitor}`,
     layout: 'top-center',
     exclusivity: 'exclusive',
+    gdkmonitor,
     child: Widget.Box({
       class_name: 'quick-settings-menu',
       vertical: true,

@@ -1,9 +1,9 @@
 {pkgs, ...}: {
-  nixpkgs.overlays = [
-    (self: super: {
-      mpv-notify-send = super.callPackage ../../packages/mpv-notify-send {};
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (self: super: {
+  #     mpv-notify-send = super.callPackage ../../packages/mpv-notify-send {};
+  #   })
+  # ];
   programs.mpv = {
     enable = true;
     config = {
@@ -16,7 +16,7 @@
     };
     scripts = with pkgs; [
       mpvScripts.mpris
-      mpv-notify-send
+      # mpv-notify-send
     ];
   };
 }

@@ -16,7 +16,7 @@ in {
     settings = {
       general = {
         lock_cmd = "pidof swaylock || swaylock";
-        before_sleep_cmd = "pidof swaylock || swaylock";
+        before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
       listener = [
