@@ -130,14 +130,60 @@ in {
         exec = "playerctl metadata --format '{{artist}} - {{title}}' --ignore-player firefox -F";
         max-length = 40;
       };
+      # "custom/power" = {
+      #   format = "⏻ ";
+      #   on-click = "wlogout";
+      #   tooltip = false;
+      # };
       "custom/power" = {
-        format = "⏻ ";
-        on-click = "wlogout";
+        format = "";
         tooltip = false;
+        menu = "on-click";
+        menu-file =
+          pkgs.writeText "powermenu.xml"
+          ''
+            <?xml version="1.0" encoding="UTF-8"?>
+            <interface>
+              <object class="GtkMenu" id="menu">
+                <child>
+                  <object class="GtkSeparatorMenuItem" id="delimiter1"/>
+                </child>
+                <child>
+            		  <object class="GtkMenuItem" id="lock">
+            			  <property name="label">Lock</property>
+                  </object>
+            	  </child>
+                <child>
+            		  <object class="GtkMenuItem" id="suspend">
+            			  <property name="label">Suspend</property>
+                  </object>
+            	  </child>
+                <child>
+                  <object class="GtkSeparatorMenuItem" id="delimiter2"/>
+                </child>
+                <child>
+            		  <object class="GtkMenuItem" id="reboot">
+            			  <property name="label">Reboot</property>
+            		  </object>
+                </child>
+                <child>
+                  <object class="GtkMenuItem" id="shutdown">
+            			  <property name="label">Shutdown</property>
+                  </object>
+                </child>
+              </object>
+            </interface>
+          '';
+        menu-actions = {
+          lock = "swaylock";
+          suspend = "systemctl suspend";
+          reboot = "systemctl reboot";
+          shutdown = "systemctl poweroff";
+        };
       };
       "custom/wall" = {
         format = "⏻s ";
-        on-click = "wallpaper";
+        on-click = "waypaper";
         tooltip = false;
       };
     };

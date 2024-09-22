@@ -13,7 +13,6 @@
     bitwarden
     #veracrypt
     seahorse
-    file-roller
 
     feishin
     playerctl

@@ -7,8 +7,9 @@ export const WallpaperButton = monitor =>
     children: [
       Widget.Button({
         on_clicked: () => {
-          fetchWallpapers()
-          App.toggleWindow(`wallpaper-${monitor}`)
+          Utils.exec('waypaper')
+          // fetchWallpapers()
+          // App.toggleWindow(`wallpaper-${monitor}`)
         },
         child: Widget.Icon('color-select-symbolic'),
       }),

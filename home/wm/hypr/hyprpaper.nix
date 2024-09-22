@@ -2,26 +2,19 @@
   inputs,
   pkgs,
   ...
-}: let
-  wallpaper = "test.png";
-in {
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = [
-        "~/Wallpapers/${wallpaper}"
-      ];
+}: {
+  home.file.".config/hypr/hyprpaper.conf".text = ''
+    splash = false
+    icp = true
+  '';
 
-      wallpaper = [
-        ",~/Wallpapers/${wallpaper}"
-      ];
-
-      splash = false;
-    };
-  };
+  wayland.windowManager.hyprland.extraConfig = ''
+    exec-once=waypaper --restore
+  '';
 
   home.packages = with pkgs; [
-    # waypaper
+    waypaper
+    hyprpaper
     (
       pkgs.writeShellScriptBin
       "set-as-wallpaper"

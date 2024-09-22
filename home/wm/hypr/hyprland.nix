@@ -159,6 +159,7 @@
         "float,class:^(battle.net.exe)$"
         "float,class:^(btop)$"
         "float,class:^(yazi)$"
+        "float,class:^(waypaper)$"
         "float,class:^(imv)$"
         "float,class:^(mpv)$"
         "float,class:^(Gimp-2.10)$"
