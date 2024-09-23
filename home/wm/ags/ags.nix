@@ -10,10 +10,8 @@
 
     configDir = ./.;
 
-    # extraPackages = with pkgs; [
-    #   gtksourceview
-    #   webkitgtk
-    #   accountsservice
-    # ];
+    extraPackages = with pkgs; [
+      gnome.gnome-bluetooth_1_0
+    ];
   };
 }

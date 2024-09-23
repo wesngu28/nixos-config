@@ -120,7 +120,7 @@
     extensions = with pkgs.vscode-extensions;
       [
         jnoortheen.nix-ide
-        catppuccin.catppuccin-vsc
+        # catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
         ms-vscode-remote.remote-ssh
         mhutchie.git-graph

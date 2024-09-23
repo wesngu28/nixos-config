@@ -275,7 +275,7 @@
 
         "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
           installation_mode = "normal_installed";
-          install_url = "https://addons.mozilla.org/firefox/download/latest/bitwarden-password-manager/latest.xpi";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
         };
 
         "FirefoxColor@mozilla.com" = {
