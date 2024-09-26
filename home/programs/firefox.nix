@@ -161,7 +161,7 @@
         # "nglayout.initialpaint.delay" = 5;
         # "content.notify.interval" = 100000;
         "browser.cache.jsbc_compression_level" = 3;
-        "media.memory_cache_max_size" = 65336;
+        # "media.memory_cache_max_size" = 65336;
 
         "gfx.canvas.accelerated.cache-items" = 4096;
         "gfx.canvas.accelerated.cache-size" = 512;

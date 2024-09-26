@@ -27,8 +27,9 @@
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
       exec-once = [
-        "ags -b hypr"
-        # "waybar"
+        # "ags -b hypr"
+        "waybar"
+        # "swaync"
         "lxqt-policykit-agent"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -217,7 +218,9 @@
         "$mainMod, P, pseudo"
         # "$mainMod, J, togglesplit"
 
-        "$mainMod, N, layoutmsg, mfact exact 0.5"
+        "$mainMod, N, exec, swaync-client -t -sw"
+
+        "$mainMod SHIFT, B, layoutmsg, mfact exact 0.5"
         "$mainMod, B, layoutmsg, mfact exact 0.33"
 
         "$mainMod, left, movefocus, l"
@@ -230,7 +233,7 @@
         "$mainMod, j, movewindow, u"
         "$mainMod, k, movewindow, d"
 
-        "$mainMod, x, exec, ags -b hypr quit; ags -b hypr"
+        "$mainMod, x, exec, pkill waybar || waybar"
 
         "$mainMod SHIFT, right, workspace, e+1"
         "$mainMod SHIFT, left, workspace, e-1"

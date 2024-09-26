@@ -12,6 +12,7 @@
 
     settings = {
       global = {
+        follow = "mouse";
         font = "FiraCode Nerd Font Mono 12";
         alignment = "left";
         width = "400";

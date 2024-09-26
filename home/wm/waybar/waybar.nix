@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  osConfig,
+  pkgs,
+  ...
+}: let
   custom = {
     font = "FiraCode Nerd Font";
     font_size = "14px";
@@ -18,16 +22,21 @@ in {
       layer = "top";
       height = 5;
       margin-top = 2;
+      output =
+        if osConfig.networking.hostName == "enterprise"
+        then [
+          "DP-2"
+        ]
+        else "";
       modules-left = [
         "custom/playerctl#backward"
         "custom/playerctl#play"
         "custom/playerctl#forward"
         "image#music"
         "custom/playerctl"
-        "custom/wall"
       ];
       modules-center = ["hyprland/workspaces"];
-      modules-right = ["tray" "pulseaudio" "battery" "clock" "custom/power"];
+      modules-right = ["custom/wall" "tray" "pulseaudio" "battery" "clock" "custom/weather" "custom/swaync"];
       clock = {
         format = " {:%I:%M %a %d}";
         tooltip = "true";
@@ -78,17 +87,22 @@ in {
         format-icons = ["" "" "" "" ""];
       };
       "image#music" = {
-        format = "󰙣 ";
         size = 24;
         interval = 1;
         exec = ''
-          cover_img=$(playerctl -a metadata mpris:artUrl)
+          cover_img=$(playerctl -a metadata mpris:artUrl 2>/dev/null)
+          if [[ $? -ne 0 || -z "$cover_img" ]]; then
+              echo "No cover image available or player could not handle the command. Exiting."
+              exit 1
+          fi
           curl -s "$cover_img" --output "/tmp/cover.jpg"
           echo "/tmp/cover.jpg"
         '';
       };
       "custom/playerctl#backward" = {
-        format = "󰙣 ";
+        format = "{icon}";
+        return-type = "json";
+        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --ignore-player firefox -F";
         on-click = "playerctl previous";
         on-scroll-up = "playerctl volume .05+";
         on-scroll-down = "playerctl volume .05-";
@@ -114,7 +128,9 @@ in {
         tooltip = false;
       };
       "custom/playerctl#forward" = {
-        format = "󰙡 ";
+        format = "{icon}";
+        return-type = "json";
+        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --ignore-player firefox -F";
         on-click = "playerctl next";
         on-scroll-up = "playerctl volume .05+";
         on-scroll-down = "playerctl volume .05-";
@@ -135,8 +151,30 @@ in {
       #   on-click = "wlogout";
       #   tooltip = false;
       # };
+      "custom/swaync" = {
+        # source: <https://github.com/ErikReider/SwayNotificationCenter#waybar-example>
+        exec-if = "which swaync-client";
+        exec = "swaync-client -swb";
+        return-type = "json";
+        escape = true;
+        format = "{icon}"; # or "{icon} {}" to include notif count
+        format-icons = {
+          notification = " <span foreground='#ff968b'><sup></sup></span>";
+          none = " ";
+          dnd-notification = "<span foreground='#ff968b'><sup></sup></span>";
+          dnd-none = "";
+          inhibited-notification = "<span foreground='#ff968b'><sup></sup></span>";
+          inhibited-none = "";
+          dnd-inhibited-notification = "<span foreground='#ff968b'><sup></sup></span>";
+          dnd-inhibited-none = "";
+          #  
+        };
+        tooltip = false;
+        on-click = "swaync-client -t -sw";
+        on-click-right = "swaync-client -d -sw";
+      };
       "custom/power" = {
-        format = "";
+        format = " ";
         tooltip = false;
         menu = "on-click";
         menu-file =
@@ -182,9 +220,32 @@ in {
         };
       };
       "custom/wall" = {
-        format = "⏻s ";
+        format = " ";
         on-click = "waypaper";
+        on-click-right = "wallpaper";
         tooltip = false;
+      };
+      "custom/wireguard" = {
+        format = "{}";
+        exec = "bash -c '[ -d /sys/class/net/wg0 ] && echo 󰌾 || echo 󰿆'";
+        interval = 600;
+      };
+      "custom/weather" = {
+        tooltip = true;
+        format = "{}";
+        exec = ''
+          WEATHER_API_URL="https://api.open-meteo.com/v1/forecast?latitude=32.2217&longitude=-110.9265&current=weather_code,temperature_2m&hourly=precipitation_probability&daily=temperature_2m_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FPhoenix&forecast_days=1"
+
+          weather_data=$(curl -s "$WEATHER_API_URL")
+
+          current_temp=$(echo "$weather_data" | jq '.current.temperature_2m')
+          current_time=$(echo "$weather_data" | jq -r '.current.time')
+          daily_high=$(echo "$weather_data" | jq '.daily.temperature_2m_max[0]')
+
+          echo "{\"text\":\"$current_temp°F\", \"tooltip\":\"Daily high: $daily_high°F - $current_time\"}"
+        '';
+        interval = 3600;
+        return-type = "json";
       };
     };
     style = ''
@@ -206,7 +267,7 @@ in {
           color: #cba6f7;
       }
 
-      #custom-playerctl, #workspaces, #tray, #pulseaudio, #memory, #disk, #clock, #battery, #custom-power {
+      #custom-playerctl, #workspaces, #custom-wall, #tray, #pulseaudio, #memory, #disk, #clock, #battery, #custom-swaync, #custom-weather, #custom-wireguard {
           color: ${custom.text_color};
           padding: 0 0.6em;
           margin-right: 4px;
@@ -223,7 +284,7 @@ in {
         color: #89dceb;
       }
 
-      #custom-power {
+      #custom-swaync {
         color: #f38ba8;
       }
 
