@@ -29,7 +29,7 @@
     #   };
     # };
 
-    printing.enable = true;
+    # printing.enable = true;
 
     tumbler.enable = true;
 

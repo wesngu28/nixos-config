@@ -32,7 +32,7 @@ in {
         "custom/playerctl#backward"
         "custom/playerctl#play"
         "custom/playerctl#forward"
-        "image#music"
+        # "image#music"
         "custom/playerctl"
       ];
       modules-center = ["hyprland/workspaces"];
@@ -92,7 +92,6 @@ in {
         exec = ''
           cover_img=$(playerctl -a metadata mpris:artUrl 2>/dev/null)
           if [[ $? -ne 0 || -z "$cover_img" ]]; then
-              echo "No cover image available or player could not handle the command. Exiting."
               exit 1
           fi
           curl -s "$cover_img" --output "/tmp/cover.jpg"
@@ -102,7 +101,7 @@ in {
       "custom/playerctl#backward" = {
         format = "{icon}";
         return-type = "json";
-        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --ignore-player firefox -F";
+        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
         on-click = "playerctl previous";
         on-scroll-up = "playerctl volume .05+";
         on-scroll-down = "playerctl volume .05-";
@@ -116,8 +115,8 @@ in {
       "custom/playerctl#play" = {
         format = "{icon}";
         return-type = "json";
-        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --ignore-player firefox -F";
-        on-click = "playerctl play-pause --ignore-player firefox";
+        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+        on-click = "playerctl play-pause";
         on-scroll-up = "playerctl volume .05+";
         on-scroll-down = "playerctl volume .05-";
         format-icons = {
@@ -130,7 +129,7 @@ in {
       "custom/playerctl#forward" = {
         format = "{icon}";
         return-type = "json";
-        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --ignore-player firefox -F";
+        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
         on-click = "playerctl next";
         on-scroll-up = "playerctl volume .05+";
         on-scroll-down = "playerctl volume .05-";
@@ -143,7 +142,7 @@ in {
       };
       "custom/playerctl" = {
         format = "  {}";
-        exec = "playerctl metadata --format '{{artist}} - {{title}}' --ignore-player firefox -F";
+        exec = "playerctl metadata --format '{{artist}} - {{title}}' -F";
         max-length = 40;
       };
       # "custom/power" = {

@@ -13,6 +13,8 @@
     bitwarden
     #veracrypt
     seahorse
+    wf-recorder
+    ffmpeg
 
     feishin
     playerctl

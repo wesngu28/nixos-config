@@ -160,8 +160,8 @@
         # test
         # "nglayout.initialpaint.delay" = 5;
         # "content.notify.interval" = 100000;
-        "browser.cache.jsbc_compression_level" = 3;
-        # "media.memory_cache_max_size" = 65336;
+        # "browser.cache.jsbc_compression_level" = 3;
+        "media.memory_cache_max_size" = 65336;
 
         "gfx.canvas.accelerated.cache-items" = 4096;
         "gfx.canvas.accelerated.cache-size" = 512;
@@ -267,51 +267,6 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
         };
-
-        "feed-preview@code.guido-berhoerster.org" = {
-          installation_mode = "normal_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/feed-preview/latest.xpi";
-        };
-
-        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-          installation_mode = "normal_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-        };
-
-        "FirefoxColor@mozilla.com" = {
-          installation_mode = "normal_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/3643624/firefox_color-2.1.7.xpi";
-        };
-
-        "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}" = {
-          installation_mode = "normal_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/auto-tab-discard/latest.xpi";
-        };
-
-        "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}" = {
-          installation_mode = "normal_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/styl-us/latest.xpi";
-        };
-
-        "7esoorv3@alefvanoon.anonaddy.me" = {
-          installation_mode = "normal_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/libredirect/latest.xpi";
-        };
-
-        "{aecec67f-0d10-4fa7-b7c7-609a2db280cf}" = {
-          installation_mode = "normal_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/violentmonkey/latest.xpi";
-        };
-
-        "{3c078156-979c-498b-8990-85f7987dd929}" = {
-          installation_mode = "normal_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi";
-        };
-
-        "dont-accept-webp@jeffersonscher.com" = {
-          installation_mode = "normal_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/4191562/dont_accept_webp-0.9.xpi";
-        };
       };
     };
 
@@ -320,6 +275,15 @@
         id = 0;
         name = "default";
         isDefault = true;
+        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+          auto-tab-discard
+          bitwarden
+          firefox-color
+          libredirect
+          search-by-image
+          stylus
+          violentmonkey
+        ];
 
         search = {
           default = "Brave Search";
@@ -337,6 +301,11 @@
               definedAliases = ["@sp"];
             };
 
+            "GitHub" = {
+              urls = [{template = "https://github.com/search?q={searchTerms}";}];
+              definedAliases = ["@gh"];
+            };
+
             "Nix Packages" = {
               urls = [{template = "https://search.nixos.org/packages?channel=unstable&type=packages&query={searchTerms}";}];
               definedAliases = ["@np"];
@@ -352,18 +321,23 @@
               definedAliases = ["@nh"];
             };
 
-            "GitHub" = {
-              urls = [{template = "https://github.com/search?q={searchTerms}";}];
-              definedAliases = ["@gh"];
-            };
-
             "Bing".metaData.hidden = true;
             "Google".metaData.hidden = true;
             "Amazon.com".metaData.hidden = true;
             "eBay".metaData.hidden = true;
           };
         };
+      };
 
+      containerd = {
+        id = 1;
+        name = "containers";
+        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+          violentmonkey
+        ];
+        settings = {
+          ui.prefersReducedMotion = "1";
+        };
         userChrome = ''
           .titlebar-min {display:none!important;}
           .titlebar-max {display:none!important;}
@@ -372,21 +346,17 @@
         '';
       };
 
-      containerd = {
-        id = 1;
-        name = "containers";
-        settings = {
-          ui.prefersReducedMotion = "1";
-        };
-      };
-
       treetabs = {
         id = 2;
         name = "treetabs";
+        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+          bitwarden
+          sidebery
+        ];
         userChrome = ''
           #TabsToolbar {
-            visibility: collapse;
-          }
+              visibility: collapse;
+            }
           .titlebar-min {display:none!important;}
           .titlebar-max {display:none!important;}
           .titlebar-restore {display:none!important;}

@@ -109,7 +109,7 @@
       workspace =
         if osConfig.networking.hostName == "enterprise"
         then [
-          "8, monitor:HDMI-A-1, default: true"
+          "8, monitor:HDMI-A-1"
           "6, monitor:DP-2"
           "7, monitor:DP-2"
           "5, monitor:DP-2"
