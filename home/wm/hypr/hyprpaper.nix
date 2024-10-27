@@ -8,9 +8,9 @@
     icp = true
   '';
 
-  wayland.windowManager.hyprland.extraConfig = ''
-    exec-once=waypaper --restore
-  '';
+  # wayland.windowManager.hyprland.extraConfig = ''
+  #   exec-once=waypaper --restore
+  # '';
 
   home.packages = with pkgs; [
     waypaper

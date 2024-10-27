@@ -43,11 +43,11 @@
     # };
   };
 
-  qt = {
-    enable = true;
-    style.name = "kvantum";
-    platformTheme.name = "kvantum";
-  };
+  # qt = {
+  #   enable = true;
+  #   style.name = "kvantum";
+  #   platformTheme.name = "kvantum";
+  # };
 
   home.packages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
