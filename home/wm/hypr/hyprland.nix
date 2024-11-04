@@ -3,7 +3,12 @@
   inputs,
   pkgs,
   ...
-}: {
+}: let
+  xrandr-command =
+    if osConfig.networking.hostName == "enterprise"
+    then "xrandr --output DP-2 --primary"
+    else "xrandr --output";
+in {
   imports = [
     ./hyprpaper.nix
     ./hypridle.nix
@@ -26,6 +31,7 @@
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
+
       exec-once = [
         # "ags -b hypr"
         "waybar"
@@ -38,6 +44,7 @@
         "syncthingtray --wait"
         "kdeconnect-indicator"
         "sleep 0.5 && wallpaper"
+        xrandr-command
       ];
 
       general = {
