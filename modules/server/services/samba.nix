@@ -3,7 +3,7 @@
     enable = true;
     securityType = "user";
     openFirewall = true;
-    extraConfig = ''
+    settings = ''
       workgroup = WORKGROUP
       server string = smbnix
       netbios name = smbnix
