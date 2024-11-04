@@ -7,7 +7,6 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/core.nix
-    ../../modules/pc/firefox.nix
   ];
 
   boot.loader.grub.enable = true;
@@ -50,7 +49,7 @@
   security.polkit.enable = true;
 
   environment.systemPackages = with pkgs; [
-    brave
+    google-chrome
     openconnect_openssl
     btop
     du-dust
@@ -68,6 +67,7 @@
           ../../home/programs/vscode.nix
           ../../home/cli/git.nix
           ../../home/cli/zsh.nix
+          ../../home/programs/firefox.nix
           inputs.catppuccin.homeManagerModules.catppuccin
         ];
       };
