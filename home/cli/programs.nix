@@ -15,7 +15,6 @@
     grim
     slurp
 
-    # yazi
     yazi
     unar
     fd

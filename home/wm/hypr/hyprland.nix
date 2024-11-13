@@ -72,9 +72,11 @@ in {
 
       decoration = {
         rounding = 10;
-        drop_shadow = true;
-        shadow_range = 4;
-        shadow_render_power = 3;
+        shadow = {
+          enabled = true;
+          range = 4;
+          render_power = 3;
+        };
         blur = {
           enabled = true;
           size = 3;
@@ -142,7 +144,7 @@ in {
         "workspace 3, class:^(feishin)$"
         "workspace 5, title:^(Waydroid)$"
         "workspace 2, class:^(vesktop)$"
-        "workspace 1, class:^(code-url-handler)$"
+        "workspace 1, class:^(code)$"
         "workspace 4, class:^(obsidian)"
         "workspace 4, class:^(floorp)"
 
@@ -157,7 +159,7 @@ in {
         "opacity 1,title:^.*(YouTube — Mozilla Firefox)"
         "opacity 0.93 0.93,title:(Nicotine+)"
         "opacity 0.93 0.93,title:(Jellyfin Media Player)"
-        "opacity 0.93 override 0.93 override,class:^(code-url-handler)$"
+        "opacity 0.93 override 0.93 override,class:^(code)$"
         "opacity 0.93 override 0.93 override,initialTitle:^(Spotify Premium)$"
 
         "suppressevent maximize, class:.*"

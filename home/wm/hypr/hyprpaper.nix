@@ -7,9 +7,8 @@
     splash = false
     icp = true
   '';
-
   wayland.windowManager.hyprland.extraConfig = ''
-    exec-once=waypaper
+    exec-once=waypaper --random
   '';
 
   home.packages = with pkgs; [

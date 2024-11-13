@@ -3,16 +3,16 @@
     enable = true;
     securityType = "user";
     openFirewall = true;
-    settings = ''
-      workgroup = WORKGROUP
-      server string = smbnix
-      netbios name = smbnix
-      security = user
-      hosts allow = 10.60.80. 10.30.0. 10.70.0
-      guest account = nobody
-      map to guest = bad user
-    '';
-    shares = {
+    settings = {
+      global = {
+        workgroup = "WORKGROUP";
+        "server string" = "smbnix";
+        "netbios name" = "smbnix";
+        security = "user";
+        "hosts allow" = ["10.60.80." "10.30.0." "10.70.0"];
+        "guest account" = "nobody";
+        "map to guest" = "bad user";
+      };
       paperless = {
         path = "/home/serpe/paperless";
         browseable = "yes";
