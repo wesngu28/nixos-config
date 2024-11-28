@@ -2,7 +2,7 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/23e89b7da85c3640bbc2173fe04f4bd114342367";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -20,6 +20,7 @@
     };
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # hyprland.url = "github:hyprwm/Hyprland/12f9a0d0b93f691d4d9923716557154d74777b0a";
 
     agenix = {
       url = "github:ryantm/agenix";
