@@ -144,7 +144,7 @@ in {
         "workspace 3, class:^(feishin)$"
         "workspace 5, title:^(Waydroid)$"
         "workspace 2, class:^(vesktop)$"
-        "workspace 1, class:^(code)$"
+        "workspace 1, class:(code)"
         "workspace 4, class:^(obsidian)"
         "workspace 4, class:^(floorp)"
 
@@ -159,7 +159,7 @@ in {
         "opacity 1,title:^.*(YouTube — Mozilla Firefox)"
         "opacity 0.93 0.93,title:(Nicotine+)"
         "opacity 0.93 0.93,title:(Jellyfin Media Player)"
-        "opacity 0.93 override 0.93 override,class:^(code)$"
+        "opacity 0.93 override 0.93 override,class:(code)"
         "opacity 0.93 override 0.93 override,initialTitle:^(Spotify Premium)$"
 
         "suppressevent maximize, class:.*"
@@ -178,6 +178,7 @@ in {
         "float,class:^(polkit)$,title:^(Authentication)$"
         "float,title:^(Media viewer)$"
         "float,title:^(Volume Control)$"
+        "float,title:^(Open Folder)$"
         "float,title:^(Picture-in-Picture)$"
         "float,title:^(DevTools)$"
         "float,class:^(file_progress)$"

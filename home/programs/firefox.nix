@@ -364,6 +364,23 @@
            #tabbrowser-tabs .tabbrowser-tab .tab-close-button {display:none!important}
         '';
       };
+
+      test = {
+        id = 3;
+        name = "test";
+        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+          violentmonkey
+        ];
+        settings = {
+          ui.prefersReducedMotion = "1";
+        };
+        userChrome = ''
+          .titlebar-min {display:none!important;}
+          .titlebar-max {display:none!important;}
+          .titlebar-restore {display:none!important;}
+          .titlebar-close {display:none!important;}
+        '';
+      };
     };
   };
 }

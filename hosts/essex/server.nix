@@ -44,7 +44,7 @@
             enable = true;
             id = "2zqzg-2cq3z";
             path = "/multimedia/music";
-            devices = ["vanguard" "phone"];
+            devices = ["enterprise" "vanguard" "phone"];
           };
         };
       };

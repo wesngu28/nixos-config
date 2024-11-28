@@ -19,6 +19,13 @@
           path = "/home/serpe/Obsidian";
           devices = ["essex" "vanguard" "phone"];
         };
+
+        "Music" = {
+          enable = true;
+          id = "stutq-qr54k";
+          path = "/home/serpe/Music";
+          devices = ["essex"];
+        };
       };
     };
   };
