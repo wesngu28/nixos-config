@@ -143,6 +143,8 @@ in {
       "custom/playerctl" = {
         format = "  {}";
         exec = "playerctl metadata --format '{{artist}} - {{title}}' -F";
+        on-scroll-up = "playerctl volume .05+";
+        on-scroll-down = "playerctl volume .05-";
         max-length = 40;
       };
       # "custom/power" = {

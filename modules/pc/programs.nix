@@ -11,7 +11,7 @@
       noto-fonts-emoji
       noto-fonts-color-emoji
       fira-code
-      (nerdfonts.override {fonts = ["FiraCode"];})
+      nerd-fonts.fira-code
       crimson
     ];
 

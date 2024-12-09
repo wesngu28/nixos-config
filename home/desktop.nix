@@ -19,8 +19,11 @@
     feishin
     playerctl
     jellyfin-media-player
+    pinta
 
     syncthingtray
+
+    libreoffice
   ];
 
   nixpkgs.config.allowUnfree = true;
