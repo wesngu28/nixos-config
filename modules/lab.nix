@@ -3,6 +3,7 @@
     ./server/docker.nix
     ./server/services/samba.nix
     ./server/services/ssh.nix
+    ./server/services/timer.nix
   ];
 
   networking.firewall.allowedTCPPorts = [8384 22000];
