@@ -63,6 +63,18 @@
         ];
       };
 
+      # seattle
+      saratoga = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/saratoga/configuration.nix
+          inputs.home-manager.nixosModules.default
+          inputs.catppuccin.nixosModules.catppuccin
+          #inputs.aagl.nixosModules.default
+          inputs.agenix.nixosModules.default
+        ];
+      };
+
       # laptop
       yorktown = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};

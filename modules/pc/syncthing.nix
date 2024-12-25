@@ -10,6 +10,7 @@
         "essex" = {id = "UQZ5FX5-Y5BYQJU-PVSUYFI-V3F2JK3-RHPYDIN-26TILM5-L4FMTOB-ATEHPQ7";};
         "vanguard" = {id = "EDSPC7E-YTOFM2K-CRO3APN-NS7SAMC-VEWTKSP-G7UG2CX-L32PV75-EMRG6QL";};
         "phone" = {id = "NGOSQ5C-V2WZO5D-VOTUULM-63NUIWR-NEQTCHZ-EP4BASI-FUW2K5Z-C6EWBQX";};
+        "saratoga" = {id = "6WU2WAI-J4R3ZGJ-ECRXZSW-S2DD67A-UVETEX5-UTVVQXS-NX626M3-EV62DQW";};
       };
 
       folders = {
@@ -17,7 +18,7 @@
           enable = true;
           id = "stutq-qr54k";
           path = "/home/serpe/Obsidian";
-          devices = ["essex" "vanguard" "phone"];
+          devices = ["essex" "vanguard" "phone" "saratoga"];
         };
 
         "Music" = {
