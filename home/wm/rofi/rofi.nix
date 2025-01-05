@@ -9,7 +9,6 @@
     package = pkgs.rofi-wayland;
     terminal = "${pkgs.kitty}/bin/kitty";
     font = "FiraCode Nerd Font 12";
-    catppuccin.enable = false;
 
     extraConfig = {
       show-icons = true;

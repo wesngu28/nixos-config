@@ -7,6 +7,13 @@
     flavor = "mocha";
     accent = "lavender";
     enable = true;
+    waybar.enable = true;
+    swaylock.enable = true;
+    rofi.enable = true;
+    gtk = {
+      enable = true;
+      icon.enable = true;
+    };
   };
 
   home.pointerCursor = {
@@ -25,10 +32,6 @@
 
   gtk = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      icon.enable = true;
-    };
     font = {name = "Noto Sans";};
     # theme = {
     #   name = "Dracula";

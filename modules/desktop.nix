@@ -66,13 +66,14 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
+    pulseaudio.enable = false;
   };
 
   security.rtkit.enable = true;
   security.pam.services.swaylock = {};
 
   hardware = {
-    pulseaudio.enable = false;
     graphics = {
       enable32Bit = true;
       enable = true;

@@ -16,7 +16,6 @@
 in {
   programs.waybar = {
     enable = true;
-    catppuccin.enable = false;
     settings.mainBar = {
       position = "top";
       layer = "top";
