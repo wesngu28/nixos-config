@@ -8,8 +8,8 @@
     accent = "lavender";
     enable = true;
     waybar.enable = true;
-    swaylock.enable = true;
-    rofi.enable = true;
+    swaylock.enable = false;
+    rofi.enable = false;
     gtk = {
       enable = true;
       icon.enable = true;
@@ -57,8 +57,6 @@
     breeze-icons
     libsForQt5.qt5ct
     qt6Packages.qtstyleplugin-kvantum
-    # wallust
-    # matugen
     pywal
   ];
 

@@ -53,6 +53,10 @@
       "editor.accessibilitySupport" = "off";
       "editor.formatOnSave" = true;
 
+      "[html]" = {
+        "editor.formatOnSave" = false;
+      };
+
       # Terminal
       "terminal.integrated.defaultProfile.linux" = "zsh";
       "terminal.integrated.enableMultiLinePasteWarning" = "never";
@@ -154,7 +158,7 @@
           name = "remote-explorer";
           publisher = "ms-vscode";
           version = "latest";
-          sha256 = "sha256-ji7h/spvkxn/ljnF6OaKSx8OVNh7h4YrY3QhKKKH5sc=";
+          sha256 = "sha256-wAxei9TYi23O+KkG6cxoCv9dkJi9FolFTUeDoQCzYB4=";
         }
       ];
   };

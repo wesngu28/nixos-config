@@ -53,6 +53,16 @@
         mimeType = ["text/html" "text/xml"];
       };
 
+      firefox-work = {
+        name = "Firefox Work";
+        genericName = "Web Browser";
+        exec = "firefox -P \"work\"";
+        icon = "firefox";
+        terminal = false;
+        categories = ["Network" "WebBrowser"];
+        mimeType = ["text/html" "text/xml"];
+      };
+
       # spotify = {
       #   name = "Spotify";
       #   type = "Application";
@@ -108,7 +118,7 @@
         "image/png" = ["imv-dir.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
         "image/jpg" = ["imv-dir.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
         "image/jpeg" = ["imv-dir.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
-        "image/gif" = ["imv-dir.desktop" "gimp.desktop" "pinta.desktop"];
+        "image/gif" = ["org.gnome.Loupe.desktop"];
 
         "inode/directory" = ["thunar.desktop"];
 

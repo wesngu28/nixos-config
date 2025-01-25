@@ -16,10 +16,11 @@
     wf-recorder
     ffmpeg
 
-    feishin
+    # feishin
     playerctl
     jellyfin-media-player
     pinta
+    loupe
 
     syncthingtray
 

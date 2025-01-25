@@ -337,6 +337,7 @@
         ];
         settings = {
           ui.prefersReducedMotion = "1";
+          browser.tabs.allowTabDetach = false;
         };
         userChrome = ''
           .titlebar-min {display:none!important;}
@@ -365,12 +366,9 @@
         '';
       };
 
-      test = {
+      work = {
         id = 3;
-        name = "test";
-        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
-          violentmonkey
-        ];
+        name = "work";
         settings = {
           ui.prefersReducedMotion = "1";
         };
