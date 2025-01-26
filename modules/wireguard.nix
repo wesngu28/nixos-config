@@ -40,7 +40,7 @@ in
       networking.firewall.allowedUDPPorts = [51820];
 
       networking.wg-quick.interfaces.wg0 = {
-        autostart = true;
+        autostart = false;
         configFile = config.age.secrets.wg.path;
       };
 
