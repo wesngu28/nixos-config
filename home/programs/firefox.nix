@@ -49,8 +49,6 @@
         "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
         "browser.newtabpage.activity-stream.default.sites" = false;
 
-        # "geo.provider.network.url" = "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
-        "geo.provider.use_gpsd" = false;
         "geo.provider.use_geoclue" = false;
 
         "extensions.getAddons.showPane" = false;
@@ -70,12 +68,7 @@
         "network.captive-portal-service.enabled" = false;
         "network.connectivity-service.enabled" = false;
 
-        # "browser.safebrowsing.malware.enabled" = false;
-        # "browser.safebrowsing.phishing.enabled" = false;
-        # "browser.safebrowsing.downloads.enabled" = false;
         "browser.safebrowsing.downloads.remote.enabled" = false;
-        # "browser.safebrowsing.downloads.remote.block_potentially_unwanted" = false;
-        # "browser.safebrowsing.downloads.remote.block_uncommon" = false;
 
         "network.prefetch-next" = false;
         "network.predictor.enabled" = false;
@@ -96,7 +89,6 @@
         "browser.urlbar.pocket.featureGate" = false;
         "browser.urlbar.weather.featureGate" = false;
         "browser.urlbar.yelp.featureGate" = false;
-        "browser.urlbar.suggest.engines" = false;
         "browser.urlbar.suggest.calculator" = true;
         "browser.urlbar.unitConversion.enabled" = true;
         "browser.urlbar.update2.engineAliasRefresh" = true;

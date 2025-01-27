@@ -16,7 +16,7 @@
     wf-recorder
     ffmpeg
 
-    # feishin
+    feishin
     playerctl
     jellyfin-media-player
     pinta
@@ -27,7 +27,10 @@
     libreoffice
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  # feishin :(
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-31.7.7"
+  ];
 
   xdg.dataFile."jellyfinmediaplayer/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
 

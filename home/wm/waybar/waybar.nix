@@ -35,7 +35,7 @@ in {
         "custom/playerctl"
       ];
       modules-center = ["hyprland/workspaces"];
-      modules-right = ["custom/wall" "tray" "pulseaudio" "battery" "clock" "custom/weather" "custom/swaync"];
+      modules-right = ["custom/wall" "custom/wireguard" "tray" "pulseaudio" "battery" "clock" "custom/weather" "custom/swaync"];
       clock = {
         format = " {:%I:%M %a %d}";
         tooltip = "true";
@@ -98,17 +98,12 @@ in {
         '';
       };
       "custom/playerctl#backward" = {
-        format = "{icon}";
+        format = "󰙣";
         return-type = "json";
         exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
         on-click = "playerctl previous";
         on-scroll-up = "playerctl volume .05+";
         on-scroll-down = "playerctl volume .05-";
-        format-icons = {
-          Playing = "<span>󰙣 </span>";
-          Paused = "<span>󰙣 </span>";
-          Stopped = "<span>󰙣 </span>";
-        };
         tooltip = false;
       };
       "custom/playerctl#play" = {
@@ -119,32 +114,26 @@ in {
         on-scroll-up = "playerctl volume .05+";
         on-scroll-down = "playerctl volume .05-";
         format-icons = {
-          Playing = "<span>󰏥 </span>";
-          Paused = "<span> </span>";
-          Stopped = "<span> </span>";
+          Playing = "<span>󰏥</span>";
+          Paused = "<span></span>";
+          Stopped = "<span></span>";
         };
-        tooltip = false;
       };
       "custom/playerctl#forward" = {
-        format = "{icon}";
+        format = "󰙡";
         return-type = "json";
         exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
         on-click = "playerctl next";
         on-scroll-up = "playerctl volume .05+";
         on-scroll-down = "playerctl volume .05-";
-        format-icons = {
-          Playing = "<span>󰙡 </span>";
-          Paused = "<span>󰙡 </span>";
-          Stopped = "<span>󰙡 </span>";
-        };
         tooltip = false;
       };
       "custom/playerctl" = {
-        format = "  {}";
-        exec = "playerctl metadata --format '{{artist}} - {{title}}' -F";
-        on-scroll-up = "playerctl volume .05+";
-        on-scroll-down = "playerctl volume .05-";
+        format = "<span>󰎈 {} 󰎈</span>";
+        return-type = "json";
         max-length = 40;
+        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+        on-click = "";
       };
       # "custom/power" = {
       #   format = "⏻ ";
@@ -229,6 +218,7 @@ in {
         format = "{}";
         exec = "bash -c '[ -d /sys/class/net/wg0 ] && echo 󰌾 || echo 󰿆'";
         interval = 600;
+        tooltip = false;
       };
       "custom/weather" = {
         tooltip = true;

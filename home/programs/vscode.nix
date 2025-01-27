@@ -23,7 +23,7 @@
       "workbench.tips.enabled" = false;
       "workbench.list.smoothScrolling" = true;
       # "workbench.activityBar.visible" = false;
-      "workbench.activityBar.location" = "top";
+      "workbench.activityBar.location" = "default";
       "workbench.layoutControl.enabled" = false;
       # "window.menuBarVisibility" = "compact";
       "window.titleBarStyle" = "custom";
@@ -77,6 +77,8 @@
       "search.collapseResults" = "auto";
       "search.exclude" = {
         "**/venv" = true;
+        "**/node_modules" = true;
+        "**/.git" = true;
       };
 
       # Files
