@@ -5,8 +5,8 @@
     # ./wlogout/wlogout.nix
     ./hypr/swaylock.nix
     ./rofi/rofi.nix
-    # ./dunst/dunst.nix
+    ./dunst/dunst.nix
     # ./ags/ags.nix
-    ./swaync/swaync.nix
+    # ./swaync/swaync.nix
   ];
 }

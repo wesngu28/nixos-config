@@ -35,7 +35,7 @@ in {
         "custom/playerctl"
       ];
       modules-center = ["hyprland/workspaces"];
-      modules-right = ["custom/wall" "custom/wireguard" "tray" "pulseaudio" "battery" "clock" "custom/weather" "custom/swaync"];
+      modules-right = ["custom/wall" "custom/wireguard" "tray" "pulseaudio" "battery" "clock" "custom/weather" "custom/power"];
       clock = {
         format = " {:%I:%M %a %d}";
         tooltip = "true";
@@ -140,28 +140,28 @@ in {
       #   on-click = "wlogout";
       #   tooltip = false;
       # };
-      "custom/swaync" = {
-        # source: <https://github.com/ErikReider/SwayNotificationCenter#waybar-example>
-        exec-if = "which swaync-client";
-        exec = "swaync-client -swb";
-        return-type = "json";
-        escape = true;
-        format = "{icon}"; # or "{icon} {}" to include notif count
-        format-icons = {
-          notification = " <span foreground='#ff968b'><sup></sup></span>";
-          none = " ";
-          dnd-notification = "<span foreground='#ff968b'><sup></sup></span>";
-          dnd-none = "";
-          inhibited-notification = "<span foreground='#ff968b'><sup></sup></span>";
-          inhibited-none = "";
-          dnd-inhibited-notification = "<span foreground='#ff968b'><sup></sup></span>";
-          dnd-inhibited-none = "";
-          #  
-        };
-        tooltip = false;
-        on-click = "swaync-client -t -sw";
-        on-click-right = "swaync-client -d -sw";
-      };
+      # "custom/swaync" = {
+      #   # source: <https://github.com/ErikReider/SwayNotificationCenter#waybar-example>
+      #   exec-if = "which swaync-client";
+      #   exec = "swaync-client -swb";
+      #   return-type = "json";
+      #   escape = true;
+      #   format = "{icon}"; # or "{icon} {}" to include notif count
+      #   format-icons = {
+      #     notification = " <span foreground='#ff968b'><sup></sup></span>";
+      #     none = " ";
+      #     dnd-notification = "<span foreground='#ff968b'><sup></sup></span>";
+      #     dnd-none = "";
+      #     inhibited-notification = "<span foreground='#ff968b'><sup></sup></span>";
+      #     inhibited-none = "";
+      #     dnd-inhibited-notification = "<span foreground='#ff968b'><sup></sup></span>";
+      #     dnd-inhibited-none = "";
+      #     #  
+      #   };
+      #   tooltip = false;
+      #   on-click = "swaync-client -t -sw";
+      #   on-click-right = "swaync-client -d -sw";
+      # };
       "custom/power" = {
         format = " ";
         tooltip = false;

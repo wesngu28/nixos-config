@@ -19,7 +19,8 @@ in {
     enable = true;
     systemd.enable = true;
     xwayland.enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
     settings = {
       env = [
@@ -196,7 +197,7 @@ in {
         "float,class:^(electron)$,title:^(Open Files)$"
         "float,class:^(steam)$,title:^(Special Offers)$"
         "float,class:^(firefox)$,title:~^(Extension: \(Bitwarden)"
-        "float,class:^(Bitwarden)$"
+        "float,title:^(Extension)$"
         "float,class:^(steam)$,title:^(Friends List)$"
 
         "idleinhibit focus, class:^(mpv)$"
@@ -228,9 +229,9 @@ in {
         "$mainMod, P, pseudo"
         # "$mainMod, J, togglesplit"
 
-        "$mainMod, N, exec, swaync-client -t -sw"
+        # "$mainMod, N, exec, swaync-client -t -sw"
 
-        "$mainMod SHIFT, B, layoutmsg, mfact exact 0.5"
+        "$mainMod, N, layoutmsg, mfact exact 0.5"
         "$mainMod, B, layoutmsg, mfact exact 0.33"
 
         "$mainMod, left, movefocus, l"

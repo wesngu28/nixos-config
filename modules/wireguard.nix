@@ -17,6 +17,14 @@ in
           '';
         };
 
+        autostart = mkOption {
+          default = true;
+          type = with types; bool;
+          description = ''
+            Autostart wireguard
+          '';
+        };
+
         fallback = mkOption {
           default = false;
           type = with types; bool;
@@ -40,7 +48,7 @@ in
       networking.firewall.allowedUDPPorts = [51820];
 
       networking.wg-quick.interfaces.wg0 = {
-        autostart = false;
+        autostart = cfg.autostart;
         configFile = config.age.secrets.wg.path;
       };
 
