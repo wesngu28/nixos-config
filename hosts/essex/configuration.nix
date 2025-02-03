@@ -69,7 +69,7 @@
   services = {
     wireguard.enable = true;
     wireguard.autostart = false;
-    services.wireguard.fallback = true;
+    wireguard.fallback = true;
   };
 
   networking.hostName = "essex";
