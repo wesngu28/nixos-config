@@ -66,6 +66,12 @@
     enable = true;
   };
 
+  services = {
+    wireguard.enable = true;
+    wireguard.autostart = false;
+    services.wireguard.fallback = true;
+  };
+
   networking.hostName = "essex";
 
   system.stateVersion = "23.11"; # Did you read the comment?
