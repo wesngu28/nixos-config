@@ -20,6 +20,7 @@
     playerctl
     jellyfin-media-player
     pinta
+    file-roller
     loupe
 
     syncthingtray

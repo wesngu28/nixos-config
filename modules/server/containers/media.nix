@@ -92,7 +92,7 @@
         ports = ["7878:7878"];
         volumes = [
           "/home/serpe/docker/arr/radarr:/config"
-          "/home/serpe/multimedia:/data"
+          "/multimedia:/data"
         ];
         environment = {
           PUID = "1000";
@@ -110,7 +110,7 @@
         ports = ["8989:8989"];
         volumes = [
           "/home/serpe/docker/arr/sonarr:/config"
-          "/home/serpe/multimedia:/data"
+          "/multimedia:/data"
         ];
         environment = {
           PUID = "1000";

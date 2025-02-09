@@ -198,6 +198,7 @@ in {
         "float,class:^(steam)$,title:^(Special Offers)$"
         "float,class:^(firefox)$,title:~^(Extension: \(Bitwarden)"
         "float,title:^(Extension)$"
+        "float,title:^(Bluetooth Devices)$"
         "float,class:^(steam)$,title:^(Friends List)$"
 
         "idleinhibit focus, class:^(mpv)$"
@@ -206,6 +207,9 @@ in {
         "idleinhibit always, workspace:5"
         "idleinhibit focus, workspace:6"
         "idleinhibit always, workspace:7"
+
+        "stayfocused, title:^()$,class:^(steam)$"
+        "minsize 1 1, title:^()$,class:^(steam)$"
 
         "workspace special silent, title:^(Firefox.* — Sharing Indicator)$"
         "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
