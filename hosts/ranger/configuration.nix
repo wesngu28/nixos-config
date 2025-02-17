@@ -9,6 +9,8 @@
     ../../modules/core.nix
   ];
 
+  hardware.enableRedistributableFirmware = true;
+
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
@@ -49,11 +51,11 @@
   security.polkit.enable = true;
 
   environment.systemPackages = with pkgs; [
+    fastfetch
     google-chrome
     openconnect_openssl
     btop
     du-dust
-    yed
   ];
 
   home-manager = {
@@ -65,8 +67,7 @@
         imports = [
           ../../home/core.nix
           ../../home/programs/vscode.nix
-          ../../home/cli/git.nix
-          ../../home/cli/zsh.nix
+          ../../home/cli
           ../../home/programs/firefox.nix
           inputs.catppuccin.homeManagerModules.catppuccin
         ];
@@ -75,6 +76,15 @@
   };
 
   services.spice-vdagentd.enable = true;
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+  virtualisation.docker.daemon.settings = {
+    data-root = "/home/serpe/docker";
+  };
 
   system.stateVersion = "23.11"; # Did you read the comment?
 }
