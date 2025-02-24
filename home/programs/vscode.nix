@@ -13,7 +13,7 @@
   programs.vscode = {
     enable = true;
 
-    userSettings = {
+    profiles.default.userSettings = {
       # Workbench
       "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.iconTheme" = "catppuccin-mocha";
@@ -123,7 +123,7 @@
       "terminal.integrated.minimumContrastRatio" = 1;
     };
 
-    extensions = with pkgs.vscode-extensions;
+    profiles.default.extensions = with pkgs.vscode-extensions;
       [
         jnoortheen.nix-ide
         # catppuccin.catppuccin-vsc

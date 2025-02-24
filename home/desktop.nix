@@ -4,6 +4,7 @@
     asunder
     (vesktop.override {
       withSystemVencord = false;
+      electron = pkgs.electron_32;
     })
     obsidian
     sqlitebrowser
