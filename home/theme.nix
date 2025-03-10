@@ -54,7 +54,7 @@
 
   home.packages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
-    breeze-icons
+    libsForQt5.breeze-icons
     libsForQt5.qt5ct
     qt6Packages.qtstyleplugin-kvantum
     pywal

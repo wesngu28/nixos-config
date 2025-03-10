@@ -15,10 +15,10 @@
       DisableTelemetry = true;
       DontCheckDefaultBrowser = true;
       DisablePocket = true;
-      DNSOverHTTPS = {
-        Enabled = false;
-        Locked = true;
-      };
+      # DNSOverHTTPS = {
+      #   Enabled = false;
+      #   Locked = true;
+      # };
       EnableTrackingProtection = true;
       FirefoxHome = {
         Highlights = false;

@@ -31,7 +31,7 @@
 
   # feishin :(
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-31.7.7"
+    "electron-32.3.3"
   ];
 
   xdg.dataFile."jellyfinmediaplayer/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";

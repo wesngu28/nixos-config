@@ -63,6 +63,12 @@
         mimeType = ["text/html" "text/xml"];
       };
 
+      windose = {
+        name = "Windose";
+        exec = "systemctl reboot --boat-loader-entry=auto-windows";
+        terminal = false;
+      };
+
       # spotify = {
       #   name = "Spotify";
       #   type = "Application";

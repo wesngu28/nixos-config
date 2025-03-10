@@ -60,6 +60,11 @@
               main."monitor.libcamera" = "disabled";
             };
           };
+          "11-bluetooth-policy" = {
+            "wireplumber.settings" = {
+              "bluetooth.autoswitch-to-headset-profile" = false;
+            };
+          };
         };
       };
       alsa.enable = true;

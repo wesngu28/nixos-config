@@ -134,6 +134,7 @@ in {
         "workspace 7, class:^(virt-manager)$"
         "workspace 6, class:^(lutris)$"
         "workspace 6, class:^(steam)$"
+        "workspace 6, initialclass:^(steam_app_)(.*)$"
         "workspace 6, class:^(explorer.exe)$"
         "workspace 6, class:^(battle.net.exe)$"
         "workspace 6, class:^(sc2_x64.exe)$"
@@ -213,6 +214,8 @@ in {
 
         "workspace special silent, title:^(Firefox.* — Sharing Indicator)$"
         "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
+
+        "renderunfocused, class:^(starrail\.exe)$"
       ];
 
       "$mainMod" = "SUPER";

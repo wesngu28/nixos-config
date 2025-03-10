@@ -1,7 +1,7 @@
 {
   systemd.timers."check-timer" = {
-    wantedBy = [ "timers.target" ];
-    timerConfig.OnCalendar = ["08:59 America/Los_Angeles" "20:59 America/Los_Angeles"];
+    wantedBy = ["timers.target"];
+    timerConfig.OnCalendar = ["09:59 America/Los_Angeles" "21:59 America/Los_Angeles"];
     timerConfig.Unit = "check-timer.service";
   };
 
