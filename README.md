@@ -66,11 +66,6 @@ Post Installation
 
 - For github, if the system will commit to github, generate ssh key for it
 
-- For Floorp (or whatever vertical browser firefox derivative)
-
-  1. Add Betterfox user.js
-  2. Install UBlock, Sideberry
-
 - For Obsidian, enable custom themes and turn on catppuccin mocha
 
 - For qemu vms, create them with virt-manager or terminal virt-install

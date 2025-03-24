@@ -279,7 +279,7 @@
 
         search = {
           default = "Brave Search";
-          order = ["Brave Search" "StartPage" "DuckDuckGo"];
+          order = ["Brave Search" "StartPage" "ddg"];
           force = true;
 
           engines = {
@@ -313,10 +313,10 @@
               definedAliases = ["@nh"];
             };
 
-            "Bing".metaData.hidden = true;
-            "Google".metaData.hidden = true;
-            "Amazon.com".metaData.hidden = true;
-            "eBay".metaData.hidden = true;
+            "bing".metaData.hidden = true;
+            "google".metaData.hidden = true;
+            "amazondotcom-us".metaData.hidden = true;
+            "ebay".metaData.hidden = true;
           };
         };
       };
