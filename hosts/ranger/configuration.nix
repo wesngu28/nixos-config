@@ -69,7 +69,7 @@
           ../../home/programs/vscode.nix
           ../../home/cli
           ../../home/programs/firefox.nix
-          inputs.catppuccin.homeManagerModules.catppuccin
+          inputs.catppuccin.homeModules.catppuccin
         ];
       };
     };
@@ -77,6 +77,7 @@
 
   services.spice-vdagentd.enable = true;
 
+  users.users.serpe.extraGroups = ["docker"];
   virtualisation.docker.enable = true;
   virtualisation.docker.rootless = {
     enable = true;

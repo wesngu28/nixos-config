@@ -154,7 +154,7 @@
         imports = [
           ../home/core.nix
           ../home/desktop.nix
-          inputs.catppuccin.homeManagerModules.catppuccin
+          inputs.catppuccin.homeModules.catppuccin
         ];
       };
     };

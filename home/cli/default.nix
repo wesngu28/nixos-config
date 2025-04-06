@@ -72,7 +72,7 @@
         what-happened = "sudo journalctl -u home-manager-serpe.service -e";
         rbe = "rebuild enterprise";
         wgr = "sudo systemctl restart wg-quick-wg0.service";
-        nfu = "nix flake update";
+        nfu = "cd ~/nixos-config && nix flake update";
         projects = "cd ~/Projects";
       };
     };
