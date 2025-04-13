@@ -26,11 +26,11 @@ in {
       env = [
         "XCURSOR_SIZE,24"
         "NIXOS_OZONE_WL,1"
-        "GDK_BACKEND,wayland,x11"
-        "XDG_SESSION_TYPE,wayland;xcb"
-        "QT_QPA_PLATFORM,wayland;xcb"
-        "QT_QPA_PLATFORMTHEME,qt5ct"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        # "GDK_BACKEND,wayland,x11"
+        # "XDG_SESSION_TYPE,wayland;xcb"
+        # "QT_QPA_PLATFORM,wayland;xcb"
+        # "QT_QPA_PLATFORMTHEME,qt5ct"
+        # "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
 
       exec-once = [
@@ -38,9 +38,9 @@ in {
         "waybar"
         # "swaync"
         "lxqt-policykit-agent"
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
+        # "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        # "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        # "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
         "gnome-keyring-daemon --start --components=secrets"
         "syncthingtray --wait"
         "kdeconnect-indicator"
@@ -160,7 +160,7 @@ in {
         "opacity 0.93 0.93,class:^(firefox)$"
         "opacity 1,title:^.*(YouTube — Mozilla Firefox)"
         "opacity 0.93 0.93,title:(Nicotine+)"
-        "opacity 0.93 0.93,title:(Jellyfin Media Player)"
+        "opacity 1,title:(Jellyfin Media Player)"
         "opacity 0.93 override 0.93 override,class:(code)"
         "opacity 0.93 override 0.93 override,initialTitle:^(Spotify Premium)$"
 
