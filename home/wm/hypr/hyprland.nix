@@ -26,11 +26,11 @@ in {
       env = [
         "XCURSOR_SIZE,24"
         "NIXOS_OZONE_WL,1"
-        # "GDK_BACKEND,wayland,x11"
-        # "XDG_SESSION_TYPE,wayland;xcb"
-        # "QT_QPA_PLATFORM,wayland;xcb"
-        # "QT_QPA_PLATFORMTHEME,qt5ct"
-        # "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "GDK_BACKEND,wayland,x11"
+        "XDG_SESSION_TYPE,wayland;xcb"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_QPA_PLATFORMTHEME,qt5ct"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
 
       exec-once = [
@@ -38,9 +38,9 @@ in {
         "waybar"
         # "swaync"
         "lxqt-policykit-agent"
-        # "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        # "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        # "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
         "gnome-keyring-daemon --start --components=secrets"
         "syncthingtray --wait"
         "kdeconnect-indicator"
@@ -49,8 +49,8 @@ in {
       ];
 
       general = {
-        gaps_in = 10;
-        gaps_out = 10;
+        gaps_in = 5;
+        gaps_out = 5;
         border_size = 3;
         no_border_on_floating = true;
         "col.active_border" = "rgb(b4befe)";

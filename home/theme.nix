@@ -10,6 +10,7 @@
     waybar.enable = true;
     swaylock.enable = false;
     rofi.enable = false;
+    mako.enable = false;
     gtk = {
       enable = true;
       icon.enable = true;

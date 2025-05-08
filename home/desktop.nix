@@ -4,7 +4,6 @@
     asunder
     (vesktop.override {
       withSystemVencord = false;
-      electron = pkgs.electron_32;
     })
     obsidian
     sqlitebrowser
@@ -27,11 +26,12 @@
     syncthingtray
 
     libreoffice
+    # protonvpn-gui
   ];
 
   # feishin :(
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-32.3.3"
+    "electron-33.4.11"
   ];
 
   xdg.dataFile."jellyfinmediaplayer/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
