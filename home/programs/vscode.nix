@@ -160,7 +160,7 @@
           name = "remote-explorer";
           publisher = "ms-vscode";
           version = "latest";
-          sha256 = "sha256-tCNkC7qa59oL9TXA+OKN0Tq5wl0TOLJhHpiKRLmMlgo=";
+          sha256 = "sha256-5uLb+UCcttgW5oPUcr8rKWks5Wdu+CzxPshJhpDK61s=";
         }
       ];
   };

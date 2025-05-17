@@ -45,7 +45,7 @@ in {
         "syncthingtray --wait"
         "kdeconnect-indicator"
         "sleep 0.5 && wallpaper"
-        xrandr-command
+        # xrandr-command
       ];
 
       general = {
@@ -112,7 +112,7 @@ in {
         if osConfig.networking.hostName == "enterprise"
         then [
           "DP-2,3440x1440@165,auto,auto"
-          "HDMI-A-1,1920x1280p@60,1920x0,auto"
+          ",preferred,auto-left,auto"
         ]
         else ",preferred,auto,1";
 
