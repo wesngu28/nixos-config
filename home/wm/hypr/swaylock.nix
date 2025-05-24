@@ -2,8 +2,8 @@
   programs.swaylock = {
     enable = true;
 
-    settings = {
-      image = "~/Wallpapers/Wallpaper.jpg";
-    };
+    # settings = {
+    #   image = "~/Wallpapers/Wallpaper.jpg";
+    # };
   };
 }

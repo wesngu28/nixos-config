@@ -58,7 +58,6 @@
     libsForQt5.breeze-icons
     libsForQt5.qt5ct
     qt6Packages.qtstyleplugin-kvantum
-    pywal
   ];
 
   # home.file.".config/wallust/templates" = {

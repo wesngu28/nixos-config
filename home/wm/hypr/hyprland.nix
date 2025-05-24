@@ -45,7 +45,7 @@ in {
         "syncthingtray --wait"
         "kdeconnect-indicator"
         "sleep 0.5 && wallpaper"
-        # xrandr-command
+        xrandr-command
       ];
 
       general = {
@@ -106,13 +106,15 @@ in {
       master = {
         mfact = 0.5;
         orientation = "center";
+        new_status = "master";
+        new_on_active = "after";
       };
 
       monitor =
         if osConfig.networking.hostName == "enterprise"
         then [
           "DP-2,3440x1440@165,auto,auto"
-          ",preferred,auto-left,auto"
+          "HDMI-A-1,1920x1280p@60,1920x0,auto"
         ]
         else ",preferred,auto,1";
 
@@ -146,7 +148,7 @@ in {
         "workspace 3, class:^(feishin)$"
         "workspace 5, title:^(Waydroid)$"
         "workspace 2, class:^(vesktop)$"
-        "workspace 1, class:(code)"
+        "workspace 1, class:(Code)"
         "workspace 4, class:^(obsidian)"
         "workspace 4, class:^(floorp)"
 
@@ -161,7 +163,7 @@ in {
         "opacity 1,title:^.*(YouTube — Mozilla Firefox)"
         "opacity 0.93 0.93,title:(Nicotine+)"
         "opacity 1,title:(Jellyfin Media Player)"
-        "opacity 0.93 override 0.93 override,class:(code)"
+        "opacity 0.93 override 0.93 override,class:(Code)"
         "opacity 0.93 override 0.93 override,initialTitle:^(Spotify Premium)$"
 
         "suppressevent maximize, class:.*"
@@ -240,6 +242,8 @@ in {
 
         "$mainMod, N, layoutmsg, mfact exact 0.5"
         "$mainMod, B, layoutmsg, mfact exact 0.33"
+
+        "$mainMod, G, layoutmsg, swapwithmaster"
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
