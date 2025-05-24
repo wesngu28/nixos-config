@@ -27,6 +27,7 @@ in {
   "navidrome.age".publicKeys = [serpe server_host];
 
   "photoview.age".publicKeys = [serpe server_host];
+  "immich.age".publicKeys = [ serpe server_host ];
 
   "diun.age".publicKeys = [serpe server_host];
 

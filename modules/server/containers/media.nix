@@ -13,9 +13,8 @@
         ];
         volumes = [
           "/home/serpe/docker/jellyfin:/config"
-          "/multimedia/movies:/data/movies"
-          "/multimedia/tv:/data/tv"
-          "/multimedia/music:/data/music"
+          "/multimedia/jellyfin/movies:/data/movies"
+          "/multimedia/jellyfin/tv:/data/tv"
           "/media:/data/unsorted"
         ];
         environment = {
@@ -36,7 +35,7 @@
         volumes = [
           "/etc/localtime:/etc/localtime:ro"
           "/home/serpe/docker/arr/sabnzbd:/config"
-          "/multimedia/usenet:/data/usenet"
+          "/multimedia/jellyfin/usenet:/data/usenet"
         ];
         environment = {
           PUID = "1000";
@@ -92,7 +91,7 @@
         ports = ["7878:7878"];
         volumes = [
           "/home/serpe/docker/arr/radarr:/config"
-          "/multimedia:/data"
+          "/multimedia/jellyfin:/data"
         ];
         environment = {
           PUID = "1000";
@@ -110,7 +109,7 @@
         ports = ["8989:8989"];
         volumes = [
           "/home/serpe/docker/arr/sonarr:/config"
-          "/multimedia:/data"
+          "/multimedia/jellyfin:/data"
         ];
         environment = {
           PUID = "1000";

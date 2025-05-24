@@ -3,7 +3,7 @@
     backend = "docker";
     containers = {
       "wallos" = {
-        autoStart = true;
+        autoStart = false;
         image = "bellamy/wallos:latest";
         ports = ["8282:80"];
         volumes = [

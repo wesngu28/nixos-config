@@ -8,11 +8,11 @@
     ./linkding.nix
     ./media.nix
     ./navidrome.nix
-    ./paperless.nix
-    ./photoview.nix
+    # ./paperless.nix
+    ./immich.nix
     ./portainer.nix
     ./redlib.nix
     ./rss.nix
-    ./wallos.nix
+    # ./wallos.nix
   ];
 }

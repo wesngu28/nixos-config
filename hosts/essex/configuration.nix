@@ -36,11 +36,37 @@
     fsType = "ntfs";
   };
 
+  fileSystems."/mnt/veracrypt2" = {
+    device = "/dev/disk/by-uuid/4E9EA45F9EA44177";
+    fsType = "ntfs";
+  };
+
   environment.systemPackages = with pkgs; [
-    (pkgs.writeShellScriptBin "decrypt" ''
+    (pkgs.writeShellScriptBin "decrypt1" ''
       cd /mnt/veracrypt1
-      ${pkgs.veracrypt}/bin/veracrypt --mount Files
-      cd ~
+      ${pkgs.veracrypt}/bin/veracrypt --mount Files /media
+      systemctl restart docker-jellyfin.service
+      systemctl restart docker-jdownloader2.service
+    '')
+    (pkgs.writeShellScriptBin "decrypt2" ''
+      cd /mnt/veracrypt2
+      ${pkgs.veracrypt}/bin/veracrypt --mount Files /multimedia/jellyfin
+      systemctl restart docker-jellyfin.service
+      systemctl restart docker-sabnzbd.service
+      systemctl restart docker-radarr.service
+      systemctl restart docker-sonarr.service
+    '')
+    (pkgs.writeShellScriptBin "dockerupdate" ''
+      containers=$(systemctl list-units --type=service --no-legend 'docker-*' | awk '{print $1}' | sed -E 's/^docker-(.*)\.service$/\1/')
+      for container in $containers; do
+        image=$(docker inspect --format '{{.Config.Image}}' "$container")
+        if [ -n "$image" ]; then
+          docker pull "$image"
+          docker stop "$container"
+          docker rm "$container"
+          systemctl restart "docker-$container.service"
+        fi
+      done
     '')
   ];
 
@@ -67,9 +93,9 @@
   };
 
   services = {
-    wireguard.enable = true;
+    wireguard.enable = false;
     wireguard.autostart = false;
-    wireguard.fallback = true;
+    wireguard.fallback = false;
   };
 
   networking.hostName = "essex";

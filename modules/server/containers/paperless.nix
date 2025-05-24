@@ -3,7 +3,7 @@
     backend = "docker";
     containers = {
       "broker" = {
-        autoStart = true;
+        autoStart = false;
         image = "docker.io/library/redis:7";
         volumes = [
           "redisdata:/data"
@@ -14,7 +14,7 @@
       };
 
       "paperlessdb" = {
-        autoStart = true;
+        autoStart = false;
         image = "docker.io/library/postgres:15";
         volumes = [
           "pgdata:/var/lib/postgresql/data"
@@ -30,14 +30,14 @@
       };
 
       "webserver" = {
-        autoStart = true;
+        autoStart = false;
         image = "ghcr.io/paperless-ngx/paperless-ngx:latest";
         ports = ["8888:8000"];
         volumes = [
           "data:/usr/src/paperless/data"
           "media:/usr/src/paperless/media"
           "/home/serpe/docker/paperless/export:/usr/src/paperless/export"
-          "/home/serpe/paperless:/usr/src/paperless/consume"
+          "/srv/paperless:/usr/src/paperless/consume"
         ];
         environment = {
           PAPERLESS_REDIS = "redis://broker:6379";
@@ -54,7 +54,7 @@
       };
 
       "gotenberg" = {
-        autoStart = true;
+        autoStart = false;
         image = "docker.io/gotenberg/gotenberg:7.10";
         cmd = ["gotenberg" "--chromium-disable-javascript=true" "--chromium-allow-list=file:///tmp/.*"];
         extraOptions = [
@@ -63,7 +63,7 @@
       };
 
       "tika" = {
-        autoStart = true;
+        autoStart = false;
         image = "ghcr.io/paperless-ngx/tika:latest";
         extraOptions = [
           "--network=paperless"
