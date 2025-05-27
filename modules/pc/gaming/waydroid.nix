@@ -1,12 +1,6 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    inputs.ataraxiasjel-nur.packages.${pkgs.system}.waydroid-script
+    waydroid-helper
   ];
-
   virtualisation.waydroid.enable = true;
 }

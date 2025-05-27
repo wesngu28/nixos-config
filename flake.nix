@@ -14,12 +14,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ataraxiasjel-nur = {
-      url = "github:AtaraxiaSjel/nur";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
+    # niri.url = "github:sodiboo/niri-flake";
 
     agenix = {
       url = "github:ryantm/agenix";

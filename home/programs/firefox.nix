@@ -272,7 +272,6 @@
           bitwarden
           firefox-color
           libredirect
-          search-by-image
           stylus
           violentmonkey
         ];

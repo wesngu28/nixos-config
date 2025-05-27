@@ -62,6 +62,12 @@ in {
           "7" = "";
         };
       };
+      "niri/workspaces" = {
+        active-only = true;
+        disable-scroll = true;
+        on-click = "activate";
+        format = "{index}";
+      };
       memory = {
         format = "󰟜 {used} GiB";
         interval = 2;
@@ -89,7 +95,7 @@ in {
         size = 24;
         interval = 1;
         exec = ''
-          cover_img=$(playerctl --player playerctld metadata mpris:artUrl 2>/dev/null)
+          cover_img=$(playerctl metadata mpris:artUrl 2>/dev/null)
           if [[ $? -ne 0 || -z "$cover_img" ]]; then
               exit 1
           fi
@@ -100,19 +106,19 @@ in {
       "custom/playerctl#backward" = {
         format = "󰙣";
         return-type = "json";
-        exec = "playerctl --player playerctld metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
-        on-click = "playerctl --player playerctld previous";
-        on-scroll-up = "playerctl --player playerctld volume .05+";
-        on-scroll-down = "playerctl --player playerctld volume .05-";
+        exec = "playerctl metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+        on-click = "playerctl previous";
+        on-scroll-up = "playerctl volume .05+";
+        on-scroll-down = "playerctl volume .05-";
         tooltip = false;
       };
       "custom/playerctl#play" = {
         format = "{icon}";
         return-type = "json";
-        exec = "playerctl --player playerctld metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
-        on-click = "playerctl --player playerctld play-pause";
-        on-scroll-up = "playerctl --player playerctld volume .05+";
-        on-scroll-down = "playerctl --player playerctld volume .05-";
+        exec = "playerctl metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+        on-click = "playerctl play-pause";
+        on-scroll-up = "playerctl volume .05+";
+        on-scroll-down = "playerctl volume .05-";
         format-icons = {
           Playing = "<span>󰏥</span>";
           Paused = "<span></span>";
@@ -122,17 +128,17 @@ in {
       "custom/playerctl#forward" = {
         format = "󰙡";
         return-type = "json";
-        exec = "playerctl --player playerctld metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
-        on-click = "playerctl --player playerctld next";
-        on-scroll-up = "playerctl --player playerctld volume .05+";
-        on-scroll-down = "playerctl --player playerctld volume .05-";
+        exec = "playerctl metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+        on-click = "playerctl next";
+        on-scroll-up = "playerctl volume .05+";
+        on-scroll-down = "playerctl volume .05-";
         tooltip = false;
       };
       "custom/playerctl" = {
         format = "<span>󰎈 {} 󰎈</span>";
         return-type = "json";
         max-length = 40;
-        exec = "playerctl --player playerctld metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+        exec = "playerctl metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
         on-click = "";
       };
       # "custom/power" = {

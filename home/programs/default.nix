@@ -1,7 +1,7 @@
 {
   imports = [
     ./firefox.nix
-    ./imv.nix
+    # ./imv.nix
     ./mpv.nix
     # ./spotify.nix
     ./vencord.nix

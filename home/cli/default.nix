@@ -18,6 +18,8 @@
     xxd
     grim
     slurp
+    wf-recorder
+    ffmpeg
 
     yazi
     unar
@@ -28,7 +30,7 @@
   programs = {
     btop.enable = true;
     fzf.enable = true;
-    lazygit.enable = true;
+    # lazygit.enable = true;
     zathura.enable = true;
 
     direnv = {
@@ -56,7 +58,7 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
-      initExtra = ''
+      initContent = ''
         if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
         	exec Hyprland
         fi

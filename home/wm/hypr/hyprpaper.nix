@@ -5,10 +5,7 @@
 }: {
   home.file.".config/hypr/hyprpaper.conf".text = ''
     splash = false
-    icp = true
-  '';
-  wayland.windowManager.hyprland.extraConfig = ''
-    exec-once=wallpaper
+    ipc = true
   '';
 
   home.packages = with pkgs; [

@@ -26,25 +26,20 @@ in {
       env = [
         "XCURSOR_SIZE,24"
         "NIXOS_OZONE_WL,1"
-        "GDK_BACKEND,wayland,x11"
-        "XDG_SESSION_TYPE,wayland;xcb"
-        "QT_QPA_PLATFORM,wayland;xcb"
-        "QT_QPA_PLATFORMTHEME,qt5ct"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
 
       exec-once = [
         # "ags -b hypr"
         "waybar"
         # "swaync"
-        "lxqt-policykit-agent"
+        "systemctl --user start hyprpolkitagent"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
         "gnome-keyring-daemon --start --components=secrets"
-        "syncthingtray --wait"
         "kdeconnect-indicator"
-        "sleep 0.5 && wallpaper"
+        "hyprpaper"
+        "wallpaper"
         xrandr-command
       ];
 
@@ -63,6 +58,8 @@ in {
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = false;
         render_unfocused_fps = "15";
+        vrr = 3;
+        initial_workspace_tracking = 2;
       };
 
       input = {
@@ -98,6 +95,10 @@ in {
         ];
       };
 
+      cursor = {
+        default_monitor = "DP-2";
+      };
+
       dwindle = {
         pseudotile = true;
         preserve_split = true;
@@ -107,13 +108,12 @@ in {
         mfact = 0.5;
         orientation = "center";
         new_status = "master";
-        new_on_active = "after";
       };
 
       monitor =
         if osConfig.networking.hostName == "enterprise"
         then [
-          "DP-2,3440x1440@165,auto,auto"
+          "DP-2,3440x1440@164.90,auto,auto"
           "HDMI-A-1,1920x1280p@60,1920x0,auto"
         ]
         else ",preferred,auto,1";
@@ -174,9 +174,9 @@ in {
         "float,class:^(btop)$"
         "float,class:^(yazi)$"
         "float,class:^(waypaper)$"
-        "float,class:^(imv)$"
+        "float,class:^(swayimg)$"
         "float,class:^(mpv)$"
-        "float,class:^(Gimp-2.10)$"
+        "float,title:^(GNU Image Manipulation Program)$"
         "float,class:^(pavucontrol)$"
         "float,class:^(blueman-manager)$"
         "float,class:^(polkit)$,title:^(Authentication)$"

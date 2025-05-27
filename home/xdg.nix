@@ -121,10 +121,10 @@
         "audio/flac" = ["mpv.desktop"];
         "audio/ogg" = ["mpv.desktop"];
 
-        "image/png" = ["imv-dir.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
-        "image/jpg" = ["imv-dir.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
-        "image/jpeg" = ["imv-dir.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
-        "image/gif" = ["org.gnome.Loupe.desktop"];
+        "image/png" = ["swayimg.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
+        "image/jpg" = ["swayimg.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
+        "image/jpeg" = ["swayimg.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
+        "image/gif" = ["swayimg.desktop"];
 
         "inode/directory" = ["thunar.desktop"];
 

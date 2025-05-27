@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    gimp
+    # gimp
+    gimp3
     asunder
     (vesktop.override {
       withSystemVencord = false;
@@ -9,25 +10,48 @@
     sqlitebrowser
     alejandra
     pavucontrol
-    lxqt.lxqt-policykit
+    hyprpolkitagent
     bitwarden
     #veracrypt
     seahorse
-    wf-recorder
-    ffmpeg
 
     feishin
     playerctl
     jellyfin-media-player
-    pinta
     file-roller
-    loupe
-
-    syncthingtray
+    swayimg
+    # syncthingtray
 
     libreoffice
     # protonvpn-gui
   ];
+
+  home.file.".config/swayimg/config".text = ''
+    [general]
+    size=1200,750
+
+    [viewer]
+    window = #000000ff
+    scale = fit
+
+    [list]
+    order=mtime
+    reverse=no
+    loop =yes
+    recursive=no
+    all=yes
+    fsmon=yes
+
+    [keys.viewer]
+    h=last_file
+    l=next_file
+    y=exec wl-copy -t image/png < '%';
+    x=exec rm -f '%' && echo "File removed: %";
+    w=exec set-as-wallpaper '%'
+
+    [info]
+    show = no
+  '';
 
   # feishin :(
   nixpkgs.config.permittedInsecurePackages = [
