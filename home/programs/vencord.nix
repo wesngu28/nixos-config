@@ -229,9 +229,8 @@
                 "enabled": false,
                 "shareUsername": false,
                 "hideWithSpotify": true,
-                "statusName": "some music",
-                "nameFormat": "status-name",
-                "useListeningStatus": false,
+                "nameFormat": "artist",
+                "useListeningStatus": true,
                 "missingArt": "lastfmLogo",
                 "showLastFmLogo": true
             },

@@ -39,8 +39,8 @@ in {
         "gnome-keyring-daemon --start --components=secrets"
         "kdeconnect-indicator"
         "hyprpaper"
-        "wallpaper"
         xrandr-command
+        "sleep 0.5 && wallpaper"
       ];
 
       general = {
@@ -56,10 +56,9 @@ in {
       misc = {
         disable_hyprland_logo = true;
         mouse_move_enables_dpms = true;
-        key_press_enables_dpms = false;
+        key_press_enables_dpms = true;
         render_unfocused_fps = "15";
         vrr = 3;
-        initial_workspace_tracking = 2;
       };
 
       input = {
@@ -108,6 +107,8 @@ in {
         mfact = 0.5;
         orientation = "center";
         new_status = "master";
+        new_on_top = true;
+        new_on_active = "before";
       };
 
       monitor =
@@ -177,6 +178,7 @@ in {
         "float,class:^(swayimg)$"
         "float,class:^(mpv)$"
         "float,title:^(GNU Image Manipulation Program)$"
+        "float,title:^(GNU Image Manipulation Program)$"
         "float,class:^(pavucontrol)$"
         "float,class:^(blueman-manager)$"
         "float,class:^(polkit)$,title:^(Authentication)$"
@@ -185,12 +187,13 @@ in {
         "float,title:^(Open Folder)$"
         "float,title:^(Picture-in-Picture)$"
         "float,title:^(DevTools)$"
+        "float,title:^(Rename.*)$"
         "float,class:^(file_progress)$"
         "float,class:^(confirm)$"
         "float,class:^(dialog)$"
         "float,class:^(download)$"
         "float,class:^(notification)$"
-        "float,class:^(error)$"
+        "float,class:^(file.*)$"
         "float,class:^(confirmreset)$"
         "float,title:^(Open File)$"
         "float,title:^(branchdialog)$"
@@ -199,7 +202,7 @@ in {
         "float,title:^(Steam - News)$"
         "float,class:^(electron)$,title:^(Open Files)$"
         "float,class:^(steam)$,title:^(Special Offers)$"
-        "float,class:^(firefox)$,title:~^(Extension: \(Bitwarden)"
+        "float,class:^(firefox)$,title:^(Extension.*)$"
         "float,title:^(Extension)$"
         "float,title:^(Bluetooth Devices)$"
         "float,class:^(steam)$,title:^(Friends List)$"

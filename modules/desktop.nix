@@ -62,7 +62,12 @@
           };
           "11-bluetooth-policy" = {
             "wireplumber.settings" = {
-              "bluetooth.autoswitch-to-headset-profile" = false;
+              "bluetooth.autoswitch-to-headset-profile" = true;
+            };
+          };
+          actions = {
+            update-props = {
+              "bluez5.autoswitch-profile" = true;
             };
           };
         };

@@ -6,6 +6,7 @@
   # ];
   programs.mpv = {
     enable = true;
+    catppuccin.enable = false;
     config = {
       autofit-larger = "1280x720";
       save-position-on-quit = true;

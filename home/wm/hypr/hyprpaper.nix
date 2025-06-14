@@ -8,6 +8,10 @@
     ipc = true
   '';
 
+  wayland.windowManager.hyprland.extraConfig = ''
+    exec-once=waypaper --random
+  '';
+
   home.packages = with pkgs; [
     waypaper
     hyprpaper
@@ -27,6 +31,16 @@
         for monitor in $monitors; do
             hyprctl hyprpaper wallpaper "$monitor, $background"
         done
+
+        mkdir -p ~/.config/swaylock
+
+        config_file=~/.config/swaylock/config
+
+        if grep -q '^image=' "$config_file"; then
+          sed -i "s|^image=.*|image=$background|" "$config_file"
+        else
+          echo "image=$background" >> "$config_file"
+        fi
       ''
     )
     (pkgs.writeShellScriptBin

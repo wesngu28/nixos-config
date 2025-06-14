@@ -20,6 +20,7 @@
     jellyfin-media-player
     file-roller
     swayimg
+
     # syncthingtray
 
     libreoffice
@@ -43,7 +44,7 @@
     fsmon=yes
 
     [keys.viewer]
-    h=last_file
+    h=prev_file
     l=next_file
     y=exec wl-copy -t image/png < '%';
     x=exec rm -f '%' && echo "File removed: %";

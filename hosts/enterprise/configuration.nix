@@ -40,8 +40,19 @@
 
   time.timeZone = "America/Phoenix";
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        ControllerMode = "dual";
+        # A2DP support
+        Enable = "Source,Sink,Media,Socket";
+        # Battery level display
+        Experimental = true;
+      };
+    };
+  };
 
   services.blueman.enable = true;
 
@@ -114,6 +125,11 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDSgL1QLUygF9krWrJ4fuaUbBr4nf9+RVvhyLoBTWmeC enty"
     ];
   };
+
+  # services.clamav = {
+  #   daemon.enable = true;
+  #   updater.enable = true;
+  # };
 
   system.stateVersion = "23.11"; # Did you read the comment?
 }

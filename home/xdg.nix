@@ -121,10 +121,11 @@
         "audio/flac" = ["mpv.desktop"];
         "audio/ogg" = ["mpv.desktop"];
 
-        "image/png" = ["swayimg.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
-        "image/jpg" = ["swayimg.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
-        "image/jpeg" = ["swayimg.desktop" "gimp.desktop" "pinta.desktop" "set-as-wallpaper.desktop"];
+        "image/png" = ["swayimg.desktop" "gimp.desktop" "set-as-wallpaper.desktop"];
+        "image/jpg" = ["swayimg.desktop" "gimp.desktop" "set-as-wallpaper.desktop"];
+        "image/jpeg" = ["swayimg.desktop" "gimp.desktop" "set-as-wallpaper.desktop"];
         "image/gif" = ["swayimg.desktop"];
+        "image/webp" = ["swayimg.desktop" "gimp.desktop" "set-as-wallpaper.desktop"];
 
         "inode/directory" = ["thunar.desktop"];
 

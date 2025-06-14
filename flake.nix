@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/staging-next";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -36,6 +37,7 @@
   outputs = {
     self,
     nixpkgs,
+    # nixpkgs-staging,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -50,7 +52,13 @@
 
       # workhorse
       enterprise = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          # nixpkgs-staging = import nixpkgs-staging {
+          #   system = "x86_64-linux";
+          #   config.allowUnfree = true;
+          # };
+        };
         modules = [
           ./hosts/enterprise/configuration.nix
           inputs.home-manager.nixosModules.default
