@@ -8,9 +8,9 @@
     ipc = true
   '';
 
-  wayland.windowManager.hyprland.extraConfig = ''
-    exec-once=waypaper --random
-  '';
+  # wayland.windowManager.hyprland.extraConfig = ''
+  #   exec-once=waypaper --random
+  # '';
 
   home.packages = with pkgs; [
     waypaper

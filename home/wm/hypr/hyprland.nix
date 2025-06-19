@@ -57,7 +57,7 @@ in {
         disable_hyprland_logo = true;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
-        render_unfocused_fps = "15";
+        render_unfocused_fps = 60;
         vrr = 3;
       };
 
@@ -220,7 +220,7 @@ in {
         "workspace special silent, title:^(Firefox.* — Sharing Indicator)$"
         "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
 
-        "renderunfocused, class:^(starrail\.exe)$"
+        "renderunfocused, title:^(Honkai: Star Rail)$"
       ];
 
       "$mainMod" = "SUPER";

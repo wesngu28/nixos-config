@@ -1,12 +1,37 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
+
+  # nixpkgs-staging = final: _prev: {
+  #   staging = import inputs.nixpkgs-staging {
+  #     system = final.system;
+  #     config.allowUnfree = true;
+  #   };
+  # };
+
+  nixpkgs = {
+    overlays = [
+      (final: prev: {
+        staging = import inputs.nixpkgs-staging {
+          system = final.system;
+          config.allowUnfree = true;
+        };
+      })
+    ];
+  };
 
   environment.systemPackages = with pkgs; [
     lutris
     gamemode
     protontricks
     gamescope
-    # bottles
+    wineWowPackages.waylandFull
+    winetricks
+    bottles
+    # staging.gst_all_1.gst-plugins-bad
   ];
 
   programs.steam = {
