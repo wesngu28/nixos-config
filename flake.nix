@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-staging.url = "github:nixos/nixpkgs/staging-next";
+    # nixpkgs-staging.url = "github:nixos/nixpkgs/staging-next";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -32,6 +32,11 @@
     };
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
+
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+    };
+    # spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs = {
@@ -87,7 +92,6 @@
           ./hosts/yorktown/configuration.nix
           inputs.home-manager.nixosModules.default
           inputs.catppuccin.nixosModules.catppuccin
-          inputs.aagl.nixosModules.default
           inputs.agenix.nixosModules.default
         ];
       };

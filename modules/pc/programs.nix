@@ -13,6 +13,7 @@
       fira-code
       nerd-fonts.fira-code
       crimson
+      liberation_ttf
     ];
 
     fontconfig = {

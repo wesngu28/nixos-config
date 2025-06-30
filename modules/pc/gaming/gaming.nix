@@ -12,25 +12,25 @@
   #   };
   # };
 
-  nixpkgs = {
-    overlays = [
-      (final: prev: {
-        staging = import inputs.nixpkgs-staging {
-          system = final.system;
-          config.allowUnfree = true;
-        };
-      })
-    ];
-  };
+  # nixpkgs = {
+  #   overlays = [
+  #     (final: prev: {
+  #       staging = import inputs.nixpkgs-staging {
+  #         system = final.system;
+  #         config.allowUnfree = true;
+  #       };
+  #     })
+  #   ];
+  # };
 
   environment.systemPackages = with pkgs; [
-    lutris
+    # lutris
     gamemode
     protontricks
     gamescope
     wineWowPackages.waylandFull
     winetricks
-    bottles
+    # bottles
     # staging.gst_all_1.gst-plugins-bad
   ];
 

@@ -82,15 +82,15 @@ in {
       };
 
       animations = {
-        enabled = "yes";
+        enabled = true;
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
         animation = [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default, popin 80%"
-          "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
+          "windows, 1, 4, myBezier"
+          "windowsOut, 1, 4, default, popin 80%"
+          "border, 1, 5, default"
+          "borderangle, 1, 4, default"
+          "fade, 1, 4, default"
+          "workspaces, 1, 5, default"
         ];
       };
 
@@ -149,6 +149,7 @@ in {
         "workspace 3, class:^(feishin)$"
         "workspace 5, title:^(Waydroid)$"
         "workspace 2, class:^(vesktop)$"
+        "workspace 2, class:^(discord)$"
         "workspace 1, class:(Code)"
         "workspace 4, class:^(obsidian)"
         "workspace 4, class:^(floorp)"
@@ -157,6 +158,7 @@ in {
         "opacity 0.93 0.93,class:^(floorp)$"
         "opacity 0.93 0.93,class:^(obsidian)$"
         "opacity 0.93 0.93,class:^(vesktop)$"
+        "opacity 0.93 0.93,class:^(discord)$"
         "opacity 0.93 0.93,class:^(kitty)$"
         "opacity 0.93 0.93,class:^(steam)$"
         "opacity 0.93 0.93,class:^(lutris)$"
@@ -202,7 +204,8 @@ in {
         "float,title:^(Steam - News)$"
         "float,class:^(electron)$,title:^(Open Files)$"
         "float,class:^(steam)$,title:^(Special Offers)$"
-        "float,class:^(firefox)$,title:^(Extension.*)$"
+        "float,class:^(firefox)$,title:^(.*Bitwarden Password Manager.*)$"
+
         "float,title:^(Extension)$"
         "float,title:^(Bluetooth Devices)$"
         "float,class:^(steam)$,title:^(Friends List)$"

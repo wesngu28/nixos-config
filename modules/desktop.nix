@@ -75,6 +75,36 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      extraConfig = {
+        pipewire."92-quantum" = {
+          "context.properties" = {
+            "default.clock.rate" = 48000;
+            "default.clock.quantum" = 512;
+            "default.clock.min-quantum" = 512;
+            "default.clock.max-quantum" = 1024;
+          };
+        };
+        pipewire-pulse."92-quantum" = let
+          qr = "512/48000";
+        in {
+          "context.properties" = [
+            {
+              name = "libpipewire-module-protocol-pulse";
+              args = {};
+            }
+          ];
+          "pulse.properties" = {
+            "pulse.default.req" = qr;
+            "pulse.min.req" = qr;
+            "pulse.max.req" = qr;
+            "pulse.min.quantum" = qr;
+            "pulse.max.quantum" = qr;
+          };
+          "stream.properties" = {
+            "node.latency" = qr;
+          };
+        };
+      };
     };
 
     pulseaudio.enable = false;

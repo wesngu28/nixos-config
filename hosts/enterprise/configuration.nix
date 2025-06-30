@@ -18,6 +18,7 @@
     ./libvirtd.nix
   ];
 
+  services.wireguard.autostart = false;
   services.wireguard.fallback = true;
 
   home-manager.users."serpe" = {
