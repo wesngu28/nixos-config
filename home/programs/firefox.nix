@@ -267,14 +267,17 @@
         id = 0;
         name = "default";
         isDefault = true;
-        extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
-          auto-tab-discard
-          bitwarden
-          firefox-color
-          libredirect
-          stylus
-          violentmonkey
-        ];
+        extensions = {
+          force = true;
+          packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+            auto-tab-discard
+            bitwarden
+            firefox-color
+            libredirect
+            stylus
+            violentmonkey
+          ];
+        };
 
         search = {
           default = "Brave Search";
@@ -323,9 +326,12 @@
       containerd = {
         id = 1;
         name = "containers";
-        extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
-          violentmonkey
-        ];
+        extensions = {
+          force = true;
+          packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+            violentmonkey
+          ];
+        };
         settings = {
           ui.prefersReducedMotion = "1";
           browser.tabs.allowTabDetach = false;
@@ -341,10 +347,13 @@
       treetabs = {
         id = 2;
         name = "treetabs";
-        extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
-          bitwarden
-          sidebery
-        ];
+        extensions = {
+          force = true;
+          packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+            bitwarden
+            sidebery
+          ];
+        };
         userChrome = ''
           #TabsToolbar {
               visibility: collapse;
