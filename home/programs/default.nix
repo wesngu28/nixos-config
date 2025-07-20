@@ -4,7 +4,7 @@
     # ./imv.nix
     ./mpv.nix
     # ./spotify.nix
-    ./vencord.nix
+    # ./vencord.nix
     ./vscode.nix
   ];
 }

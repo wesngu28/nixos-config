@@ -21,7 +21,7 @@
     wf-recorder
     ffmpeg
 
-    yazi
+    # yazi
     unar
     fd
     zip

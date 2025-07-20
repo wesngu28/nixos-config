@@ -3,9 +3,9 @@
     # gimp
     gimp3
     asunder
-    (vesktop.override {
-      withSystemVencord = false;
-    })
+    # (vesktop.override {
+    #   withSystemVencord = false;
+    # })
     obsidian
     sqlitebrowser
     alejandra

@@ -203,6 +203,7 @@ in {
         "float,title:^(File Operation Progress)$"
         "float,title:^(Steam - News)$"
         "float,class:^(electron)$,title:^(Open Files)$"
+        "float,class:^(xdg-desktop-portal-gtk)$"
         "float,class:^(steam)$,title:^(Special Offers)$"
         "float,class:^(firefox)$,title:^(.*Bitwarden Password Manager.*)$"
 
