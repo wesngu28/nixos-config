@@ -127,7 +127,7 @@
       [
         jnoortheen.nix-ide
         # catppuccin.catppuccin-vsc
-        catppuccin.catppuccin-vsc-icons
+        # catppuccin.catppuccin-vsc-icons
         ms-vscode-remote.remote-ssh
         mhutchie.git-graph
         svelte.svelte-vscode
@@ -160,7 +160,7 @@
           name = "remote-explorer";
           publisher = "ms-vscode";
           version = "latest";
-          sha256 = "sha256-5XO5ZXUoo00EKsuJwmcl5u/rIch+m951anWeYiGQM0w=";
+          sha256 = "sha256-Ceo1mD1qbpcGaybGn/SebjurYGOsHl0sLkoCQzGquLg=";
         }
       ];
   };

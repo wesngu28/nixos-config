@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   programs.kitty = {
     enable = true;
-    # catppuccin.enable = false;
     settings = {
       font_family = "FiraCode Nerd Font";
       font_size = "13";

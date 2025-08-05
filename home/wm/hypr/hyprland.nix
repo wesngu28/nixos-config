@@ -22,6 +22,10 @@ in {
     # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
+    extraConfig = ''
+      render:new_render_scheduling = false
+    '';
+
     settings = {
       env = [
         "XCURSOR_SIZE,24"

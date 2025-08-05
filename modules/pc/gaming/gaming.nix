@@ -9,8 +9,8 @@
     gamemode
     protontricks
     gamescope
-    wineWowPackages.waylandFull
-    winetricks
+    # wineWowPackages.waylandFull
+    # winetricks
     (bottles.override {
       removeWarningPopup = true;
     })

@@ -11,7 +11,7 @@
     alejandra
     pavucontrol
     hyprpolkitagent
-    bitwarden
+    # bitwarden
     #veracrypt
     seahorse
 

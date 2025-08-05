@@ -3,6 +3,7 @@
   inputs,
   ...
 }: {
+  catppuccin.firefox.enable = false;
   programs.firefox = {
     enable = true;
 
@@ -371,6 +372,9 @@
         name = "work";
         settings = {
           ui.prefersReducedMotion = "1";
+        };
+        extensions = {
+          force = true;
         };
         userChrome = ''
           .titlebar-min {display:none!important;}

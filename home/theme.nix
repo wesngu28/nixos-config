@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -11,10 +12,11 @@
     swaylock.enable = false;
     rofi.enable = false;
     mako.enable = false;
-    gtk = {
-      enable = true;
-      icon.enable = true;
-    };
+    # gtk = {
+    # enable = true;
+    # icon.enable = true;
+    # };
+    mpv.enable = false;
   };
 
   home.pointerCursor = {
@@ -27,24 +29,39 @@
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
+      gtk-theme = "catppuccin-mocha-lavender-standard";
       color-scheme = "prefer-dark";
     };
   };
 
   gtk = {
     enable = true;
-    font = {name = "Noto Sans";};
-    # theme = {
-    #   name = "Dracula";
-    #   package = pkgs.dracula-theme;
-    # };
+    theme = {
+      name = "catppuccin-mocha-lavender-standard";
+      package = pkgs.catppuccin-gtk.override {
+        accents = ["lavender"];
+        variant = "mocha";
+        # tweaks = ["black"];
+        # size = "compact";
+      };
+    };
     # iconTheme = {
-    #   name = "Papirus";
+    #   name = "Papirus-Dark";
     #   package = pkgs.catppuccin-papirus-folders.override {
-    #     accent = "lavender";
     #     flavor = "mocha";
+    #     accent = "lavender";
     #   };
     # };
+    font = {name = "Noto Sans";};
+    gtk2 = {
+      configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+    };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
   };
 
   qt = {
@@ -59,6 +76,12 @@
     libsForQt5.qt5ct
     qt6Packages.qtstyleplugin-kvantum
   ];
+
+  xdg.configFile = {
+    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+  };
 
   # home.file.".config/wallust/templates" = {
   #   source = ./templates;

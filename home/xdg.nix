@@ -69,15 +69,13 @@
         terminal = false;
       };
 
-      # spotify = {
-      #   name = "Spotify";
-      #   type = "Application";
-      #   icon = "spotify";
-      #   exec = "spotify";
-      #   terminal = false;
-      #   genericName = "Music Player";
-      #   categories = ["Audio" "Music" "Player" "AudioVideo"];
-      # };
+      waydroid = {
+        name = "Waydroid";
+        type = "Application";
+        icon = "waydroid";
+        exec = "waydroid show-full-ui";
+        terminal = false;
+      };
     };
     mimeApps = {
       enable = true;
