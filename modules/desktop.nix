@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./pc/programs.nix
-    ./pc/kdeconnect.nix
+    # ./pc/kdeconnect.nix
     ./pc/syncthing.nix
     ./pc/gaming/gaming.nix
     ./pc/ssh.nix

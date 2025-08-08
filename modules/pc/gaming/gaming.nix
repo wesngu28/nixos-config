@@ -11,9 +11,9 @@
     gamescope
     # wineWowPackages.waylandFull
     # winetricks
-    (bottles.override {
-      removeWarningPopup = true;
-    })
+    # (bottles.override {
+    #  removeWarningPopup = true;
+    # })
   ];
 
   programs.steam = {

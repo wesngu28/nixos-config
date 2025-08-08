@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     # gimp
     gimp3
-    asunder
+    # asunder
     # (vesktop.override {
     #   withSystemVencord = false;
     # })
@@ -12,7 +12,7 @@
     pavucontrol
     hyprpolkitagent
     # bitwarden
-    #veracrypt
+    # veracrypt
     seahorse
 
     feishin
@@ -23,7 +23,7 @@
 
     # syncthingtray
 
-    libreoffice
+    # libreoffice
     # protonvpn-gui
   ];
 

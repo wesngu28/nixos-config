@@ -1,7 +1,7 @@
 {pkgs, ...}: {
-  imports = [
-    ./fastfetch.nix
-  ];
+  # imports = [
+    # ./fastfetch.nix
+  # ];
 
   home.sessionVariables = {
     EDITOR = "vim";
@@ -11,7 +11,7 @@
   home.packages = with pkgs; [
     vim
     du-dust
-    fastfetch
+    # fastfetch
     wl-clipboard
     wget
     jq

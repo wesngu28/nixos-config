@@ -21,12 +21,12 @@
           devices = ["essex" "vanguard" "phone" "saratoga"];
         };
 
-        "Music" = {
-          enable = true;
-          id = "2zqzg-2cq3z";
-          path = "/home/serpe/Music";
-          devices = ["essex" "vanguard"];
-        };
+        # "Music" = {
+        #  enable = true;
+        #  id = "2zqzg-2cq3z";
+        #  path = "/home/serpe/Music";
+        #  devices = ["essex" "vanguard"];
+        # };
       };
     };
   };
