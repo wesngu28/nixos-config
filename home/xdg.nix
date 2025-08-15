@@ -63,11 +63,11 @@
         mimeType = ["text/html" "text/xml"];
       };
 
-      windose = {
-        name = "Windose";
-        exec = "systemctl reboot --boot-loader-entry=auto-windows";
-        terminal = false;
-      };
+      # windose = {
+      #   name = "Windose";
+      #   exec = "systemctl reboot --boot-loader-entry=auto-windows";
+      #   terminal = false;
+      # };
 
       waydroid = {
         name = "Waydroid";
