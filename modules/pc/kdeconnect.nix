@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.kdeconnect.enable = true;
   environment.systemPackages = with pkgs; [
-    libsForQt5.kdeconnect-kde
+    kdePackages.kdeconnect-kde
   ];
   networking.firewall = {
     enable = true;
