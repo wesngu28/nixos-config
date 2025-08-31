@@ -20,6 +20,7 @@
     jellyfin-media-player
     file-roller
     swayimg
+    limo
 
     # syncthingtray
 
@@ -56,7 +57,7 @@
 
   # feishin :(
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-33.4.11"
+    "qtwebengine-5.15.19"
   ];
 
   xdg.dataFile."jellyfinmediaplayer/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
