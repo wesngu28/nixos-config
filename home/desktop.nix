@@ -24,7 +24,7 @@
 
     # syncthingtray
 
-    # libreoffice
+    libreoffice
     # protonvpn-gui
   ];
 
