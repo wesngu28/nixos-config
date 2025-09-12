@@ -17,7 +17,8 @@
 
     feishin
     playerctl
-    jellyfin-media-player
+    # jellyfin-media-player
+    jellyfin-mpv-shim
     file-roller
     swayimg
     limo
@@ -56,9 +57,9 @@
   '';
 
   # feishin :(
-  nixpkgs.config.permittedInsecurePackages = [
-    "qtwebengine-5.15.19"
-  ];
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "qtwebengine-5.15.19"
+  # ];
 
   xdg.dataFile."jellyfinmediaplayer/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
 
