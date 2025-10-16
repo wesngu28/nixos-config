@@ -269,7 +269,6 @@
         name = "default";
         isDefault = true;
         extensions = {
-          force = true;
           packages = with inputs.firefox-addons.packages.${pkgs.system}; [
             auto-tab-discard
             bitwarden
@@ -328,7 +327,6 @@
         id = 1;
         name = "containers";
         extensions = {
-          force = true;
           packages = with inputs.firefox-addons.packages.${pkgs.system}; [
             violentmonkey
           ];
@@ -349,7 +347,6 @@
         id = 2;
         name = "treetabs";
         extensions = {
-          force = true;
           packages = with inputs.firefox-addons.packages.${pkgs.system}; [
             bitwarden
             sidebery
@@ -372,9 +369,6 @@
         name = "work";
         settings = {
           ui.prefersReducedMotion = "1";
-        };
-        extensions = {
-          force = true;
         };
         userChrome = ''
           .titlebar-min {display:none!important;}

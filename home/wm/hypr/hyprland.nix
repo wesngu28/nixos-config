@@ -272,6 +272,7 @@ in {
         "$mainMod SHIFT, left, workspace, e-1"
 
         "$mainMod, 1, workspace, 1"
+        ", code:91, workspace, 1"
         "$mainMod, 2, workspace, 2"
         "$mainMod, 3, workspace, 3"
         "$mainMod, 4, workspace, 4"

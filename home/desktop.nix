@@ -26,6 +26,8 @@
     # syncthingtray
 
     libreoffice
+    obs-studio
+    localsend
     # protonvpn-gui
   ];
 

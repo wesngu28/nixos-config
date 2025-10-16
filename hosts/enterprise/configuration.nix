@@ -34,7 +34,7 @@
       efi.canTouchEfiVariables = lib.mkDefault true;
     };
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
   };
 
   networking.hostName = "enterprise";
