@@ -15,6 +15,7 @@
           "/home/serpe/docker/jellyfin:/config"
           "/multimedia/jellyfin/movies:/data/movies"
           "/multimedia/jellyfin/tv:/data/tv"
+          "/multimedia/music:/data/music"
           "/media:/data/unsorted"
         ];
         environment = {

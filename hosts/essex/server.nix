@@ -20,7 +20,7 @@
       configDir = "/home/serpe/syncthing/.config/syncthing"; # Folder for Syncthing's settings and keys
       settings = {
         devices = {
-          "enterprise" = {id = "ATF3HHN-67CQLSD-PGLQ2YI-PL4YCIA-23CWIB5-J6KHH7B-D6HCBAQ-ZLJ35QO";};
+          "enterprise" = {id = "Y76QR6O-DKWWEZ2-EZ6SRA7-742BY7V-EPCEAII-VJC7BH4-EZS7TS5-IQ32UQZ";};
           "vanguard" = {id = "NGOSQ5C-V2WZO5D-VOTUULM-63NUIWR-NEQTCHZ-EP4BASI-FUW2K5Z-C6EWBQX";};
           "phone" = {id = "QAPBSUG-KLJGCI3-YEH25BA-DVDVDO3-7UT2PZW-AFTROMT-JMYPU6A-VD5ZRAT";};
         };
