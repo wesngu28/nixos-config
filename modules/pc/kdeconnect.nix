@@ -18,4 +18,8 @@
       } # KDE Connect
     ];
   };
+
+  # programs.localsend.enable = true;
+  # programs.localsend.openFirewall = true;
+  # programs.adb.enable = true;
 }

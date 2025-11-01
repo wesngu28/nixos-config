@@ -55,7 +55,7 @@
     google-chrome
     openconnect_openssl
     btop
-    du-dust
+    dust
   ];
 
   home-manager = {

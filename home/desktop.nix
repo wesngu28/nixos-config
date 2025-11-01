@@ -28,6 +28,7 @@
     libreoffice
     obs-studio
     localsend
+    # scrcpy
     # protonvpn-gui
   ];
 

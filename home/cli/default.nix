@@ -9,7 +9,7 @@
   };
 
   home.packages = with pkgs; [
-    du-dust
+    dust
     fastfetch
     wl-clipboard
     wget

@@ -29,7 +29,8 @@ in {
     settings = {
       env = [
         "XCURSOR_SIZE,24"
-        "NIXOS_OZONE_WL,1"
+        # "NIXOS_WAYLAND,1"
+        # "NIXOS_OZONE_WL,1"
       ];
 
       exec-once = [
@@ -168,6 +169,7 @@ in {
         "opacity 0.93 0.93,class:^(lutris)$"
         "opacity 0.93 0.93,class:^(firefox)$"
         "opacity 1,title:^.*(YouTube — Mozilla Firefox)"
+        "opacity 1,title:^.*(Jellyfin)"
         "opacity 0.93 0.93,title:(Nicotine+)"
         "opacity 1,title:(Jellyfin Media Player)"
         "opacity 0.93 override 0.93 override,class:(Code)"
