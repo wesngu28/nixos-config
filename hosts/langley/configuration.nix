@@ -20,7 +20,7 @@
   networking.hostName = "serpe";
 
   # Set your time zone.
-  time.timeZone = "America/Phoenix";
+  time.timeZone = "America/Los_Angeles";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

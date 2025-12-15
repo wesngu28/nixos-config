@@ -55,10 +55,10 @@
         reverseImageSearch.enable = true;
         serverInfo.enable = true;
         showConnections.enable = true;
-        showMeYourName = {
-          enable = true;
-          mode = "nick-user";
-        };
+        # showMeYourName = {
+        #   enable = true;
+        #   mode = "nick-user";
+        # };
         unindent.enable = true;
         whoReacted.enable = true;
       };

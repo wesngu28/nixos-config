@@ -19,7 +19,7 @@
         environment = {
           PUID = "1000";
           PGID = "1000";
-          TZ = "America/Phoenix";
+          TZ = "America/Los_Angeles";
         };
         extraOptions = [
           "--network=rss"

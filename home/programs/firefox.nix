@@ -15,7 +15,6 @@
       DisableFormHistory = true;
       DisableTelemetry = true;
       DontCheckDefaultBrowser = true;
-      DisablePocket = true;
       # DNSOverHTTPS = {
       #   Enabled = false;
       #   Locked = true;
@@ -23,9 +22,7 @@
       EnableTrackingProtection = true;
       FirefoxHome = {
         Highlights = false;
-        Pocket = false;
         Snippets = false;
-        SponsoredPocket = false;
         SponsoredTopSites = false;
       };
       NetworkPrediction = false;
@@ -65,7 +62,7 @@
         "browser.tabs.crashReporting.sendReport" = false;
         "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
 
-        "captivedetect.canonicalURL" = false;
+        "captivedetect.canonicalURL" = "";
         "network.captive-portal-service.enabled" = false;
         "network.connectivity-service.enabled" = false;
 
@@ -92,7 +89,6 @@
         "browser.urlbar.yelp.featureGate" = false;
         "browser.urlbar.suggest.calculator" = true;
         "browser.urlbar.unitConversion.enabled" = true;
-        "browser.urlbar.update2.engineAliasRefresh" = true;
         "browser.urlbar.suggest.quicksuggest.sponsored" = false;
         "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
 
@@ -154,20 +150,29 @@
         # "nglayout.initialpaint.delay" = 5;
         # "content.notify.interval" = 100000;
         "browser.cache.jsbc_compression_level" = 3;
-        "media.memory_cache_max_size" = 65336;
+        "media.memory_cache_max_size" = 262144;
+        "media.memory_caches_combined_limit_kb" = 1048576;
 
-        "gfx.canvas.accelerated.cache-items" = 4096;
-        "gfx.canvas.accelerated.cache-size" = 512;
-        "gfx.content.skia-font-cache-size" = 20;
+        "gfx.canvas.accelerated.cache-items" = 32768;
+        "gfx.canvas.accelerated.cache-size" = 4096;
+        "gfx.content.skia-font-cache-size" = 32;
         "media.ffmpeg.vaapi.enabled" = true;
-        "media.cache_readahead_limit" = 7200;
-        "media.cache_resume_threshold" = 3600;
-        "image.mem.decode_bytes_at_a_time" = 32768;
+        "media.cache_readahead_limit" = 600;
+        "media.cache_resume_threshold" = 300;
+        "image.cache.size" = 10485760;
+        "image.mem.decode_bytes_at_a_time" = 65536;
+        "webgl.max-size" = 16384;
+
+        "browser.cache.memory.capacity" = 131072;
+        "browser.cache.memory.max_entry_size" = 20480;
+        "browser.sessionhistory.max_total_viewers" = 4;
+        "browser.sessionstore.max_tabs_undo" = 10;
 
         "network.http.max-connections" = 1800;
         "network.http.max-persistent-connections-per-server" = 10;
         "network.http.max-urgent-start-excessive-connections-per-host" = 5;
         "network.http.pacing.requests.enabled" = false;
+        "network.dnsCacheEntries" = 10000;
         "network.dnsCacheExpiration" = 3600;
         "network.ssl_tokens_cache_capacity" = 10240;
 
@@ -225,7 +230,10 @@
 
         # Peskyfox
 
-        "browser.privatebrowsing.vpnpromourl" = "";
+        "browser.ml.chat.enabled" = false;
+        "browser.ml.chat.menu" = false;
+        "browser.tabs.groups.smart.enabled" = false;
+        "browser.ml.linkPreview.enabled" = false;
         "browser.preferences.moreFromMozilla" = false;
         "browser.tabs.tabmanager.enabled" = false;
         "browser.profiles.enabled" = true;

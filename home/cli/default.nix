@@ -24,6 +24,7 @@
     unar
     fd
     zip
+    unzip
   ];
 
   programs = {

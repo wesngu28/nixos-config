@@ -17,7 +17,7 @@
 
   networking.hostName = "ranger";
 
-  time.timeZone = "America/Phoenix";
+  time.timeZone = "America/Los_Angeles";
 
   programs.zsh.enable = true;
   users.users.serpe.shell = pkgs.zsh;

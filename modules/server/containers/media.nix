@@ -21,7 +21,7 @@
         environment = {
           PUID = "1000";
           PGID = "1000";
-          TZ = "America/Phoenix";
+          TZ = "America/Los_Angeles";
         };
         extraOptions = [
           "--network=arr"
@@ -41,7 +41,7 @@
         environment = {
           PUID = "1000";
           PGID = "1000";
-          TZ = "America/Phoenix";
+          TZ = "America/Los_Angeles";
         };
         extraOptions = [
           "--network=arr"
@@ -60,7 +60,7 @@
       #   environment = {
       #     PUID = "1000";
       #     PGID = "1000";
-      #     TZ = "America/Phoenix";
+      #     TZ = "America/Los_Angeles";
       #     AUTOCONFIG = "true";
       #     FLAC2CUSTOM_ARGS = "true";
       #   };
@@ -79,7 +79,7 @@
         environment = {
           PUID = "1000";
           PGID = "1000";
-          TZ = "America/Phoenix";
+          TZ = "America/Los_Angeles";
         };
         extraOptions = [
           "--network=arr"
@@ -97,7 +97,7 @@
         environment = {
           PUID = "1000";
           PGID = "1000";
-          TZ = "America/Phoenix";
+          TZ = "America/Los_Angeles";
         };
         extraOptions = [
           "--network=arr"
@@ -115,7 +115,7 @@
         environment = {
           PUID = "1000";
           PGID = "1000";
-          TZ = "America/Phoenix";
+          TZ = "America/Los_Angeles";
         };
         extraOptions = [
           "--network=arr"
@@ -130,7 +130,7 @@
           "/home/serpe/docker/arr/jellyseer:/app/config"
         ];
         environment = {
-          TZ = "America/Phoenix";
+          TZ = "America/Los_Angeles";
         };
         extraOptions = [
           "--network=arr"

@@ -32,7 +32,7 @@
   hardware.bluetooth.powerOnBoot = true;
 
   networking.hostName = "yorktown";
-  time.timeZone = "America/Phoenix";
+  time.timeZone = "America/Los_Angeles";
 
   system.stateVersion = "23.11";
 }

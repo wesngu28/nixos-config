@@ -38,7 +38,7 @@
         sudo nmcli con add ifname br0 type bridge con-name br0
         sudo nmcli con add type bridge-slave ifname enp34s0 master br0
         sudo nmcli con modify br0 bridge.stp no
-        sudo nmcli con down "Wired connection 1"
+        sudo nmcli con down "Auto Ethernet"
         sudo nmcli con up br0
         sudo virsh net-start br0
       '')
@@ -46,7 +46,7 @@
       "bridge-down" ''
         sudo nmcli con delete br0
         sudo nmcli con delete bridge-slave-enp34s0
-        sudo nmcli con up "Wired connection 1"
+        sudo nmcli con up "Auto Ethernet"
         sudo virsh net-start default
       '')
   ];

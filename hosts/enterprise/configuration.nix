@@ -34,12 +34,12 @@
       efi.canTouchEfiVariables = lib.mkDefault true;
     };
 
-    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   networking.hostName = "enterprise";
 
-  time.timeZone = "America/Phoenix";
+  time.timeZone = "America/Los_Angeles";
 
   hardware.bluetooth = {
     enable = true;

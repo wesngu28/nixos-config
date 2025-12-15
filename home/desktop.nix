@@ -27,9 +27,10 @@
 
     libreoffice
     obs-studio
-    localsend
+    # localsend
     # scrcpy
     # protonvpn-gui
+    brave
   ];
 
   home.file.".config/swayimg/config".text = ''
@@ -60,9 +61,9 @@
   '';
 
   # feishin :(
-  # nixpkgs.config.permittedInsecurePackages = [
-  #   "qtwebengine-5.15.19"
-  # ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-36.9.5"
+  ];
 
   xdg.dataFile."jellyfinmediaplayer/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
 

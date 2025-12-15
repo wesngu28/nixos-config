@@ -230,7 +230,7 @@ in {
         tooltip = true;
         format = "{}";
         exec = ''
-          WEATHER_API_URL="https://api.open-meteo.com/v1/forecast?latitude=32.2217&longitude=-110.9265&current=weather_code,temperature_2m&hourly=precipitation_probability&daily=temperature_2m_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FPhoenix&forecast_days=1"
+          WEATHER_API_URL="https://api.open-meteo.com/v1/forecast?latitude=47.608013&longitude=-122.335167&current=weather_code,temperature_2m&hourly=precipitation_probability&daily=temperature_2m_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FLos_Angeles&forecast_days=1"
 
           weather_data=$(curl -s "$WEATHER_API_URL")
 

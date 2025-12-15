@@ -70,7 +70,7 @@
     '')
   ];
 
-  time.timeZone = "America/Phoenix";
+  time.timeZone = "America/Los_Angeles";
 
   users.users.serpe = {
     isNormalUser = true;
