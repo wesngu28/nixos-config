@@ -5,7 +5,7 @@
     ports = [22];
     settings = {
       PermitRootLogin = "no";
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
       UseDns = true;
       X11Forwarding = false;
     };
