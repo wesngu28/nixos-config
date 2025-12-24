@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   users.users.serpe = {
     isNormalUser = true;
     description = "serpe";
@@ -30,6 +26,7 @@
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
+    extraLocales = ["en_US.UTF-8/UTF-8" "ja_JP.UTF-8/UTF-8"];
 
     extraLocaleSettings = {
       LC_ADDRESS = "en_US.UTF-8";
