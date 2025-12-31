@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  config,
   ...
 }: {
   fonts = {
@@ -40,7 +41,6 @@
     thunar-volman
   ];
   services.gvfs.enable = true;
-  services.tumbler.enable = true;
 
   nix.settings = {
     substituters = [
@@ -55,14 +55,14 @@
 
   programs.hyprland = {
     enable = true;
-    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
+
   services.gnome.gnome-keyring.enable = true;
   services.gnome.gcr-ssh-agent.enable = false;
 
-  security = {
-    pam.services.login.enableGnomeKeyring = true;
-  };
+  security.pam.services.login.enableGnomeKeyring = true;
 
   networking.firewall.allowedTCPPorts = [2234];
 }
