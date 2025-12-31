@@ -7,7 +7,8 @@
     ./pc/programs.nix
     ./pc/kdeconnect.nix
     ./pc/syncthing.nix
-    ./pc/gaming/gaming.nix
+    ./pc/gaming.nix
+    ./pc/chromium.nix
     ./pc/ssh.nix
   ];
 
@@ -62,12 +63,12 @@
           };
           "11-bluetooth-policy" = {
             "wireplumber.settings" = {
-              "bluetooth.autoswitch-to-headset-profile" = true;
+              "bluetooth.autoswitch-to-headset-profile" = false;
             };
           };
           actions = {
             update-props = {
-              "bluez5.autoswitch-profile" = true;
+              "bluez5.autoswitch-profile" = false;
             };
           };
         };

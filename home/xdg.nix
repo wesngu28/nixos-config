@@ -144,7 +144,7 @@
 
   xdg.configFile = {
     "xfce4/helpers.rc".text = ''
-      TerminalEmulator=kitty.desktop
+      TerminalEmulator=foot
       TerminalEmulatorDismissed=true
     '';
 
@@ -152,12 +152,12 @@
       <?xml version="1.0" encoding="UTF-8"?>
       <actions>
       <action>
-              <icon>kitty</icon>
+              <icon>foot</icon>
               <name>Open Terminal Here</name>
               <submenu></submenu>
               <unique-id>1716857250902518-1</unique-id>
-              <command>kitty %f</command>
-              <description>Open kitty in the current directoryy</description>
+              <command>foot -D %d</command>
+              <description>Open foot in the current directory</description>
               <range></range>
               <patterns>*</patterns>
               <startup-notify/>

@@ -85,7 +85,7 @@ in {
         format-muted = "󰖁 {volume}%";
         format-icons = {default = [" "];};
         scroll-step = 3;
-        on-click = "pavucontrol";
+        on-click = "pwvucontrol";
       };
       battery = {
         format = "{icon} {capacity}%";

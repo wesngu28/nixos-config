@@ -12,10 +12,8 @@
     swaylock.enable = false;
     rofi.enable = false;
     mako.enable = false;
-    # gtk = {
-    # enable = true;
-    # icon.enable = true;
-    # };
+    foot.enable = true;
+    zellij.enable = true;
     mpv.enable = false;
   };
 

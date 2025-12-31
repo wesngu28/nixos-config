@@ -1,34 +1,43 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    # gimp
+    # CLI / BACKGROUND
+    dust
+    fastfetch
+    wl-clipboard
+    jq
+    grim
+    slurp
+    wf-recorder
+    ffmpeg
+    unar
+    fd
+    zip
+    zellij
+    hyprpolkitagent
+    alejandra
+    mtpfs
+    playerctl
+
+    # GUI
     gimp3
-    # asunder
     # (vesktop.override {
     #   withSystemVencord = false;
     # })
     obsidian
     sqlitebrowser
-    alejandra
-    pavucontrol
-    hyprpolkitagent
+    pwvucontrol
     # bitwarden
     # veracrypt
     seahorse
-
     feishin
-    playerctl
-    # jellyfin-media-player
-    jellyfin-mpv-shim
+    jellyfin-media-player
+    # jellyfin-mpv-shim
     file-roller
     swayimg
     limo
-
     # syncthingtray
-
     libreoffice
-    obs-studio
-    # localsend
-    # scrcpy
+    # obs-studio
     # protonvpn-gui
     brave
   ];
@@ -61,9 +70,9 @@
   '';
 
   # feishin :(
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-36.9.5"
-  ];
+  # nixpkgs.config.permittedInsecurePackages = [
+  # "electron-36.9.5"
+  # ];
 
   xdg.dataFile."jellyfinmediaplayer/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
 
@@ -71,7 +80,6 @@
     ./theme.nix
     ./xdg.nix
     ./programs
-    ./kitty/kitty.nix
     ./scripts/urlOpen.nix
     ./cli
     ./wm

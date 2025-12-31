@@ -10,16 +10,15 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/wireguard.nix
+    # ../../modules/wireguard.nix
     ../../modules/core.nix
     ../../modules/desktop.nix
-    ../../modules/pc/gaming/waydroid.nix
-    ../../modules/pc/gaming/hoyoverse.nix
+    ../../modules/pc/gaming.nix
     ./libvirtd.nix
   ];
 
-  services.wireguard.autostart = false;
-  services.wireguard.fallback = true;
+  # services.wireguard.autostart = false;
+  # services.wireguard.fallback = true;
 
   home-manager.users."serpe" = {
     home.packages = with pkgs; [
@@ -68,39 +67,23 @@
     serviceConfig.Type = "oneshot";
   };
 
-  # services.desktopManager.plasma6.enable = true;
-
-  # environment.plasma6.excludePackages = with pkgs.kdePackages; [
-  #   akonadi
-  #   baloo
-  #   plasma-browser-integration
-  #   elisa
-  #   gwenview
-  #   kate
-  #   khelpcenter
-  #   kmailtransport
-  #   okular
-  #   oxygen
-  #   print-manager
+  # services.xserver.xrandrHeads = [
+  #   {
+  #     output = "DP-1";
+  #     monitorConfig = ''
+  #       Option "RightOf" "HDMI-A-1"
+  #       Option "PreferredMode" "3440x1440"
+  #     '';
+  #   }
+  #   {
+  #     output = "HDMI-A-1";
+  #     monitorConfig = ''
+  #       Option "LeftOf" "DP-2"
+  #       Option "Rotate" "Right"
+  #       Option "PreferredMode" "1920x1200"
+  #     '';
+  #   }
   # ];
-
-  services.xserver.xrandrHeads = [
-    {
-      output = "DP-1";
-      monitorConfig = ''
-        Option "RightOf" "HDMI-A-1"
-        Option "PreferredMode" "3440x1440"
-      '';
-    }
-    {
-      output = "HDMI-A-1";
-      monitorConfig = ''
-        Option "LeftOf" "DP-2"
-        Option "Rotate" "Right"
-        Option "PreferredMode" "1920x1200"
-      '';
-    }
-  ];
 
   fileSystems = {
     "/mnt/c" = {

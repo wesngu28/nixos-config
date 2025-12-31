@@ -15,6 +15,8 @@
     # (bottles.override {
     #  removeWarningPopup = true;
     # })
+
+    waydroid-helper
   ];
 
   programs.steam = {
@@ -37,5 +39,19 @@
           keyutils
         ];
     };
+  };
+
+  # genshin
+  # programs.anime-game-launcher.enable = true;
+
+  # star rail
+  programs.honkers-railway-launcher.enable = true;
+
+  # hi3
+  # programs.honkers-launcher.enable = true;
+
+  virtualisation.waydroid = {
+    enable = true;
+    package = pkgs.waydroid-nftables;
   };
 }

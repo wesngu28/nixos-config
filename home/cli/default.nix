@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./fastfetch.nix
+    ./terminal.nix
   ];
 
   home.sessionVariables = {
@@ -8,29 +9,9 @@
     VISUAL = "code";
   };
 
-  home.packages = with pkgs; [
-    dust
-    fastfetch
-    wl-clipboard
-    wget
-    jq
-    xxd
-    grim
-    slurp
-    wf-recorder
-    ffmpeg
-
-    # yazi
-    unar
-    fd
-    zip
-    unzip
-  ];
-
   programs = {
     btop.enable = true;
     fzf.enable = true;
-    # lazygit.enable = true;
     zathura.enable = true;
 
     direnv = {
@@ -52,6 +33,14 @@
       };
     };
 
+    zellij = {
+      enable = true;
+      # enableZshIntegration = true;
+      extraConfig = ''
+        show_startup_tips false
+      '';
+    };
+
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -60,13 +49,12 @@
 
       initContent = ''
         if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-        	exec Hyprland
+        	exec start-hyprland
         fi
-        # cat ~/.cache/wallust/sequences
-        # cat /home/serpe/.cache/wal/sequences
         fastfetch
         bindkey "^[[1;5C" forward-word
         bindkey "^[[1;5D" backward-word
+        bindkey '^H' backward-kill-word
       '';
 
       shellAliases = {
@@ -75,7 +63,8 @@
         rbe = "rebuild enterprise";
         wgr = "sudo systemctl restart wg-quick-wg0.service";
         nfu = "cd ~/nixos-config && nix flake update";
-        projects = "cd ~/Projects";
+        poweroff = "hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff'";
+        reboot = "hyprshutdown -t 'Restarting...' --post-cmd 'systemctl reboot'";
       };
     };
   };

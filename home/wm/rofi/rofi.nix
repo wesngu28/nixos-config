@@ -6,7 +6,7 @@
 }: {
   programs.rofi = {
     enable = true;
-    terminal = "${pkgs.kitty}/bin/kitty";
+    terminal = "${pkgs.foot}/bin/foot";
     font = "FiraCode Nerd Font 12";
 
     extraConfig = {
