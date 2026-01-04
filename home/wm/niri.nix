@@ -65,10 +65,6 @@ in {
     ];
   };
 
-  programs.fuzzel = {
-    enable = true;
-  };
-
   programs.niri = {
     enable = true;
     package = pkgs.niri;
@@ -174,7 +170,7 @@ in {
         }
         {
           matches = [
-            {app-id = "pavucontrol";}
+            {app-id = "pwvucontrol";}
             {app-id = ".blueman-manager-wrapped";}
           ];
           open-floating = true;
@@ -245,7 +241,7 @@ in {
 
         "Mod+v".action = toggle-window-floating;
         "Mod+q".action = close-window;
-        "Mod+s".action = screenshot;
+        # "Mod+s".action = screenshot-screen;
 
         "XF86AudioRaiseVolume" = {
           allow-when-locked = true;

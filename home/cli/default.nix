@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./fastfetch.nix
     ./terminal.nix
@@ -22,8 +26,14 @@
 
     git = {
       enable = true;
-      userName = "wesngu28";
-      userEmail = "wesley@wesngu28.com";
+      settings = {
+        user = {
+          name = "wesngu28";
+          email = "wesley@wesngu28.com";
+        };
+      };
+      # userName = "wesngu28";
+      # userEmail = "wesley@wesngu28.com";
     };
 
     starship = {

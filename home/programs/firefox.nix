@@ -277,7 +277,7 @@
         name = "default";
         isDefault = true;
         extensions = {
-          packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+          packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
             auto-tab-discard
             bitwarden
             firefox-color
@@ -335,7 +335,7 @@
         id = 1;
         name = "containers";
         extensions = {
-          packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+          packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
             violentmonkey
           ];
         };
@@ -355,7 +355,7 @@
         id = 2;
         name = "treetabs";
         extensions = {
-          packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+          packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
             bitwarden
             sidebery
           ];

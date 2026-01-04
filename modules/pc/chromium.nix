@@ -46,6 +46,7 @@
         "--disable-sync-preferences"
         "--disable-features=PreloadMediaEngagementData,MediaEngagementBypassAutoplayPolicies"
         "--enable-blink-features=MiddleClickAutoscroll"
+        "--enable-features=OverlayScrollbar"
       ];
     })
   ];
@@ -173,6 +174,8 @@
         "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
 
         "dhdgffkkebhmkfjojejmpbldmpobfkfo" # TamperMonkey
+
+        "clngdbkpkpeebahjckkjfobafhncgmne" # Stylus
       ];
       "ExtensionInstallBlocklist" = ["*"];
       "HardwareAccelerationModeEnabled" = true;

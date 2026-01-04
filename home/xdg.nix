@@ -187,6 +187,18 @@
               <startup-notify/>
               <image-files />
       </action>
+      <action>
+              <icon>mpv</icon>
+              <name>Shuffle</name>
+              <submenu></submenu>
+              <unique-id>1716857250902518-1</unique-id>
+              <command>mpv --shuffle --no-resume-playback %f</command>
+              <description>Example for a custom action</description>
+              <range></range>
+              <patterns>*</patterns>
+              <startup-notify/>
+              <directories/>
+      </action>
       </actions>
     '';
   };
