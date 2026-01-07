@@ -129,6 +129,7 @@
       "github.copilot.renameSuggestions.triggerAutomatically" = false;
       "chat.commandCenter.enabled" = false;
       "chat.agent.enabled" = false;
+      "chat.disableAIFeatures" = false;
     };
 
     profiles.default.extensions = with pkgs.vscode-extensions;

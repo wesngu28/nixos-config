@@ -124,6 +124,11 @@
           shortcut = "nix";
           url = "https://github.com/search?type=code&q=lang%3Anix+{searchTerms}";
         }
+        {
+          name = "Reddit";
+          shortcut = "!reddit";
+          url = "https://reddit.com/search?q={searchTerms}";
+        }
       ];
 
       "AIModeSettings" = 1;

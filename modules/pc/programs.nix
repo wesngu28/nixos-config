@@ -5,6 +5,7 @@
   config,
   ...
 }: {
+  age.secrets.ghtokens.file = ../../secrets/ghtokens.age;
   fonts = {
     packages = with pkgs; [
       noto-fonts
@@ -53,6 +54,9 @@
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
     ];
   };
+  nix.extraOptions = ''
+    !include ${config.age.secrets.ghtokens.path}
+  '';
 
   programs.hyprland = {
     enable = true;
