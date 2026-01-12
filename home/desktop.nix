@@ -25,6 +25,11 @@
 
     # GUI
     gimp3
+    # dvdbackup
+    # libdvdcss
+    # makemkv
+    # handbrake
+    # asunder
     # (vesktop.override {
     #   withSystemVencord = false;
     # })

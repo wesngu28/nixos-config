@@ -31,8 +31,12 @@
       grub.useOSProber = lib.mkDefault false;
       systemd-boot.enable = lib.mkDefault true;
       efi.canTouchEfiVariables = lib.mkDefault true;
+      # systemd-boot.edk2-uefi-shell.enable = true;
+      systemd-boot.windows."windows10" = {
+        title = "Windose";
+        efiDeviceHandle = "FS4";
+      };
     };
-
     kernelPackages = pkgs.linuxPackages_latest;
   };
 

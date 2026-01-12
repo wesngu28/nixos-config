@@ -35,7 +35,7 @@ in {
         "custom/playerctl"
       ];
       modules-center = ["hyprland/workspaces"];
-      modules-right = ["custom/wall" "custom/wireguard" "tray" "pulseaudio" "battery" "clock" "custom/weather" "custom/power"];
+      modules-right = ["custom/wall" "custom/wireguard" "tray" "wireplumber" "battery" "clock" "custom/weather" "custom/power"];
       clock = {
         format = " {:%I:%M %a %d}";
         tooltip = "true";
@@ -80,11 +80,11 @@ in {
         icon-size = 20;
         spacing = 10;
       };
-      pulseaudio = {
+      wireplumber = {
         format = "{icon} {volume}%";
         format-muted = "󰖁 {volume}%";
         format-icons = {default = [" "];};
-        scroll-step = 3;
+        scroll-step = 5;
         on-click = "pwvucontrol";
       };
       battery = {
@@ -209,9 +209,9 @@ in {
           '';
         menu-actions = {
           lock = "swaylock";
-          suspend = "systemctl suspend";
-          reboot = "systemctl reboot";
-          shutdown = "systemctl poweroff";
+          suspend = "suspend";
+          reboot = "reboot";
+          shutdown = "poweroff";
         };
       };
       "custom/wall" = {
@@ -263,7 +263,7 @@ in {
           color: #cba6f7;
       }
 
-      #custom-playerctl, #workspaces, #custom-wall, #tray, #pulseaudio, #memory, #disk, #clock, #battery, #custom-swaync, #custom-weather, #custom-wireguard {
+      #custom-playerctl, #workspaces, #custom-wall, #tray, #wireplumber, #memory, #disk, #clock, #battery, #custom-swaync, #custom-weather, #custom-wireguard {
           color: ${custom.text_color};
           padding: 0 0.6em;
           margin-right: 4px;
@@ -276,7 +276,7 @@ in {
         color: #cba6f7;
       }
 
-      #pulseaudio {
+      #wireplumber {
         color: #89dceb;
       }
 

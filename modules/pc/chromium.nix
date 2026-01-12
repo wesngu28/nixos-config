@@ -95,33 +95,33 @@
         }
         {
           name = "Startpage";
-          shortcut = "sp";
+          shortcut = "!sp";
           url = "https://www.startpage.com/sp/search?query={searchTerms}";
           Faviconurl = "https://www.startpage.com/favicon.ico";
         }
         {
           name = "GitHub";
-          shortcut = "gh";
+          shortcut = "!gh";
           url = "https://github.com/search?q={searchTerms}";
         }
         {
           name = "Nix Packages";
-          shortcut = "np";
+          shortcut = "!np";
           url = "https://search.nixos.org/packages?channel=unstable&type=packages&query={searchTerms}";
         }
         {
           name = "NixOS Options";
-          shortcut = "no";
+          shortcut = "!no";
           url = "https://search.nixos.org/options?channel=unstable&type=packages&query={searchTerms}";
         }
         {
           name = "Home Manager Options";
-          shortcut = "nh";
+          shortcut = "!nh";
           url = "https://home-manager-options.extranix.com/query={searchTerms}";
         }
         {
           name = "Nix Code";
-          shortcut = "nix";
+          shortcut = "!nix";
           url = "https://github.com/search?type=code&q=lang%3Anix+{searchTerms}";
         }
         {

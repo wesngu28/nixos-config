@@ -73,6 +73,7 @@
         rbe = "rebuild enterprise";
         wgr = "sudo systemctl restart wg-quick-wg0.service";
         nfu = "cd ~/nixos-config && nix flake update";
+        suspend = "hyprshutdown -t 'Suspending...' --post-cmd 'systemctl suspend'";
         poweroff = "hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff'";
         reboot = "hyprshutdown -t 'Restarting...' --post-cmd 'systemctl reboot'";
       };

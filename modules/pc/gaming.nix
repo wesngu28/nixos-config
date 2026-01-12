@@ -13,9 +13,8 @@
     wineWowPackages.waylandFull
     # winetricks
     # (bottles.override {
-    #  removeWarningPopup = true;
+    #   removeWarningPopup = true;
     # })
-
     waydroid-helper
   ];
 
