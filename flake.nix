@@ -46,8 +46,8 @@
     };
     # spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
-    astal.url = "github:aylur/astal";
-    ags.url = "github:aylur/ags";
+    # astal.url = "github:aylur/astal";
+    # ags.url = "github:aylur/ags";
   };
 
   outputs = {

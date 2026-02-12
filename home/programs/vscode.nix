@@ -151,13 +151,21 @@
         usernamehw.errorlens
         kamadorueda.alejandra
         mads-hartmann.bash-ide-vscode
+        vscjava.vscode-maven
+        redhat.java
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "vscode-boot-dev-pack";
+          publisher = "vmware";
+          version = "0.2.2";
+          sha256 = "sha256-4Sh/4zGPBGU8XwnLEt8lf9o9i3Ggjz9xsXLHcH4LKEw=";
+        }
         {
           name = "python";
           publisher = "ms-python";
           version = "latest";
-          sha256 = "sha256-8ZOpQiEPrBTHiXjXbSfuWfR6L0cS0sWOUo9R8zgckY4=";
+          sha256 = "sha256-srSiiLu2Ie0M9CJOCw0fz6faSJNRVGSSjknX/7FiwWk=";
         }
         {
           name = "remote-ssh-edit";

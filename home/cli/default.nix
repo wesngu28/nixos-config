@@ -76,6 +76,7 @@
         suspend = "hyprshutdown -t 'Suspending...' --post-cmd 'systemctl suspend'";
         poweroff = "hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff'";
         reboot = "hyprshutdown -t 'Restarting...' --post-cmd 'systemctl reboot'";
+        windose = "hyprshutdown -t 'Booting into windows...' --post-cmd 'systemctl reboot --boot-loader-entry=windows_windows10.conf'";
       };
     };
   };

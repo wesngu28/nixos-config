@@ -5,7 +5,7 @@
 
   programs.nixcord = {
     enable = true;
-    vesktop.enable = false;
+    vesktop.enable = true;
     quickCss = "some CSS";
     config = {
       useQuickCss = true;
@@ -52,7 +52,7 @@
         reverseImageSearch.enable = true;
         serverInfo.enable = true;
         showConnections.enable = true;
-        showMeYourName.enable = true;
+        # showMeYourName.enable = true;
         unindent.enable = true;
         whoReacted.enable = true;
         validReply.enable = true;

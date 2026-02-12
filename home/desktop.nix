@@ -9,7 +9,7 @@
     slurp
     wf-recorder
     ffmpeg
-    # unar
+    unar
     fd
     zip
     zellij
@@ -22,6 +22,7 @@
     zoxide
     # p7zip
     file
+    # android-tools
 
     # GUI
     gimp3
@@ -47,7 +48,7 @@
     # limo
     # syncthingtray
     libreoffice
-    # obs-studio
+    obs-studio
     # protonvpn-gui
     brave
   ];

@@ -65,7 +65,7 @@
 
       windose = {
         name = "Windose";
-        exec = "systemctl reboot --boot-loader-entry=auto-windows";
+        exec = "windose";
         terminal = false;
       };
 

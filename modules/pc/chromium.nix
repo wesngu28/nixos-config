@@ -181,6 +181,8 @@
         "dhdgffkkebhmkfjojejmpbldmpobfkfo" # TamperMonkey
 
         "clngdbkpkpeebahjckkjfobafhncgmne" # Stylus
+
+        "jplgfhpmjnbigmhklmmbgecoobifkmpa" # protonvpn
       ];
       "ExtensionInstallBlocklist" = ["*"];
       "HardwareAccelerationModeEnabled" = true;
