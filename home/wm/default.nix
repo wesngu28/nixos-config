@@ -6,5 +6,6 @@
     ./rofi/rofi.nix
     ./dunst/dunst.nix
     # ./niri.nix
+    # ./ags/ags.nix
   ];
 }

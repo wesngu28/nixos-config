@@ -10,7 +10,7 @@
     protontricks
     gamescope
     lutris
-    wineWowPackages.waylandFull
+    wineWow64Packages.waylandFull
     # winetricks
     # (bottles.override {
     #   removeWarningPopup = true;

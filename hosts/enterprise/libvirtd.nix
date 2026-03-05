@@ -16,6 +16,7 @@
       };
     };
   };
+  virtualisation.docker.enable = true;
   virtualisation = {
     libvirtd = {
       enable = true;
@@ -25,7 +26,7 @@
   };
   services.spice-vdagentd.enable = true;
   programs.virt-manager.enable = true;
-  users.users.serpe.extraGroups = ["libvirtd"];
+  users.users.serpe.extraGroups = ["libvirtd" "optical" "cdrom" "docker"];
   networking.firewall.checkReversePath = false;
   environment.systemPackages = with pkgs; [
     virt-viewer

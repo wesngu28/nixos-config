@@ -21,8 +21,9 @@
     fzf
     zoxide
     # p7zip
-    file
+    # file
     # android-tools
+    llama-cpp-vulkan
 
     # GUI
     gimp3
@@ -51,6 +52,7 @@
     obs-studio
     # protonvpn-gui
     brave
+    # visual-paradigm-ce
   ];
 
   programs.yazi = {
