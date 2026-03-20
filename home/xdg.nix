@@ -80,7 +80,7 @@
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "application/pdf" = ["zathura.desktop"];
+        "application/pdf" = ["zathura.desktop" "brave.desktop"];
         "application/x-extension-htm" = ["firefox.desktop"];
         "application/x-extension-html" = ["firefox.desktop"];
         "application/x-extension-shtml" = ["firefox.desktop"];

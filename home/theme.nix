@@ -12,7 +12,7 @@
     swaylock.enable = false;
     rofi.enable = false;
     mako.enable = false;
-    foot.enable = true;
+    foot.enable = false;
     zellij.enable = true;
     mpv.enable = false;
   };

@@ -50,7 +50,8 @@
     # syncthingtray
     libreoffice
     obs-studio
-    # protonvpn-gui
+    protonvpn-gui
+    proton-vpn-cli
     brave
     # visual-paradigm-ce
   ];

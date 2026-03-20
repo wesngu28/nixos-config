@@ -48,7 +48,7 @@
         openInApp.enable = true;
         permissionsViewer.enable = true;
         relationshipNotifier.enable = true;
-        replyTimestamp.enable = true;
+        replyTimestamp.enable = false;
         reverseImageSearch.enable = true;
         serverInfo.enable = true;
         showConnections.enable = true;
