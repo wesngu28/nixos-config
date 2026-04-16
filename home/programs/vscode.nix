@@ -130,6 +130,8 @@
       "chat.commandCenter.enabled" = false;
       "chat.agent.enabled" = false;
       "chat.disableAIFeatures" = false;
+
+      "claudeCode.disableLoginPrompt" = true;
     };
 
     profiles.default.extensions = with pkgs.vscode-extensions;
@@ -165,7 +167,7 @@
           name = "python";
           publisher = "ms-python";
           version = "latest";
-          sha256 = "sha256-nzNSRAwHkT6iyv5Hfu2g9DgoE6Ecnpgj5+sNERAC07Q=";
+          sha256 = "sha256-UxduP78GTTu0JjhC1tJ86gnjlCNvYyK6QavJwmDmavk=";
         }
         {
           name = "remote-ssh-edit";
@@ -177,7 +179,7 @@
           name = "remote-explorer";
           publisher = "ms-vscode";
           version = "latest";
-          sha256 = "sha256-u6OIRbNjE5B2qlm8x2gU+zSudBf6yPI4gxWB6Qu1OoM=";
+          sha256 = "sha256-WRg8ObPVQMluuCW/dBM2ibBDW/zc8cQQS5QQMfcpw2c=";
         }
       ];
   };
