@@ -12,4 +12,18 @@
       User = "serpe";
     };
   };
+
+  systemd.timers."gacha-timer" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig.OnCalendar = [ "hourly" ];
+    timerConfig.Unit = "gacha-timer.service";
+  };
+
+  systemd.services."gacha-timer" = {
+    script = "/home/serpe/NotReproducible/gacher/checker.sh";
+    serviceConfig = {
+      Type = "oneshot";
+      User = "serpe";
+    };
+  };
 }

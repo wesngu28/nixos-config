@@ -32,5 +32,8 @@ in {
   "diun.age".publicKeys = [serpe server_host];
 
   "restic.age".publicKeys = [serpe server_host];
+
+  "gluetun.age".publicKeys = [serpe server_host];
+
   "ghtokens.age".publicKeys = [enterprise enterprise_host];
 }

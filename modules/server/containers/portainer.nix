@@ -7,7 +7,7 @@
     backend = "docker";
     containers = {
       portainer = {
-        image = "portainer/portainer-ce:latest";
+        image = "portainer/portainer-ce:2.20.2";
         autoStart = true;
         ports = ["9000:9000"];
         volumes = [

@@ -24,7 +24,6 @@
           TZ = "America/Los_Angeles";
         };
         extraOptions = [
-          "--network=arr"
           "--device=/dev/dri/renderD128:/dev/dri/renderD128"
         ];
       };
@@ -32,7 +31,7 @@
       "sabnzbd" = {
         autoStart = true;
         image = "lscr.io/linuxserver/sabnzbd:latest";
-        ports = ["8080:8080"];
+        # ports = ["8080:8080"];
         volumes = [
           "/etc/localtime:/etc/localtime:ro"
           "/home/serpe/docker/arr/sabnzbd:/config"
@@ -44,7 +43,7 @@
           TZ = "America/Los_Angeles";
         };
         extraOptions = [
-          "--network=arr"
+          "--network=container:gluetun"
         ];
       };
 
@@ -65,14 +64,14 @@
       #     FLAC2CUSTOM_ARGS = "true";
       #   };
       #   extraOptions = [
-      #     "--network=arr"
+      #     "--network=container:gluetun"
       #   ];
       # };
 
       "prowlarr" = {
         autoStart = true;
         image = "lscr.io/linuxserver/prowlarr:develop";
-        ports = ["9696:9696"];
+        # ports = ["9696:9696"];
         volumes = [
           "/home/serpe/docker/arr/prowlarr:/config"
         ];
@@ -82,14 +81,14 @@
           TZ = "America/Los_Angeles";
         };
         extraOptions = [
-          "--network=arr"
+          "--network=container:gluetun"
         ];
       };
 
       "radarr" = {
         autoStart = true;
         image = "lscr.io/linuxserver/radarr:latest";
-        ports = ["7878:7878"];
+        # ports = ["7878:7878"];
         volumes = [
           "/home/serpe/docker/arr/radarr:/config"
           "/multimedia/jellyfin:/data"
@@ -100,14 +99,14 @@
           TZ = "America/Los_Angeles";
         };
         extraOptions = [
-          "--network=arr"
+          "--network=container:gluetun"
         ];
       };
 
       "sonarr" = {
         autoStart = true;
         image = "lscr.io/linuxserver/sonarr:latest";
-        ports = ["8989:8989"];
+        # ports = ["8989:8989"];
         volumes = [
           "/home/serpe/docker/arr/sonarr:/config"
           "/multimedia/jellyfin:/data"
@@ -118,47 +117,24 @@
           TZ = "America/Los_Angeles";
         };
         extraOptions = [
-          "--network=arr"
+          "--network=container:gluetun"
         ];
       };
 
-      "jellyseerr" = {
-        autoStart = true;
-        image = "fallenbagel/jellyseerr:latest";
-        ports = ["5055:5055"];
-        volumes = [
-          "/home/serpe/docker/arr/jellyseer:/app/config"
-        ];
-        environment = {
-          TZ = "America/Los_Angeles";
-        };
-        extraOptions = [
-          "--network=arr"
-        ];
-      };
+      # "jellyseerr" = {
+      #   autoStart = true;
+      #   image = "fallenbagel/jellyseerr:latest";
+      #   ports = ["5055:5055"];
+      #   volumes = [
+      #     "/home/serpe/docker/arr/jellyseer:/app/config"
+      #   ];
+      #   environment = {
+      #     TZ = "America/Los_Angeles";
+      #   };
+      #   extraOptions = [
+      #     "--network=container:gluetun"
+      #   ];
+      # };
     };
-  };
-
-  systemd.services.arr = {
-    description = "Create the network bridge for arr.";
-    after = ["network.target"];
-    wantedBy = ["multi-user.target"];
-    before = [
-      "docker-jellyfin.service"
-      "docker-sabnzbd.service"
-      "docker-lidarr.service"
-      "docker-prowlarr.service"
-      "docker-radarr.service"
-      "docker-sonarr.service"
-      "docker-jellyseerr.service"
-    ];
-    serviceConfig.Type = "oneshot";
-    script = ''
-      check=$(${pkgs.docker}/bin/docker network ls | grep "arr" || true)
-      if [ -z "$check" ];
-        then ${pkgs.docker}/bin/docker network create arr
-        else echo "arr already exists in docker"
-      fi
-    '';
   };
 }
