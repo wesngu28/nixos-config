@@ -23,7 +23,7 @@
       plugins = {
         anonymiseFileNames.enable = true;
         betterFolders.enable = true;
-        betterNotesBox.enable = true;
+        # betterNotesBox.enable = true;
         betterSettings.enable = true;
         betterUploadButton.enable = true;
         biggerStreamPreview.enable = true;

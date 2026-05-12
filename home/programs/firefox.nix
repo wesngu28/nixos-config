@@ -281,7 +281,7 @@
             auto-tab-discard
             bitwarden
             firefox-color
-            libredirect
+            # libredirect
             stylus
             violentmonkey
           ];

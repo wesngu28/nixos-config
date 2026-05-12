@@ -20,6 +20,7 @@
 
   networking.networkmanager.enable = true;
   # systemd.services.NetworkManager-wait-online.enable = false;
+  networking.firewall.checkReversePath = false;
 
   services = {
     # displayManager = {

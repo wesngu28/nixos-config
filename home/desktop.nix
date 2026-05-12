@@ -12,7 +12,7 @@
     unar
     fd
     zip
-    zellij
+    # zellij
     hyprpolkitagent
     alejandra
     # mtpfs
@@ -42,18 +42,19 @@
     # veracrypt
     seahorse
     feishin
-    jellyfin-media-player
+    # jellyfin-media-player
     # jellyfin-mpv-shim
     file-roller
     swayimg
     # limo
     # syncthingtray
     libreoffice
-    obs-studio
-    protonvpn-gui
+    # obs-studio
+    proton-vpn
     proton-vpn-cli
     brave
     # visual-paradigm-ce
+    spotify
   ];
 
   programs.yazi = {

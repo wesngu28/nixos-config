@@ -167,7 +167,7 @@
           name = "python";
           publisher = "ms-python";
           version = "latest";
-          sha256 = "sha256-UxduP78GTTu0JjhC1tJ86gnjlCNvYyK6QavJwmDmavk=";
+          sha256 = "sha256-fq/5kNNBN+1hu4x0UmIsomdYM0UO+NhmB0PSUiVztQ0=";
         }
         {
           name = "remote-ssh-edit";

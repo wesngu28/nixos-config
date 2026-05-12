@@ -19,12 +19,12 @@
     hyprshutdown.url = "github:hyprwm/hyprshutdown";
     hyprpaper.url = "github:hyprwm/hyprpaper";
 
-    hy3 = {
-      url = "github:outfoxxed/hy3";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hy3 = {
+    #   url = "github:outfoxxed/hy3";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
-    # niri.url = "github:sodiboo/niri-flake";
+    niri.url = "github:sodiboo/niri-flake";
 
     agenix = {
       url = "github:ryantm/agenix";
