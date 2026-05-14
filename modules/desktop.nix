@@ -22,6 +22,8 @@
   # systemd.services.NetworkManager-wait-online.enable = false;
   networking.firewall.checkReversePath = false;
 
+  programs.nix-ld.enable = true;
+
   services = {
     # displayManager = {
     #   sddm = {

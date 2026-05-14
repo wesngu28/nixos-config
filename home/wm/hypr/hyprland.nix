@@ -48,6 +48,7 @@ in {
         "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
         "gnome-keyring-daemon --start --components=secrets"
         "kdeconnect-indicator"
+        "blueman-applet"
         "hyprpaper"
         xrandr-command
         "sleep 0.5 && wallpaper"
@@ -66,8 +67,9 @@ in {
         disable_hyprland_logo = true;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
-        render_unfocused_fps = 60;
+        # render_unfocused_fps = 60;
         vrr = 3;
+        allow_session_lock_restore = true;
       };
 
       input = {
@@ -166,8 +168,8 @@ in {
         "opacity 0.93 0.93,match:class ^(foot)$"
         "opacity 0.93 0.93,match:class ^(steam)$"
         "opacity 0.93 0.93,match:class ^(lutris)$"
-        "opacity 0.93 0.93,match:class ^(firefox)$"
         "opacity 0.93 0.93,match:class ^(chromium)$"
+        "opacity 0.93 0.93,match:class ^(firefox)$"
         "opacity 1,match:title ^.*(YouTube — Mozilla Firefox)"
         "opacity 1,match:title ^.*(YouTube — Chromium)"
         "opacity 1,match:title ^.*(Jellyfin)"
@@ -220,6 +222,7 @@ in {
         "float true,match:class (steam)$,match:title (Friends List)$"
         "float true,match:class (waypaper)$"
         "float true,match:title (Pipewire Volume Control)$"
+        "float true,match:title (Umamusume)$"
 
         "center true,match:class (xdg-desktop-portal-gtk)$"
         "center true,match:title (Visual Studio Code)$"
@@ -263,11 +266,6 @@ in {
 
         # "$mainMod, N, exec, swaync-client -t -sw"
 
-        "$mainMod, N, layoutmsg, mfact exact 0.5"
-        "$mainMod, B, layoutmsg, mfact exact 0.33"
-
-        "$mainMod, G, layoutmsg, swapwithmaster"
-
         "$mainMod, left, hy3:movefocus, l"
         "$mainMod, right, hy3:movefocus, r"
         "$mainMod, up, hy3:movefocus, u"
@@ -277,6 +275,21 @@ in {
         "$mainMod, h, hy3:movewindow, r"
         "$mainMod, j, hy3:movewindow, u"
         "$mainMod, k, hy3:movewindow, d"
+
+        # "$mainMod, left, movefocus, l"
+        # "$mainMod, right, movefocus, r"
+        # "$mainMod, up, movefocus, u"
+        # "$mainMod, down, movefocus, d"
+
+        # "$mainMod, l, movewindow, l"
+        # "$mainMod, h, movewindow, r"
+        # "$mainMod, j, movewindow, u"
+        # "$mainMod, k, movewindow, d"
+
+        # "$mainMod, N, layoutmsg, mfact exact 0.5"
+        # "$mainMod, B, layoutmsg, mfact exact 0.33"
+
+        # "$mainMod, G, layoutmsg, swapwithmaster"
 
         "$mainMod, x, exec, pkill waybar || waybar"
 
@@ -304,8 +317,8 @@ in {
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
 
-        "$mainMod, S, exec, slurp | grim -g - - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F%T).png"
-        "$mainMod SHIFT, S, exec, grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F%T).png"
+        "$mainMod, S, exec, slurp | grim -g - - | wl-copy --type image/png && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F%T).png"
+        "$mainMod SHIFT, S, exec, grim - | wl-copy --type image/png && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F%T).png"
         "$mainMod, M, exec, pkill -USR1 hyprlock"
         "$mainMod SHIFT, L, exec, hyprlock"
       ];
