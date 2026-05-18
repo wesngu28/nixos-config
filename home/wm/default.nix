@@ -5,6 +5,7 @@
     ./hypr/swaylock.nix
     ./rofi/rofi.nix
     ./dunst/dunst.nix
+    # ./sway/sway.nix
     # ./niri.nix
     # ./ags/ags.nix
   ];

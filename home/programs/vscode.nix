@@ -153,8 +153,6 @@
         usernamehw.errorlens
         kamadorueda.alejandra
         mads-hartmann.bash-ide-vscode
-        vscjava.vscode-maven
-        redhat.java
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {

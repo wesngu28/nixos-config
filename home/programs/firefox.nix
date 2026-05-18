@@ -69,8 +69,6 @@
         "browser.safebrowsing.downloads.remote.enabled" = false;
 
         "network.prefetch-next" = false;
-        "network.predictor.enabled" = false;
-        "network.predictor.enable-prefetch" = false;
         "network.http.speculative-parallel-limit" = 0;
         "browser.places.speculativeConnect.enabled" = false;
 
@@ -153,28 +151,29 @@
         "media.memory_cache_max_size" = 262144;
         "media.memory_caches_combined_limit_kb" = 1048576;
 
-        "gfx.canvas.accelerated.cache-items" = 32768;
-        "gfx.canvas.accelerated.cache-size" = 4096;
-        "gfx.content.skia-font-cache-size" = 32;
+        # "gfx.canvas.accelerated.cache-items" = 32768;
+        # "gfx.canvas.accelerated.cache-size" = 4096;
+        # "gfx.content.skia-font-cache-size" = 32;
+        "gfx.webrender.layer-compositor" = false;
         "media.ffmpeg.vaapi.enabled" = true;
         "media.cache_readahead_limit" = 600;
         "media.cache_resume_threshold" = 300;
         "image.cache.size" = 10485760;
         "image.mem.decode_bytes_at_a_time" = 65536;
-        "webgl.max-size" = 16384;
+        # "webgl.max-size" = 16384;
 
-        "browser.cache.memory.capacity" = 131072;
-        "browser.cache.memory.max_entry_size" = 20480;
-        "browser.sessionhistory.max_total_viewers" = 4;
-        "browser.sessionstore.max_tabs_undo" = 10;
+        # "browser.cache.memory.capacity" = 131072;
+        # "browser.cache.memory.max_entry_size" = 20480;
+        # "browser.sessionhistory.max_total_viewers" = 4;
+        # "browser.sessionstore.max_tabs_undo" = 10;
 
-        "network.http.max-connections" = 1800;
-        "network.http.max-persistent-connections-per-server" = 10;
-        "network.http.max-urgent-start-excessive-connections-per-host" = 5;
-        "network.http.pacing.requests.enabled" = false;
-        "network.dnsCacheEntries" = 10000;
-        "network.dnsCacheExpiration" = 3600;
-        "network.ssl_tokens_cache_capacity" = 10240;
+        # "network.http.max-connections" = 1800;
+        # "network.http.max-persistent-connections-per-server" = 10;
+        # "network.http.max-urgent-start-excessive-connections-per-host" = 5;
+        # "network.http.pacing.requests.enabled" = false;
+        # "network.dnsCacheEntries" = 10000;
+        # "network.dnsCacheExpiration" = 3600;
+        # "network.ssl_tokens_cache_capacity" = 10240;
 
         "layout.css.grid-template-masonry-value.enabled" = true;
         "dom.enable_web_task_scheduling" = true;
@@ -261,6 +260,8 @@
         "reader.parse-on-load.enabled" = false;
         "browser.bookmarks.max_backups" = 3;
         # "layout.spellcheckDefault" = 0;
+
+        "browser.ai.control.default" = "blocked";
       };
 
       ExtensionSettings = {

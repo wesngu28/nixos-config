@@ -39,25 +39,22 @@ in {
       ];
 
       exec-once = [
-        # "ags -b hypr"
         "waybar"
-        # "swaync"
         "systemctl --user start hyprpolkitagent"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
         "gnome-keyring-daemon --start --components=secrets"
         "kdeconnect-indicator"
-        "blueman-applet"
         "hyprpaper"
         xrandr-command
         "sleep 0.5 && wallpaper"
       ];
 
       general = {
-        gaps_in = 5;
+        gaps_in = 3;
         gaps_out = 5;
-        border_size = 3;
+        border_size = 2;
         "col.active_border" = "rgb(b4befe)";
         layout = "hy3";
         allow_tearing = true;
@@ -79,9 +76,9 @@ in {
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 5;
         shadow = {
-          enabled = true;
+          enabled = false;
           range = 4;
           render_power = 3;
         };
@@ -167,7 +164,7 @@ in {
         "opacity 0.93 0.93,match:class ^(discord)$"
         "opacity 0.93 0.93,match:class ^(foot)$"
         "opacity 0.93 0.93,match:class ^(steam)$"
-        "opacity 0.93 0.93,match:class ^(lutris)$"
+        "opacity 0.93 0.93,match:class ^(Lutris)$"
         "opacity 0.93 0.93,match:class ^(chromium)$"
         "opacity 0.93 0.93,match:class ^(firefox)$"
         "opacity 1,match:title ^.*(YouTube — Mozilla Firefox)"
@@ -244,6 +241,7 @@ in {
         "workspace special silent, match:title (.*is sharing (your screen|a window)\.)$"
 
         "render_unfocused on, match:title (Honkai: Star Rail)$"
+        "render_unfocused on, match:title ()$,match:class (steam)$"
       ];
 
       "$mainMod" = "SUPER";
@@ -291,7 +289,8 @@ in {
 
         # "$mainMod, G, layoutmsg, swapwithmaster"
 
-        "$mainMod, x, exec, pkill waybar || waybar"
+        # "$mainMod, x, exec, pkill waybar || waybar"
+        "$mainMod, x, exec, pkill -USR1 waybar"
 
         "$mainMod SHIFT, right, workspace, e+1"
         "$mainMod SHIFT, left, workspace, e-1"

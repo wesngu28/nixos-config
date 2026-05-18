@@ -4,57 +4,40 @@
     dust
     fastfetch
     wl-clipboard
-    jq
     grim
     slurp
-    wf-recorder
     ffmpeg
-    unar
-    fd
+    unzip
+    gnutar
     zip
-    # zellij
     hyprpolkitagent
     alejandra
-    # mtpfs
     playerctl
-    yazi
     fzf
-    zoxide
-    # p7zip
-    # file
-    # android-tools
     llama-cpp-vulkan
+
+    # android-tools
+    # p7zip
 
     # GUI
     gimp3
-    # dvdbackup
-    # libdvdcss
-    # makemkv
-    # handbrake
-    # asunder
-    # (vesktop.override {
-    #   withSystemVencord = false;
-    # })
     obsidian
     sqlitebrowser
     pwvucontrol
-    # bitwarden
-    # veracrypt
     seahorse
     feishin
-    # jellyfin-media-player
-    # jellyfin-mpv-shim
-    file-roller
     swayimg
-    # limo
-    # syncthingtray
-    libreoffice
-    # obs-studio
     proton-vpn
-    proton-vpn-cli
     brave
-    # visual-paradigm-ce
     spotify
+
+    # asunder
+    # bitwarden
+    # veracrypt
+    # jellyfin-mpv-shim
+    # libreoffice
+    # obs-studio
+    # proton-vpn-cli
   ];
 
   programs.yazi = {

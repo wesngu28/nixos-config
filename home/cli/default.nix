@@ -73,10 +73,12 @@
         rbe = "rebuild enterprise";
         wgr = "sudo systemctl restart wg-quick-wg0.service";
         nfu = "cd ~/nixos-config && nix flake update";
-        suspend = "hyprshutdown -t 'Suspending...' --post-cmd 'systemctl suspend'";
-        poweroff = "hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff'";
-        reboot = "hyprshutdown -t 'Restarting...' --post-cmd 'systemctl reboot'";
-        windose = "hyprshutdown -t 'Booting into windows...' --post-cmd 'systemctl reboot --boot-loader-entry=windows_windows10.conf'";
+        nfu-safe = "cd ~/nixos-config && nix flake update --override-input hyprland . --override-input hy3 .";
+        suspend = "hyprshutdown -t 'Suspending...' --post-cmd 'systemctl suspend' || systemctl suspend";
+        poweroff = "hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff' || systemctl poweroff";
+        reboot = "hyprshutdown -t 'Restarting...' --post-cmd 'systemctl reboot' || systemctl reboot";
+        windose = "hyprshutdown -t 'Booting into windows...' --post-cmd 'systemctl reboot --boot-loader-entry=windows_windows10.conf' || systemctl reboot --boot-loader-entry=windows_windows10.conf";
+        shuffle = "mpv --shuffle --no-resume-playback . --scale=ewa_lanczossharp --cscale=ewa_lanczossharp --dscale=mitchell --interpolation=yes";
       };
     };
   };

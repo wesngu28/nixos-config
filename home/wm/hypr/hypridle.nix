@@ -15,17 +15,17 @@ in {
     enable = true;
     settings = {
       general = {
-        lock_cmd = "pidof swaylock || swaylock";
+        lock_cmd = "echo 'image=~/Pictures/Black.png' > ~/.config/swaylock/config && swaylock";
         before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
       listener = [
         {
-          timeout = 300;
+          timeout = 60;
           on-timeout = "swaylock";
         }
         {
-          timeout = 350;
+          timeout = 300;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
