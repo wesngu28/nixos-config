@@ -78,7 +78,9 @@
         poweroff = "hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff' || systemctl poweroff";
         reboot = "hyprshutdown -t 'Restarting...' --post-cmd 'systemctl reboot' || systemctl reboot";
         windose = "hyprshutdown -t 'Booting into windows...' --post-cmd 'systemctl reboot --boot-loader-entry=windows_windows10.conf' || systemctl reboot --boot-loader-entry=windows_windows10.conf";
-        shuffle = "mpv --shuffle --no-resume-playback . --scale=ewa_lanczossharp --cscale=ewa_lanczossharp --dscale=mitchell --interpolation=yes";
+        shuffle = "mpv --shuffle --no-resume-playback .";
+        play = "mpv $1";
+        wall = "swayimg $(hyprctl hyprpaper listactive | head -n1 | cut -d' ' -f2)";
       };
     };
   };

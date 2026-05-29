@@ -15,7 +15,7 @@
     playerctl
     fzf
     llama-cpp-vulkan
-
+    jq
     # android-tools
     # p7zip
 
@@ -30,11 +30,11 @@
     proton-vpn
     brave
     spotify
+    jellyfin-mpv-shim
 
     # asunder
     # bitwarden
     # veracrypt
-    # jellyfin-mpv-shim
     # libreoffice
     # obs-studio
     # proton-vpn-cli

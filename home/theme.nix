@@ -15,6 +15,7 @@
     foot.enable = false;
     zellij.enable = true;
     mpv.enable = false;
+    hyprland.enable = false;
   };
 
   home.pointerCursor = {

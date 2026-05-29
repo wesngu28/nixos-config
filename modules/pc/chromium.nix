@@ -137,6 +137,7 @@
       "BuiltInAIAPIsEnabled" = false;
       "CreateThemesSettings" = 2;
       "DevToolsGenAiSettings" = 2;
+      "GeminiActOnWebSettings" = 1;
       "GeminiSettings" = 1;
       "GenAILocalFoundationalModelSettings" = 1;
       "GoogleSearchSidePanelEnabled" = false;
@@ -164,6 +165,7 @@
       # "Disable3DAPIs" = true;
       "DnsOverHttpsMode" = "automatic";
       "EnableMediaRouter" = false;
+      "EnableSandboxedSubframeIsolation" = false;
       "ExtensionAllowedTypes" = [
         "extension"
         "theme"

@@ -15,7 +15,7 @@ in {
     enable = true;
     settings = {
       general = {
-        lock_cmd = "echo 'image=~/Pictures/Black.png' > ~/.config/swaylock/config && swaylock";
+        lock_cmd = "pidof swaylock || swaylock";
         before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };

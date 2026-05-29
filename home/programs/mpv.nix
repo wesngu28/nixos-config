@@ -5,6 +5,12 @@
       autofit-larger = "1280x720";
       save-position-on-quit = true;
       target-colorspace-hint-mode = "source";
+      border-background = "blur";
+      background-blur-radius = 50;
+      scale = "ewa_lanczossharp";
+      cscale = "ewa_lanczossharp";
+      dscale = "mitchell";
+      interpolation = "yes";
     };
     bindings = {
       UP = "add volume 2";

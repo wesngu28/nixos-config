@@ -35,10 +35,11 @@ in {
       env = [
         "XCURSOR_SIZE,24"
         # "NIXOS_WAYLAND,1"
-        # "NIXOS_OZONE_WL,1"
+        "NIXOS_OZONE_WL,1"
       ];
 
       exec-once = [
+        "hyprctl output create headless Virtual"
         "waybar"
         "systemctl --user start hyprpolkitagent"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -49,6 +50,7 @@ in {
         "hyprpaper"
         xrandr-command
         "sleep 0.5 && wallpaper"
+        "systemctl --user start wallpaper.timer"
       ];
 
       general = {
@@ -118,6 +120,7 @@ in {
         if osConfig.networking.hostName == "enterprise"
         then [
           "DP-2,3440x1440@164.90,auto,auto"
+          "Virtual,3440x1440@164.90,-100000x0,1"
           # "HDMI-A-1,1920x1280p@60,1920x0,auto"
         ]
         else ",preferred,auto,1";
@@ -153,7 +156,6 @@ in {
         "workspace 5, match:title ^(Waydroid)$"
         "workspace 2, match:class ^(vesktop)$"
         "workspace 2, match:class ^(discord)$"
-        # "workspace 1, match:class ^(Code)$"
         "workspace 4, match:class ^(obsidian)$"
         "workspace 4, match:class ^(brave)$"
 
@@ -172,28 +174,26 @@ in {
         "opacity 1,match:title ^.*(Jellyfin)"
         "opacity 0.93 0.93,match:title (Nicotine+)"
         "opacity 1,match:title (Jellyfin Media Player)"
-        "opacity 0.93 override 0.93 override,match:class (Code)"
+        "opacity 1,match:title (Picture-in-Picture)"
+        "opacity 0.93 override 0.93 override,match:class (code)"
         "opacity 0.93 override 0.93 override,match:initial_title (Spotify Premium)$"
 
         "suppress_event maximize, match:class .*"
         "fullscreen true,match:title (Waydroid)$"
 
-        # "float,class (thunar)$"
+        # "float true,match:class (thunar)$"
         "border_size 0,match:float true"
         "float true,match:class (battle.net.exe)$"
         "float true,match:class (btop)$"
         "float true,match:class (swayimg)$"
         "float true,match:class (mpv)$"
         "float true,match:title (GNU Image Manipulation Program)$"
-        "float true,match:class (pwvucontrol)$"
         "float true,match:class (blueman-manager)$"
         "float true,match:class (polkit)$,match:title (Authentication)$"
         "float true,match:title (Media viewer)$"
-        "float true,match:title (Volume Control)$"
         "float true,match:title (Open Folder)$"
         "float true,match:class org.gnome.FileRoller"
         "float true,match:title ^(Media viewer)$"
-        "float true,match:title ^(Volume Control)$"
         "float true,match:title ^(Picture-in-Picture)$"
         "float true,match:title (DevTools)$"
         "float true,match:title (Rename.*)$"
