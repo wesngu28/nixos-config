@@ -7,6 +7,7 @@
   catppuccin = {
     flavor = "mocha";
     accent = "lavender";
+    autoEnable = true;
     enable = true;
     waybar.enable = true;
     swaylock.enable = false;

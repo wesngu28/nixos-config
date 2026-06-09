@@ -13,6 +13,7 @@
       interpolation = "yes";
     };
     bindings = {
+      "ctrl+r" = "cycle_values video-rotate '90' '180' '270' '0'";
       UP = "add volume 2";
       DOWN = "add volume -2";
       WHEEL_UP = "add volume 2";

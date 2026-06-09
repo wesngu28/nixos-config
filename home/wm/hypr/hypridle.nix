@@ -17,7 +17,7 @@ in {
       general = {
         lock_cmd = "pidof swaylock || swaylock";
         before_sleep_cmd = "loginctl lock-session";
-        after_sleep_cmd = "hyprctl dispatch dpms on";
+        after_sleep_cmd = "hyprctl dispatch dpms on DP-2 && hyprctl dispatch dpms on Virtual";
       };
       listener = [
         {
@@ -27,7 +27,7 @@ in {
         {
           timeout = 300;
           on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
+          on-resume = "hyprctl dispatch dpms on DP-2 && hyprctl dispatch dpms on Virtual";
         }
         {
           timeout = 1200;

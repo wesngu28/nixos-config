@@ -66,7 +66,7 @@ in {
         disable_hyprland_logo = true;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
-        # render_unfocused_fps = 60;
+        render_unfocused_fps = 60;
         vrr = 3;
         allow_session_lock_restore = true;
       };
@@ -104,9 +104,9 @@ in {
         ];
       };
 
-      # cursor = {
-      #   default_monitor = "DP-2";
-      # };
+      cursor = {
+        default_monitor = "DP-2";
+      };
 
       # master = {
       #   mfact = 0.5;
@@ -128,6 +128,7 @@ in {
       workspace =
         if osConfig.networking.hostName == "enterprise"
         then [
+          "9, monitor:Virtual, default:false"
           "7, monitor:DP-2"
           "6, monitor:DP-2"
           "5, monitor:DP-2"
@@ -219,7 +220,7 @@ in {
         "float true,match:class (steam)$,match:title (Friends List)$"
         "float true,match:class (waypaper)$"
         "float true,match:title (Pipewire Volume Control)$"
-        "float true,match:title (Umamusume)$"
+        # "float true,match:title (Umamusume)$"
 
         "center true,match:class (xdg-desktop-portal-gtk)$"
         "center true,match:title (Visual Studio Code)$"
