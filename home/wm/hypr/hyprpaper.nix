@@ -13,8 +13,8 @@
   # '';
 
   home.packages = with pkgs; [
+    hyprpaper
     waypaper
-    inputs.hyprpaper.packages.${pkgs.stdenv.hostPlatform.system}.default
     (
       pkgs.writeShellScriptBin
       "set-as-wallpaper"

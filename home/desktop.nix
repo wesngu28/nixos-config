@@ -35,8 +35,8 @@
     # asunder
     # bitwarden
     # veracrypt
-    # libreoffice
-    # obs-studio
+    libreoffice
+    obs-studio
     # proton-vpn-cli
   ];
 
@@ -99,31 +99,53 @@
   #   };
   # };
 
-  home.file.".config/swayimg/config".text = ''
-    [general]
-    size=1200,750
+  xdg.configFile."swayimg/init.lua".text = ''
+    -- viewer defaults
+    swayimg.viewer.set_default_scale("fit")
+    swayimg.viewer.set_window_background(0xff000000)
 
-    [viewer]
-    window = #000000ff
-    scale = fit
+    -- image list
+    swayimg.imagelist.set_order("mtime")   -- change to "alpha" / "numeric" / "size" / "random" if wanted
+    swayimg.imagelist.enable_reverse(false)
+    swayimg.imagelist.enable_recursive(false)
+    swayimg.imagelist.enable_adjacent(true)  -- old "all=yes"
+    swayimg.imagelist.enable_fsmon(true)
 
-    [list]
-    order=mtime
-    reverse=no
-    loop =yes
-    recursive=no
-    all=yes
-    fsmon=yes
+    -- hide info overlay by default (old "info show=no")
+    swayimg.on_initialized(function()
+      swayimg.text.hide()
+    end)
 
-    [keys.viewer]
-    h=prev_file
-    l=next_file
-    y=exec wl-copy -t image/png < '%';
-    x=exec rm -f '%' && echo "File removed: %";
-    w=exec set-as-wallpaper '%'
+    -- keybinds
+    swayimg.viewer.on_key("h", function()
+      swayimg.viewer.switch_image("prev")
+    end)
 
-    [info]
-    show = no
+    swayimg.viewer.on_key("l", function()
+      swayimg.viewer.switch_image("next")
+    end)
+
+    swayimg.viewer.on_key("y", function()
+      local img = swayimg.viewer.get_image()
+      if img then
+        os.execute("wl-copy -t image/png < '" .. img.path .. "'")
+      end
+    end)
+
+    swayimg.viewer.on_key("x", function()
+      local img = swayimg.viewer.get_image()
+      if img then
+        os.remove(img.path)
+        swayimg.text.set_status("File removed: " .. img.path)
+      end
+    end)
+
+    swayimg.viewer.on_key("w", function()
+      local img = swayimg.viewer.get_image()
+      if img then
+        os.execute("set-as-wallpaper '" .. img.path .. "'")
+      end
+    end)
   '';
 
   # feishin :(

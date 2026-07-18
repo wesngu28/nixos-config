@@ -10,14 +10,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # firefox-addons = {
+    #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprshutdown.url = "github:hyprwm/hyprshutdown";
-    hyprpaper.url = "github:hyprwm/hyprpaper";
+    # hyprpaper.url = "github:hyprwm/hyprpaper";
 
     hy3 = {
       url = "github:outfoxxed/hy3";
@@ -36,12 +35,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
-
-    nixcord = {
-      url = "github:kaylorben/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixcord = {
+    #   url = "github:kaylorben/nixcord";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     # astal.url = "github:aylur/astal";
@@ -128,7 +125,8 @@
             pkgs,
             ...
           }: {
-            services.vscode-server.enable = true;
+            # services.vscode-server.enable = true;
+            services.openvscode-server.enable = true;
           })
         ];
       };

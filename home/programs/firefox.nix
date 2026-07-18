@@ -269,6 +269,60 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
         };
+
+        # Ambient Light for YouTube
+        "{60493d8c-aec8-448e-a247-5d2cfa047d69}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ambient-light-for-youtube/latest.xpi";
+          installation_mode = "normal_installed";
+        };
+
+        # Auto Tab Discard
+        "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/auto-tab-discard/latest.xpi";
+          installation_mode = "normal_installed";
+        };
+
+        # Bitwarden
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+          installation_mode = "normal_installed";
+        };
+
+        # Firefox Color
+        "FirefoxColor@mozilla.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/firefox-color/latest.xpi";
+          installation_mode = "normal_installed";
+        };
+
+        # Proton VPN
+        "vpn@proton.ch" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-vpn-firefox-extension/latest.xpi";
+          installation_mode = "normal_installed";
+        };
+
+        # Sponsor Block
+        "sponsorBlocker@ajay.app" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+          installation_mode = "normal_installed";
+        };
+
+        # Stylus
+        "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/styl-us/latest.xpi";
+          installation_mode = "normal_installed";
+        };
+
+        # Violent Monkey
+        "{aecec67f-0d10-4fa7-b7c7-609a2db280cf}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/violentmonkey/latest.xpi";
+          installation_mode = "normal_installed";
+        };
+
+        # sidebery
+        "{3c078156-979c-498b-8990-85f7987dd929}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi";
+          installation_mode = "normal_installed";
+        };
       };
     };
 
@@ -277,16 +331,16 @@
         id = 0;
         name = "default";
         isDefault = true;
-        extensions = {
-          packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-            auto-tab-discard
-            bitwarden
-            firefox-color
-            # libredirect
-            stylus
-            violentmonkey
-          ];
-        };
+        # extensions = {
+        #   packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+        #     auto-tab-discard
+        #     bitwarden
+        #     firefox-color
+        #     # libredirect
+        #     stylus
+        #     violentmonkey
+        #   ];
+        # };
 
         search = {
           default = "Brave Search";
@@ -335,11 +389,11 @@
       containerd = {
         id = 1;
         name = "containers";
-        extensions = {
-          packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-            violentmonkey
-          ];
-        };
+        # extensions = {
+        #   packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+        #     violentmonkey
+        #   ];
+        # };
         settings = {
           ui.prefersReducedMotion = "1";
           browser.tabs.allowTabDetach = false;
@@ -355,12 +409,12 @@
       treetabs = {
         id = 2;
         name = "treetabs";
-        extensions = {
-          packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-            bitwarden
-            sidebery
-          ];
-        };
+        # extensions = {
+        #   packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+        #     bitwarden
+        #     sidebery
+        #   ];
+        # };
         userChrome = ''
           #TabsToolbar {
               visibility: collapse;

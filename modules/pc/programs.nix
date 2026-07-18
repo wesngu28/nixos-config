@@ -29,8 +29,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    libsForQt5.qt5.qtgraphicaleffects
-    libsForQt5.qt5.qtquickcontrols2
+    # qt5.qtgraphicaleffects
+    # qt5.qtquickcontrols2
+    hyprshutdown
   ];
 
   environment.shells = with pkgs; [zsh];
@@ -54,9 +55,9 @@
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
     ];
   };
-  nix.extraOptions = ''
-    !include ${config.age.secrets.ghtokens.path}
-  '';
+  # nix.extraOptions = ''
+  #   !include ${config.age.secrets.ghtokens.path}
+  # '';
 
   programs.hyprland = {
     enable = true;

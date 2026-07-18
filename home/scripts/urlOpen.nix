@@ -19,13 +19,20 @@
         else
             firefox_windows=$(hyprctl clients -j | jq -r --arg workspace_id "$workspace_id" '.[] | select(.class == "firefox" and .workspace.id == ($workspace_id | tonumber))')
             if [[ -n "$firefox_windows" ]]; then
-                current_ff_address=$(echo "$firefox_windows" | jq -r ".address")
+                current_ff_address=$(echo "$firefox_windows" | jq -r ".address" | head -1)
                 hyprctl dispatch focuswindow address:"$current_ff_address"
                 firefox --new-tab "$url" &
             else
                 firefox --new-window "$url" &
             fi
         fi
+      '')
+    (writeShellScriptBin
+      "unzipall"
+      ''
+        for a in "''${1:-*.zip}"; do
+            unzip "$a" -d "''${a%.zip}"
+        done
       '')
   ];
 }

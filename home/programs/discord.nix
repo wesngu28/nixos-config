@@ -1,63 +1,108 @@
-{inputs, ...}: {
-  imports = [
-    inputs.nixcord.homeModules.nixcord
+{pkgs, ...}: {
+  home.packages = [
+    (pkgs.discord.override {withVencord = true;})
   ];
 
-  programs.nixcord = {
-    enable = true;
-    vesktop.enable = true;
-    quickCss = "some CSS";
-    config = {
-      useQuickCss = true;
-      themeLinks = [
-        "https://catppuccin.github.io/discord/dist/catppuccin-mocha-lavender.theme.css"
-      ];
-      enabledThemes = ["catppuccin-mocha.theme.css"];
-      frameless = true;
-      notifyAboutUpdates = true;
-      autoUpdate = false;
-      autoUpdateNotification = true;
-      enableReactDevtools = false;
-      transparent = false;
-      disableMinSize = false;
-      plugins = {
-        anonymiseFileNames.enable = true;
-        betterFolders.enable = true;
-        # betterNotesBox.enable = true;
-        betterSettings.enable = true;
-        betterUploadButton.enable = true;
-        biggerStreamPreview.enable = true;
-        callTimer.enable = true;
-        ClearURLs.enable = true;
-        copyFileContents.enable = true;
-        copyStickerLinks.enable = true;
-        CopyUserURLs.enable = true;
-        crashHandler.enable = true;
-        dearrow.enable = true;
-        favoriteEmojiFirst.enable = true;
-        fixImagesQuality.enable = true;
-        fixSpotifyEmbeds.enable = true;
-        fixYoutubeEmbeds.enable = true;
-        forceOwnerCrown.enable = true;
-        friendsSince.enable = true;
-        keepCurrentChannel.enable = true;
-        memberCount.enable = true;
-        messageLinkEmbeds.enable = true;
-        noBlockedMessages.enable = true;
-        noTypingAnimation.enable = true;
-        openInApp.enable = true;
-        permissionsViewer.enable = true;
-        relationshipNotifier.enable = true;
-        replyTimestamp.enable = false;
-        reverseImageSearch.enable = true;
-        serverInfo.enable = true;
-        showConnections.enable = true;
-        # showMeYourName.enable = true;
-        unindent.enable = true;
-        whoReacted.enable = true;
-        validReply.enable = true;
-        validUser.enable = true;
+  home.file.".config/Vencord/settings/settings.json".text = builtins.toJSON {
+    notifyAboutUpdates = true;
+    autoUpdate = false;
+    autoUpdateNotification = true;
+    useQuickCss = true;
+    enabledThemes = ["catppuccin-mocha.theme.css"];
+    enableReactDevtools = false;
+    plugins = {
+      AnonymiseFileNames.enabled = true;
+      BetterFolders = {
+        enabled = true;
+        sidebar = true;
+        showFolderIcon = 1;
+        closeAllHomeButton = false;
+        keepIcons = false;
+        sidebarAnim = true;
+        closeOthers = false;
+        closeAllFolders = false;
+        forceOpen = false;
       };
+      BetterSettings = {
+        enabled = true;
+        disableFade = true;
+        eagerLoad = true;
+        organizeMenu = true;
+      };
+      BetterUploadButton.enabled = true;
+      BiggerStreamPreview.enabled = true;
+      CallTimer = {
+        enabled = true;
+        format = "stopwatch";
+      };
+      ClearURLs.enabled = true;
+      CopyFileContents.enabled = true;
+      CopyStickerLinks.enabled = true;
+      CopyUserURLs.enabled = true;
+      CrashHandler = {
+        enabled = true;
+        attemptToPreventCrashes = true;
+        attemptToNavigateToHome = false;
+      };
+      Dearrow.enabled = true;
+      FavoriteEmojiFirst.enabled = true;
+      FixImagesQuality.enabled = true;
+      FixSpotifyEmbeds = {
+        enabled = true;
+        volume = 10;
+      };
+      FixYoutubeEmbeds.enabled = true;
+      ForceOwnerCrown.enabled = true;
+      FriendsSince.enabled = true;
+      KeepCurrentChannel.enabled = true;
+      MemberCount = {
+        enabled = true;
+        memberList = true;
+        toolTip = true;
+      };
+      MessageLinkEmbeds = {
+        enabled = true;
+        automodEmbeds = "never";
+        listMode = "blacklist";
+        idList = "";
+      };
+      NoBlockedMessages.enabled = true;
+      NoTypingAnimation.enabled = true;
+      OpenInApp = {
+        enabled = true;
+        spotify = true;
+        steam = true;
+        epic = false;
+      };
+      PermissionsViewer.enabled = true;
+      RelationshipNotifier = {
+        enabled = true;
+        notices = false;
+        offlineRemovals = true;
+        friends = true;
+        friendRequestCancels = true;
+        servers = true;
+        groups = true;
+      };
+      ReplyTimestamp.enabled = false;
+      ReverseImageSearch.enabled = true;
+      ServerInfo.enabled = true;
+      ShowConnections = {
+        enabled = true;
+        iconSize = 32;
+        iconSpacing = 1;
+      };
+      # ShowMeYourName.enabled = true;
+      Unindent.enabled = true;
+      WhoReacted.enabled = true;
+      ValidReply.enabled = true;
+      ValidUser.enabled = true;
     };
   };
+
+  home.file.".config/Vencord/settings/quickCss.css".text = "some CSS";
+
+  home.file.".config/Vencord/themes/catppuccin-mocha.theme.css".text = ''
+    @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-lavender.theme.css");
+  '';
 }

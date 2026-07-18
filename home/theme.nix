@@ -71,9 +71,9 @@
   };
 
   home.packages = with pkgs; [
-    libsForQt5.qtstyleplugin-kvantum
-    # libsForQt5.breeze-icons
-    libsForQt5.qt5ct
+    # qtstyleplugin-kvantum
+    # breeze-icons
+    # qt5ct
     qt6Packages.qtstyleplugin-kvantum
   ];
 

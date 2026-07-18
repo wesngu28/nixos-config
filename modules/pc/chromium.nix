@@ -32,6 +32,8 @@
         "--disable-features=PrivacySandboxSettings4,Reporting,CrashReporting,DocumentReporting,TabHoverCardImages"
         "--disable-features=WebGPUBlobCache,WebGPUService"
 
+        "--disable-features=WebAppInstallation"
+
         "--force-dark-mode"
         "--component-updater=--disable-pings"
         "--disable-breakpad"
@@ -75,7 +77,7 @@
       TorDisabled = true;
       SideSearchEnabled = false;
       AllowDinosaurEasterEgg = false;
-      BrowserAddPersonEnabled = false;
+      BrowserAddPersonEnabled = true;
       BrowserGuestModeEnabled = false;
       BuiltInDnsClientEnabled = false;
 
@@ -175,8 +177,7 @@
         "ddkjiahejlhfcafbddmgiahcphecmpfh"
         # UBlock Lite, don't install for brave automatically
 
-        "mnjggcdmjocbbbhaepdhchncahnbgone"
-        # SponsorBlock
+        "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
 
         "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
 
@@ -185,6 +186,10 @@
         "clngdbkpkpeebahjckkjfobafhncgmne" # Stylus
 
         "jplgfhpmjnbigmhklmmbgecoobifkmpa" # protonvpn
+
+        "paponcgjfojgemddooebbgniglhkajkj" # ambient light for youtube
+
+        "filkeckmpdjogddcamkafnekhgfaehkc" # sloth
       ];
       "ExtensionInstallBlocklist" = ["*"];
       "HardwareAccelerationModeEnabled" = true;

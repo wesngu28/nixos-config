@@ -15,10 +15,6 @@ in {
     ./hyprcursor.nix
   ];
 
-  home.packages = [
-    inputs.hyprshutdown.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
-
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -40,7 +36,7 @@ in {
 
       exec-once = [
         "hyprctl output create headless Virtual"
-        "waybar"
+        "waybar & disown"
         "systemctl --user start hyprpolkitagent"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -50,7 +46,6 @@ in {
         "hyprpaper"
         xrandr-command
         "sleep 0.5 && wallpaper"
-        "systemctl --user start wallpaper.timer"
       ];
 
       general = {
@@ -108,13 +103,13 @@ in {
         default_monitor = "DP-2";
       };
 
-      # master = {
-      #   mfact = 0.5;
-      #   orientation = "center";
-      #   new_status = "master";
-      #   new_on_top = true;
-      #   new_on_active = "before";
-      # };
+      master = {
+        mfact = 0.5;
+        orientation = "center";
+        new_status = "master";
+        new_on_top = true;
+        new_on_active = "before";
+      };
 
       monitor =
         if osConfig.networking.hostName == "enterprise"
@@ -155,6 +150,7 @@ in {
         "workspace 3, match:title ^(Jellyfin Media Player)$"
         "workspace 3, match:class ^(feishin)$"
         "workspace 5, match:title ^(Waydroid)$"
+        "workspace 5, match:class ^(waydroid).*$"
         "workspace 2, match:class ^(vesktop)$"
         "workspace 2, match:class ^(discord)$"
         "workspace 4, match:class ^(obsidian)$"
@@ -176,11 +172,14 @@ in {
         "opacity 0.93 0.93,match:title (Nicotine+)"
         "opacity 1,match:title (Jellyfin Media Player)"
         "opacity 1,match:title (Picture-in-Picture)"
+        "opacity 1,match:title (Picture in picture)"
         "opacity 0.93 override 0.93 override,match:class (code)"
         "opacity 0.93 override 0.93 override,match:initial_title (Spotify Premium)$"
 
         "suppress_event maximize, match:class .*"
         "fullscreen true,match:title (Waydroid)$"
+        "fullscreen true,match:class ^(waydroid).*$"
+        "fullscreen true,match:title (Starcraft II)$"
 
         # "float true,match:class (thunar)$"
         "border_size 0,match:float true"
@@ -196,6 +195,7 @@ in {
         "float true,match:class org.gnome.FileRoller"
         "float true,match:title ^(Media viewer)$"
         "float true,match:title ^(Picture-in-Picture)$"
+        "float true,match:title ^(Picture in picture)$"
         "float true,match:title (DevTools)$"
         "float true,match:title (Rename.*)$"
         "float true,match:class (file_progress)$"
@@ -265,25 +265,25 @@ in {
 
         # "$mainMod, N, exec, swaync-client -t -sw"
 
-        "$mainMod, left, hy3:movefocus, l"
-        "$mainMod, right, hy3:movefocus, r"
-        "$mainMod, up, hy3:movefocus, u"
-        "$mainMod, down, hy3:movefocus, d"
+        # "$mainMod, left, hy3:movefocus, l"
+        # "$mainMod, right, hy3:movefocus, r"
+        # "$mainMod, up, hy3:movefocus, u"
+        # "$mainMod, down, hy3:movefocus, d"
 
-        "$mainMod, l, hy3:movewindow, l"
-        "$mainMod, h, hy3:movewindow, r"
-        "$mainMod, j, hy3:movewindow, u"
-        "$mainMod, k, hy3:movewindow, d"
+        # "$mainMod, l, hy3:movewindow, l"
+        # "$mainMod, h, hy3:movewindow, r"
+        # "$mainMod, j, hy3:movewindow, u"
+        # "$mainMod, k, hy3:movewindow, d"
 
-        # "$mainMod, left, movefocus, l"
-        # "$mainMod, right, movefocus, r"
-        # "$mainMod, up, movefocus, u"
-        # "$mainMod, down, movefocus, d"
+        "$mainMod, left, movefocus, l"
+        "$mainMod, right, movefocus, r"
+        "$mainMod, up, movefocus, u"
+        "$mainMod, down, movefocus, d"
 
-        # "$mainMod, l, movewindow, l"
-        # "$mainMod, h, movewindow, r"
-        # "$mainMod, j, movewindow, u"
-        # "$mainMod, k, movewindow, d"
+        "$mainMod, l, movewindow, l"
+        "$mainMod, h, movewindow, r"
+        "$mainMod, j, movewindow, u"
+        "$mainMod, k, movewindow, d"
 
         # "$mainMod, N, layoutmsg, mfact exact 0.5"
         # "$mainMod, B, layoutmsg, mfact exact 0.33"

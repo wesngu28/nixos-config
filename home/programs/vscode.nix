@@ -15,9 +15,9 @@
 
     profiles.default.userSettings = {
       # Workbench
-      "workbench.colorTheme" = "Catppuccin Mocha";
-      "workbench.iconTheme" = "catppuccin-mocha";
-      "catppuccin.accentColor" = "lavender";
+      # "workbench.colorTheme" = "Catppuccin Mocha";
+      # "workbench.iconTheme" = "catppuccin-mocha";
+      # "catppuccin.accentColor" = "lavender";
       "workbench.localHistory.maxFileEntries" = 100;
       "workbench.startupEditor" = "none";
       "workbench.tips.enabled" = false;
@@ -129,56 +129,39 @@
       "github.copilot.renameSuggestions.triggerAutomatically" = false;
       "chat.commandCenter.enabled" = false;
       "chat.agent.enabled" = false;
-      "chat.disableAIFeatures" = false;
+      "chat.disableAIFeatures" = true;
 
       "claudeCode.disableLoginPrompt" = true;
+
+      "json.schemaDownload.trustedDomains" = {
+        "https://schemastore.azurewebsites.net/" = true;
+        "https://raw.githubusercontent.com/" = true;
+        "https://www.schemastore.org/" = true;
+        "https://json.schemastore.org/" = true;
+        "https://json-schema.org/" = true;
+      };
     };
 
-    profiles.default.extensions = with pkgs.vscode-extensions;
-      [
-        jnoortheen.nix-ide
-        # catppuccin.catppuccin-vsc
-        # catppuccin.catppuccin-vsc-icons
-        ms-vscode-remote.remote-ssh
-        mhutchie.git-graph
-        svelte.svelte-vscode
-        astro-build.astro-vscode
-        bradlc.vscode-tailwindcss
-        christian-kohler.npm-intellisense
-        christian-kohler.path-intellisense
-        dbaeumer.vscode-eslint
-        esbenp.prettier-vscode
-        ms-python.vscode-pylance
-        ritwickdey.liveserver
-        usernamehw.errorlens
-        kamadorueda.alejandra
-        mads-hartmann.bash-ide-vscode
-      ]
-      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "vscode-boot-dev-pack";
-          publisher = "vmware";
-          version = "0.2.2";
-          sha256 = "sha256-4Sh/4zGPBGU8XwnLEt8lf9o9i3Ggjz9xsXLHcH4LKEw=";
-        }
-        {
-          name = "python";
-          publisher = "ms-python";
-          version = "latest";
-          sha256 = "sha256-ryS0ugEJsKTbuMoUd0G0qZkIQz4idxhlMBaEvw4MyUE=";
-        }
-        {
-          name = "remote-ssh-edit";
-          publisher = "ms-vscode-remote";
-          version = "latest";
-          sha256 = "sha256-yeX6RAJl07d+SuYyGQFLZNcUzVKAsmPFyTKEn+y3GuM=";
-        }
-        {
-          name = "remote-explorer";
-          publisher = "ms-vscode";
-          version = "latest";
-          sha256 = "sha256-WRg8ObPVQMluuCW/dBM2ibBDW/zc8cQQS5QQMfcpw2c=";
-        }
-      ];
+    profiles.default.extensions = with pkgs.vscode-extensions; [
+      jnoortheen.nix-ide
+      # catppuccin.catppuccin-vsc
+      # catppuccin.catppuccin-vsc-icons
+      ms-vscode-remote.remote-ssh
+      ms-vscode.remote-explorer
+      mhutchie.git-graph
+      svelte.svelte-vscode
+      astro-build.astro-vscode
+      bradlc.vscode-tailwindcss
+      christian-kohler.npm-intellisense
+      christian-kohler.path-intellisense
+      dbaeumer.vscode-eslint
+      esbenp.prettier-vscode
+      ms-python.python
+      ms-python.vscode-pylance
+      ritwickdey.liveserver
+      usernamehw.errorlens
+      kamadorueda.alejandra
+      mads-hartmann.bash-ide-vscode
+    ];
   };
 }

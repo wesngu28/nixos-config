@@ -16,7 +16,7 @@
   programs = {
     btop.enable = true;
     fzf.enable = true;
-    zathura.enable = true;
+    # zathura.enable = true;
 
     direnv = {
       enable = true;
@@ -43,13 +43,13 @@
       };
     };
 
-    zellij = {
-      enable = true;
-      # enableZshIntegration = true;
-      extraConfig = ''
-        show_startup_tips false
-      '';
-    };
+    # zellij = {
+    #   enable = true;
+    #   # enableZshIntegration = true;
+    #   extraConfig = ''
+    #     show_startup_tips false
+    #   '';
+    # };
 
     zsh = {
       enable = true;
@@ -61,7 +61,7 @@
         if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
         	exec start-hyprland
         fi
-        fastfetch
+        # fastfetch
         bindkey "^[[1;5C" forward-word
         bindkey "^[[1;5D" backward-word
         bindkey '^H' backward-kill-word

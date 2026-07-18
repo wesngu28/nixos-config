@@ -10,6 +10,7 @@
     ./pc/gaming.nix
     ./pc/chromium.nix
     ./pc/ssh.nix
+    ./pc/kde.nix
   ];
 
   environment.systemPackages = with pkgs; [
