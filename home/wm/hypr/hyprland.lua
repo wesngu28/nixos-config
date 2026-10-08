@@ -1,5 +1,4 @@
 local mainMod = "SUPER"
-local hy3 = hl.plugin.hy3
 
 -- Environment variables
 hl.env("HYPRCURSOR_SIZE", "24")
@@ -17,7 +16,15 @@ hl.config({
     },
     gaps_in = 3,
     gaps_out = 5,
-    layout = "hy3",
+    layout = "scrolling",
+  },
+
+  master = {
+    mfact = 0.5
+  },
+
+  scrolling = {
+    column_width = 0.5
   },
 
   input = {
@@ -89,6 +96,28 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("sleep 0.5 && wallpaper")
 end)
 
+-- Auto-resize columns: 0.5 for <=2, 0.333 for 3+
+local function adjust_columns()
+  local ws = hl.get_active_workspace()
+  if ws == nil then return end
+  local wins = hl.get_workspace_windows(ws.name)
+  local tiled = 0
+  for _, w in ipairs(wins) do
+    if not w.floating then tiled = tiled + 1 end
+  end
+  if tiled >= 3 then
+    hl.dispatch(hl.dsp.layout("colresize all 0.333"))
+  else
+    hl.dispatch(hl.dsp.layout("colresize all 0.5"))
+  end
+  hl.dispatch(hl.dsp.layout("fit tobeg"))
+end
+
+hl.on("window.open", function() adjust_columns() end)
+hl.on("window.close", function() adjust_columns() end)
+hl.on("window.destroy", function() adjust_columns() end)
+hl.on("window.move_to_workspace", function() adjust_columns() end)
+
 -- Keybinds: apps
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("thunar"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("foot"))
@@ -105,16 +134,19 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float())
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
 -- Keybinds: focus
-hl.bind(mainMod .. " + LEFT", hy3.move_focus("left"))
-hl.bind(mainMod .. " + RIGHT", hy3.move_focus("right"))
-hl.bind(mainMod .. " + UP", hy3.move_focus("up"))
-hl.bind(mainMod .. " + DOWN", hy3.move_focus("down"))
+hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "l" }))
+hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "r" }))
+hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "u" }))
+hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "d" }))
 
--- Keybinds: move window
-hl.bind(mainMod .. " + L", hy3.move_window("left"))
-hl.bind(mainMod .. " + H", hy3.move_window("right"))
-hl.bind(mainMod .. " + J", hy3.move_window("up"))
-hl.bind(mainMod .. " + K", hy3.move_window("down"))
+-- Keybinds: scrolling layout
+hl.bind(mainMod .. " + l", hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + h", hl.dsp.layout("swapcol r"))
+hl.bind(mainMod .. " + j", hl.dsp.layout("consume"))
+hl.bind(mainMod .. " + k", hl.dsp.layout("expel"))
+hl.bind(mainMod .. " + equal", hl.dsp.layout("colresize +conf"))
+hl.bind(mainMod .. " + minus", hl.dsp.layout("colresize -conf"))
+hl.bind(mainMod .. " + backspace", hl.dsp.layout("fit active"))
 
 -- Keybinds: waybar toggle
 hl.bind(mainMod .. " + x", hl.dsp.exec_cmd("pkill -USR1 waybar"))
@@ -135,9 +167,15 @@ hl.bind(mainMod .. " + 8", hl.dsp.focus({ workspace = "8" }))
 hl.bind(mainMod .. " + 9", hl.dsp.focus({ workspace = "9" }))
 
 -- Keybinds: move to workspace
-for i = 1, 9 do
-  hl.bind(mainMod .. " + SHIFT + " .. i, hy3.move_to_workspace(tostring(i), { follow = true }))
-end
+hl.bind(mainMod .. " + SHIFT + 1", hl.dsp.window.move({ workspace = "1" }))
+hl.bind(mainMod .. " + SHIFT + 2", hl.dsp.window.move({ workspace = "2" }))
+hl.bind(mainMod .. " + SHIFT + 3", hl.dsp.window.move({ workspace = "3" }))
+hl.bind(mainMod .. " + SHIFT + 4", hl.dsp.window.move({ workspace = "4" }))
+hl.bind(mainMod .. " + SHIFT + 5", hl.dsp.window.move({ workspace = "5" }))
+hl.bind(mainMod .. " + SHIFT + 6", hl.dsp.window.move({ workspace = "6" }))
+hl.bind(mainMod .. " + SHIFT + 7", hl.dsp.window.move({ workspace = "7" }))
+hl.bind(mainMod .. " + SHIFT + 8", hl.dsp.window.move({ workspace = "8" }))
+hl.bind(mainMod .. " + SHIFT + 9", hl.dsp.window.move({ workspace = "9" }))
 
 -- Keybinds: screenshots
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("slurp | grim -g - - | wl-copy --type image/png && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F%T).png"))

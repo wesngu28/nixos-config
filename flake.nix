@@ -15,13 +15,13 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
-    hyprland.url = "github:hyprwm/Hyprland?submodules=1&ref=v0.56.1";
+    hyprland.url = "github:hyprwm/Hyprland?submodules=1";
     # hyprpaper.url = "github:hyprwm/hyprpaper";
 
-    hy3 = {
-      url = "github:outfoxxed/hy3?ref=hl0.56.0.1";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hy3 = {
+    #   url = "github:outfoxxed/hy3?ref=hl0.56.0.1";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
     agenix = {
       url = "github:ryantm/agenix";
