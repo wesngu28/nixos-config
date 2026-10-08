@@ -14,7 +14,7 @@
     alejandra
     playerctl
     fzf
-    llama-cpp-vulkan
+    # llama-cpp-vulkan
     jq
     # android-tools
     # p7zip
@@ -101,28 +101,27 @@
 
   xdg.configFile."swayimg/init.lua".text = ''
     -- viewer defaults
-    swayimg.viewer.set_default_scale("fit")
+    swayimg.viewer.default_scale = "fit"
     swayimg.viewer.set_window_background(0xff000000)
 
     -- image list
-    swayimg.imagelist.set_order("mtime")   -- change to "alpha" / "numeric" / "size" / "random" if wanted
-    swayimg.imagelist.enable_reverse(false)
-    swayimg.imagelist.enable_recursive(false)
-    swayimg.imagelist.enable_adjacent(true)  -- old "all=yes"
-    swayimg.imagelist.enable_fsmon(true)
+    swayimg.imagelist.order = "numeric"        -- list order
+    swayimg.imagelist.reverse = false          -- reverse order
+    swayimg.imagelist.recursive = false        -- recursive directory reading
+    swayimg.imagelist.adjacent = true         -- add adjacent files from same dir
+    swayimg.imagelist.fsmon = true             -- enable file system monitoring
 
     -- hide info overlay by default (old "info show=no")
     swayimg.on_initialized(function()
-      swayimg.text.hide()
+      swayimg.text.visible = false
     end)
 
     -- keybinds
     swayimg.viewer.on_key("h", function()
-      swayimg.viewer.switch_image("prev")
+      swayimg.viewer.open("next")
     end)
-
     swayimg.viewer.on_key("l", function()
-      swayimg.viewer.switch_image("next")
+      swayimg.viewer.open("prev")
     end)
 
     swayimg.viewer.on_key("y", function()

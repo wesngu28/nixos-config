@@ -262,6 +262,7 @@
         # "layout.spellcheckDefault" = 0;
 
         "browser.ai.control.default" = "blocked";
+        "identity.fxaccounts.enabled" = false;
       };
 
       ExtensionSettings = {

@@ -38,6 +38,9 @@
       };
     };
     kernelPackages = pkgs.linuxPackages_latest;
+    # kernelParams = [
+    #   "amdgpu.ppfeaturemask=0xffff7fff"
+    # ];
   };
 
   networking.hostName = "enterprise";
@@ -54,6 +57,7 @@
         Enable = "Source,Sink,Media,Socket";
         # Battery level display
         Experimental = true;
+        FastConnectable = true;
       };
     };
   };

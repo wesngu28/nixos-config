@@ -48,10 +48,10 @@ in {
         max-length = 50;
       };
       "hyprland/workspaces" = {
-        active-only = false;
-        disable-scroll = true;
+        # active-only = false;
+        # disable-scroll = true;
         format = "{icon}";
-        on-click = "activate";
+        # on-click = "activate";
         format-icons = {
           "1" = "";
           "2" = "";
@@ -259,9 +259,6 @@ in {
       #workspaces button {
           color: ${custom.text_color};
       }
-      #workspaces button.active {
-          color: #cba6f7;
-      }
 
       #custom-playerctl, #workspaces, #custom-wall, #tray, #wireplumber, #memory, #disk, #clock, #battery, #custom-swaync, #custom-weather, #custom-wireguard {
           color: ${custom.text_color};
@@ -301,6 +298,7 @@ in {
 
       #workspaces button.active {
           color: #b4befe;
+          opacity: 0.88;
       }
     '';
   };

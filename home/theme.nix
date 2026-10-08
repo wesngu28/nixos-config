@@ -7,7 +7,6 @@
   catppuccin = {
     flavor = "mocha";
     accent = "lavender";
-    autoEnable = true;
     enable = true;
     waybar.enable = true;
     swaylock.enable = false;
@@ -41,18 +40,13 @@
       package = pkgs.catppuccin-gtk.override {
         accents = ["lavender"];
         variant = "mocha";
-        # tweaks = ["black"];
+        # tweaks = [ "black" ];
         # size = "compact";
       };
     };
-    # iconTheme = {
-    #   name = "Papirus-Dark";
-    #   package = pkgs.catppuccin-papirus-folders.override {
-    #     flavor = "mocha";
-    #     accent = "lavender";
-    #   };
-    # };
-    font = {name = "Noto Sans";};
+    font = {
+      name = "Noto Sans";
+    };
     gtk2 = {
       configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     };
@@ -62,6 +56,7 @@
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
+    gtk4.theme = config.gtk.theme;
   };
 
   qt = {
