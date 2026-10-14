@@ -290,21 +290,4 @@
       };
     };
   };
-
-  home.activation.makeVSCodeConfigWritable = let
-    configDirName =
-      {
-        vscode = "Code";
-        vscode-insiders = "Code - Insiders";
-        vscodium = "VSCodium";
-      }.${
-        config.programs.vscodium.package.pname
-      };
-
-    configPath = "${config.xdg.configHome}/${configDirName}/User/settings.json";
-  in
-    lib.hm.dag.entryAfter ["linkGeneration"] ''
-      target="$(readlink -f '${configPath}')"
-      install -m 0640 "$target" '${configPath}'
-    '';
 }

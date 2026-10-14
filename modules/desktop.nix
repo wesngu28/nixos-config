@@ -188,7 +188,6 @@
   boot.kernel.sysctl = {"vm.swappiness" = 10;};
 
   home-manager = {
-    backupFileExtension = "hm-backup";
     extraSpecialArgs = {inherit inputs;};
     users = {
       "serpe" = {

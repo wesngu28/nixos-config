@@ -24,7 +24,7 @@ hl.config({
   },
 
   scrolling = {
-    column_width = 0.5
+    column_width = 0.5,
   },
 
   input = {
@@ -96,27 +96,36 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("sleep 0.5 && wallpaper")
 end)
 
--- Auto-resize columns: 0.5 for <=2, 0.333 for 3+
-local function adjust_columns()
+-- Auto-fit: all tiled columns always fill the screen
+local function adjust_active()
   local ws = hl.get_active_workspace()
   if ws == nil then return end
   local wins = hl.get_workspace_windows(ws.name)
   local tiled = 0
+  local debug = ""
   for _, w in ipairs(wins) do
+    -- if w.fullscreen ~= nil and w.fullscreen ~= 0 then
+    --   hl.notification.create({ text = "skip: fullscreen window", timeout = 2000, icon = "ok" })
+    --   return
+    -- end
+    local f = w.floating and "F" or "T"
+    debug = debug .. f .. " "
     if not w.floating then tiled = tiled + 1 end
   end
-  if tiled >= 3 then
-    hl.dispatch(hl.dsp.layout("colresize all 0.333"))
-  else
-    hl.dispatch(hl.dsp.layout("colresize all 0.5"))
-  end
-  hl.dispatch(hl.dsp.layout("fit tobeg"))
+  local width = tiled > 0 and (1.0 / tiled) or 0.5
+  -- hl.notification.create({ text = "tiled:" .. tiled .. " w:" .. width .. " [" .. debug .. "]", timeout = 3000, icon = "ok" })
+  hl.dispatch(hl.dsp.layout("colresize all " .. width))
+  hl.dispatch(hl.dsp.layout("fit all"))
 end
 
-hl.on("window.open", function() adjust_columns() end)
-hl.on("window.close", function() adjust_columns() end)
-hl.on("window.destroy", function() adjust_columns() end)
-hl.on("window.move_to_workspace", function() adjust_columns() end)
+hl.on("window.open", function() adjust_active() end)
+hl.on("window.close", function() adjust_active() end)
+hl.on("window.destroy", function() adjust_active() end)
+hl.on("window.move_to_workspace", function() adjust_active() end)
+hl.on("workspace.active", function() adjust_active() end)
+hl.on("window.fullscreen", function(w)
+  if w ~= nil and w.fullscreen == 0 then adjust_active() end
+end)
 
 -- Keybinds: apps
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("thunar"))
@@ -130,7 +139,10 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exit())
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + V", hl.dsp.window.float())
+hl.bind(mainMod .. " + V", function()
+  hl.dispatch(hl.dsp.window.float())
+  adjust_active()
+end)
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
 -- Keybinds: focus
@@ -179,7 +191,7 @@ hl.bind(mainMod .. " + SHIFT + 9", hl.dsp.window.move({ workspace = "9" }))
 
 -- Keybinds: screenshots
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("slurp | grim -g - - | wl-copy --type image/png && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F%T).png"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim - | wl-copy --type image/png && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F%T).png"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -o \"$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')\" ~/Pictures/Screenshots/Screenshot-$(date +%F_%H-%M-%S).png"))
 
 -- Keybinds: lock
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("pkill -USR1 hyprlock"))

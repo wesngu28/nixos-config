@@ -72,7 +72,7 @@
         "network.http.speculative-parallel-limit" = 0;
         "browser.places.speculativeConnect.enabled" = false;
 
-        "network.proxy.socks_remote_dns" = true;
+        # "network.proxy.socks_remote_dns" = true;
         "network.file.disable_unc_paths" = true;
         "network.gio.supported-protocols" = "";
 
