@@ -102,18 +102,11 @@ local function adjust_active()
   if ws == nil then return end
   local wins = hl.get_workspace_windows(ws.name)
   local tiled = 0
-  local debug = ""
   for _, w in ipairs(wins) do
-    -- if w.fullscreen ~= nil and w.fullscreen ~= 0 then
-    --   hl.notification.create({ text = "skip: fullscreen window", timeout = 2000, icon = "ok" })
-    --   return
-    -- end
-    local f = w.floating and "F" or "T"
-    debug = debug .. f .. " "
+    if w.fullscreen ~= nil and w.fullscreen ~= 0 then return end
     if not w.floating then tiled = tiled + 1 end
   end
   local width = tiled > 0 and (1.0 / tiled) or 0.5
-  -- hl.notification.create({ text = "tiled:" .. tiled .. " w:" .. width .. " [" .. debug .. "]", timeout = 3000, icon = "ok" })
   hl.dispatch(hl.dsp.layout("colresize all " .. width))
   hl.dispatch(hl.dsp.layout("fit all"))
 end

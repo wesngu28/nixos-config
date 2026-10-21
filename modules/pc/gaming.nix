@@ -7,7 +7,6 @@
 
   environment.systemPackages = with pkgs; [
     gamemode
-    protontricks
     gamescope
     (lutris.override {
       # Intercept buildFHSEnv to modify target packages
@@ -35,6 +34,7 @@
 
   programs.steam = {
     enable = true;
+    protontricks.enable = true;
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];

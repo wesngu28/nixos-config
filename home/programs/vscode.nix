@@ -149,6 +149,9 @@
       "chat.disableAIFeatures" = true;
 
       "claudeCode.disableLoginPrompt" = true;
+      "claudeCode.environmentVariables" = [
+        { "name" = "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC"; "value" = "1"; }
+      ];
 
       "json.schemaDownload.trustedDomains" = {
         "https://raw.githubusercontent.com/" = true;
@@ -290,4 +293,20 @@
       };
     };
   };
+  home.activation.makeVSCodeConfigWritable = let
+    configDirName =
+      {
+        vscode = "Code";
+        vscode-insiders = "Code - Insiders";
+        vscodium = "VSCodium";
+      }.${
+        config.programs.vscodium.package.pname
+      };
+
+    configPath = "${config.xdg.configHome}/${configDirName}/User/settings.json";
+  in
+    lib.hm.dag.entryAfter ["linkGeneration"] ''
+      target="$(readlink -f '${configPath}')"
+      install -m 0640 "$target" '${configPath}'
+    '';
 }
