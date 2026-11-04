@@ -150,7 +150,10 @@
 
       "claudeCode.disableLoginPrompt" = true;
       "claudeCode.environmentVariables" = [
-        { "name" = "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC"; "value" = "1"; }
+        {
+          "name" = "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC";
+          "value" = "1";
+        }
       ];
 
       "json.schemaDownload.trustedDomains" = {
