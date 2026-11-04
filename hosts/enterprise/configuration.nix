@@ -108,7 +108,7 @@
     "/mnt/f" = {
       device = "/dev/disk/by-uuid/C6223ECF223EC3E9";
       fsType = "ntfs-3g";
-      options = ["rw" "uid=1000"];
+      options = ["ro" "uid=1000"];
     };
   };
 
